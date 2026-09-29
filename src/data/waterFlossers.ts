@@ -14,13 +14,15 @@ export const waterFlossersData: Top10PageData = {
     name: "David Welch",
     role: "Senior Oral Health & Consumer Tech Reviewer",
     experience: "10+ years testing oral hygiene devices, sonic brushes and dental irrigators",
+    bio: "David Welch is a product researcher with a passion for finding and analyzing trending products. On his free time, he enjoys spending time outdoors with his family and German Shepherd named Zeus.",
   },
   disclosureText:
     "Best Product Verdict is reader-supported. If you make a purchase after clicking through our links, we may earn an affiliate commission at no additional cost to you.",
   products: [
     {
       rank: 1,
-      badge: "Best Overall 2026",
+      brand: "Coslus",
+      badge: "Best Overall Pick",
       badgeType: "best-overall",
       title: "Coslus C20 Cordless Oral Water Flosser",
       subtitle: "ADA Accepted Oral Irrigator with 300ml High-Capacity Tank & Dual-Clean Tech",
@@ -30,8 +32,21 @@ export const waterFlossersData: Top10PageData = {
       reviewCount: 9420,
       priceDisplay: "£29.99",
       originalPriceDisplay: "£49.99",
+      discountPercent: "25% Off",
+      dealTimer: "Limited Time Deal",
       description:
         "The Coslus C20 stands as the undisputed gold standard in cordless oral irrigation for British consumers. Clinically accepted by the American Dental Association (ADA) and praised by UK dental hygienists, it combines a potent 1,400–1,800 pulse-per-minute micro-bubble stream with an ergonomic, anti-slip chassis. Its generous 300ml reservoir allows for a full 60-second flossing session without constant refills. Featuring 3 intuitive pressure settings (Clean, Soft, Massage) and an outstanding 30-day battery life, it removes up to 99.9% of interdental plaque from braces, crowns, and periodontal pockets without gum irritation.",
+      pros: [
+        "Officially ADA Accepted for proven clinical efficacy in reducing gingivitis and plaque",
+        "Generous 300ml detachable water reservoir eliminates mid-session refills",
+        "1,400–1,800 pulses/min micro-bubble water jet deeply cleans around orthodontic braces and implants",
+        "Remarkable 30–40 day battery endurance on a single Type-C fast charge",
+        "IPX7 dual-waterproof sealing permits safe daily use in the shower",
+      ],
+      cons: [
+        "Initial pulse stream can feel powerful on first use for sensitive gums (use Soft mode first)",
+        "Reservoir requires thorough air-drying between uses in hard water regions",
+      ],
       highlights: [
         "Officially ADA Accepted for proven clinical efficacy in reducing gingivitis and plaque",
         "Generous 300ml detachable water reservoir eliminates mid-session refills",
@@ -52,7 +67,8 @@ export const waterFlossersData: Top10PageData = {
     },
     {
       rank: 2,
-      badge: "Best Precision Control",
+      brand: "Coslus",
+      badge: "Runner-Up Pick",
       badgeType: "runner-up",
       title: "Coslus E40 Pro Cordless Water Dental Flosser",
       subtitle: "10-Step Micro-Adjustable Pressure System with 320ml Reservoir",
@@ -62,8 +78,21 @@ export const waterFlossersData: Top10PageData = {
       reviewCount: 5120,
       priceDisplay: "£39.99",
       originalPriceDisplay: "£59.99",
+      discountPercent: "20% Off",
+      dealTimer: "Limited Time Deal",
       description:
         "For individuals suffering from acute tooth sensitivity or recovering from dental surgery, the Coslus E40 Pro offers unmatched customisation. Instead of standard 3-mode toggles, the E40 Pro provides 10 fine-tuned pressure increments spanning 20 to 130 PSI. The upgraded 320ml tank features a wide-aperture base for easy descaling in hard-water UK regions, while the smart memory function recalls your preferred intensity level automatically.",
+      pros: [
+        "10 distinct pressure levels provide gradual acclimatisation for sensitive gums",
+        "Expanded 320ml water capacity with easy-clean bottom opening",
+        "0.6mm ultra-fine concentrated water stream targets subgingival debris",
+        "35-day lithium-ion battery with universal USB-C charging",
+        "Includes specialized orthodontic and periodontal pocket nozzles",
+      ],
+      cons: [
+        "Slightly taller body profile compared to ultra-compact travel flossers",
+        "10 settings take a few sessions to find your perfect pressure sweet spot",
+      ],
       highlights: [
         "10 distinct pressure levels provide gradual acclimatisation for sensitive gums",
         "Expanded 320ml water capacity with easy-clean bottom opening",
@@ -84,6 +113,7 @@ export const waterFlossersData: Top10PageData = {
     },
     {
       rank: 3,
+      brand: "usmile",
       badge: "Best Ergonomic Jet",
       badgeType: "top-pick",
       title: "usmile C30 Portable Cordless Water Flosser",
@@ -94,8 +124,21 @@ export const waterFlossersData: Top10PageData = {
       reviewCount: 3880,
       priceDisplay: "£44.99",
       originalPriceDisplay: "£65.00",
+      discountPercent: "22% Off",
+      dealTimer: "Limited Time Deal",
       description:
         "The usmile C30 introduces a patented S-shaped curved nozzle designed to effortlessly access tricky posterior molars and lingual tooth surfaces that straight tips struggle to reach. Equipped with an efficient micro-pump motor, it delivers 1,500 pulses per minute across 5 smart modes including a customized DIY profile. Its sleek cylindrical aesthetic and whisper-quiet motor make it a favourite for minimalist bathroom counter spaces.",
+      pros: [
+        "Patented S-shaped nozzle geometry naturally follows the dental arch contour",
+        "5 operational modes including gentle pulse massage and customizable DIY flow",
+        "Exceptional 45-day battery life between charges",
+        "Acoustic noise reduction technology operates at less than 55 dB",
+        "Collapsible compact design fits easily into gym bags and carry-on luggage",
+      ],
+      cons: [
+        "Nozzle storage slot inside body is compact, fitting 1 travel tip",
+        "Refill opening requires careful alignment when snapping shut",
+      ],
       highlights: [
         "Patented S-shaped nozzle geometry naturally follows the dental arch contour",
         "5 operational modes including gentle pulse massage and customizable DIY flow",
@@ -116,6 +159,7 @@ export const waterFlossersData: Top10PageData = {
     },
     {
       rank: 4,
+      brand: "AquaSonic",
       badge: "Dentist Recommended Value",
       badgeType: "best-value",
       title: "AquaSonic Cordless Pro Rechargeable Oral Irrigator",
@@ -126,8 +170,21 @@ export const waterFlossersData: Top10PageData = {
       reviewCount: 6240,
       priceDisplay: "£34.99",
       originalPriceDisplay: "£49.99",
+      discountPercent: "20% Off",
+      dealTimer: "Limited Time Deal",
       description:
         "AquaSonic has established itself as an oral care powerhouse, and the Cordless Pro flosser exemplifies their focus on dental-grade hygiene at sensible prices. Producing 1,700 concentrated pulses per minute, it dislodges trapped food debris in tight interproximal gaps in seconds. The 360-degree rotating tip combined with an ergonomic grooved grip ensures complete maneuverability throughout the entire mouth.",
+      pros: [
+        "High-velocity 1,700 pulses/min stream dislodges stubborn plaque biofilms",
+        "3 targeted cleaning modes: Normal for daily hygiene, Soft for tender gums, Pulse for massage",
+        "Comes bundled with 5 professional jet tips including an orthodontic brush tip",
+        "Quick-fill side port allows rapid refilling straight from the bathroom tap",
+        "Lightweight construction reduces wrist fatigue during extended use",
+      ],
+      cons: [
+        "250ml reservoir is slightly smaller than 300ml class leaders",
+        "Charge port silicone cover must be fully sealed prior to shower use",
+      ],
       highlights: [
         "High-velocity 1,700 pulses/min stream dislodges stubborn plaque biofilms",
         "3 targeted cleaning modes: Normal for daily hygiene, Soft for tender gums, Pulse for massage",
@@ -148,6 +205,7 @@ export const waterFlossersData: Top10PageData = {
     },
     {
       rank: 5,
+      brand: "Coslus",
       badge: "Best for Sensitive Gums",
       badgeType: "standard",
       title: "Coslus E2 Advanced Water Dental Flosser",
@@ -158,8 +216,21 @@ export const waterFlossersData: Top10PageData = {
       reviewCount: 2980,
       priceDisplay: "£36.99",
       originalPriceDisplay: "£54.99",
+      discountPercent: "19% Off",
+      dealTimer: "Limited Time Deal",
       description:
         "The Coslus E2 Advanced features a gentle soft-start mechanism that ramps up water pressure over two seconds, preventing the initial startling jolt common in lower-tier irrigators. With 2 primary operating modes and 12 finely calibrated pressure steps, it is ideally tailored for British users navigating gingival inflammation, bleeding gums, or orthodontic aligner therapy.",
+      pros: [
+        "Gentle soft-start technology protects vulnerable gingival tissue from sudden pressure spikes",
+        "12-stage dial allows precise tailoring from ultra-mild 20 PSI to deep 120 PSI",
+        "300ml leak-proof reservoir with internal gravity ball for multi-angle use",
+        "30-day battery capacity with intelligent auto-shutoff safety timer",
+        "Includes tongue scraper and periodontal irrigation attachments",
+      ],
+      cons: [
+        "Dial selector requires two hands to adjust during initial use",
+        "Body is marginally heavier due to internal gravity ball system",
+      ],
       highlights: [
         "Gentle soft-start technology protects vulnerable gingival tissue from sudden pressure spikes",
         "12-stage dial allows precise tailoring from ultra-mild 20 PSI to deep 120 PSI",
@@ -180,6 +251,7 @@ export const waterFlossersData: Top10PageData = {
     },
     {
       rank: 6,
+      brand: "Soocas",
       badge: "Best 2-in-1 Combo",
       badgeType: "premium",
       title: "Soocas NEOS II Electric Toothbrush & Water Flosser",
@@ -190,8 +262,21 @@ export const waterFlossersData: Top10PageData = {
       reviewCount: 1650,
       priceDisplay: "£99.99",
       originalPriceDisplay: "£139.99",
+      discountPercent: "17% Off",
+      dealTimer: "Limited Time Deal",
       description:
         "For those seeking the ultimate bathroom time-saver, the Soocas NEOS II merges a 36,000 VPM sonic electric toothbrush with a built-in water flosser in a single handheld device. By delivering water micro-jets directly through the center of oscillating DuPont brush heads, it cleans tooth surfaces and interdental spaces concurrently, cutting your complete oral care routine down to just two minutes.",
+      pros: [
+        "SyncClean dual-action delivers 36,000 VPM sonic brushing and water flossing simultaneously",
+        "Space-saving unibody design cleans bathroom countertops of clutter",
+        "Deeply sweeps away plaque from both enamel surfaces and gum margins in 2 minutes",
+        "IPX8 waterproof chassis with inductive charging base station",
+        "3 combination modes: Quick Clean, Deep Clean, and Gum Massage",
+      ],
+      cons: [
+        "200ml integrated tank empties faster during continuous dual brushing",
+        "Higher investment than standalone single-function water flossers",
+      ],
       highlights: [
         "SyncClean dual-action delivers 36,000 VPM sonic brushing and water flossing simultaneously",
         "Space-saving unibody design cleans bathroom countertops of clutter",
@@ -212,6 +297,7 @@ export const waterFlossersData: Top10PageData = {
     },
     {
       rank: 7,
+      brand: "AquaSonic",
       badge: "Best Countertop Station",
       badgeType: "standard",
       title: "AquaSonic Home Dental Center Pro",
@@ -222,8 +308,21 @@ export const waterFlossersData: Top10PageData = {
       reviewCount: 4120,
       priceDisplay: "£79.99",
       originalPriceDisplay: "£119.99",
+      discountPercent: "20% Off",
+      dealTimer: "Limited Time Deal",
       description:
         "The AquaSonic Home Dental Center Pro is designed for families and power users who want a permanent bathroom health hub. Featuring a massive 600ml reservoir, a 40,000 VPM electric toothbrush, and a multi-setting water flosser wand, it replicates the thorough clean of a professional dental hygienist chair in the comfort of your home.",
+      pros: [
+        "Extra-large 600ml water tank supplies over 90 seconds of uninterrupted flossing",
+        "Includes professional 40,000 VPM sonic electric toothbrush with 4 smart modes",
+        "10 continuous stepless pressure settings on countertop dial (30–125 PSI)",
+        "Covered nozzle storage keeps 6 interchangeable tips sanitized and dust-free",
+        "Compact footprint fits neatly on standard British bathroom vanities",
+      ],
+      cons: [
+        "Requires mains power outlet near bathroom vanity (not cordless for travel)",
+        "Coiled hose connects wand to base station",
+      ],
       highlights: [
         "Extra-large 600ml water tank supplies over 90 seconds of uninterrupted flossing",
         "Includes professional 40,000 VPM sonic electric toothbrush with 4 smart modes",
@@ -244,6 +343,7 @@ export const waterFlossersData: Top10PageData = {
     },
     {
       rank: 8,
+      brand: "MySmile",
       badge: "Best UVC Sanitizing Station",
       badgeType: "standard",
       title: "MySmile UVC Sterilizable Cordless Water Flosser",
@@ -254,8 +354,21 @@ export const waterFlossersData: Top10PageData = {
       reviewCount: 2110,
       priceDisplay: "£49.99",
       originalPriceDisplay: "£69.99",
+      discountPercent: "17% Off",
+      dealTimer: "Limited Time Deal",
       description:
         "Warm bathroom environments can foster bacterial growth on damp flosser tips. MySmile tackles this concern head-on with an integrated UVC sanitising chamber in the travel storage case that neutralises 99.9% of germs in 5 minutes. The flosser unit features a vibrant OLED display showing battery percentage, mode, and water temperature in real-time.",
+      pros: [
+        "Integrated UVC ultraviolet sterilisation case keeps jet tips hygienic between uses",
+        "Vibrant OLED display shows real-time battery percentage, mode, and countdown",
+        "Generous 335ml water tank with leak-proof quick-drain valve",
+        "4 customized flossing modes with gentle pulse for periodontal maintenance",
+        "8 multi-colored interchangeable jet tips included for shared household use",
+      ],
+      cons: [
+        "UVC case requires occasional separate USB charging",
+        "OLED screen increases battery consumption slightly under heavy daily use",
+      ],
       highlights: [
         "Integrated UVC ultraviolet sterilisation case keeps jet tips hygienic between uses",
         "Vibrant OLED display shows real-time battery percentage, mode, and countdown",
@@ -276,6 +389,7 @@ export const waterFlossersData: Top10PageData = {
     },
     {
       rank: 9,
+      brand: "Burst",
       badge: "Best Compact Travel Design",
       badgeType: "standard",
       title: "Burst Oral Care Cordless Water Flosser",
@@ -286,8 +400,21 @@ export const waterFlossersData: Top10PageData = {
       reviewCount: 1830,
       priceDisplay: "£59.99",
       originalPriceDisplay: "£79.99",
+      discountPercent: "20% Off",
+      dealTimer: "Limited Time Deal",
       description:
         "Engineered specifically for frequent travellers and commuters, Burst delivers exceptional portability without sacrificing flossing power. Boasting a marathon 60-day battery life, it frees you from packing charging cables on extended holidays. Its compact, curved body feels natural in the hand, delivering a robust 1,600 pulses per minute across 3 intuitive modes.",
+      pros: [
+        "Outstanding 60-day battery endurance on a single charge",
+        "Ultra-compact body slides effortlessly into travel toiletry pouches",
+        "3 pressure modes: Standard for daily use, Turbo for deep cleaning, Pulse for gums",
+        "Silicone soft-touch grip provides secure handling when wet",
+        "Includes magnetic travel lock to prevent accidental activation in luggage",
+      ],
+      cons: [
+        "150ml travel water tank requires a mid-clean refill for comprehensive flossing",
+        "Nozzle storage requires separate travel bag",
+      ],
       highlights: [
         "Outstanding 60-day battery endurance on a single charge",
         "Ultra-compact body slides effortlessly into travel toiletry pouches",
@@ -308,6 +435,7 @@ export const waterFlossersData: Top10PageData = {
     },
     {
       rank: 10,
+      brand: "Boka",
       badge: "Best Minimalist Travel Kit",
       badgeType: "standard",
       title: "Boka Advanced Cordless Water Flosser",
@@ -318,8 +446,21 @@ export const waterFlossersData: Top10PageData = {
       reviewCount: 970,
       priceDisplay: "£64.99",
       originalPriceDisplay: "£84.99",
+      discountPercent: "19% Off",
+      dealTimer: "Limited Time Deal",
       description:
         "Boka brings high-end aesthetics to daily dental hygiene with this sleek, minimalist cordless water flosser. Offering 3 straightforward pressure settings and a smooth matte finish, it delivers a comfortable, splatter-free clean that is gentle on dental restorations, composite bonding, and sensitive enamel.",
+      pros: [
+        "Minimalist aesthetic complements contemporary UK bathroom interiors",
+        "Includes water-resistant zippered travel bag and 2 precision jet tips",
+        "3 streamlined pressure settings for hassle-free daily operation",
+        "25-day rechargeable battery with USB-C universal connector",
+        "Smooth matte finish resists water marks and limescale buildup",
+      ],
+      cons: [
+        "200ml reservoir may need refilling if you prefer higher water flow speeds",
+        "Fewer specialty tips bundled compared to competitor packages",
+      ],
       highlights: [
         "Minimalist aesthetic complements contemporary UK bathroom interiors",
         "Includes water-resistant zippered travel bag and 2 precision jet tips",
@@ -337,6 +478,89 @@ export const waterFlossersData: Top10PageData = {
       ],
       outboundUrl:
         "https://www.amazon.com/dp/B0CD2ZFCKS?&linkCode=ll2&tag=amzcpscid-20&linkId=9456cbe8603d5935dcbdd64d09f27892&language=en_US&ref_=as_li_ss_tl",
+    },
+  ],
+  consideredProducts: [
+    {
+      rank: 11,
+      brand: "Waterpik",
+      title: "Waterpik Cordless Advanced WP-560UK",
+      subtitle: "Global Benchmark Dental Irrigator with Magnetic Fast Charger",
+      image: "https://m.media-amazon.com/images/I/41-b0v4YVdL._SL250_.jpg",
+      score: "7.7",
+      ratingLabel: "Good",
+      discountPercent: "22% Off",
+      dealTimer: "Limited Time Deal",
+      description: "Global benchmark water flosser with magnetic 4-hour rapid charging, 3 pressure settings, and 45-second reservoir.",
+      pros: [
+        "ADA accepted clinically proven plaque removal",
+        "Magnetic 4-hour rapid inductive charger",
+      ],
+      cons: [
+        "Smaller 210ml reservoir requires mid-floss refilling",
+      ],
+      keySpecs: [
+        { label: "Tank Capacity", value: "210 ml" },
+        { label: "Pressure Range", value: "45 – 75 PSI" },
+        { label: "Charging", value: "Magnetic Rapid Inductive" },
+      ],
+      priceDisplay: "£69.99",
+      originalPriceDisplay: "£89.99",
+      outboundUrl: "https://www.amazon.co.uk/dp/B079822RBL",
+    },
+    {
+      rank: 12,
+      brand: "Oral-B",
+      title: "Oral-B Aquacare 6 Pro-Expert Cordless Irrigator",
+      subtitle: "Oxyjet Micro-Bubble Technology with On-Demand Pulse Trigger",
+      image: "https://m.media-amazon.com/images/I/41r8p1mO1dL._SL250_.jpg",
+      score: "7.6",
+      ratingLabel: "Good",
+      discountPercent: "20% Off",
+      dealTimer: "Limited Time Deal",
+      description: "Oxyjet micro-bubble technology enriches water with air to target periodontal pockets with 6 custom cleaning modes.",
+      pros: [
+        "Oxyjet micro-bubble air aeration technology",
+        "On-demand water pulse trigger for targeted cleaning",
+      ],
+      cons: [
+        "Bulky handle and lower battery life (up to 10 days)",
+      ],
+      keySpecs: [
+        { label: "Technology", value: "Oxyjet Micro-Bubbles" },
+        { label: "Battery Life", value: "Up to 10 Days" },
+        { label: "Cleaning Modes", value: "6 Cleaning Modes" },
+      ],
+      priceDisplay: "£54.99",
+      originalPriceDisplay: "£79.99",
+      outboundUrl: "https://www.amazon.co.uk/dp/B07T6XF9M2",
+    },
+    {
+      rank: 13,
+      brand: "Philips Sonicare",
+      title: "Philips Sonicare Cordless Power Flosser 3000",
+      subtitle: "QuadStream X-Shaped Water Stream with Pulse Wave Pacing Guide",
+      image: "https://m.media-amazon.com/images/I/41r4xO-w45L._SL250_.jpg",
+      score: "7.5",
+      ratingLabel: "Good",
+      discountPercent: "20% Off",
+      dealTimer: "Limited Time Deal",
+      description: "QuadStream X-shaped water stream covers 9x surface area with Pulse Wave technology for effortless interdental cleaning.",
+      pros: [
+        "QuadStream X-nozzle spreads wide water coverage across teeth",
+        "Pulse Wave guide gently pauses to prompt moving to the next tooth",
+      ],
+      cons: [
+        "Premium price point for basic 250ml water tank size",
+      ],
+      keySpecs: [
+        { label: "Nozzle Style", value: "QuadStream X-Tip" },
+        { label: "Battery Life", value: "14 Days" },
+        { label: "Technology", value: "Pulse Wave Pacing" },
+      ],
+      priceDisplay: "£79.99",
+      originalPriceDisplay: "£99.99",
+      outboundUrl: "https://www.amazon.co.uk/dp/B09C2D1F7X",
     },
   ],
   guide: {

@@ -14,13 +14,15 @@ export const meatThermometersData: Top10PageData = {
     name: "David Welch",
     role: "Senior Product Analyst & Culinary Tech Specialist",
     experience: "12+ years evaluating smart kitchen tech and precision roasting hardware",
+    bio: "David Welch is a product researcher with a passion for finding and analyzing trending products. On his free time, he enjoys spending time outdoors with his family and German Shepherd named Zeus.",
   },
   disclosureText:
     "Best Product Verdict is supported by readers. When you purchase through links on our site, we may earn an affiliate commission at no extra cost to you.",
   products: [
     {
       rank: 1,
-      badge: "Best Overall 2026",
+      brand: "Chef IQ",
+      badge: "Best Overall Pick",
       badgeType: "best-overall",
       title: "Chef IQ Smart Wireless Meat Thermometer",
       subtitle: "Ultra-Thin Multi-Sensor Probe with Unlimited Cloud Wi-Fi Connectivity",
@@ -30,8 +32,21 @@ export const meatThermometersData: Top10PageData = {
       reviewCount: 4820,
       priceDisplay: "£79.99",
       originalPriceDisplay: "£99.99",
+      discountPercent: "20% Off",
+      dealTimer: "Limited Time Deal",
       description:
         "The Chef IQ Smart Wireless Meat Thermometer secures our top recommendation for British home cooks and barbecue aficionados. Featuring an ultra-slim 3.9mm stainless probe packed with 5 internal thermal sensors and 1 ambient sensor, it maps the core thermal profile of whole roasts, briskets, and steaks with remarkable precision. The smart charging hub connects directly to 2.4GHz Wi-Fi for infinite cloud range, giving you real-time notifications whether you are in the garden or the lounge. With heat resistance up to 537°C (1000°F), it remains exceptionally resilient even during intense sear sessions on open flame charcoal grills.",
+      pros: [
+        "Ultra-thin 3.9mm probe retains internal meat juices without tearing delicate cuts",
+        "5 internal micro-sensors determine true core temperature accurately regardless of insertion angle",
+        "Wi-Fi Smart Hub bridges Bluetooth signals for truly unlimited cloud monitoring",
+        "Peak ambient heat threshold of 537°C (1000°F) safely accommodates high-heat searing",
+        "Rapid 3-minute quick charge delivers 8 hours of continuous cook time",
+      ],
+      cons: [
+        "Hub requires 2.4GHz Wi-Fi band during initial setup (mesh routers must support 2.4GHz)",
+        "Single-probe starter edition requires quad version for multiple roasts",
+      ],
       highlights: [
         "Ultra-thin 3.9mm probe retains internal meat juices without tearing delicate cuts",
         "5 internal micro-sensors determine true core temperature accurately regardless of insertion angle",
@@ -52,7 +67,8 @@ export const meatThermometersData: Top10PageData = {
     },
     {
       rank: 2,
-      badge: "Best Multi-Probe Hub",
+      brand: "Typhur",
+      badge: "Runner-Up Pick",
       badgeType: "runner-up",
       title: "Typhur Sync Wireless Meat Thermometer (2 Probes)",
       subtitle: "Sub-1G Long-Range Transmission with Dual NIST-Calibrated Probes",
@@ -62,8 +78,21 @@ export const meatThermometersData: Top10PageData = {
       reviewCount: 3190,
       priceDisplay: "£149.99",
       originalPriceDisplay: "£189.99",
+      discountPercent: "21% Off",
+      dealTimer: "Limited Time Deal",
       description:
         "Typhur Sync sets the benchmark for signal stability and lab-grade accuracy. Utilising powerful Sub-1GHz radio frequencies alongside built-in Wi-Fi, it punches through heavy cast-iron smokers and thick oven doors up to 10 times more reliably than standard Bluetooth. The dual probes feature 6 sensors each with NIST-traceable accuracy within ±0.3°C. Its standalone base station features a crisp backlit colour screen, allowing cooks to check temperatures without reaching for their smartphone.",
+      pros: [
+        "Sub-1G penetration frequency prevents signal dropouts inside thick insulated smokers",
+        "Standalone base station displays live readings for both probes without mobile app dependency",
+        "6 thermal sensors per probe deliver laboratory-grade ±0.3°C accuracy",
+        "50+ hours continuous battery life easily handles overnight low-and-slow briskets",
+        "IPX8 waterproof design with dishwasher-friendly sanitation",
+      ],
+      cons: [
+        "Higher price point compared to single probe entry-level models",
+        "Base station is slightly bulkier than simple USB stick docks",
+      ],
       highlights: [
         "Sub-1G penetration frequency prevents signal dropouts inside thick insulated smokers",
         "Standalone base station displays live readings for both probes without mobile app dependency",
@@ -84,6 +113,7 @@ export const meatThermometersData: Top10PageData = {
     },
     {
       rank: 3,
+      brand: "ThermoMaven",
       badge: "Most Accurate Lab-Grade",
       badgeType: "top-pick",
       title: "ThermoMaven Pro Smart Wireless Meat Thermometer",
@@ -94,8 +124,21 @@ export const meatThermometersData: Top10PageData = {
       reviewCount: 2240,
       priceDisplay: "£119.99",
       originalPriceDisplay: "£149.99",
+      discountPercent: "20% Off",
+      dealTimer: "Limited Time Deal",
       description:
         "Engineered for culinary perfectionists, the ThermoMaven Pro boasts genuine NIST-traceable certification. With 6 multi-point sensors embedded along its surgical-grade stainless steel shaft, this thermometer predicts precise rest times and carryover cooking to eliminate overcooked edges. The robust standalone dock provides local sound alarms and dual-band Wi-Fi forwarding, making it equally dependable for Sunday roast beef in an AGA cooker or competition smoking.",
+      pros: [
+        "Certified NIST accuracy delivers reliable target temperatures within ±0.25°C",
+        "Advanced predictive algorithm estimates exact rest times for maximum tenderness",
+        "Standalone base station features loud audible alarms for kitchen monitoring",
+        "Ergonomic ceramic handle protects delicate electronics against ambient thermal shock",
+        "Fast USB-C magnetic docking station with 30-charge internal storage",
+      ],
+      cons: [
+        "Ambient temperature rating max is 300°C (not intended for direct flame searing)",
+        "Includes one probe in standard package",
+      ],
       highlights: [
         "Certified NIST accuracy delivers reliable target temperatures within ±0.25°C",
         "Advanced predictive algorithm estimates exact rest times for maximum tenderness",
@@ -116,7 +159,8 @@ export const meatThermometersData: Top10PageData = {
     },
     {
       rank: 4,
-      badge: "Best for Large BBQs",
+      brand: "Chef IQ",
+      badge: "Premium Pick",
       badgeType: "premium",
       title: "Chef IQ Quad Smart Meat Thermometer (4 Probes)",
       subtitle: "Complete 4-Probe Command Hub with Built-In Speaker & Voice Alerts",
@@ -126,8 +170,21 @@ export const meatThermometersData: Top10PageData = {
       reviewCount: 1890,
       priceDisplay: "£199.99",
       originalPriceDisplay: "£249.99",
+      discountPercent: "20% Off",
+      dealTimer: "Limited Time Deal",
       description:
         "When managing multiple different proteins simultaneously—such as a whole turkey, ribeye steaks, and a pork shoulder—the Chef IQ Quad is unparalleled. Supplying 4 colour-coded ultra-thin 3.9mm probes, this setup tracks individual doneness profiles across distinct grill zones. The master base station incorporates a built-in voice speaker that audibly calls out temperature milestones and flip notifications, leaving your hands free for food prep.",
+      pros: [
+        "4 ultra-slim 3.9mm wireless probes with individual colour-coded identifiers",
+        "Integrated base speaker provides spoken cooking guidance and timing countdowns",
+        "1000°F / 537°C flame-safe ceramic zirconia handles",
+        "Comprehensive recipe library with step-by-step video guidance inside the app",
+        "Smart charging case recharges all four probes concurrently",
+      ],
+      cons: [
+        "Premium initial investment tailored for avid BBQ hosts and multi-dish meals",
+        "Speaker volume requires adjustment if operating in noisy outdoor environments",
+      ],
       highlights: [
         "4 ultra-slim 3.9mm wireless probes with individual colour-coded identifiers",
         "Integrated base speaker provides spoken cooking guidance and timing countdowns",
@@ -148,7 +205,8 @@ export const meatThermometersData: Top10PageData = {
     },
     {
       rank: 5,
-      badge: "Best Value 4-Probe",
+      brand: "Inkbird",
+      badge: "Best Value Pick",
       badgeType: "best-value",
       title: "Inkbird IBT-4XS Wireless Smart Thermometer (4 Probes)",
       subtitle: "Multi-Probe Digital WiFi & Bluetooth Smoker Thermometer",
@@ -158,8 +216,21 @@ export const meatThermometersData: Top10PageData = {
       reviewCount: 3750,
       priceDisplay: "£139.99",
       originalPriceDisplay: "£179.99",
+      discountPercent: "22% Off",
+      dealTimer: "Limited Time Deal",
       description:
         "Inkbird has built an exceptional reputation among UK pitmasters for durable, high-value temperature monitors. The IBT-4XS wireless ecosystem delivers 4 independent probes supported by a magnetic base unit that attaches directly to your barbecue cart or oven side. With reliable dual-channel Wi-Fi and Bluetooth connectivity, it provides customizable graph tracking, low-temp smoker alerts, and high-temp warnings to safeguard your cooks.",
+      pros: [
+        "Affordable 4-probe setup ideal for monitoring both meat cores and pit ambient temp",
+        "Magnetic base unit clips securely to metal grill carts and smokers",
+        "Intuitive companion app with customizable target temperature presets and CSV export",
+        "IPX8 waterproof probes for quick rinsing under running kitchen taps",
+        "Long 30-hour battery life with convenient micro-USB / Type-C rechargeability",
+      ],
+      cons: [
+        "Semi-wireless architecture (probes wire into transmitter hub unit)",
+        "LCD contrast can be slightly faint in direct summer sunshine",
+      ],
       highlights: [
         "Affordable 4-probe setup ideal for monitoring both meat cores and pit ambient temp",
         "Magnetic base unit clips securely to metal grill carts and smokers",
@@ -180,6 +251,7 @@ export const meatThermometersData: Top10PageData = {
     },
     {
       rank: 6,
+      brand: "Typhur",
       badge: "Best Long-Distance Sub-1G",
       badgeType: "standard",
       title: "Typhur Single Pro Wireless Meat Thermometer",
@@ -190,8 +262,21 @@ export const meatThermometersData: Top10PageData = {
       reviewCount: 1420,
       priceDisplay: "£89.99",
       originalPriceDisplay: "£109.99",
+      discountPercent: "18% Off",
+      dealTimer: "Limited Time Deal",
       description:
         "For those who only require a single probe but demand unshakeable signal stability, the Typhur Single Pro is a standout choice. Featuring Typhur's proprietary Sub-1G wireless transmission, it comfortably cuts through brick walls and heavy stainless BBQ lids without the constant disconnects that plague basic Bluetooth probes. Its 6-sensor array guarantees accurate readings even when inserted slightly off-centre.",
+      pros: [
+        "Proprietary Sub-1GHz radio link penetrates thick metal cookers effortlessly",
+        "6 multi-zone temperature sensors provide comprehensive thermal gradient tracking",
+        "Minimalist charging case with magnetic backing for cooker mounting",
+        "Rapid 2-minute emergency charge feature gives 4 hours of operation",
+        "Clean, responsive mobile app with resting temperature prediction",
+      ],
+      cons: [
+        "Base station does not include a dedicated LCD display (smartphone required)",
+        "Includes one probe only",
+      ],
       highlights: [
         "Proprietary Sub-1GHz radio link penetrates thick metal cookers effortlessly",
         "6 multi-zone temperature sensors provide comprehensive thermal gradient tracking",
@@ -212,6 +297,7 @@ export const meatThermometersData: Top10PageData = {
     },
     {
       rank: 7,
+      brand: "Ninja",
       badge: "Best Air Fryer Companion",
       badgeType: "standard",
       title: "Ninja ProChef Wireless Meat Thermometer",
@@ -222,8 +308,21 @@ export const meatThermometersData: Top10PageData = {
       reviewCount: 2980,
       priceDisplay: "£79.99",
       originalPriceDisplay: "£99.99",
+      discountPercent: "20% Off",
+      dealTimer: "Limited Time Deal",
       description:
         "Ninja has optimised the ProChef thermometer specifically for high-velocity convection air fryers, multi-cookers, and standard domestic ovens. The probe is engineered to withstand extreme air currents and intense radiant heat without dislodging. Pairing seamlessly with the Ninja ProChef app, it features preset cooking charts tailored to popular cuts of British beef, lamb, poultry, and game.",
+      pros: [
+        "Aerodynamic profile prevents probe movement inside high-fan air fryers",
+        "Dual sensors monitor both internal meat temp and ambient cooking chamber",
+        "Presets aligned with UK roasting traditions (Rare, Medium-Rare, Well-Done)",
+        "30-hour runtime per charge with compact pocket charging case",
+        "Durable heat-resistant ceramic head rated up to 370°C",
+      ],
+      cons: [
+        "Bluetooth connectivity drops past 50m line of sight without Wi-Fi repeater",
+        "App has fewer customized graph export options than pitmaster-focused apps",
+      ],
       highlights: [
         "Aerodynamic profile prevents probe movement inside high-fan air fryers",
         "Dual sensors monitor both internal meat temp and ambient cooking chamber",
@@ -243,6 +342,7 @@ export const meatThermometersData: Top10PageData = {
     },
     {
       rank: 8,
+      brand: "Typhur",
       badge: "Best Base Station Display",
       badgeType: "standard",
       title: "Typhur Sync Duo with Live LCD Display",
@@ -253,8 +353,21 @@ export const meatThermometersData: Top10PageData = {
       reviewCount: 1670,
       priceDisplay: "£129.99",
       originalPriceDisplay: "£159.99",
+      discountPercent: "19% Off",
+      dealTimer: "Limited Time Deal",
       description:
         "The Typhur Sync Duo combines the convenience of dual 6-sensor probes with a bright, high-contrast LCD base station. Unlike systems that strictly require unlocking a smartphone, this unit keeps temperature and estimated cook times clearly visible on your kitchen worktop at all times. Equipped with Bluetooth 5.4 and Wi-Fi, it offers seamless multi-room coverage.",
+      pros: [
+        "Glanceable LCD screen provides continuous live temperature readouts",
+        "Dual-probe configuration ideal for cooking meat to two distinct doneness levels",
+        "6 internal sensors per probe ensure pinpoint accurate core readings",
+        "Bluetooth 5.4 protocol reduces energy consumption while boosting range",
+        "Sturdy magnetic base attaches conveniently to smoker bodies or fridge doors",
+      ],
+      cons: [
+        "Base LCD screen dims after inactivity to conserve charge",
+        "4.2mm probe thickness is slightly thicker than Chef IQ's 3.9mm shaft",
+      ],
       highlights: [
         "Glanceable LCD screen provides continuous live temperature readouts",
         "Dual-probe configuration ideal for cooking meat to two distinct doneness levels",
@@ -275,6 +388,7 @@ export const meatThermometersData: Top10PageData = {
     },
     {
       rank: 9,
+      brand: "Inkbird",
       badge: "Best Dual-Band Wi-Fi",
       badgeType: "standard",
       title: "Inkbird Dual-Band 5GHz & 2.4GHz Smart Thermometer",
@@ -285,8 +399,21 @@ export const meatThermometersData: Top10PageData = {
       reviewCount: 1120,
       priceDisplay: "£89.99",
       originalPriceDisplay: "£119.99",
+      discountPercent: "25% Off",
+      dealTimer: "Limited Time Deal",
       description:
         "Modern UK mesh Wi-Fi routers frequently force 5GHz bands, causing connection headaches for older smart appliances. The Inkbird Dual-Band solves this effortlessly by supporting both 5GHz and 2.4GHz frequencies out of the box. Featuring two size-coded probes with distinct tip profiles, it caters for both thick roasting joints and thinner poultry breasts.",
+      pros: [
+        "Native 5GHz and 2.4GHz dual-band Wi-Fi eliminates router compatibility issues",
+        "Two size-coded probes allow targeted placement in varying meat thicknesses",
+        "Audible hub alarms ensure you never miss a resting threshold",
+        "IPX8 waterproof stainless construction for effortless cleaning",
+        "Cloud temperature logging allows review of historical cook curves",
+      ],
+      cons: [
+        "25-hour probe battery life is lower than 50-hour class leaders",
+        "Lightweight plastic dock construction lacks heavy magnetic weighting",
+      ],
       highlights: [
         "Native 5GHz and 2.4GHz dual-band Wi-Fi eliminates router compatibility issues",
         "Two size-coded probes allow targeted placement in varying meat thicknesses",
@@ -307,6 +434,7 @@ export const meatThermometersData: Top10PageData = {
     },
     {
       rank: 10,
+      brand: "Inkbird",
       badge: "Best 360° Viewing Base",
       badgeType: "standard",
       title: "Inkbird Quad Wireless with 360° Rotating LCD Base",
@@ -317,8 +445,21 @@ export const meatThermometersData: Top10PageData = {
       reviewCount: 940,
       priceDisplay: "£149.99",
       originalPriceDisplay: "£199.99",
+      discountPercent: "25% Off",
+      dealTimer: "Limited Time Deal",
       description:
         "Rounding out our top ten is the Inkbird Quad with its distinctive 360-degree readable LCD base. This station allows chefs to view all four probe channels from any vantage point around the kitchen island. Powered by Bluetooth 5.3 and Wi-Fi, it provides robust data synchronisation and reliable temperature alerts for ambitious multi-course dinners.",
+      pros: [
+        "360-degree omnidirectional LCD display visible from any angle in the kitchen",
+        "4 independent wireless probes with IPX8 waterproof rating",
+        "Bluetooth 5.3 and Wi-Fi dual transmission for long-range reliability",
+        "Custom high/low temperature target alerts with snooze options",
+        "Sturdy weighted base stays put during busy food service",
+      ],
+      cons: [
+        "4.6mm probe shaft requires care when inserting into smaller steaks",
+        "Base unit requires regular USB-C recharging when powering the 360 display",
+      ],
       highlights: [
         "360-degree omnidirectional LCD display visible from any angle in the kitchen",
         "4 independent wireless probes with IPX8 waterproof rating",
@@ -336,6 +477,89 @@ export const meatThermometersData: Top10PageData = {
       ],
       outboundUrl:
         "https://amazon.com/dp/B0DQ4P7NYC?maas=maas_adg_api_577520845559342767_static_9_218&ref_=aa_maas&aa_campaignid=wyrd_4dc1f184636a309_5&aa_adgroupid=wyrd_f864fe87f885b52_5&aa_creativeid=wyrd_4d2874a0629e718_5",
+    },
+  ],
+  consideredProducts: [
+    {
+      rank: 11,
+      brand: "MEATER",
+      title: "MEATER Plus Smart Wireless Meat Thermometer",
+      subtitle: "Original Smart Probe with 50m Built-in Bluetooth Repeater",
+      image: "https://m.media-amazon.com/images/I/41-J7-Vp4yL._SL250_.jpg",
+      score: "7.7",
+      ratingLabel: "Good",
+      discountPercent: "10% Off",
+      dealTimer: "Limited Time Deal",
+      description: "The pioneer of wire-free cooking probes with a 50m Bluetooth repeater dock, single-sensor tip, and guided cooking assistant.",
+      pros: [
+        "Solid 50m Bluetooth repeater built into the bamboo charging dock",
+        "Intuitive guided cooking app with estimated completion countdowns",
+      ],
+      cons: [
+        "Thicker 6.0mm probe shaft can let juices escape from smaller cuts",
+      ],
+      keySpecs: [
+        { label: "Probe Diameter", value: "6.0 mm" },
+        { label: "Wireless Range", value: "Up to 50m Bluetooth" },
+        { label: "Battery Life", value: "24 Hours" },
+      ],
+      priceDisplay: "£89.00",
+      originalPriceDisplay: "£99.00",
+      outboundUrl: "https://www.amazon.co.uk/dp/B07H8WTF98",
+    },
+    {
+      rank: 12,
+      brand: "ThermoPro",
+      title: "ThermoPro TempSpike Wireless Meat Thermometer",
+      subtitle: "150m Ultra-Long Range Bluetooth Probe with Dual Sensors",
+      image: "https://m.media-amazon.com/images/I/41D2K4X3-CL._SL250_.jpg",
+      score: "7.6",
+      ratingLabel: "Good",
+      discountPercent: "22% Off",
+      dealTimer: "Limited Time Deal",
+      description: "Features a 150m transmission booster dock with dual internal and ambient thermal sensors for backyard pitmasters.",
+      pros: [
+        "150m (500ft) line-of-sight booster range for outdoor grilling",
+        "Fast USB-C rechargeable booster station with 3-month standby",
+      ],
+      cons: [
+        "App user interface occasionally drops historical graph data",
+      ],
+      keySpecs: [
+        { label: "Booster Range", value: "150m (500ft)" },
+        { label: "Probe Diameter", value: "5.5 mm" },
+        { label: "Battery Life", value: "36 Hours" },
+      ],
+      priceDisplay: "£69.99",
+      originalPriceDisplay: "£89.99",
+      outboundUrl: "https://www.amazon.co.uk/dp/B0B11G8J77",
+    },
+    {
+      rank: 13,
+      brand: "Weber",
+      title: "Weber Connect Smart Grilling Hub Probe System",
+      subtitle: "4-Channel Smart BBQ Hub with Turn-by-Turn Grilling Assistant",
+      image: "https://m.media-amazon.com/images/I/41bQ17z6kPL._SL250_.jpg",
+      score: "7.5",
+      ratingLabel: "Good",
+      discountPercent: "20% Off",
+      dealTimer: "Limited Time Deal",
+      description: "Official 4-channel smart cooking hub with turn-by-turn grilling guidance and flip notifications tailored to barbecue cuts.",
+      pros: [
+        "Official Weber turn-by-turn recipes and flip notifications",
+        "4 probe ports for managing diverse proteins and grill ambient zones",
+      ],
+      cons: [
+        "Probes require thin wired connection to central hub",
+      ],
+      keySpecs: [
+        { label: "Channels", value: "4 Wired Probes" },
+        { label: "Connectivity", value: "Wi-Fi + Bluetooth" },
+        { label: "Compatibility", value: "Any BBQ or Smoker" },
+      ],
+      priceDisplay: "£119.99",
+      originalPriceDisplay: "£149.99",
+      outboundUrl: "https://www.amazon.co.uk/dp/B083H2Y9K4",
     },
   ],
   guide: {

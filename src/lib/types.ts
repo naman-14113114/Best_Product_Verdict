@@ -1,20 +1,32 @@
+export interface KeySpec {
+  label: string;
+  value: string;
+}
+
 export interface ProductItem {
   rank: number;
-  badge?: string;
-  badgeType?: "best-overall" | "best-value" | "runner-up" | "top-pick" | "premium" | "standard";
+  brand?: string;
   title: string;
   subtitle?: string;
   image: string;
+  thumbnails?: string[];
   score: string; // e.g. "9.9"
   ratingLabel: string; // e.g. "Exceptional", "Outstanding", "Excellent"
-  reviewCount?: number;
+  badge?: string;
+  badgeType?: "best-overall" | "best-value" | "runner-up" | "top-pick" | "premium" | "standard";
+  discountPercent?: string; // e.g. "20% Off", "35% Off"
+  dealTimer?: string; // e.g. "Limited Time Deal", "Ends in 03:45:12"
+  pros?: string[]; // for "Why we love it" tick points (✓)
+  cons?: string[]; // for cross points (✗)
   description: string;
-  highlights?: string[];
-  keySpecs?: { label: string; value: string }[];
+  keySpecs?: KeySpec[];
   outboundUrl: string;
-  affiliateTag?: string;
   priceDisplay?: string; // GBP e.g. "£79.99"
   originalPriceDisplay?: string; // e.g. "£99.99"
+  reviewCount?: number;
+  highlights?: string[]; // preserved for backward compatibility
+  dealBadge?: string; // preserved for backward compatibility
+  affiliateTag?: string;
 }
 
 export interface BuyingGuideSectionData {
@@ -47,8 +59,10 @@ export interface Top10PageData {
     role: string;
     avatarUrl?: string;
     experience?: string;
+    bio?: string;
   };
   disclosureText: string;
   products: ProductItem[];
+  consideredProducts?: ProductItem[]; // 3 runner-up products for "Some other products we considered" section
   guide: BuyingGuideSectionData;
 }

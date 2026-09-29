@@ -20,11 +20,14 @@ export const StarRating: React.FC<StarRatingProps> = ({
   const ratingOutOf5 = numericScore > 5 ? numericScore / 2 : numericScore;
   const clampedRating = Math.max(0, Math.min(5, isNaN(ratingOutOf5) ? 4.9 : ratingOutOf5));
 
-  // Unique ID for SVG gradients to avoid collisions if multiple ratings exist on page
+  // Unique ID for SVG gradients
   const uniqueId = React.useId().replace(/:/g, "");
 
   return (
-    <div className={`inline-flex items-center gap-1 ${className}`} aria-label={`Rating: ${clampedRating.toFixed(1)} out of 5 stars`}>
+    <div
+      className={`inline-flex items-center gap-1 ${className}`}
+      aria-label={`Rating: ${clampedRating.toFixed(1)} out of 5 stars`}
+    >
       <div className="flex items-center gap-0.5">
         {Array.from({ length: maxStars }).map((_, index) => {
           const fillPercentage = Math.max(0, Math.min(100, (clampedRating - index) * 100));
@@ -47,7 +50,7 @@ export const StarRating: React.FC<StarRatingProps> = ({
               <path
                 fill={`url(#${gradientId})`}
                 stroke="#d97706"
-                strokeWidth="0.75"
+                strokeWidth="0.5"
                 strokeLinejoin="round"
                 d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
               />
@@ -56,7 +59,7 @@ export const StarRating: React.FC<StarRatingProps> = ({
         })}
       </div>
       {showScoreText && (
-        <span className="ml-1 text-sm font-bold text-slate-700">
+        <span className="ml-1 text-xs sm:text-sm font-bold text-slate-700">
           {numericScore.toFixed(1)}
         </span>
       )}

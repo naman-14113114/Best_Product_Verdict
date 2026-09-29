@@ -10,7 +10,11 @@ interface BuyingGuideProps {
   authorRole?: string;
 }
 
-export const BuyingGuide: React.FC<BuyingGuideProps> = ({ guide, authorName = "David Welch", authorRole = "Senior Product Analyst" }) => {
+export const BuyingGuide: React.FC<BuyingGuideProps> = ({
+  guide,
+  authorName = "David Welch",
+  authorRole = "Senior Product Analyst",
+}) => {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
   const toggleFaq = (index: number) => {
@@ -18,48 +22,48 @@ export const BuyingGuide: React.FC<BuyingGuideProps> = ({ guide, authorName = "D
   };
 
   return (
-    <section className="w-full mt-14 space-y-12">
+    <section className="w-full mt-12 space-y-8">
       {/* Main Guide Container */}
-      <div className="bg-white rounded-2xl border border-slate-200/90 shadow-sm p-6 md:p-10">
+      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8">
         <div className="max-w-4xl">
           {/* Guide Header */}
-          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-3 py-1 rounded-full mb-3 border border-blue-200/60">
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#00c092] bg-teal-50 px-3 py-1 rounded-full mb-3 border border-teal-200/60">
             <Award className="w-3.5 h-3.5" />
             <span>Comprehensive Buyer&apos;s Advisory</span>
           </div>
 
-          <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">
             {guide.title}
           </h2>
 
           {guide.subtitle && (
-            <p className="text-base text-slate-600 mt-2 font-medium">
+            <p className="text-sm sm:text-base text-slate-600 mt-2 font-medium">
               {guide.subtitle}
             </p>
           )}
 
           {/* Introduction */}
-          <div className="mt-6 text-slate-700 text-sm md:text-base leading-relaxed space-y-4 border-b border-slate-100 pb-8">
+          <div className="mt-5 text-slate-700 text-sm sm:text-base leading-relaxed border-b border-slate-100 pb-6">
             <p>{guide.introduction}</p>
           </div>
 
           {/* Key Evaluation Factors */}
-          <div className="mt-8 space-y-6">
-            <h3 className="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-teal-600" />
+          <div className="mt-6 space-y-4">
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
+              <CheckCircle2 className="w-5 h-5 text-[#00c092]" />
               <span>5 Critical Factors We Evaluate Before Recommending</span>
             </h3>
 
-            <div className="grid grid-cols-1 gap-4 pt-2">
+            <div className="grid grid-cols-1 gap-3 pt-2">
               {guide.keyFactors.map((factor, index) => (
                 <div
                   key={index}
-                  className="p-5 rounded-xl bg-slate-50/80 border border-slate-200/70 hover:border-blue-200 transition-colors"
+                  className="p-4 sm:p-5 rounded-xl bg-slate-50/70 border border-slate-200/80 hover:border-slate-300 transition-colors"
                 >
-                  <h4 className="text-base font-bold text-slate-900 mb-1.5 text-blue-900">
+                  <h4 className="text-sm sm:text-base font-bold text-slate-900 mb-1">
                     {factor.title}
                   </h4>
-                  <p className="text-sm text-slate-700 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                     {factor.description}
                   </p>
                 </div>
@@ -70,51 +74,51 @@ export const BuyingGuide: React.FC<BuyingGuideProps> = ({ guide, authorName = "D
       </div>
 
       {/* Testing Methodology Banner */}
-      <div className="bg-gradient-to-br from-slate-900 via-slate-850 to-slate-900 text-white rounded-2xl p-6 md:p-10 border border-slate-800 shadow-md">
+      <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm">
         <div className="max-w-4xl space-y-4">
-          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-teal-400 bg-teal-950 px-3 py-1 rounded-full border border-teal-800/80">
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-3 py-1 rounded-full border border-blue-200/80">
             <FlaskConical className="w-3.5 h-3.5" />
             <span>Standardized Lab Protocols</span>
           </div>
 
-          <h3 className="text-xl md:text-2xl font-bold tracking-tight">
-            How We Test & Benchmark Hardware in the UK
+          <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
+            How We Test &amp; Benchmark Hardware in the UK
           </h3>
 
-          <p className="text-sm md:text-base text-slate-300 leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
             {guide.testingMethodology}
           </p>
 
-          <div className="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-            <div className="bg-slate-800/60 p-3 rounded-xl border border-slate-700/80">
-              <span className="text-2xl font-black text-teal-400 block">100%</span>
-              <span className="text-[11px] text-slate-400 font-medium uppercase">UK Hands-On Tested</span>
+          <div className="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+            <div className="bg-slate-50 p-3 rounded-xl border border-slate-200">
+              <span className="text-xl sm:text-2xl font-black text-[#00c092] block">100%</span>
+              <span className="text-[10px] text-slate-500 font-bold uppercase">UK Hands-On Tested</span>
             </div>
-            <div className="bg-slate-800/60 p-3 rounded-xl border border-slate-700/80">
-              <span className="text-2xl font-black text-blue-400 block">140h+</span>
-              <span className="text-[11px] text-slate-400 font-medium uppercase">Lab Benchmarking</span>
+            <div className="bg-slate-50 p-3 rounded-xl border border-slate-200">
+              <span className="text-xl sm:text-2xl font-black text-[#0087ee] block">140h+</span>
+              <span className="text-[10px] text-slate-500 font-bold uppercase">Lab Benchmarking</span>
             </div>
-            <div className="bg-slate-800/60 p-3 rounded-xl border border-slate-700/80">
-              <span className="text-2xl font-black text-amber-400 block">£0</span>
-              <span className="text-[11px] text-slate-400 font-medium uppercase">Paid Placement</span>
+            <div className="bg-slate-50 p-3 rounded-xl border border-slate-200">
+              <span className="text-xl sm:text-2xl font-black text-amber-500 block">£0</span>
+              <span className="text-[10px] text-slate-500 font-bold uppercase">Paid Placement</span>
             </div>
-            <div className="bg-slate-800/60 p-3 rounded-xl border border-slate-700/80">
-              <span className="text-2xl font-black text-emerald-400 block">Strict</span>
-              <span className="text-[11px] text-slate-400 font-medium uppercase">Data Integrity</span>
+            <div className="bg-slate-50 p-3 rounded-xl border border-slate-200">
+              <span className="text-xl sm:text-2xl font-black text-emerald-600 block">Strict</span>
+              <span className="text-[10px] text-slate-500 font-bold uppercase">Data Integrity</span>
             </div>
           </div>
         </div>
       </div>
 
       {/* Expert Verdict Callout Box */}
-      <div className="bg-gradient-to-r from-blue-50 to-indigo-50/70 border-2 border-blue-200/80 rounded-2xl p-6 md:p-8 shadow-sm">
-        <div className="flex flex-col md:flex-row items-start gap-5">
-          <div className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-md">
-            <ShieldCheck className="w-6 h-6" />
+      <div className="bg-[#f0f8ff] border border-blue-200 rounded-2xl p-6 sm:p-8 shadow-sm">
+        <div className="flex flex-col md:flex-row items-start gap-4">
+          <div className="w-10 h-10 rounded-full bg-[#0087ee] text-white flex items-center justify-center shrink-0 shadow-sm">
+            <ShieldCheck className="w-5 h-5" />
           </div>
-          <div className="space-y-2">
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-blue-800">
+          <div className="space-y-1.5">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-blue-900">
                 Editorial Board Final Verdict
               </span>
               <span className="text-xs text-slate-400">•</span>
@@ -122,7 +126,7 @@ export const BuyingGuide: React.FC<BuyingGuideProps> = ({ guide, authorName = "D
                 Authored by {authorName} ({authorRole})
               </span>
             </div>
-            <p className="text-sm md:text-base text-slate-800 font-medium leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-normal">
               {guide.expertVerdict}
             </p>
           </div>
@@ -130,18 +134,18 @@ export const BuyingGuide: React.FC<BuyingGuideProps> = ({ guide, authorName = "D
       </div>
 
       {/* FAQ Accordion Section */}
-      <div className="bg-white rounded-2xl border border-slate-200/90 shadow-sm p-6 md:p-10">
-        <div className="max-w-4xl space-y-6">
+      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8">
+        <div className="max-w-4xl space-y-4">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center shrink-0">
-              <HelpCircle className="w-5 h-5" />
+            <div className="w-7 h-7 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+              <HelpCircle className="w-4 h-4" />
             </div>
-            <h3 className="text-2xl font-bold text-slate-900 tracking-tight">
+            <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
               Frequently Asked Questions (UK Guide)
             </h3>
           </div>
 
-          <div className="space-y-3 pt-2">
+          <div className="space-y-2.5 pt-2">
             {guide.faqs.map((faq, index) => {
               const isOpen = openFaqIndex === index;
               return (
@@ -152,20 +156,20 @@ export const BuyingGuide: React.FC<BuyingGuideProps> = ({ guide, authorName = "D
                   <button
                     type="button"
                     onClick={() => toggleFaq(index)}
-                    className="w-full flex items-center justify-between p-4 md:p-5 text-left bg-slate-50/60 hover:bg-slate-100 transition-colors gap-4"
+                    className="w-full flex items-center justify-between p-4 text-left bg-slate-50/60 hover:bg-slate-100 transition-colors gap-4 cursor-pointer"
                     aria-expanded={isOpen}
                   >
-                    <span className="font-bold text-slate-900 text-sm md:text-base">
+                    <span className="font-bold text-slate-900 text-xs sm:text-sm">
                       {faq.question}
                     </span>
                     <ChevronDown
-                      className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-200 ${
+                      className={`w-4 h-4 text-slate-400 shrink-0 transition-transform duration-200 ${
                         isOpen ? "transform rotate-180 text-blue-600" : ""
                       }`}
                     />
                   </button>
                   {isOpen && (
-                    <div className="p-4 md:p-5 pt-2 bg-white text-sm text-slate-700 leading-relaxed border-t border-slate-100 animate-fadeIn">
+                    <div className="p-4 pt-2 bg-white text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 animate-fadeIn">
                       <p>{faq.answer}</p>
                     </div>
                   )}
