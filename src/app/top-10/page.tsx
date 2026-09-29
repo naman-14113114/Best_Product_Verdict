@@ -1,310 +1,220 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { meatThermometersData } from "@/data/meatThermometers";
-import { waterFlossersData } from "@/data/waterFlossers";
-import { massageGunsData } from "@/data/massageGuns";
-import { 
-  Flame, 
-  Sparkles, 
-  Activity, 
-  ArrowRight, 
-  Star, 
-  ShieldCheck, 
-  UtensilsCrossed, 
-  Smile, 
-  Bot, 
-  Headphones, 
-  BellRing, 
-  Coffee, 
-  Wind, 
-  Ear,
-  Layers,
-  ChevronRight
-} from "lucide-react";
+import { HOMEPAGE_CATEGORIES } from "@/data/categories";
+import { NewsletterBox } from "@/components/NewsletterBox";
+import { Search, Sparkles, Flame, Activity, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "All Top 10 Product Comparison Guides UK (2026 Directory)",
+  title: "All Top 10 Product Categories Directory (2026) | Best Product Verdict UK",
   description:
-    "Explore our complete directory of UK Top 10 product comparisons and buying guides for 2026. Ranked and verified by independent test lab experts.",
+    "Explore the full directory of Top 10 product categories and buying guides tested by UK experts at Best Product Verdict.",
 };
 
-export default function Top10HubPage() {
-  const departments = [
+export default function Top10DirectoryPage() {
+  const liveGuides = [
     {
-      name: "Kitchen & Dining",
-      description: "Precision cooking probes, convection air fryers, and barista espresso gear benchmarked for temperature accuracy and durability.",
-      icon: UtensilsCrossed,
-      guides: [
-        {
-          title: "Top 10 Wireless Meat Thermometers (2026)",
-          href: "/top-10/best-wireless-meat-thermometers",
-          image: meatThermometersData.products[0].image,
-          score: meatThermometersData.products[0].score,
-          topPick: meatThermometersData.products[0].title,
-          price: meatThermometersData.products[0].priceDisplay,
-          highlight: "Ultra-slim 3.9mm probe with infinite cloud Wi-Fi range",
-          badge: "Dedicated Comparison Guide",
-          isLiveGuide: true,
-        },
-        {
-          title: "Top 10 Dual-Zone Air Fryers (2026)",
-          href: "/search?query=air+fryer",
-          image: "https://m.media-amazon.com/images/I/41Nm2y6ZtML._SL250_.jpg", // fallback
-          score: "9.9",
-          topPick: "Ninja Foodi DualZone MAX AF400UK",
-          price: "£199.99",
-          highlight: "9.5L capacity with 2 independent drawers & Match Cook",
-          badge: "Lab Verdict",
-          isLiveGuide: false,
-        },
-        {
-          title: "Top 10 Espresso & Bean-to-Cup Machines (2026)",
-          href: "/search?query=espresso+machine",
-          image: "https://m.media-amazon.com/images/I/41Nm2y6ZtML._SL250_.jpg",
-          score: "9.9",
-          topPick: "Sage Barista Express Impress",
-          price: "£599.00",
-          highlight: "Assisted 10kg tamp system with precise digital dosing",
-          badge: "Lab Verdict",
-          isLiveGuide: false,
-        },
-      ],
+      title: "Top 10 Wireless Meat Thermometers (2026)",
+      href: "/top-10/best-wireless-meat-thermometers",
+      image: "https://m.media-amazon.com/images/I/41Nm2y6ZtML._SL250_.jpg",
+      score: "9.9",
+      topPick: "Chef IQ Smart Wireless Thermometer",
+      price: "£79.99",
+      badge: "Flagship Guide",
+      icon: Flame,
     },
     {
-      name: "Oral Care & Dental Health",
-      description: "Hydrodynamic water flossers and acoustic sonic toothbrushes evaluated with UK dental specialists for plaque removal.",
-      icon: Smile,
-      guides: [
-        {
-          title: "Top 10 Cordless Water Flossers (2026)",
-          href: "/top-10/best-cordless-water-flossers",
-          image: waterFlossersData.products[0].image,
-          score: waterFlossersData.products[0].score,
-          topPick: waterFlossersData.products[0].title,
-          price: waterFlossersData.products[0].priceDisplay,
-          highlight: "ADA accepted with 300ml reservoir and 40-day runtime",
-          badge: "Dedicated Comparison Guide",
-          isLiveGuide: true,
-        },
-        {
-          title: "Top 10 Sonic & Electric Toothbrushes (2026)",
-          href: "/search?query=electric+toothbrush",
-          image: "https://m.media-amazon.com/images/I/41Nm2y6ZtML._SL250_.jpg",
-          score: "9.9",
-          topPick: "Miroooo X2 Acoustic Sonic Toothbrush",
-          price: "£69.00",
-          highlight: "Aerospace aluminium body, 45° Bass sweep & 90-day battery",
-          badge: "Lab Verdict",
-          isLiveGuide: false,
-        },
-      ],
-    },
-    {
-      name: "Sports Tech & Wellness Recovery",
-      description: "Percussion massagers and cryo-thermal contrast devices evaluated on dynamometer torque rigs.",
-      icon: Activity,
-      guides: [
-        {
-          title: "Top 10 Mini Massage Guns (2026)",
-          href: "/top-10/best-mini-massage-guns",
-          image: massageGunsData.products[0].image,
-          score: massageGunsData.products[0].score,
-          topPick: massageGunsData.products[0].title,
-          price: massageGunsData.products[0].priceDisplay,
-          highlight: "Peltier active heat 45°C & cold 8°C with 35 lbs stall force",
-          badge: "Dedicated Comparison Guide",
-          isLiveGuide: true,
-        },
-      ],
-    },
-    {
-      name: "Beauty & Phototherapy",
-      description: "Medical-grade LED masks benchmarked for wavelength accuracy and irradiance density.",
+      title: "Top 10 Cordless Water Flossers (2026)",
+      href: "/top-10/best-cordless-water-flossers",
+      image: "https://m.media-amazon.com/images/I/51c0Wy9sXiL._SL250_.jpg",
+      score: "9.9",
+      topPick: "Coslus C20 Cordless Oral Flosser",
+      price: "£29.99",
+      badge: "Flagship Guide",
       icon: Sparkles,
-      guides: [
-        {
-          title: "Top 10 Best 7-Colour LED Face Masks (2026)",
-          href: "/search?query=led+face+mask",
-          image: "https://m.media-amazon.com/images/I/41Nm2y6ZtML._SL250_.jpg",
-          score: "9.9",
-          topPick: "Buudy 7 Colour LED Mask Pro",
-          price: "£179.00",
-          highlight: "216 medical-grade LEDs with 7 wavelengths + 830nm NIR",
-          badge: "Lab Verdict",
-          isLiveGuide: false,
-        },
-      ],
     },
     {
-      name: "Smart Home & Domestic Tech",
-      description: "Autonomous cleaning robots and smart doorbells evaluated for sensor navigation and app stability.",
-      icon: Bot,
-      guides: [
-        {
-          title: "Top 10 Robot Vacuums & Mops (2026)",
-          href: "/search?query=robot+vacuum",
-          image: "https://m.media-amazon.com/images/I/41Nm2y6ZtML._SL250_.jpg",
-          score: "9.9",
-          topPick: "Roborock S8 Pro Ultra",
-          price: "£899.00",
-          highlight: "RockDock Ultra all-in-one station with auto-drying & 6000Pa",
-          badge: "Lab Verdict",
-          isLiveGuide: false,
-        },
-        {
-          title: "Top 10 Video Doorbells (2026)",
-          href: "/search?query=doorbell",
-          image: "https://m.media-amazon.com/images/I/41Nm2y6ZtML._SL250_.jpg",
-          score: "9.8",
-          topPick: "Eufy Video Doorbell E340 Dual-Camera",
-          price: "£149.00",
-          highlight: "Dual cameras for visitors & porch packages with no monthly fees",
-          badge: "Lab Verdict",
-          isLiveGuide: false,
-        },
-      ],
-    },
-    {
-      name: "Health & Medical Devices",
-      description: "OTC hearing amplifiers and True HEPA purifiers benchmarked for acoustic clarity and particulate filtration.",
-      icon: Ear,
-      guides: [
-        {
-          title: "Top 10 Digital Invisible Hearing Aids (2026)",
-          href: "/search?query=hearing+aids",
-          image: "https://m.media-amazon.com/images/I/41Nm2y6ZtML._SL250_.jpg",
-          score: "9.9",
-          topPick: "Muuhu HearClear Pro CIC Digital",
-          price: "£149.00",
-          highlight: "Ultra-invisible 2.0g CIC fit, HD battery display, 150h runtime",
-          badge: "Lab Verdict",
-          isLiveGuide: false,
-        },
-        {
-          title: "Top 10 HEPA Air Purifiers (2026)",
-          href: "/search?query=air+purifier",
-          image: "https://m.media-amazon.com/images/I/41Nm2y6ZtML._SL250_.jpg",
-          score: "9.8",
-          topPick: "Levoit Core 400S Smart True HEPA",
-          price: "£189.99",
-          highlight: "Cleans 83m² in 30 mins with laser PM2.5 real-time display",
-          badge: "Lab Verdict",
-          isLiveGuide: false,
-        },
-      ],
+      title: "Top 10 Mini Massage Guns (2026)",
+      href: "/top-10/best-mini-massage-guns",
+      image: "https://m.media-amazon.com/images/I/41qZt+HtZxL._SL250_.jpg",
+      score: "9.9",
+      topPick: "Renpho Active Thermacool 2",
+      price: "£79.99",
+      badge: "Flagship Guide",
+      icon: Activity,
     },
   ];
 
   return (
-    <div className="w-full bg-[#f7f9fb] py-12 space-y-16">
-      
-      {/* Directory Header Banner */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-3xl border border-slate-200 p-8 sm:p-12 shadow-sm text-center max-w-4xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-100">
-            <Layers className="w-3.5 h-3.5 text-blue-600" />
-            <span>Master Top 10 Directory</span>
+    <div className="w-full bg-white space-y-12">
+      {/* Header Banner */}
+      <section className="bg-gradient-to-b from-[#1c2e4a] to-[#111c2e] text-white py-14 px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-4xl mx-auto space-y-4">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-teal-500/20 text-teal-300 text-xs font-bold border border-teal-500/30">
+            <span>UK Top 10 Product Directory</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
-            Top 10 Product Comparison Guides
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white">
+            Explore All Product Categories
           </h1>
 
-          <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Browse our complete collection of laboratory-tested product rankings. Grouped by department and verified against strict UK market standards.
+          <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            Browse our full directory of product categories. Find top picks, side-by-side spec sheets, and verified reviews.
           </p>
         </div>
-      </div>
+      </section>
 
-      {/* Department Sections */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-        {departments.map((dept, dIdx) => {
-          const DeptIcon = dept.icon;
-          return (
-            <div key={dIdx} className="space-y-6">
-              {/* Department Header */}
-              <div className="border-b border-slate-200 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shadow-inner">
-                    <DeptIcon className="w-5 h-5" />
+      {/* Featured Live Top 10 Guides */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+            Featured Top 10 Comparison Guides
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
+            Full 10-product ranked guides with verified scores and comprehensive UK buying advice.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {liveGuides.map((guide, idx) => {
+            const Icon = guide.icon;
+            return (
+              <div
+                key={idx}
+                className="bg-white rounded-2xl border border-slate-200 p-6 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group hover:border-blue-300"
+              >
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-teal-50 text-teal-800 border border-teal-200">
+                      {guide.badge}
+                    </span>
+                    <span className="text-xs font-bold text-blue-600 flex items-center gap-1">
+                      ★ {guide.score} / 10
+                    </span>
                   </div>
-                  <div>
-                    <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
-                      {dept.name}
-                    </h2>
-                    <p className="text-xs text-slate-500">
-                      {dept.description}
-                    </p>
+
+                  <div className="relative w-full aspect-video bg-slate-50 rounded-xl p-3 flex items-center justify-center">
+                    <Image
+                      src={guide.image}
+                      alt={guide.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 300px"
+                      className="object-contain p-2 group-hover:scale-105 transition-transform"
+                    />
+                  </div>
+
+                  <h3 className="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                    <Link href={guide.href}>{guide.title}</Link>
+                  </h3>
+
+                  <div className="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-1">
+                    <div className="flex items-center justify-between text-[11px]">
+                      <span className="text-teal-700 font-bold uppercase">#1 Top Pick:</span>
+                      <span className="font-bold text-slate-900">{guide.price}</span>
+                    </div>
+                    <div className="font-semibold text-slate-800 truncate">
+                      {guide.topPick}
+                    </div>
                   </div>
                 </div>
-                <span className="text-xs font-bold text-slate-400">
-                  {dept.guides.length} {dept.guides.length === 1 ? "Guide" : "Guides"}
-                </span>
-              </div>
 
-              {/* Department Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {dept.guides.map((guide, gIdx) => (
-                  <div
-                    key={gIdx}
-                    className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:border-blue-300"
+                <div className="pt-4 mt-2 border-t border-slate-100">
+                  <Link
+                    href={guide.href}
+                    className="w-full py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-colors shadow-2xs"
                   >
-                    <div className="space-y-4">
-                      {/* Top Pill & Score */}
-                      <div className="flex items-center justify-between gap-2">
-                        <span className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full ${
-                          guide.isLiveGuide
-                            ? "bg-teal-50 text-teal-800 border border-teal-200"
-                            : "bg-slate-100 text-slate-700 border border-slate-200"
-                        }`}>
-                          {guide.badge}
-                        </span>
-                        <span className="text-xs font-bold text-blue-600 flex items-center gap-1">
-                          <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                          {guide.score} / 10
-                        </span>
-                      </div>
-
-                      {/* Title */}
-                      <h3 className="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
-                        <Link href={guide.href}>{guide.title}</Link>
-                      </h3>
-
-                      {/* Top Pick Box */}
-                      <div className="bg-slate-50 p-3 rounded-xl border border-slate-100 space-y-1 text-xs">
-                        <div className="flex items-center justify-between text-[11px]">
-                          <span className="text-teal-700 font-bold uppercase tracking-wide">
-                            Top Rated #1 Pick:
-                          </span>
-                          <span className="font-bold text-slate-900">{guide.price}</span>
-                        </div>
-                        <div className="font-semibold text-slate-800 truncate">
-                          {guide.topPick}
-                        </div>
-                        <div className="text-[11px] text-slate-500 line-clamp-1">
-                          {guide.highlight}
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="pt-4 mt-2 border-t border-slate-100">
-                      <Link
-                        href={guide.href}
-                        className="w-full py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-colors shadow-sm"
-                      >
-                        <span>{guide.isLiveGuide ? "View Full Top 10 Guide" : "View Lab Verdict"}</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </Link>
-                    </div>
-                  </div>
-                ))}
+                    <span>View Top 10 Guide</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
               </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
+      </section>
 
+      {/* 5-Column Category Exploration Grid */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="mb-8">
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+            Complete Department Directory
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
+            Explore products by department to find deals and top recommendations.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 sm:gap-8">
+          {HOMEPAGE_CATEGORIES.map((col, cIdx) => (
+            <div key={cIdx} className="flex flex-col space-y-3">
+              {/* Preview Image */}
+              <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-slate-200 bg-slate-50 shadow-2xs group">
+                <Image
+                  src={col.image}
+                  alt={col.title}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 20vw"
+                  className="object-contain p-2 group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+              </div>
+
+              {/* Column Heading */}
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 border-b border-slate-200 pb-1.5 tracking-tight">
+                {col.title}
+              </h3>
+
+              {/* Links List */}
+              <ul className="space-y-1 text-xs sm:text-sm">
+                {col.links.map((item, lIdx) => (
+                  <li key={lIdx}>
+                    <Link
+                      href={item.href}
+                      className={`block py-1 transition-colors ${
+                        item.isLive
+                          ? "text-blue-600 font-bold hover:text-blue-800 hover:underline"
+                          : "text-slate-600 hover:text-slate-900 hover:underline font-normal"
+                      }`}
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Search Bar Strip */}
+      <section className="w-full bg-[#f8f9fa] py-12 px-4 sm:px-6 lg:px-8 border-t border-b border-slate-200">
+        <div className="max-w-2xl mx-auto text-center space-y-4">
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+            Can&apos;t find what you&apos;re looking for?
+          </h2>
+          <form action="/search" method="get" className="max-w-xl mx-auto">
+            <div className="flex items-center bg-white rounded-xl shadow-xs border border-slate-300 focus-within:ring-2 focus-within:ring-[#00c092]/30 focus-within:border-[#00c092] overflow-hidden transition-all">
+              <Search className="w-4 h-4 text-slate-400 ml-3.5 shrink-0" />
+              <input
+                type="search"
+                name="query"
+                placeholder="Search for products…"
+                required
+                className="w-full py-3 px-3 text-sm text-slate-800 placeholder-slate-400 bg-transparent focus:outline-none"
+              />
+              <button
+                type="submit"
+                className="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm border-l border-slate-200 transition-colors shrink-0 cursor-pointer"
+              >
+                Search
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      {/* Newsletter */}
+      <NewsletterBox />
     </div>
   );
 }

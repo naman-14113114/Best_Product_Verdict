@@ -1,197 +1,233 @@
-import React from "react";
-import Link from "next/link";
-import { 
-  Handshake, 
-  Beaker, 
-  ShieldCheck, 
-  Award, 
-  CheckCircle2, 
-  XCircle, 
-  Mail, 
-  Send, 
-  ArrowRight,
-  HelpCircle,
-  FileCheck,
-  Building2,
-  Lock,
-  Clock
-} from "lucide-react";
+"use client";
 
-export const metadata = {
-  title: "Brand Partnerships & Lab Submissions | Best Product Verdict UK",
-  description:
-    "Product submission guidelines and commercial partnership information for brands, PR agencies, and hardware manufacturers.",
-};
+import React, { useState } from "react";
+import Link from "next/link";
+import { CheckCircle2, ChevronDown, ArrowDown } from "lucide-react";
 
 export default function PartnershipsPage() {
-  const submissionSteps = [
-    {
-      step: "01",
-      title: "Initial Product Submission Form",
-      desc: "Brands or PR representatives submit technical product specifications, UKCA/CE compliance certificates, and UK retail availability timelines.",
-      icon: FileCheck,
-    },
-    {
-      step: "02",
-      title: "Editorial Demand Review",
-      desc: "Our senior testing board reviews the product to determine if it meets UK consumer search interest and warrants inclusion in an upcoming lab round-up.",
-      icon: Clock,
-    },
-    {
-      step: "03",
-      title: "Standardized Lab Testing (2-6 Weeks)",
-      desc: "The device enters our London laboratory for instrumented measurement rigs, thermal stress tests, battery degradation runs, and panel trials.",
-      icon: Beaker,
-    },
-    {
-      step: "04",
-      title: "Objective Publication of Verdict",
-      desc: "Results and rankings are published according to our 10-point scoring matrix. Negative flaws and positive benchmarks are shared transparently.",
-      icon: Award,
-    },
-  ];
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    country: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+    if (status === "error") setStatus("idle");
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setErrorMessage("");
+
+    if (!formData.name || !formData.email || !formData.company || !formData.country || !formData.message) {
+      setStatus("error");
+      setErrorMessage("Please fill out all required fields.");
+      return;
+    }
+
+    setStatus("loading");
+    setTimeout(() => {
+      setStatus("success");
+    }, 600);
+  };
 
   return (
-    <div className="w-full bg-[#f7f9fb] py-12 space-y-16">
-      
-      {/* Hero Header */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-        <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-100">
-          <Handshake className="w-4 h-4 text-blue-600" />
-          <span>Brand Outreach &amp; Product Submissions</span>
-        </div>
-
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
-          Partner With Best Product Verdict
-        </h1>
-
-        <p className="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-          Information for consumer brands, hardware manufacturers, and PR representatives seeking lab benchmarking and comparative review evaluations.
-        </p>
-      </div>
-
-      {/* Main Content Body */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        
-        {/* Core Submission Policy Box */}
-        <div className="bg-amber-50 border border-amber-200 p-6 sm:p-8 rounded-3xl space-y-3 text-amber-950">
-          <div className="flex items-center gap-2.5 font-bold text-base text-amber-900">
-            <ShieldCheck className="w-6 h-6 text-amber-600 shrink-0" />
-            <span>Crucial Rule: Product Submissions Do Not Guarantee Positive Verdicts</span>
-          </div>
-          <p className="text-xs sm:text-sm leading-relaxed text-amber-900">
-            Best Product Verdict maintains strict editorial independence. While we welcome product submissions and technical briefs from brands, <strong>submitting a unit for lab evaluation NEVER guarantees a positive review, a #1 Verdict badge, or inclusion in our Top 10 rankings</strong>. All products are evaluated strictly against empirical test results.
-          </p>
-        </div>
-
-        {/* What We Offer to Reputable Brands */}
-        <div className="space-y-6">
-          <div className="space-y-1">
-            <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
-              Commercial Credibility
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-              Why Reputable Brands Partner With Us
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-500">
-              Over 8 million UK consumers consult Best Product Verdict before making purchasing decisions.
+    <div className="w-full bg-white text-slate-900">
+      {/* Hero Section */}
+      <div id="partnerships" className="relative w-full bg-slate-900 text-white pt-20 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12 relative z-10">
+          <div className="space-y-6 text-left">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+              <span className="text-white">Others Imitate.</span>{" "}
+              <span className="text-[#00d6b6]">We Innovate.</span>
+            </h1>
+            <p className="text-slate-300 text-lg sm:text-xl leading-relaxed">
+              We&apos;re revolutionizing online shopping for consumers, one step at a time.
             </p>
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <Link
+                href="/partnerships"
+                className="px-6 py-3 bg-[#0087ee] hover:bg-[#0077dd] text-white font-bold text-sm rounded-lg shadow-md transition-all inline-flex items-center gap-2"
+              >
+                <span>Partnerships</span>
+                <span>&raquo;</span>
+              </Link>
+              <a
+                href="#partners"
+                className="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-sm rounded-lg border border-slate-700 transition-all inline-flex items-center gap-2"
+              >
+                <span>Contact Us</span>
+                <ArrowDown className="w-4 h-4 text-[#00d6b6]" />
+              </a>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-2">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
-                <Award className="w-5 h-5" />
-              </div>
-              <h3 className="font-bold text-base text-slate-900">Definitive UK Authority</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Rankings backed by our London testing facility, digital instrument logs, and certified engineers.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-2">
-              <div className="w-10 h-10 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center">
-                <Beaker className="w-5 h-5" />
-              </div>
-              <h3 className="font-bold text-base text-slate-900">Engineering Feedback</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                We share anonymized mechanical data and usability feedback to help engineering teams refine hardware.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-2">
-              <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
-                <FileCheck className="w-5 h-5" />
-              </div>
-              <h3 className="font-bold text-base text-slate-900">Affiliate Integration</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Seamless outbound integration with merchant stores, Amazon UK, and major affiliate networks.
-              </p>
+          <div className="flex justify-center">
+            <div className="w-full max-w-md bg-slate-800/80 p-8 rounded-3xl border border-slate-700 shadow-2xl flex items-center justify-center">
+              <svg className="w-64 h-64 text-teal-400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="200" cy="200" r="150" fill="#0087ee" fillOpacity="0.15" />
+                <path d="M120 280V180L200 120L280 180V280H120Z" stroke="#00d6b6" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round" />
+                <circle cx="200" cy="210" r="30" fill="#0087ee" />
+                <path d="M160 280H240" stroke="#00d6b6" strokeWidth="12" strokeLinecap="round" />
+                <circle cx="200" cy="80" r="16" fill="#00d6b6" />
+                <circle cx="80" cy="180" r="12" fill="#38bdf8" />
+                <circle cx="320" cy="180" r="12" fill="#38bdf8" />
+              </svg>
             </div>
           </div>
         </div>
 
-        {/* 4-Step Submission Process */}
-        <div className="space-y-6 pt-4">
-          <div className="space-y-1">
-            <span className="text-xs font-bold uppercase tracking-wider text-teal-700">
-              Protocol Workflow
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-              How the Product Submission Process Works
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {submissionSteps.map((step) => {
-              const Icon = step.icon;
-              return (
-                <div
-                  key={step.step}
-                  className="bg-white p-6 rounded-2xl border border-slate-200 space-y-2 shadow-sm"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-black text-blue-600 bg-blue-50 px-2 py-0.5 rounded border border-blue-100">
-                      Phase {step.step}
-                    </span>
-                    <Icon className="w-4 h-4 text-slate-400" />
-                  </div>
-                  <h3 className="font-bold text-base text-slate-900 pt-1">{step.title}</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    {step.desc}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
+        {/* Sharp Bottom Divider */}
+        <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-none pointer-events-none">
+          <svg
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+            className="relative block w-full h-10 sm:h-14 text-white fill-current"
+          >
+            <path d="M1200 0L0 120H1200V0Z" />
+          </svg>
         </div>
-
-        {/* Submission Callout Card */}
-        <div className="bg-slate-900 text-white rounded-3xl p-8 sm:p-10 space-y-6 shadow-xl text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white">
-            Submit a Product for Evaluation
-          </h2>
-          <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto leading-relaxed">
-            Please include product spec sheets, UK retail pricing in GBP, distribution channels, and press kit links in your outreach.
-          </p>
-
-          <div className="pt-2">
-            <a
-              href="mailto:contact@bestproductverdict.co.uk?subject=Product Lab Submission - [Brand Name]"
-              className="inline-flex items-center gap-2 px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl shadow-lg transition-all"
-            >
-              <Send className="w-4 h-4" />
-              <span>Email Partnerships Desk (contact@bestproductverdict.co.uk)</span>
-            </a>
-          </div>
-
-          <div className="pt-2 text-xs text-slate-400 border-t border-slate-800">
-            Postal Address for Hardware Submissions: Best Product Verdict Ltd, 71-75 Shelton Street, Covent Garden, London, WC2H 9JQ, UK
-          </div>
-        </div>
-
       </div>
 
+      {/* Form Section */}
+      <div id="partners" className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-10 scroll-mt-20">
+        <div className="text-center space-y-3">
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+            Seamless Partnerships
+          </h2>
+          <p className="text-base sm:text-lg text-slate-600 max-w-xl mx-auto leading-relaxed">
+            If you have a product (or products) that you want to share with the world, we&apos;d love to hear from you.
+          </p>
+        </div>
+
+        {/* Form Card */}
+        <div className="bg-white rounded-3xl border border-slate-200 p-8 sm:p-10 shadow-sm">
+          {status === "success" ? (
+            <div className="p-8 rounded-2xl bg-teal-50 border border-teal-200 text-teal-900 text-center space-y-4 animate-fadeIn">
+              <div className="w-14 h-14 rounded-full bg-[#00c092] text-white flex items-center justify-center mx-auto shadow-md">
+                <CheckCircle2 className="w-8 h-8 stroke-[2.5]" />
+              </div>
+              <h3 className="text-xl font-bold">
+                Thank you!
+              </h3>
+              <p className="text-sm text-teal-800 leading-relaxed max-w-md mx-auto">
+                We will get back to you soon if we&apos;re interested, usually within 24 hours.
+              </p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label htmlFor="name" className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide">
+                    Name<span className="text-red-500 ml-0.5">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Your Name"
+                    required
+                    className="w-full px-4 py-2.5 bg-white text-slate-900 placeholder-slate-400 text-sm rounded-lg border border-slate-300 focus:border-[#0087ee] focus:ring-2 focus:ring-[#0087ee]/20 focus:outline-none transition-all"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide">
+                    Email<span className="text-red-500 ml-0.5">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Your Email"
+                    required
+                    className="w-full px-4 py-2.5 bg-white text-slate-900 placeholder-slate-400 text-sm rounded-lg border border-slate-300 focus:border-[#0087ee] focus:ring-2 focus:ring-[#0087ee]/20 focus:outline-none transition-all"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label htmlFor="company" className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide">
+                    Company<span className="text-red-500 ml-0.5">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
+                    placeholder="Your Company"
+                    required
+                    className="w-full px-4 py-2.5 bg-white text-slate-900 placeholder-slate-400 text-sm rounded-lg border border-slate-300 focus:border-[#0087ee] focus:ring-2 focus:ring-[#0087ee]/20 focus:outline-none transition-all"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="country" className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide">
+                    Country<span className="text-red-500 ml-0.5">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="country"
+                    name="country"
+                    value={formData.country}
+                    onChange={handleChange}
+                    placeholder="Your Country"
+                    required
+                    className="w-full px-4 py-2.5 bg-white text-slate-900 placeholder-slate-400 text-sm rounded-lg border border-slate-300 focus:border-[#0087ee] focus:ring-2 focus:ring-[#0087ee]/20 focus:outline-none transition-all"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wide">
+                  Message<span className="text-red-500 ml-0.5">*</span>
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={5}
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Message"
+                  required
+                  className="w-full px-4 py-2.5 bg-white text-slate-900 placeholder-slate-400 text-sm rounded-lg border border-slate-300 focus:border-[#0087ee] focus:ring-2 focus:ring-[#0087ee]/20 focus:outline-none transition-all"
+                />
+              </div>
+
+              {status === "error" && (
+                <p className="text-red-500 text-xs font-semibold">
+                  {errorMessage}
+                </p>
+              )}
+
+              <div className="pt-2">
+                <button
+                  type="submit"
+                  disabled={status === "loading"}
+                  className="px-8 py-3.5 bg-[#0087ee] hover:bg-[#0077dd] text-white font-extrabold text-sm uppercase tracking-wider rounded-lg shadow-md hover:shadow-lg transition-all cursor-pointer disabled:opacity-50"
+                >
+                  {status === "loading" ? "Sending..." : "Send Message"}
+                </button>
+              </div>
+            </form>
+          )}
+        </div>
+      </div>
     </div>
   );
 }

@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Check, Search, Menu, X, ShieldCheck } from "lucide-react";
-import { DisclosureModal } from "./DisclosureModal";
 
 export const Header: React.FC = () => {
   const router = useRouter();
@@ -23,74 +22,67 @@ export const Header: React.FC = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-40 w-full bg-white border-b border-slate-200 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4 sm:gap-6">
+      {/* Top accent gradient line bar */}
+      <div className="top-line-bar" />
+
+      {/* Main sticky navigation header */}
+      <header className="header-cp">
+        <div className="header-inner">
           {/* Logo on the left */}
-          <Link href="/" className="flex items-center gap-2.5 shrink-0 group">
-            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#00c092] flex items-center justify-center text-white shadow-sm group-hover:scale-105 transition-transform">
+          <Link href="/" className="brand-logo-cp group">
+            <div className="brand-logo-circle">
               <Check className="w-5 h-5 text-white stroke-[3]" />
             </div>
-            <div className="flex items-baseline gap-1">
-              <span className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
-                Best Product
-              </span>
-              <span className="text-xl sm:text-2xl font-extrabold text-[#00c092] tracking-tight">
-                Verdict
-              </span>
+            <div className="brand-title-text">
+              Best Product <span className="brand-title-highlight">Verdict</span>
             </div>
           </Link>
 
-          {/* Search bar in the center */}
-          <div className="hidden md:flex flex-1 max-w-md mx-4">
-            <form onSubmit={handleSearchSubmit} className="w-full">
-              <div className="relative flex items-center w-full border border-slate-300 rounded-lg overflow-hidden bg-white shadow-sm focus-within:ring-2 focus-within:ring-[#00c092]/30 focus-within:border-[#00c092] transition-all">
-                <Search className="w-4 h-4 text-slate-400 shrink-0 ml-3 mr-1" />
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search for products..."
-                  className="w-full py-2 px-2 text-sm text-slate-800 placeholder-slate-400 bg-transparent focus:outline-none"
-                />
-                <button
-                  type="submit"
-                  className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs border-l border-slate-200 transition-colors shrink-0 cursor-pointer"
-                >
-                  Search
-                </button>
-              </div>
+          {/* Search bar in the center (ConsumerPicks Webflow classes) */}
+          <div className="hidden md:flex flex-1 max-w-sm mx-4">
+            <form onSubmit={handleSearchSubmit} className="search-2-6-cfddsfd">
+              <Search className="w-4 h-4 text-slate-400 shrink-0 ml-3 mr-1" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search for products..."
+                className="search-input-2-copy-co"
+              />
+              <button type="submit" className="search-button-2-copy-co">
+                Search
+              </button>
             </form>
           </div>
 
           {/* Right nav links */}
-          <nav className="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-600">
-            <Link
-              href="/top-10"
-              className="hover:text-slate-900 transition-colors py-1"
-            >
-              Top Pick
-            </Link>
-
-            <Link
-              href="/top-10/best-cordless-water-flossers"
-              className="hover:text-slate-900 transition-colors py-1"
-            >
-              Best Deal
-            </Link>
-
-            <button
-              onClick={() => setIsDisclosureOpen(true)}
-              className="hover:text-slate-900 transition-colors py-1 cursor-pointer font-medium text-slate-600"
-            >
-              Ad Disclosure
-            </button>
-
-            <Link
-              href="/contact"
-              className="hover:text-slate-900 transition-colors py-1"
-            >
-              Contact
-            </Link>
+          <nav className="hidden lg:flex items-center gap-6">
+            <ul className="nav-menu-cp">
+              <li>
+                <Link href="/top-10" className="nav-link-cp">
+                  Top Pick
+                </Link>
+              </li>
+              <li>
+                <Link href="/top-10/best-cordless-water-flossers" className="nav-link-cp">
+                  Best Deal
+                </Link>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => setIsDisclosureOpen(true)}
+                  className="nav-link-cp"
+                >
+                  Ad Disclosure
+                </button>
+              </li>
+              <li>
+                <Link href="/contact" className="nav-link-cp">
+                  Contact
+                </Link>
+              </li>
+            </ul>
           </nav>
 
           {/* Mobile Hamburger Button */}
@@ -109,23 +101,18 @@ export const Header: React.FC = () => {
         {isMobileMenuOpen && (
           <div className="lg:hidden bg-white border-t border-slate-200 px-4 py-5 space-y-4 shadow-lg animate-fadeIn">
             {/* Mobile Search Bar */}
-            <form onSubmit={handleSearchSubmit} className="w-full">
-              <div className="relative flex items-center w-full border border-slate-300 rounded-lg overflow-hidden bg-white shadow-sm focus-within:ring-2 focus-within:ring-[#00c092]/30 focus-within:border-[#00c092]">
-                <Search className="w-4 h-4 text-slate-400 shrink-0 ml-3 mr-1" />
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search for products..."
-                  className="w-full py-2 px-2 text-sm text-slate-800 placeholder-slate-400 bg-transparent focus:outline-none"
-                />
-                <button
-                  type="submit"
-                  className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs border-l border-slate-200 transition-colors shrink-0"
-                >
-                  Search
-                </button>
-              </div>
+            <form onSubmit={handleSearchSubmit} className="search-2-6-cfddsfd w-full max-w-none">
+              <Search className="w-4 h-4 text-slate-400 shrink-0 ml-3 mr-1" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search for products..."
+                className="search-input-2-copy-co"
+              />
+              <button type="submit" className="search-button-2-copy-co">
+                Search
+              </button>
             </form>
 
             <div className="pt-2 space-y-2 text-sm font-semibold text-slate-800">
@@ -144,6 +131,7 @@ export const Header: React.FC = () => {
                 Best Deal
               </Link>
               <button
+                type="button"
                 onClick={() => {
                   setIsMobileMenuOpen(false);
                   setIsDisclosureOpen(true);
@@ -194,8 +182,49 @@ export const Header: React.FC = () => {
         )}
       </header>
 
-      {/* Reusable Disclosure Modal */}
-      <DisclosureModal isOpen={isDisclosureOpen} onClose={() => setIsDisclosureOpen(false)} />
+      {/* Interactive Disclosure modal popup (ConsumerPicks Webflow classes) */}
+      {isDisclosureOpen && (
+        <div
+          className="disclosureboxbanks popupbank1 popup"
+          onClick={() => setIsDisclosureOpen(false)}
+        >
+          <div
+            className="disclosure-card-inner"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="disclosure-card-title">Advertiser &amp; Editorial Disclosure</h3>
+              <button
+                type="button"
+                onClick={() => setIsDisclosureOpen(false)}
+                className="text-slate-400 hover:text-slate-700 p-1 rounded transition-colors"
+                aria-label="Close"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <p className="disclosure-card-text">
+              If you buy a product after clicking one of our links, we may be paid a commission at no extra cost to you. Best Product Verdict is an independent product comparison service funded by affiliate referral partnerships. Our ratings, scores, and rankings are calculated using objective editorial testing and verified review analytics.
+            </p>
+            <div className="flex items-center justify-between pt-2">
+              <Link
+                href="/advertiser-disclosure"
+                onClick={() => setIsDisclosureOpen(false)}
+                className="text-xs text-blue-600 hover:underline font-semibold"
+              >
+                Read Full Disclosure Policy &rarr;
+              </Link>
+              <button
+                type="button"
+                onClick={() => setIsDisclosureOpen(false)}
+                className="disclosure-got-it-btn"
+              >
+                Okay, I Got It!
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };

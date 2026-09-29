@@ -26,6 +26,108 @@ export interface CategoryData {
   topPicksPreview: CategoryProductSample[];
 }
 
+export interface CategoryLink {
+  name: string;
+  href: string;
+  isLive?: boolean;
+}
+
+export interface CategoryColumn {
+  title: string;
+  image: string;
+  links: CategoryLink[];
+}
+
+export const HOMEPAGE_CATEGORIES: CategoryColumn[] = [
+  {
+    title: "Electronics",
+    image: "https://cdn.prod.website-files.com/5f7e8a87830b40158201fbd2/679202a3ea6c69e3fbccfbef_airpurifiersimg1compressed.png",
+    links: [
+      { name: "Air Purifiers", href: "/search?query=air+purifiers" },
+      { name: "Cordless Vacuums", href: "/search?query=cordless+vacuums" },
+      { name: "Dash Cams", href: "/search?query=dash+cams" },
+      { name: "Smart Rings", href: "/search?query=smart+rings" },
+      { name: "Digital Picture Frames", href: "/search?query=digital+picture+frames" },
+      { name: "Headphones", href: "/search?query=headphones" },
+      { name: "WiFi Mesh Systems", href: "/search?query=wifi+mesh+systems" },
+      { name: "Projectors", href: "/search?query=projectors" },
+      { name: "Foot Massagers", href: "/search?query=foot+massagers" },
+      { name: "Power Stations", href: "/search?query=power+stations" },
+      { name: "Solar Generators", href: "/search?query=solar+generators" },
+    ],
+  },
+  {
+    title: "Home",
+    image: "https://cdn.prod.website-files.com/5f7e8a87830b40158201fbd2/61fa2577aa75261556c0830a_robotvacuumarticlepicture.png",
+    links: [
+      { name: "Robot Vacuums", href: "/search?query=robot+vacuums" },
+      { name: "Dehumidifiers", href: "/search?query=dehumidifiers" },
+      { name: "Humidifiers", href: "/search?query=humidifiers" },
+      { name: "Shower Heads", href: "/search?query=shower+heads" },
+      { name: "Steam Mops", href: "/search?query=steam+mops" },
+      { name: "Office Chairs", href: "/search?query=office+chairs" },
+      { name: "RO Filters", href: "/search?query=reverse+osmosis+filters" },
+      { name: "Doorbell Cameras", href: "/search?query=doorbell+cameras" },
+      { name: "Space Heaters", href: "/search?query=space+heaters" },
+      { name: "Smart Locks", href: "/search?query=smart+locks" },
+      { name: "Welding Machines", href: "/search?query=welding+machines" },
+    ],
+  },
+  {
+    title: "Kitchen",
+    image: "https://cdn.prod.website-files.com/5f7e8a87830b40158201fbd2/6731c96fc697748004828771_toasterovenpicturecompressed.png",
+    links: [
+      { name: "Wireless Meat Thermometers", href: "/top-10/best-wireless-meat-thermometers", isLive: true },
+      { name: "Espresso Machines", href: "/search?query=espresso+machines" },
+      { name: "Toaster Ovens", href: "/search?query=toaster+ovens" },
+      { name: "Air Fryers", href: "/search?query=air+fryers" },
+      { name: "Ice Makers", href: "/search?query=ice+makers" },
+      { name: "Blenders", href: "/search?query=blenders" },
+      { name: "Dutch Ovens", href: "/search?query=dutch+ovens" },
+      { name: "Slushie Machines", href: "/search?query=slushie+machines" },
+      { name: "Frying Pans", href: "/search?query=frying+pans" },
+      { name: "Food Processors", href: "/search?query=food+processors" },
+      { name: "Yogurt Makers", href: "/search?query=yogurt+makers" },
+      { name: "Vacuum Sealers", href: "/search?query=vacuum+sealers" },
+    ],
+  },
+  {
+    title: "Lifestyle",
+    image: "https://cdn.prod.website-files.com/5f7e8a87830b40158201fbd2/6792033f270bfd71a44a228e_hairclipperfcompressed.png",
+    links: [
+      { name: "Cordless Water Flossers", href: "/top-10/best-cordless-water-flossers", isLive: true },
+      { name: "Mini Massage Guns", href: "/top-10/best-mini-massage-guns", isLive: true },
+      { name: "Hair Clippers", href: "/search?query=hair+clippers" },
+      { name: "Hair Straighteners", href: "/search?query=hair+straighteners" },
+      { name: "Hair Dryers", href: "/search?query=hair+dryers" },
+      { name: "Electric Toothbrushes", href: "/search?query=electric+toothbrushes" },
+      { name: "Curling Irons", href: "/search?query=curling+irons" },
+      { name: "Exercise Bikes", href: "/search?query=exercise+bikes" },
+      { name: "Teeth Whitening Kits", href: "/search?query=teeth+whitening+kits" },
+      { name: "Steam Irons", href: "/search?query=steam+irons" },
+      { name: "Red Light Masks", href: "/search?query=red+light+masks" },
+      { name: "Deep Wavers", href: "/search?query=deep+wavers" },
+    ],
+  },
+  {
+    title: "Other",
+    image: "https://cdn.prod.website-files.com/5f7e8a87830b40158201fbd2/67f74a0a261184f880685d3a_poolvacuumfcompressed.png",
+    links: [
+      { name: "Pool Vacuums", href: "/search?query=pool+vacuums" },
+      { name: "Pool Skimmers", href: "/search?query=pool+skimmers" },
+      { name: "Laser Levels", href: "/search?query=laser+levels" },
+      { name: "Vibration Plates", href: "/search?query=vibration+plates" },
+      { name: "Water Flossers", href: "/top-10/best-cordless-water-flossers", isLive: true },
+      { name: "Jump Starters", href: "/search?query=jump+starters" },
+      { name: "Neck Massagers", href: "/search?query=neck+massagers" },
+      { name: "Weight Benches", href: "/search?query=weight+benches" },
+      { name: "Back Massagers", href: "/search?query=back+massagers" },
+      { name: "NAS Devices", href: "/search?query=nas+devices" },
+      { name: "Borescopes", href: "/search?query=borescopes" },
+    ],
+  },
+];
+
 export const CATEGORIES: CategoryData[] = [
   {
     id: "wireless-meat-thermometers",
@@ -57,9 +159,9 @@ export const CATEGORIES: CategoryData[] = [
     ],
     keyFactors: ["Thermal Accuracy (±0.1°C)", "Wireless Transmission Range", "Probe Diameter & Meat Insertion", "Companion App Alerts"],
     topPicksPreview: [
-      { name: "ThermoPro TempSpike Pro Wireless", badge: "Best Overall 2026", rating: "9.9", priceEstimate: "£69.99", highlight: "500ft sub-GHz ultra-stable range & 100% wire-free" },
-      { name: "MEATER Plus Smart Meat Thermometer", badge: "Runner-Up", rating: "9.7", priceEstimate: "£79.00", highlight: "Guided cook system & dual internal/ambient sensors" },
-      { name: "Inkbird INT-11P-B Ultra-Thin Probe", badge: "Best Value", rating: "9.5", priceEstimate: "£49.99", highlight: "Super-slim 5.5mm probe prevents moisture escape" }
+      { name: "Chef IQ Smart Wireless Thermometer", badge: "Best Overall 2026", rating: "9.9", priceEstimate: "£79.99", highlight: "Ultra-thin 3.9mm probe with infinite cloud Wi-Fi range" },
+      { name: "Typhur Sync 2-Probe System", badge: "Runner-Up", rating: "9.7", priceEstimate: "£149.99", highlight: "Sub-1G penetration frequency & NIST-traceable accuracy" },
+      { name: "ThermoMaven Pro Smart Thermometer", badge: "Lab-Grade Precision", rating: "9.6", priceEstimate: "£119.99", highlight: "NIST-certified 6-sensor array with rest-time prediction" }
     ]
   },
   {
@@ -92,9 +194,9 @@ export const CATEGORIES: CategoryData[] = [
     ],
     keyFactors: ["Water Jet PSI Calibration (30-120 PSI)", "Pulse Modulation Frequency", "Reservoir Fill Volume (200-300ml)", "Battery Runtime & USB-C Fast Charging"],
     topPicksPreview: [
-      { name: "Waterpik Cordless Advanced WP-560UK", badge: "Best Overall 2026", rating: "9.9", priceEstimate: "£89.99", highlight: "Rapid magnetic charging, 3 pressure modes & 4 tips" },
-      { name: "Oral-B Aquacare 6 Pro-Expert Oxyjet", badge: "Best for Sensitive Gums", rating: "9.6", priceEstimate: "£64.99", highlight: "Micro-bubble enriched water stream for deep gumline care" },
-      { name: "Miroooo HydroPulse Pro Ultrasonic Flosser", badge: "Best Value", rating: "9.5", priceEstimate: "£39.99", highlight: "300ml high-capacity tank with 40-day battery runtime" }
+      { name: "Coslus C20 Cordless Oral Flosser", badge: "Best Overall 2026", rating: "9.9", priceEstimate: "£29.99", highlight: "ADA accepted with 300ml reservoir and 40-day battery runtime" },
+      { name: "Coslus E40 Pro Adjustable Flosser", badge: "Runner-Up", rating: "9.7", priceEstimate: "£39.99", highlight: "10-stage pressure control with wide-aperture reservoir" },
+      { name: "usmile C30 Portable Flosser", badge: "Best Ergonomic Jet", rating: "9.6", priceEstimate: "£44.99", highlight: "Patented S-shaped curved nozzle with 5 smart cleaning modes" }
     ]
   },
   {
@@ -126,9 +228,9 @@ export const CATEGORIES: CategoryData[] = [
     ],
     keyFactors: ["Stall Force Resistance (25-40 lbs)", "Percussion Stroke Amplitude (8-12mm)", "Acoustic Decibel Output (<45 dB)", "Aerospace-Grade Weight (<500g)"],
     topPicksPreview: [
-      { name: "Theragun Mini 2nd Generation", badge: "Best Overall 2026", rating: "9.8", priceEstimate: "£149.00", highlight: "12mm amplitude with proprietary QuietForce technology" },
-      { name: "Hyperice Hypervolt Go 2", badge: "Runner-Up", rating: "9.6", priceEstimate: "£129.00", highlight: "Ergonomic angled grip with TSA carry-on approval" },
-      { name: "Bob and Brad Q2 Mini Massager", badge: "Best Value", rating: "9.5", priceEstimate: "£59.99", highlight: "Designed by renowned physical therapists, 3200 RPM" }
+      { name: "Renpho Active Thermacool 2", badge: "Best Overall 2026", rating: "9.9", priceEstimate: "£79.99", highlight: "Active Peltier heat 45°C & cold 8°C with 30 lbs stall force" },
+      { name: "Renpho Active Thermacool Deluxe", badge: "Runner-Up", rating: "9.7", priceEstimate: "£99.99", highlight: "Desktop magnetic charging stand with 6 therapeutic attachments" },
+      { name: "Bob & Brad C2 Deep Tissue Massager", badge: "Physio Approved", rating: "9.6", priceEstimate: "£69.99", highlight: "Designed by renowned physical therapists with 35 lbs torque" }
     ]
   },
   {

@@ -35,13 +35,20 @@ export default function BestCordlessWaterFlossersPage() {
   const data = waterFlossersData;
 
   return (
-    <div className="w-full bg-[#f7f9fb] pb-16">
+    <div className="w-full bg-[#f7f9fb] pb-16 relative overflow-hidden">
+      {/* Floating Background Circles */}
+      <div className="bg-circle _1" />
+      <div className="bg-circle _2" />
+      <div className="bg-circle _3" />
+      <div className="bg-circle _4" />
+      <div className="bg-circle _5" />
+
       {/* Schema Markup for SEO */}
       <JsonLdSchema data={data} />
 
-      {/* Hero Section Container */}
-      <div className="bg-white border-b border-slate-200">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-8">
+      {/* Hero Section Container (ConsumerPicks Webflow classes) */}
+      <div className="hero__section">
+        <div className="section-deals">
           {/* 1. Breadcrumbs: Home / Top 10 / [Category Name] */}
           <nav className="flex items-center gap-2 text-xs text-slate-500 mb-3" aria-label="Breadcrumb">
             <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
@@ -52,28 +59,34 @@ export default function BestCordlessWaterFlossersPage() {
           </nav>
 
           {/* 2. Top Subheader: 🇬🇧 Updated: September 2026 */}
-          <div className="flex items-center gap-2 text-xs font-semibold text-slate-600 mb-4">
-            <span className="text-sm" role="img" aria-label="UK Flag">🇬🇧</span>
-            <span>Updated: {data.updatedDate}</span>
+          <div className="flag-updated-row">
+            <span className="flag-emoji" role="img" aria-label="UK Flag">🇬🇧</span>
+            <span className="updated-date-pill">Updated: {data.updatedDate}</span>
           </div>
 
-          {/* 3. Headline with left vertical cyan/teal bar | */}
-          <div className="flex items-center gap-3 sm:gap-4 mb-5">
-            <div className="w-1.5 h-10 sm:h-14 bg-teal-500 rounded-full shrink-0" />
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-              Top 10 {data.categoryName} - Compared &amp; Ranked By Experts
-            </h1>
-          </div>
+          {/* 3. Headline with left vertical teal accent bar | */}
+          <h1 className="title-main-desktop-copy">
+            <span className="teal-vertical-line" />
+            <span>Top 10 {data.categoryName} - Compared &amp; Ranked By Experts</span>
+          </h1>
+          <h1 className="title-main-mobile-top10">
+            Top 10 {data.categoryName} - Compared &amp; Ranked By Experts
+          </h1>
 
-          {/* 4 & 5. Proof Pills bar & Trust Pills */}
-          <ProofTrustBar />
+          {/* 4 & 5. Proof Pills bar, Trust Pills & Author Strip */}
+          <ProofTrustBar
+            categoryName={data.categoryName}
+            updatedDate={data.updatedDate}
+            authorName={data.author.name}
+            auditorName="Dr. Eleanor Vance"
+          />
         </div>
       </div>
 
       {/* Main Content Area */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 relative z-10">
         {/* 6. Product Cards list (1 to 10) */}
-        <div className="space-y-6">
+        <div className="space-y-4">
           {data.products.map((product) => (
             <ProductCard
               key={product.rank}
@@ -99,19 +112,14 @@ export default function BestCordlessWaterFlossersPage() {
           avatarUrl={data.author.avatarUrl || "/images/david-welch.jpg"}
         />
 
-        {/* 9. Comparison Table & Full In-Depth Buying Guide */}
+        {/* 9. Side-by-side comparison table */}
         <ComparisonTable products={data.products} categoryName={data.categoryName} />
 
-        <BuyingGuide
-          guide={data.guide}
-          authorName={data.author.name}
-          authorRole={data.author.role}
-        />
+        {/* 10. Comprehensive UK Buying Guide */}
+        <BuyingGuide guide={data.guide} authorName={data.author.name} authorRole={data.author.role} />
 
-        {/* 10. "Sign Up For Our Newsletter" box */}
-        <div className="mt-14">
-          <NewsletterBox />
-        </div>
+        {/* 11. Newsletter Box */}
+        <NewsletterBox />
       </div>
     </div>
   );

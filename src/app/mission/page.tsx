@@ -1,179 +1,147 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { 
-  Target, 
-  ShieldCheck, 
-  Award, 
-  CheckCircle2, 
-  XCircle, 
-  Sparkles, 
-  Scale, 
-  Lock, 
-  HelpCircle,
-  ArrowRight
-} from "lucide-react";
+import { NewsletterBox } from "@/components/NewsletterBox";
 
 export const metadata: Metadata = {
-  title: "Our Editorial Mission & Zero-Sponsorship Pledge | Best Product Verdict UK",
+  title: "Our Mission - Consumer Picks",
   description:
-    "Learn about our strict editorial integrity code, zero pay-for-placement pledge, and independent testing standards for UK shoppers.",
+    "Making Online Shopping Better For All. Discover how Consumer Picks evaluates thousands of products, finds exclusive deals, and saves you time and money.",
 };
 
 export default function MissionPage() {
-  const editorialPillars = [
-    {
-      title: "1. 100% Anonymous Unit Acquisition",
-      desc: "We do not accept specially selected 'review samples' sent directly from manufacturers. Every unit tested is bought off the shelf or ordered through public retailers at regular pricing.",
-      icon: Lock,
-    },
-    {
-      title: "2. Zero Pay-to-Rank Policy",
-      desc: "No manufacturer or marketing agency can pay to improve their rank, delete a critical flaw, or secure a '#1 Best Overall' verdict. Placements are determined solely by lab metrics.",
-      icon: ShieldCheck,
-    },
-    {
-      title: "3. Calibrated UK Testing Context",
-      desc: "We test against British 230V mains voltage, UK water hardness ratings, domestic kitchen appliances, and UK warranty service standards.",
-      icon: Award,
-    },
-    {
-      title: "4. Total Commercial Transparency",
-      desc: "We disclose all affiliate relationships clearly in accordance with UK Advertising Standards Authority (ASA) and FTC codes. Commissions never influence product ratings.",
-      icon: Scale,
-    },
-    {
-      title: "5. Fact-Checking & Open Corrections",
-      desc: "If a manufacturer issues a firmware patch, rectifies a hardware flaw, or alters pricing, we welcome documented correction requests to keep our guides accurate.",
-      icon: CheckCircle2,
-    },
-  ];
-
   return (
-    <div className="w-full bg-[#f7f9fb] py-12 space-y-16">
-      
-      {/* Hero Header */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-        <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-teal-800 bg-teal-50 px-3.5 py-1.5 rounded-full border border-teal-200">
-          <Target className="w-4 h-4 text-teal-600" />
-          <span>Consumer Advocacy &amp; Integrity</span>
-        </div>
-
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
-          Our Editorial Mission &amp; Ethics Pledge
-        </h1>
-
-        <p className="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-          We believe UK consumers deserve unvarnished truth before spending their hard-earned money on domestic hardware and wellness gear.
-        </p>
-      </div>
-
-      {/* Main Content Body */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        
-        {/* Zero-Sponsorship Pledge Box */}
-        <div className="bg-white rounded-3xl border border-slate-200 p-8 sm:p-10 shadow-sm space-y-6">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center">
-              <ShieldCheck className="w-6 h-6" />
-            </div>
-            <div>
-              <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
-                The Best Product Verdict Zero-Sponsorship Guarantee
-              </h2>
-              <span className="text-xs text-slate-400 font-medium">Non-Negotiable Editorial Code</span>
-            </div>
-          </div>
-
-          <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-            The modern internet is flooded with pay-to-play review websites that disguise affiliate ads as independent journalism. Best Product Verdict was founded as a direct countermeasure.
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-            <div className="p-5 rounded-2xl bg-red-50/60 border border-red-100 space-y-2">
-              <div className="flex items-center gap-2 text-red-800 font-bold text-sm">
-                <XCircle className="w-4 h-4 text-red-600" />
-                <span>What We NEVER Do:</span>
-              </div>
-              <ul className="text-xs text-red-700 space-y-1.5 list-disc list-inside">
-                <li>Accept paid placements or sponsored Top 10 rankings</li>
-                <li>Let brands preview or edit our reviews before publication</li>
-                <li>Give favorable coverage in exchange for free review hardware</li>
-                <li>Hide product downsides, noise issues, or failure points</li>
-              </ul>
-            </div>
-
-            <div className="p-5 rounded-2xl bg-emerald-50/60 border border-emerald-100 space-y-2">
-              <div className="flex items-center gap-2 text-emerald-800 font-bold text-sm">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                <span>What We ALWAYS Do:</span>
-              </div>
-              <ul className="text-xs text-emerald-700 space-y-1.5 list-disc list-inside">
-                <li>Acquire test units anonymously at full retail cost</li>
-                <li>Run identical instrumented bench tests on all contenders</li>
-                <li>Disclose all affiliate funding mechanisms upfront</li>
-                <li>Update our guides when new firmware or models release</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        {/* 5 Core Pillars */}
-        <div className="space-y-6">
-          <div className="space-y-1">
-            <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
-              Editorial Tenets
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-              The 5 Pillars of Our Editorial Code
-            </h2>
-          </div>
-
-          <div className="space-y-4">
-            {editorialPillars.map((pillar, idx) => {
-              const Icon = pillar.icon;
-              return (
-                <div
-                  key={idx}
-                  className="bg-white rounded-2xl border border-slate-200 p-6 flex flex-col sm:flex-row items-start gap-4 shadow-sm hover:border-blue-300 transition-colors"
-                >
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <div className="space-y-1">
-                    <h3 className="font-bold text-base text-slate-900">
-                      {pillar.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                      {pillar.desc}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Accountability & Contact CTA */}
-        <div className="bg-slate-900 text-white rounded-3xl p-8 sm:p-10 space-y-5 shadow-xl text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white">
-            Holding Us Accountable
-          </h2>
-          <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto leading-relaxed">
-            If you ever believe a review has fallen short of these standards, or if you spot a factual error, our senior editor welcomes your direct feedback.
-          </p>
-          <div className="pt-2">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl shadow-md transition-colors"
+    <div className="w-full bg-white text-slate-900">
+      {/* Hero Section */}
+      <div className="relative w-full bg-gradient-to-r from-[#00d6b6] via-[#00bfa5] to-[#0087ee] text-white pt-20 pb-28 px-4 sm:px-6 lg:px-8 text-center overflow-hidden">
+        <div className="max-w-4xl mx-auto space-y-6 relative z-10">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight drop-shadow-sm">
+            Making Online Shopping Better For All
+          </h1>
+          <div>
+            <a
+              href="#scroll"
+              className="inline-block bg-white hover:bg-slate-50 text-slate-900 font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5"
             >
-              <span>Contact Senior Editorial Desk</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+              Learn How
+            </a>
           </div>
         </div>
 
+        {/* Sharp Bottom Divider */}
+        <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-none pointer-events-none">
+          <svg
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+            className="relative block w-full h-10 sm:h-14 text-white fill-current"
+          >
+            <path d="M1200 0L0 120H1200V0Z" />
+          </svg>
+        </div>
       </div>
 
+      {/* Section 1: Exclusive Deals */}
+      <section id="scroll" className="w-full py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b border-slate-100">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12 lg:gap-16">
+          <div className="order-2 md:order-1 flex justify-center">
+            <div className="w-full max-w-md bg-gradient-to-tr from-teal-50 to-blue-50 p-8 rounded-3xl border border-teal-100/60 shadow-sm flex items-center justify-center">
+              <svg className="w-64 h-64 text-teal-600" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="200" cy="200" r="160" fill="#00c092" fillOpacity="0.12" />
+                <path d="M120 180C120 135.817 155.817 100 200 100C244.183 100 280 135.817 280 180V280H120V180Z" fill="#0087ee" fillOpacity="0.15" />
+                <path d="M160 220L190 250L250 170" stroke="#00c092" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round" />
+                <circle cx="280" cy="140" r="24" fill="#f59e0b" />
+                <path d="M275 140H285M280 135V145" stroke="white" strokeWidth="4" strokeLinecap="round" />
+              </svg>
+            </div>
+          </div>
+          <div className="order-1 md:order-2 space-y-4 text-left">
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+              <span className="text-[#00c092] border-b-4 border-[#00c092] pb-1">
+                Exclusive Deals
+              </span>
+            </h2>
+            <p className="text-slate-600 text-lg sm:text-xl leading-relaxed pt-2">
+              We work hard to promote products that offer great value at unbeatable prices. Our in-house team is constantly watching for the latest deals and discounts.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2: Thousands Of Products */}
+      <section id="learn-more" className="w-full py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-slate-50/60 border-b border-slate-100">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12 lg:gap-16">
+          <div className="space-y-4 text-left">
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+              Thousands Of Products
+            </h2>
+            <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+              New products are ranked and reviewed every day using dozens of data points to evaluate each unique item.
+            </p>
+          </div>
+          <div className="flex justify-center">
+            <div className="w-full max-w-md bg-white p-8 rounded-3xl border border-slate-200 shadow-sm flex items-center justify-center">
+              <svg className="w-64 h-64 text-blue-600" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="70" y="90" width="110" height="90" rx="16" fill="#0087ee" fillOpacity="0.15" />
+                <rect x="220" y="90" width="110" height="90" rx="16" fill="#00c092" fillOpacity="0.15" />
+                <rect x="70" y="220" width="110" height="90" rx="16" fill="#f59e0b" fillOpacity="0.15" />
+                <rect x="220" y="220" width="110" height="90" rx="16" fill="#8b5cf6" fillOpacity="0.15" />
+                <circle cx="125" cy="135" r="20" fill="#0087ee" />
+                <circle cx="275" cy="135" r="20" fill="#00c092" />
+                <circle cx="125" cy="265" r="20" fill="#f59e0b" />
+                <circle cx="275" cy="265" r="20" fill="#8b5cf6" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3: Saves You Time */}
+      <section className="w-full py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white border-b border-slate-100">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12 lg:gap-16">
+          <div className="order-2 md:order-1 flex justify-center">
+            <div className="w-full max-w-md bg-gradient-to-tr from-blue-50 to-teal-50 p-8 rounded-3xl border border-slate-200 shadow-sm flex items-center justify-center">
+              <svg className="w-64 h-64 text-blue-600" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="200" cy="200" r="130" stroke="#0087ee" strokeWidth="16" />
+                <path d="M200 120V200L250 230" stroke="#00c092" strokeWidth="16" strokeLinecap="round" />
+                <circle cx="200" cy="200" r="16" fill="#0087ee" />
+              </svg>
+            </div>
+          </div>
+          <div className="order-1 md:order-2 space-y-4 text-left">
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+              Saves You Time
+            </h2>
+            <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+              Online shopping is difficult. We break down the essentials so that you can know which products meet your needs.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 4: Connecting You With The Products You Love */}
+      <section className="w-full py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-slate-50/60">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12 lg:gap-16">
+          <div className="space-y-4 text-left">
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+              Connecting You With The Products You Love
+            </h2>
+            <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+              Accessible deals are often hidden from consumers to maximize profits. Shop more for less with Consumer Picks.
+            </p>
+          </div>
+          <div className="flex justify-center">
+            <div className="w-full max-w-md bg-white p-8 rounded-3xl border border-slate-200 shadow-sm flex items-center justify-center">
+              <svg className="w-64 h-64 text-teal-600" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M100 280C100 200 200 120 300 120C300 200 200 280 100 280Z" fill="#00c092" fillOpacity="0.2" />
+                <circle cx="200" cy="200" r="50" fill="#0087ee" />
+                <path d="M185 200L195 210L215 190" stroke="white" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter Box */}
+      <NewsletterBox />
     </div>
   );
 }
