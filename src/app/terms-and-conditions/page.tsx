@@ -64,10 +64,10 @@ export default function TermsAndConditionsPage() {
                   <strong>&quot;Affiliate&quot;</strong> means an entity that controls, is controlled by or is under common control with a party, where &quot;control&quot; means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.
                 </p>
                 <p>
-                  <strong>&quot;Company&quot;</strong> (referred to as either &quot;the Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot; in this Agreement) refers to Nation Videos Corporation, doing business as Consumer Picks.
+                  <strong>&quot;Company&quot;</strong> (referred to as either &quot;the Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot; in this Agreement) refers to Best Product Verdict.
                 </p>
                 <p>
-                  <strong>&quot;Country&quot;</strong> refers to: United States
+                  <strong>&quot;Country&quot;</strong> refers to: United Kingdom
                 </p>
                 <p>
                   <strong>&quot;Device&quot;</strong> means any device that can access the Service such as a computer, a cell phone or a digital tablet.
@@ -82,7 +82,7 @@ export default function TermsAndConditionsPage() {
                   <strong>&quot;Third-party Social Media Service&quot;</strong> means any services or content (including data, information, products or services) provided by a third-party that may be displayed, included or made available by the Service.
                 </p>
                 <p>
-                  <strong>&quot;Website&quot;</strong> refers to Consumer Picks, accessible from https://www.consumerpicks.org
+                  <strong>&quot;Website&quot;</strong> refers to Best Product Verdict, accessible from https://www.bestproductverdict.co.uk
                 </p>
                 <p>
                   <strong>&quot;You&quot;</strong> means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.

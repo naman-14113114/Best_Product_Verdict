@@ -3,9 +3,9 @@ import Link from "next/link";
 import { NewsletterBox } from "@/components/NewsletterBox";
 
 export const metadata: Metadata = {
-  title: "Our Mission - Consumer Picks",
+  title: "Our Mission - Best Product Verdict",
   description:
-    "Making Online Shopping Better For All. Discover how Consumer Picks evaluates thousands of products, finds exclusive deals, and saves you time and money.",
+    "Making Online Shopping Better For All. Discover how Best Product Verdict evaluates thousands of products, finds exclusive deals, and saves you time and money.",
 };
 
 export default function MissionPage() {

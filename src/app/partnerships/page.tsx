@@ -55,10 +55,10 @@ export default function PartnershipsPage() {
             </p>
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link
-                href="/partnerships"
+                href="/top-10"
                 className="px-6 py-3 bg-[#0087ee] hover:bg-[#0077dd] text-white font-bold text-sm rounded-lg shadow-md transition-all inline-flex items-center gap-2"
               >
-                <span>Partnerships</span>
+                <span>View Top 10 Guides</span>
                 <span>&raquo;</span>
               </Link>
               <a

@@ -56,7 +56,7 @@ export default function AdvertiserDisclosurePage() {
                 ² &quot;Sales&quot; refers to product deals and discounts.
               </p>
               <p>
-                ³ &quot;Commissions&quot; refers to compensation provided to Consumer Picks.
+                ³ &quot;Commissions&quot; refers to compensation provided to Best Product Verdict.
               </p>
             </div>
 

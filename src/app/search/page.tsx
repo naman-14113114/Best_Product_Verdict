@@ -31,85 +31,27 @@ function SearchContent() {
 
   const categoryDirectory = [
     {
-      group: "Electronics",
+      group: "Kitchen & Dining",
       links: [
-        { name: "Air Purifiers", href: "/search?query=Air+Purifiers" },
-        { name: "Cordless Vacuums", href: "/search?query=Cordless+Vacuums" },
-        { name: "Dash Cams", href: "/search?query=Dash+Cams" },
-        { name: "Smart Rings", href: "/search?query=Smart+Rings" },
-        { name: "Digital Picture Frames", href: "/search?query=Digital+Picture+Frames" },
-        { name: "Headphones", href: "/search?query=Headphones" },
-        { name: "WiFi Mesh Systems", href: "/search?query=WiFi+Mesh+Systems" },
-        { name: "Projectors", href: "/search?query=Projectors" },
-        { name: "Foot Massagers", href: "/search?query=Foot+Massagers" },
-        { name: "Power Stations", href: "/search?query=Power+Stations" },
-        { name: "Solar Generators", href: "/search?query=Solar+Generators" },
+        { name: "Top 10 Wireless Meat Thermometers", href: "/top-10/best-wireless-meat-thermometers" },
+        { name: "Smart Bluetooth Cooking Probes", href: "/top-10/best-wireless-meat-thermometers" },
+        { name: "WiFi Meat & Smoker Thermometers", href: "/top-10/best-wireless-meat-thermometers" },
       ],
     },
     {
-      group: "Home",
+      group: "Personal Care & Dental",
       links: [
-        { name: "Robot Vacuums", href: "/search?query=Robot+Vacuums" },
-        { name: "Dehumidifiers", href: "/search?query=Dehumidifiers" },
-        { name: "Humidifiers", href: "/search?query=Humidifiers" },
-        { name: "Shower Heads", href: "/search?query=Shower+Heads" },
-        { name: "Steam Mops", href: "/search?query=Steam+Mops" },
-        { name: "Office Chairs", href: "/search?query=Office+Chairs" },
-        { name: "RO Filters", href: "/search?query=RO+Filters" },
-        { name: "Doorbell Cameras", href: "/search?query=Doorbell+Cameras" },
-        { name: "Space Heaters", href: "/search?query=Space+Heaters" },
-        { name: "Smart Locks", href: "/search?query=Smart+Locks" },
-        { name: "Welding Machines", href: "/search?query=Welding+Machines" },
+        { name: "Top 10 Cordless Water Flossers", href: "/top-10/best-cordless-water-flossers" },
+        { name: "Rechargeable Oral Irrigators", href: "/top-10/best-cordless-water-flossers" },
+        { name: "Portable Water Jet Flossers", href: "/top-10/best-cordless-water-flossers" },
       ],
     },
     {
-      group: "Kitchen",
+      group: "Wellness & Recovery",
       links: [
-        { name: "Wireless Meat Thermometers", href: "/top-10/best-wireless-meat-thermometers" },
-        { name: "Espresso Machines", href: "/search?query=Espresso+Machines" },
-        { name: "Toaster Ovens", href: "/search?query=Toaster+Ovens" },
-        { name: "Air Fryers", href: "/search?query=Air+Fryers" },
-        { name: "Ice Makers", href: "/search?query=Ice+Makers" },
-        { name: "Blenders", href: "/search?query=Blenders" },
-        { name: "Dutch Ovens", href: "/search?query=Dutch+Ovens" },
-        { name: "Slushie Machines", href: "/search?query=Slushie+Machines" },
-        { name: "Frying Pans", href: "/search?query=Frying+Pans" },
-        { name: "Food Processors", href: "/search?query=Food+Processors" },
-        { name: "Yogurt Makers", href: "/search?query=Yogurt+Makers" },
-        { name: "Vacuum Sealers", href: "/search?query=Vacuum+Sealers" },
-      ],
-    },
-    {
-      group: "Lifestyle",
-      links: [
-        { name: "Cordless Water Flossers", href: "/top-10/best-cordless-water-flossers" },
-        { name: "Massage Guns", href: "/top-10/best-mini-massage-guns" },
-        { name: "Hair Clippers", href: "/search?query=Hair+Clippers" },
-        { name: "Hair Straighteners", href: "/search?query=Hair+Straighteners" },
-        { name: "Hair Dryers", href: "/search?query=Hair+Dryers" },
-        { name: "Electric Toothbrushes", href: "/search?query=Electric+Toothbrushes" },
-        { name: "Curling Irons", href: "/search?query=Curling+Irons" },
-        { name: "Exercise Bikes", href: "/search?query=Exercise+Bikes" },
-        { name: "Teeth Whitening Kits", href: "/search?query=Teeth+Whitening+Kits" },
-        { name: "Steam Irons", href: "/search?query=Steam+Irons" },
-        { name: "Red Light Masks", href: "/search?query=Red+Light+Masks" },
-        { name: "Deep Wavers", href: "/search?query=Deep+Wavers" },
-      ],
-    },
-    {
-      group: "Other",
-      links: [
-        { name: "Pool Vacuums", href: "/search?query=Pool+Vacuums" },
-        { name: "Pool Skimmers", href: "/search?query=Pool+Skimmers" },
-        { name: "Laser Levels", href: "/search?query=Laser+Levels" },
-        { name: "Vibration Plates", href: "/search?query=Vibration+Plates" },
-        { name: "Water Flossers", href: "/top-10/best-cordless-water-flossers" },
-        { name: "Jump Starters", href: "/search?query=Jump+Starters" },
-        { name: "Neck Massagers", href: "/search?query=Neck+Massagers" },
-        { name: "Weight Benches", href: "/search?query=Weight+Benches" },
-        { name: "Back Massagers", href: "/search?query=Back+Massagers" },
-        { name: "NAS Devices", href: "/search?query=NAS+Devices" },
-        { name: "Borescopes", href: "/search?query=Borescopes" },
+        { name: "Top 10 Mini Massage Guns", href: "/top-10/best-mini-massage-guns" },
+        { name: "Pocket Percussion Massagers", href: "/top-10/best-mini-massage-guns" },
+        { name: "Deep Tissue Muscle Recovery Guns", href: "/top-10/best-mini-massage-guns" },
       ],
     },
   ];
@@ -137,7 +79,7 @@ function SearchContent() {
         </div>
 
         {/* Results Area */}
-        {query.trim() && (
+        {query.trim() ? (
           <div className="space-y-6">
             {matchedCategories.length > 0 ? (
               <div className="space-y-4">
@@ -145,63 +87,116 @@ function SearchContent() {
                   Search Results for &ldquo;{query}&rdquo;
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {matchedCategories.map((cat: CategoryData) => {
-                    const hasDedicatedPage = [
-                      "best-wireless-meat-thermometers",
-                      "best-cordless-water-flossers",
-                      "best-mini-massage-guns",
-                    ].includes(cat.slug);
-
-                    const targetHref = hasDedicatedPage
-                      ? `/top-10/${cat.slug}`
-                      : `/search?query=${encodeURIComponent(cat.shortName)}`;
-
-                    return (
-                      <Link
-                        key={cat.id}
-                        href={targetHref}
-                        className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:border-[#00c092] hover:shadow-md transition-all group flex flex-col justify-between"
-                      >
-                        <div className="space-y-3">
-                          <div className="flex items-center justify-between">
-                            <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">
-                              {cat.categoryGroup}
-                            </span>
-                            <span className="text-xs font-bold text-emerald-600 flex items-center gap-1">
-                              <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                              {cat.averageRating}
-                            </span>
-                          </div>
-                          <h3 className="text-base font-bold text-slate-900 group-hover:text-[#0087ee] transition-colors">
-                            {cat.title}
-                          </h3>
-                          <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
-                            {cat.description}
-                          </p>
+                  {matchedCategories.map((cat: CategoryData) => (
+                    <Link
+                      key={cat.id}
+                      href={`/top-10/${cat.slug}`}
+                      className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:border-[#00c092] hover:shadow-md transition-all group flex flex-col justify-between"
+                    >
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">
+                            {cat.categoryGroup}
+                          </span>
+                          <span className="text-xs font-bold text-emerald-600 flex items-center gap-1">
+                            <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                            {cat.averageRating}
+                          </span>
                         </div>
-                        <div className="pt-4 border-t border-slate-100 mt-4 flex items-center justify-between text-xs text-[#0087ee] font-bold">
-                          <span>View Comparison Guide</span>
-                          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                        </div>
-                      </Link>
-                    );
-                  })}
+                        <h3 className="text-base font-bold text-slate-900 group-hover:text-[#0087ee] transition-colors">
+                          {cat.title}
+                        </h3>
+                        <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+                          {cat.description}
+                        </p>
+                      </div>
+                      <div className="pt-4 border-t border-slate-100 mt-4 flex items-center justify-between text-xs text-[#0087ee] font-bold">
+                        <span>View Comparison Guide</span>
+                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </Link>
+                  ))}
                 </div>
               </div>
             ) : (
-              <div className="py-8 text-center bg-slate-50 rounded-2xl border border-slate-200">
-                <div className="text-slate-500 font-semibold text-base">
-                  No direct results are available
+              <div className="space-y-6">
+                <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 text-center">
+                  <p className="text-slate-800 font-bold text-base">
+                    Top Recommendations for &ldquo;{query}&rdquo;
+                  </p>
+                  <p className="text-xs sm:text-sm text-slate-500 mt-1">
+                    Explore our verified, independently tested UK Top 10 buying guides below:
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {CATEGORIES.map((cat: CategoryData) => (
+                    <Link
+                      key={cat.id}
+                      href={`/top-10/${cat.slug}`}
+                      className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:border-[#00c092] hover:shadow-md transition-all group flex flex-col justify-between"
+                    >
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">
+                            {cat.categoryGroup}
+                          </span>
+                          <span className="text-xs font-bold text-emerald-600 flex items-center gap-1">
+                            <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                            {cat.averageRating}
+                          </span>
+                        </div>
+                        <h3 className="text-base font-bold text-slate-900 group-hover:text-[#0087ee] transition-colors">
+                          {cat.title}
+                        </h3>
+                        <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+                          {cat.description}
+                        </p>
+                      </div>
+                      <div className="pt-4 border-t border-slate-100 mt-4 flex items-center justify-between text-xs text-[#0087ee] font-bold">
+                        <span>View Comparison Guide</span>
+                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </Link>
+                  ))}
                 </div>
               </div>
             )}
           </div>
-        )}
-
-        {!query.trim() && (
-          <div className="py-4 text-center">
-            <div className="text-slate-500 font-semibold text-base">
-              No direct results are available
+        ) : (
+          <div className="space-y-4">
+            <h2 className="text-xl font-bold text-slate-900">
+              Featured Top 10 Buying Guides
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {CATEGORIES.map((cat: CategoryData) => (
+                <Link
+                  key={cat.id}
+                  href={`/top-10/${cat.slug}`}
+                  className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:border-[#00c092] hover:shadow-md transition-all group flex flex-col justify-between"
+                >
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">
+                        {cat.categoryGroup}
+                      </span>
+                      <span className="text-xs font-bold text-emerald-600 flex items-center gap-1">
+                        <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                        {cat.averageRating}
+                      </span>
+                    </div>
+                    <h3 className="text-base font-bold text-slate-900 group-hover:text-[#0087ee] transition-colors">
+                      {cat.title}
+                    </h3>
+                    <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+                      {cat.description}
+                    </p>
+                  </div>
+                  <div className="pt-4 border-t border-slate-100 mt-4 flex items-center justify-between text-xs text-[#0087ee] font-bold">
+                    <span>View Comparison Guide</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
         )}
@@ -212,7 +207,7 @@ function SearchContent() {
             Were you looking for one of these products?
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {categoryDirectory.map((catGroup) => (
               <div
                 key={catGroup.group}
@@ -303,16 +298,16 @@ function SearchContent() {
             </div>
           </div>
 
-          {/* Item 4: Consumer Picks */}
+          {/* Item 4: Best Product Verdict */}
           <div className="space-y-1 pt-3 border-t border-slate-100">
             <div className="space-y-1">
               <Link
                 href="/"
                 className="text-base font-bold text-[#0087ee] hover:underline block"
               >
-                Consumer Picks - Product Ratings &amp; Deals
+                Best Product Verdict - Product Ratings &amp; Deals
               </Link>
-              <div className="text-xs text-slate-400">consumerpicks/search/id=0su59sj9za</div>
+              <div className="text-xs text-slate-400">bestproductverdict/search/id=0su59sj9za</div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Our shopping experts create innovative product lists and rankings. Compare choices and find the perfect fit.
               </p>

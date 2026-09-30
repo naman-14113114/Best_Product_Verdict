@@ -52,9 +52,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. 5-Column Category Exploration Grid */}
+      {/* 2. 3-Column Category Exploration Grid */}
       <section id="explore" className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 scroll-mt-20">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
           {HOMEPAGE_CATEGORIES.map((col, cIdx) => (
             <div key={cIdx} className="flex flex-col space-y-3">
               {/* Preview Image */}
@@ -63,7 +63,7 @@ export default function HomePage() {
                   src={col.image}
                   alt={col.title}
                   fill
-                  sizes="(max-width: 768px) 50vw, 20vw"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-contain p-2 group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />

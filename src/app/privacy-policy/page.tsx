@@ -43,16 +43,16 @@ export default function PrivacyPolicyPage() {
           {/* Policy Body */}
           <div className="space-y-6 text-sm sm:text-base leading-relaxed">
             <p>
-              Consumer Picks, a DBA of Nation Videos Corporation (&apos;Company&apos;, &apos;we&apos;, &apos;us&apos;, or &apos;our&apos;) operates the https://www.consumerpicks.org/ website, which provides the SERVICE.
+              Best Product Verdict (&apos;Company&apos;, &apos;we&apos;, &apos;us&apos;, or &apos;our&apos;) operates the https://www.bestproductverdict.co.uk website, which provides the SERVICE.
             </p>
             <p>
-              This page is used to inform website visitors regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to use our Service, the Consumer Picks website.
+              This page is used to inform website visitors regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to use our Service, the Best Product Verdict website.
             </p>
             <p>
               If you choose to use our Service, then you agree to the collection and use of information in relation with this policy. The Personal Information that we collect is used for providing and improving the Service. We will not use or share your information with anyone except as described in this Privacy Policy.
             </p>
             <p>
-              The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which is accessible at https://www.consumerpicks.org/terms-and-conditions, unless otherwise defined in this Privacy Policy.
+              The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which is accessible at <Link href="/terms-and-conditions" className="text-blue-600 hover:underline">/terms-and-conditions</Link>, unless otherwise defined in this Privacy Policy.
             </p>
 
             <div className="space-y-2 pt-2">
@@ -105,17 +105,17 @@ export default function PrivacyPolicyPage() {
             <div className="space-y-2 pt-2">
               <h2 className="text-xl font-bold text-slate-900">Children&apos;s Privacy</h2>
               <p>
-                The Site is not intended for individuals under the age of 18. We do not intentionally collect Personal Information from children. If you are the parent or guardian and believe your child has provided us with Personal Information, please contact us by emailing support@consumerpicks.org to request deletion.
+                The Site is not intended for individuals under the age of 18. We do not intentionally collect Personal Information from children. If you are the parent or guardian and believe your child has provided us with Personal Information, please contact us by emailing contact@bestproductverdict.co.uk to request deletion.
               </p>
             </div>
 
             <div className="space-y-2 pt-2">
               <h2 className="text-xl font-bold text-slate-900">CCPA</h2>
               <p>
-                If you are a resident of California, you have the right to access the Personal Information we hold about you (also known as the ‘Right to Know’), to port it to a new service, and to ask that your Personal Information be corrected, updated, or erased. If you would like to exercise these rights, please contact us by emailing support@consumerpicks.org.
+                If you are a resident of California, you have the right to access the Personal Information we hold about you (also known as the ‘Right to Know’), to port it to a new service, and to ask that your Personal Information be corrected, updated, or erased. If you would like to exercise these rights, please contact us by emailing contact@bestproductverdict.co.uk.
               </p>
               <p>
-                If you would like to designate an authorized agent to submit these requests on your behalf, please contact us by emailing support@consumerpicks.org.
+                If you would like to designate an authorized agent to submit these requests on your behalf, please contact us by emailing contact@bestproductverdict.co.uk.
               </p>
             </div>
 
@@ -123,19 +123,19 @@ export default function PrivacyPolicyPage() {
               <h2 className="text-xl font-bold text-slate-900">GDPR</h2>
               <p>We are a Data Controller of your information.</p>
               <p>
-                Consumer Picks legal basis for collecting and using the personal information described in this Privacy Policy depends on the Personal Information we collect and the specific context in which we collect the information:
+                Best Product Verdict legal basis for collecting and using the personal information described in this Privacy Policy depends on the Personal Information we collect and the specific context in which we collect the information:
               </p>
               <ul className="list-disc list-inside space-y-1 pl-2 text-slate-600">
-                <li>Consumer Picks needs to perform a contract with you</li>
-                <li>You have given Consumer Picks permission to do so</li>
-                <li>Processing your personal information is in Consumer Picks legitimate interests</li>
-                <li>Consumer Picks needs to comply with the law</li>
+                <li>Best Product Verdict needs to perform a contract with you</li>
+                <li>You have given Best Product Verdict permission to do so</li>
+                <li>Processing your personal information is in Best Product Verdict legitimate interests</li>
+                <li>Best Product Verdict needs to comply with the law</li>
               </ul>
               <p className="pt-2">
-                Consumer Picks will retain your personal information only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use your information to the extent necessary to comply with our legal obligations, resolve disputes, and enforce our policies.
+                Best Product Verdict will retain your personal information only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use your information to the extent necessary to comply with our legal obligations, resolve disputes, and enforce our policies.
               </p>
               <p>
-                If you are a resident of the European Economic Area (EEA), you have certain data protection rights. If you wish to be informed what Personal Information we hold about you and if you want it to be removed from our systems, please contact us by emailing support@consumerpicks.org.
+                If you are a resident of the European Economic Area (EEA), you have certain data protection rights. If you wish to be informed what Personal Information we hold about you and if you want it to be removed from our systems, please contact us by emailing contact@bestproductverdict.co.uk.
               </p>
               <p>
                 In certain circumstances, you have the following data protection rights:

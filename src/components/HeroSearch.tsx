@@ -18,12 +18,12 @@ export const HeroSearch: React.FC = () => {
   };
 
   const popularTags = [
-    { label: "Meat Thermometers", query: "meat thermometer" },
-    { label: "Water Flossers", query: "water flosser" },
-    { label: "Mini Massage Guns", query: "massage gun" },
-    { label: "LED Face Masks", query: "led face mask" },
-    { label: "Electric Toothbrushes", query: "electric toothbrush" },
-    { label: "Air Fryers", query: "air fryer" },
+    { label: "Wireless Meat Thermometers", query: "wireless meat thermometer" },
+    { label: "Cordless Water Flossers", query: "cordless water flosser" },
+    { label: "Mini Massage Guns", query: "mini massage gun" },
+    { label: "Smart Cooking Probes", query: "cooking probe" },
+    { label: "Oral Irrigators", query: "oral irrigator" },
+    { label: "Percussion Massagers", query: "percussion massager" },
   ];
 
   return (

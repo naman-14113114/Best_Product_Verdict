@@ -133,7 +133,7 @@ export default function Top10DirectoryPage() {
         </div>
       </section>
 
-      {/* 5-Column Category Exploration Grid */}
+      {/* 3-Column Category Exploration Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
@@ -144,7 +144,7 @@ export default function Top10DirectoryPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
           {HOMEPAGE_CATEGORIES.map((col, cIdx) => (
             <div key={cIdx} className="flex flex-col space-y-3">
               {/* Preview Image */}
@@ -153,7 +153,7 @@ export default function Top10DirectoryPage() {
                   src={col.image}
                   alt={col.title}
                   fill
-                  sizes="(max-width: 768px) 50vw, 20vw"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-contain p-2 group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
