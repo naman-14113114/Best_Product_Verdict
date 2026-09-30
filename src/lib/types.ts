@@ -10,8 +10,7 @@ export interface ProductItem {
   subtitle?: string;
   image: string;
   thumbnails?: string[];
-  score: string; // e.g. "9.9"
-  ratingLabel: string; // e.g. "Exceptional", "Outstanding", "Excellent"
+  sourceUrl?: string;
   badge?: string;
   badgeType?: "best-overall" | "best-value" | "runner-up" | "top-pick" | "premium" | "standard";
   discountPercent?: string; // e.g. "20% Off", "35% Off"
@@ -65,4 +64,5 @@ export interface Top10PageData {
   products: ProductItem[];
   consideredProducts?: ProductItem[]; // 3 runner-up products for "Some other products we considered" section
   guide: BuyingGuideSectionData;
+  sources?: { title: string; url: string }[];
 }

@@ -1,5 +1,9 @@
+import { dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  outputFileTracingRoot: dirname(fileURLToPath(import.meta.url)),
   reactStrictMode: true,
   images: {
     remotePatterns: [
@@ -45,63 +49,8 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: "/categories/:path*",
-        destination: "/top-10",
-        permanent: true,
-      },
-      {
-        source: "/category/:path*",
-        destination: "/top-10",
-        permanent: true,
-      },
-      {
         source: "/top10",
         destination: "/top-10",
-        permanent: true,
-      },
-      {
-        source: "/top10/:path*",
-        destination: "/top-10",
-        permanent: true,
-      },
-      {
-        source: "/deals",
-        destination: "/top-10",
-        permanent: true,
-      },
-      {
-        source: "/product/:path*",
-        destination: "/top-10",
-        permanent: true,
-      },
-      {
-        source: "/products/:path*",
-        destination: "/top-10",
-        permanent: true,
-      },
-      {
-        source: "/reviews/:path*",
-        destination: "/top-10",
-        permanent: true,
-      },
-      {
-        source: "/guides/:path*",
-        destination: "/top-10",
-        permanent: true,
-      },
-      {
-        source: "/top-10/air-fryers",
-        destination: "/top-10/best-wireless-meat-thermometers",
-        permanent: true,
-      },
-      {
-        source: "/top-10/espresso-machines",
-        destination: "/top-10/best-wireless-meat-thermometers",
-        permanent: true,
-      },
-      {
-        source: "/top-10/electric-toothbrushes",
-        destination: "/top-10/best-cordless-water-flossers",
         permanent: true,
       },
     ];

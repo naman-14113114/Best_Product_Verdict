@@ -3,7 +3,7 @@
 import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
-import { Search, Star, ExternalLink, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { CATEGORIES, searchCategories, CategoryData } from "@/data/categories";
 
 function SearchContent() {
@@ -49,9 +49,9 @@ function SearchContent() {
     {
       group: "Wellness & Recovery",
       links: [
-        { name: "Top 10 Mini Massage Guns", href: "/top-10/best-mini-massage-guns" },
+        { name: "Top 10 Massage Guns", href: "/top-10/best-mini-massage-guns" },
         { name: "Pocket Percussion Massagers", href: "/top-10/best-mini-massage-guns" },
-        { name: "Deep Tissue Muscle Recovery Guns", href: "/top-10/best-mini-massage-guns" },
+        { name: "Handheld Percussion Massagers", href: "/top-10/best-mini-massage-guns" },
       ],
     },
   ];
@@ -99,8 +99,8 @@ function SearchContent() {
                             {cat.categoryGroup}
                           </span>
                           <span className="text-xs font-bold text-emerald-600 flex items-center gap-1">
-                            <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                            {cat.averageRating}
+                            <span>Compare</span>
+                            {cat.itemCount} options
                           </span>
                         </div>
                         <h3 className="text-base font-bold text-slate-900 group-hover:text-[#0087ee] transition-colors">
@@ -122,10 +122,10 @@ function SearchContent() {
               <div className="space-y-6">
                 <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 text-center">
                   <p className="text-slate-800 font-bold text-base">
-                    Top Recommendations for &ldquo;{query}&rdquo;
+                    No matching guide for &ldquo;{query}&rdquo;
                   </p>
                   <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                    Explore our verified, independently tested UK Top 10 buying guides below:
+                    Explore our published UK-focused comparison guides below:
                   </p>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -141,8 +141,8 @@ function SearchContent() {
                             {cat.categoryGroup}
                           </span>
                           <span className="text-xs font-bold text-emerald-600 flex items-center gap-1">
-                            <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                            {cat.averageRating}
+                            <span>Compare</span>
+                            {cat.itemCount} options
                           </span>
                         </div>
                         <h3 className="text-base font-bold text-slate-900 group-hover:text-[#0087ee] transition-colors">
@@ -180,8 +180,8 @@ function SearchContent() {
                         {cat.categoryGroup}
                       </span>
                       <span className="text-xs font-bold text-emerald-600 flex items-center gap-1">
-                        <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                        {cat.averageRating}
+                        <span>Compare</span>
+                        {cat.itemCount} options
                       </span>
                     </div>
                     <h3 className="text-base font-bold text-slate-900 group-hover:text-[#0087ee] transition-colors">
@@ -233,25 +233,24 @@ function SearchContent() {
           </div>
         </section>
 
-        {/* Sponsored / Discover List */}
+        {/* External retailer directory */}
         <section className="space-y-6 pt-6 border-t border-slate-200">
           {/* Item 1: Amazon */}
           <div className="space-y-1">
             <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-              Sponsored
+              UK retailer
             </span>
             <div className="space-y-1">
               <a
-                href="https://www.amazon.com?&linkCode=ll2&tag=amzcpscid-20&linkId=eb76b101910a1c2379cfa3a753fa207e&language=en_US&ref_=as_li_ss_tl"
+                href="https://www.amazon.co.uk/"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 className="text-base font-bold text-[#0087ee] hover:underline block"
               >
-                Shop On Amazon - Spend Less. Smile More.
+                Amazon UK
               </a>
-              <div className="text-xs text-slate-400">amazon/search/id=i7m9fm4m</div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Find the top products available today. Enjoy low prices and great deals on the largest selection of items. Free shipping with prime. Discover on Amazon.
+                Search Amazon.co.uk and check the exact model, seller, price, delivery and return terms. Search results do not guarantee availability or a particular offer.
               </p>
             </div>
           </div>
@@ -259,41 +258,39 @@ function SearchContent() {
           {/* Item 2: eBay */}
           <div className="space-y-1 pt-3 border-t border-slate-100">
             <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-              Sponsored
+              UK retailer
             </span>
             <div className="space-y-1">
               <a
-                href="https://www.ebay.com/?mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5338733431&customid=&toolid=10001&mkevt=1"
+                href="https://www.ebay.co.uk/"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 className="text-base font-bold text-[#0087ee] hover:underline block"
               >
-                eBay - Electronics, Fashion, Collectibles, &amp; More
+                eBay UK
               </a>
-              <div className="text-xs text-slate-400">ebay/search/id=948j85kd</div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Millions of items listed daily. Find both new and used items. Discover on eBay.
+                Check item condition, seller details, delivery charges and return terms before ordering.
               </p>
             </div>
           </div>
 
-          {/* Item 3: Walmart */}
+          {/* Item 3: Currys */}
           <div className="space-y-1 pt-3 border-t border-slate-100">
             <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-              Sponsored
+              UK retailer
             </span>
             <div className="space-y-1">
               <a
-                href="https://www.walmart.com/"
+                href="https://www.currys.co.uk/"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 className="text-base font-bold text-[#0087ee] hover:underline block"
               >
-                Walmart | Save Money. Live better.
+                Currys UK
               </a>
-              <div className="text-xs text-slate-400">walmart/search/id=od7i2xls32ds</div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Shop Walmart today for Every Day Low Prices. The best selection of items online.
+                Browse the current range and check the exact model, availability and total cost.
               </p>
             </div>
           </div>
@@ -305,11 +302,10 @@ function SearchContent() {
                 href="/"
                 className="text-base font-bold text-[#0087ee] hover:underline block"
               >
-                Best Product Verdict - Product Ratings &amp; Deals
+                Best Product Verdict - Buying Guides
               </Link>
-              <div className="text-xs text-slate-400">bestproductverdict/search/id=0su59sj9za</div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Our shopping experts create innovative product lists and rankings. Compare choices and find the perfect fit.
+                Our buying guides explain practical differences and the questions to check with a seller before purchasing.
               </p>
             </div>
           </div>

@@ -6,9 +6,10 @@ import { NewsletterBox } from "@/components/NewsletterBox";
 import { Search, Sparkles, Flame, Activity, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "All Top 10 Product Categories Directory (2026) | Best Product Verdict UK",
+  title: "All Top 10 Product Categories Directory (2026) ",
+  alternates: { canonical: "/top-10" },
   description:
-    "Explore the full directory of Top 10 product categories and buying guides tested by UK experts at Best Product Verdict.",
+    "Explore UK-focused product comparison guides with practical buying considerations and transparent research methods.",
 };
 
 export default function Top10DirectoryPage() {
@@ -17,9 +18,7 @@ export default function Top10DirectoryPage() {
       title: "Top 10 Wireless Meat Thermometers (2026)",
       href: "/top-10/best-wireless-meat-thermometers",
       image: "https://m.media-amazon.com/images/I/41Nm2y6ZtML._SL250_.jpg",
-      score: "9.9",
       topPick: "Chef IQ Smart Wireless Thermometer",
-      price: "£79.99",
       badge: "Flagship Guide",
       icon: Flame,
     },
@@ -27,19 +26,15 @@ export default function Top10DirectoryPage() {
       title: "Top 10 Cordless Water Flossers (2026)",
       href: "/top-10/best-cordless-water-flossers",
       image: "https://m.media-amazon.com/images/I/51c0Wy9sXiL._SL250_.jpg",
-      score: "9.9",
       topPick: "Coslus C20 Cordless Oral Flosser",
-      price: "£29.99",
       badge: "Flagship Guide",
       icon: Sparkles,
     },
     {
-      title: "Top 10 Mini Massage Guns (2026)",
+      title: "Top 10 Massage Guns (2026)",
       href: "/top-10/best-mini-massage-guns",
       image: "https://m.media-amazon.com/images/I/41qZt+HtZxL._SL250_.jpg",
-      score: "9.9",
       topPick: "Renpho Active Thermacool 2",
-      price: "£79.99",
       badge: "Flagship Guide",
       icon: Activity,
     },
@@ -59,7 +54,7 @@ export default function Top10DirectoryPage() {
           </h1>
 
           <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Browse our full directory of product categories. Find top picks, side-by-side spec sheets, and verified reviews.
+            Browse product categories, compare formats and check the details that matter before buying.
           </p>
         </div>
       </section>
@@ -71,7 +66,7 @@ export default function Top10DirectoryPage() {
             Featured Top 10 Comparison Guides
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-            Full 10-product ranked guides with verified scores and comprehensive UK buying advice.
+            Ten comparison options per guide, with buying considerations and links to UK listing searches.
           </p>
         </div>
 
@@ -89,7 +84,7 @@ export default function Top10DirectoryPage() {
                       {guide.badge}
                     </span>
                     <span className="text-xs font-bold text-blue-600 flex items-center gap-1">
-                      ★ {guide.score} / 10
+                      10 options
                     </span>
                   </div>
 
@@ -109,8 +104,8 @@ export default function Top10DirectoryPage() {
 
                   <div className="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs space-y-1">
                     <div className="flex items-center justify-between text-[11px]">
-                      <span className="text-teal-700 font-bold uppercase">#1 Top Pick:</span>
-                      <span className="font-bold text-slate-900">{guide.price}</span>
+                      <span className="text-teal-700 font-bold uppercase">Featured option:</span>
+                      <span className="font-bold text-slate-900">{"Check UK listings"}</span>
                     </div>
                     <div className="font-semibold text-slate-800 truncate">
                       {guide.topPick}
@@ -140,7 +135,7 @@ export default function Top10DirectoryPage() {
             Complete Department Directory
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-            Explore products by department to find deals and top recommendations.
+            Explore our published product comparison guides by department.
           </p>
         </div>
 

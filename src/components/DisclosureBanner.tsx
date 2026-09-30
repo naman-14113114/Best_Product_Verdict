@@ -42,7 +42,7 @@ export const DisclosureBanner: React.FC = () => {
           <div className="flex items-center gap-2 justify-center sm:justify-start">
             <Info className="w-4 h-4 text-[#00d6b6] shrink-0 hidden sm:inline-block" />
             <span>
-              <span className="font-semibold text-slate-100">Ad Disclosure:</span> If you buy a product after clicking one of our links, we may be paid a commission at no extra cost to you.{" "}
+              <span className="font-semibold text-slate-100">Ad Disclosure:</span> If you buy a product after clicking one of our links, we may earn a commission where an affiliate link is used.{" "}
               <button
                 type="button"
                 onClick={() => setIsModalOpen(true)}

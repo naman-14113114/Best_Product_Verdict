@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { ProductItem } from "@/lib/types";
-import { StarRating } from "./StarRating";
 import { trackOutboundClick } from "@/lib/tracking";
 import { Check, X, Tag, ChevronDown, ChevronUp } from "lucide-react";
 
@@ -15,10 +14,7 @@ interface ProductCardProps {
 export const ProductCard: React.FC<ProductCardProps> = ({ product, categoryName }) => {
   const [expanded, setExpanded] = useState(false);
 
-  const handleClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    trackOutboundClick(product.outboundUrl, product.title, product.rank, categoryName);
-  };
+  const handleClick = () => { trackOutboundClick(product.outboundUrl, product.title, product.rank, categoryName); };
 
   const isBestOverall = product.rank === 1 || product.badgeType === "best-overall";
   const isPremiumPick = product.rank === 2 || product.badgeType === "runner-up" || product.badgeType === "premium";
@@ -34,11 +30,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, categoryName 
           : "border border-slate-200/90 shadow-2xs hover:shadow-lg"
       }`}
     >
-      {/* Top Badge (Best Overall Pick / Premium Pick) */}
+      {/* Top Badge (Featured option / Compare the kit) */}
       {isBestOverall && (
         <div className="absolute -top-3 left-6 sm:left-8 z-20">
           <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-bold px-3.5 py-1 rounded-full bg-[#00c092] text-white shadow-xs tracking-wide">
-            {product.badge || "Best Overall Pick"}
+            {product.badge || "Featured option"}
           </span>
         </div>
       )}
@@ -46,7 +42,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, categoryName 
       {isPremiumPick && (
         <div className="absolute -top-3 left-6 sm:left-8 z-20">
           <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-bold px-3.5 py-1 rounded-full bg-[#f59e0b] text-white shadow-xs tracking-wide">
-            {product.badge || "Premium Pick"}
+            {product.badge || "Compare the kit"}
           </span>
         </div>
       )}
@@ -66,7 +62,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, categoryName 
               <div className="relative w-full h-full">
                 <Image
                   src={product.image}
-                  alt={`${product.brand || ""} ${product.title}`}
+                  alt={product.title}
                   fill
                   sizes="(max-width: 768px) 140px, 160px"
                   className="object-contain transition-transform duration-300 group-hover:scale-105"
@@ -89,7 +85,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, categoryName 
               <div className="text-xs sm:text-sm text-slate-700 leading-relaxed">
                 <span className="font-medium text-slate-900 mr-1.5">{product.title}.</span>
                 <span>
-                  {expanded ? product.description : product.description.slice(0, 140) + "..."}
+                  {expanded || product.description.length <= 140 ? product.description : product.description.slice(0, 140) + "..."}
                 </span>
                 <button
                   type="button"
@@ -129,7 +125,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, categoryName 
                   <div>
                     <div className="text-[11px] font-bold text-slate-900 uppercase tracking-wider mb-1 flex items-center gap-1">
                       <span className="text-emerald-600 font-bold">✓</span>
-                      <span>Key Advantages</span>
+                      <span>Buying checks</span>
                     </div>
                     <ul className="space-y-1 text-xs text-slate-700">
                       {product.pros.map((pro, idx) => (
@@ -159,6 +155,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, categoryName 
                   </div>
                 )}
 
+                {product.sourceUrl && <a href={product.sourceUrl} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-blue-600 hover:underline">Manufacturer information →</a>}
                 {product.keySpecs && product.keySpecs.length > 0 && (
                   <div className="grid grid-cols-2 gap-2 pt-1 text-xs">
                     {product.keySpecs.map((spec, sIdx) => (
@@ -173,17 +170,17 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, categoryName 
             )}
           </div>
 
-          {/* Right Column: Score, Rating Stars & Royal Blue "Check Price" Button */}
+          {/* Right Column: Score, Rating Stars & Royal Blue "Find UK listings" Button */}
           <div className="flex flex-row lg:flex-col items-center justify-between lg:justify-center shrink-0 w-full lg:w-44 gap-3 border-t lg:border-t-0 pt-3 lg:pt-0 border-slate-100">
             <div className="text-left lg:text-center">
               <div className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-none">
-                {product.score}
+                #{product.rank}
               </div>
               <div className="mt-1 flex items-center lg:justify-center">
-                <StarRating score={product.score} size={16} />
+                <span className="text-xs text-slate-500">Comparison option</span>
               </div>
               <div className="text-[11px] font-bold text-slate-500 mt-0.5">
-                Our Rating
+                Guide position
               </div>
             </div>
 
@@ -192,9 +189,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, categoryName 
                 href={product.outboundUrl}
                 onClick={handleClick}
                 className="w-full py-2.5 sm:py-3 px-5 sm:px-6 rounded-lg bg-[#0080ff] hover:bg-[#0070e0] text-white font-bold text-sm sm:text-base flex items-center justify-center gap-1.5 shadow-sm hover:shadow transition-all cursor-pointer text-center no-underline tracking-wide active:scale-98"
-                rel="nofollow noopener noreferrer"
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
               >
-                <span>Check Price</span>
+                <span>Find UK listings</span>
               </a>
             </div>
           </div>

@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start -p 3000",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "verify:content": "node scripts/verify-advertising-content.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

@@ -16,11 +16,11 @@ export default function NotFound() {
           </div>
 
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-            Looking for Top-Rated Products?
+            Page not found
           </h1>
 
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Explore our expert-tested buying guides, verified side-by-side comparison tables, and top 10 rankings below.
+            This address does not match a published page. Search our buying guides or choose a comparison below.
           </p>
 
           {/* Search Box */}
@@ -48,10 +48,10 @@ export default function NotFound() {
           <div className="flex items-center justify-between border-b border-slate-200 pb-3">
             <div>
               <h2 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">
-                Featured Tested Guides
+                Published Buying Guides
               </h2>
               <p className="text-xs sm:text-sm text-slate-500">
-                100% verified lab benchmarks and consumer ratings
+                Desk-research comparisons and practical buying considerations
               </p>
             </div>
             <Link
@@ -76,8 +76,8 @@ export default function NotFound() {
                         {cat.categoryGroup}
                       </span>
                       <div className="flex items-center gap-1 text-xs font-bold text-slate-700">
-                        <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                        <span>{cat.averageRating}</span>
+                        <span>Compare</span>
+                        <span>{cat.itemCount} options</span>
                       </div>
                     </div>
 
@@ -92,7 +92,7 @@ export default function NotFound() {
 
                   <div className="space-y-2.5 pt-3 border-t border-slate-100">
                     <div className="text-[11px] font-semibold text-slate-500">
-                      #1 Top Pick: <span className="text-slate-800 font-bold">{cat.topPicksPreview[0]?.name}</span>
+                      Featured option: <span className="text-slate-800 font-bold">{cat.topPicksPreview[0]?.name}</span>
                     </div>
 
                     <Link

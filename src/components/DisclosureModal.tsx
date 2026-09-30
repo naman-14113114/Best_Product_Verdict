@@ -64,27 +64,27 @@ export const DisclosureModal: React.FC<DisclosureModalProps> = ({ isOpen, onClos
           <div className="p-4 rounded-xl bg-blue-50/70 border border-blue-100 text-blue-900 flex items-start gap-3">
             <Info className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
             <p className="font-medium text-xs md:text-sm">
-              Best Product Verdict is an independent, advertising-supported comparison and product review service. Our goal is to provide honest, data-driven purchasing recommendations.
+              Best Product Verdict is a product comparison publisher operated by Naman Kharbanda.
             </p>
           </div>
 
-          <h3 className="text-base font-bold text-slate-900 pt-1">How We Operate & Free Service Guarantee</h3>
+          <h3 className="text-base font-bold text-slate-900 pt-1">How This Website Is Funded</h3>
           <p>
-            The content, comparison rankings, ratings, and buying guides published on Best Product Verdict are provided free of charge to all visitors. To sustain our intensive product testing, editorial team, and lab benchmarks, we may receive compensation from merchant partners and affiliate networks when you click links on our site and make a purchase.
+            The comparisons and buying guides published on Best Product Verdict are provided free of charge to all visitors. Some outbound links may earn us a commission. Commercial relationships may influence product inclusion and order.
           </p>
 
           <h3 className="text-base font-bold text-slate-900 pt-1">Does This Affect Your Cost?</h3>
           <p className="font-semibold text-slate-900">
-            No. Clicking our links will never increase the price you pay. In many instances, our partnership agreements unlock exclusive discount codes, bundle upgrades, or promotional pricing for our readers.
+            We do not charge readers to browse the guides. The retailer determines the purchase price, shipping charges and any offer. We do not promise an exclusive discount or a fixed price.
           </p>
 
-          <h3 className="text-base font-bold text-slate-900 pt-1">Editorial Independence & Ranking Integrity</h3>
+          <h3 className="text-base font-bold text-slate-900 pt-1">Research Method and Guide Order</h3>
           <p>
-            Our editorial scores (ranging from 1.0 to 10.0) and ranking positions are derived from rigorous hands-on evaluations, verified customer sentiment, build quality checks, and real-world performance metrics. Merchant compensation does not dictate which product achieves our #1 Verdict or Top Pick placement.
+            These are desk-research comparisons, with AI-assisted drafting. We do not claim hands-on product testing, clinical trials or an independent laboratory audit. Numbers indicate reading order rather than test results or customer ratings. Manufacturer information may differ by model, generation and region. Check the exact seller listing before buying.
           </p>
 
           <div className="pt-2 text-xs text-slate-500">
-            For detailed terms, legal disclosures, and our comprehensive testing guidelines, please visit our full{" "}
+            For detailed terms, legal disclosures, and our research methods, please visit our full{" "}
             <Link
               href="/advertiser-disclosure"
               className="text-blue-600 font-semibold hover:underline inline-flex items-center gap-1"

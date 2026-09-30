@@ -1,630 +1,511 @@
-import { Top10PageData } from "@/lib/types";
+import type { Top10PageData } from "@/lib/types";
 
 export const massageGunsData: Top10PageData = {
-  slug: "best-mini-massage-guns",
-  canonicalUrl: "https://www.bestproductverdict.co.uk/top-10/best-mini-massage-guns",
-  title: "Top 10 Mini Massage Guns in 2026 - Ranked By UK Physiotherapists",
-  metaTitle: "Top 10 Mini Massage Guns (2026 UK Review) | Best Product Verdict",
-  metaDescription:
-    "Expert UK physiotherapy review of the 10 best mini massage guns in 2026. Compare Renpho, Bob & Brad, Hyperice, Turonic & Sharper Image for stall force, noise and muscle recovery.",
-  categoryName: "Mini Massage Guns",
-  categorySlug: "mini-massage-guns",
-  updatedDate: "September 2026",
-  author: {
-    name: "David Welch",
-    role: "Senior Sports Tech Analyst & Recovery Specialist",
-    experience: "14+ years reviewing athletic recovery gear, percussive therapy and biometric devices",
-    bio: "David Welch is a product researcher with a passion for finding and analyzing trending products. On his free time, he enjoys spending time outdoors with his family and German Shepherd named Zeus.",
+  "slug": "best-mini-massage-guns",
+  "canonicalUrl": "https://www.bestproductverdict.com/top-10/best-mini-massage-guns",
+  "title": "10 Massage Guns Compared for UK Buyers: Compact and Full-Size Options (2026)",
+  "metaTitle": "10 Massage Guns Compared for UK Buyers: Compact and Full-Size Options (2026)",
+  "metaDescription": "Choose a massage gun by its format, handling, controls and actual kit contents. This guide includes compact, full-size and bundle alternatives so those di",
+  "categoryName": "Massage Guns",
+  "categorySlug": "mini-massage-guns",
+  "updatedDate": "30 September 2026",
+  "author": {
+    "name": "Best Product Verdict",
+    "role": "Product comparison publisher",
+    "bio": "Best Product Verdict publishes UK-focused desk-research buying guides. The site is operated by Naman Kharbanda. AI-assisted tools are used to organise and draft content. The guide explains product formats, source information and practical purchase checks."
   },
-  disclosureText:
-    "Best Product Verdict is an independent testing service supported by readers. When you buy through our links, we may earn an affiliate commission at no extra cost to you.",
-  products: [
+  "disclosureText": "Some outbound links may earn us a commission. Commercial relationships may influence inclusion and ordering. Retailers set the price, availability, delivery and return terms.",
+  "products": [
     {
-      rank: 1,
-      brand: "Renpho",
-      badge: "Best Overall Pick",
-      badgeType: "best-overall",
-      title: "Renpho Active Thermacool 2 Massage Gun (Heat & Cold Therapy)",
-      subtitle: "Dual-Temperature Percussion Massager with Active Peltier Heating & Cryo Cooling",
-      image: "https://m.media-amazon.com/images/I/41qZt+HtZxL._SL250_.jpg",
-      score: "9.9",
-      ratingLabel: "Exceptional",
-      reviewCount: 7850,
-      priceDisplay: "£79.99",
-      originalPriceDisplay: "£109.99",
-      discountPercent: "27% Off",
-      dealTimer: "Limited Time Deal",
-      description:
-        "The Renpho Active Thermacool 2 revolutionises handheld percussive therapy by integrating active thermal contrast therapy directly into the percussion head. Powered by a high-efficiency solid-state Peltier element, it switches between soothing 45°C deep heat (to promote blood circulation and loosen stiff fascia) and ice-cold 8°C cryo-compression (to reduce acute post-workout swelling and lactic inflammation) in seconds. With 30 lbs of stall force, 5 speed gears up to 3,200 RPM, and an ultra-quiet brushless motor running under 40 dB, it delivers professional-grade sports recovery in an exceptionally compact 680g unibody frame.",
-      pros: [
-        "Active Peltier thermal head delivers rapid 45°C soothing heat and 8°C cold therapy in seconds",
-        "Robust 30 lbs stall force motor prevents stalling even under firm muscular pressure",
-        "5 speed presets ranging from gentle 1,800 RPM warm-up to 3,200 RPM deep myofascial release",
-        "Whisper-quiet brushless motor operates below 40 dB for tranquil use at home or in the gym",
-        "Type-C fast-charging lithium battery provides 6–8 hours of runtime per charge",
+      "rank": 1,
+      "brand": "Renpho",
+      "title": "RENPHO Active ThermaCool 2 Massage Gun",
+      "image": "https://m.media-amazon.com/images/I/41qZt+HtZxL._SL250_.jpg",
+      "subtitle": "Handheld",
+      "badge": "Featured option",
+      "badgeType": "best-overall",
+      "description": "RENPHO lists Active ThermaCool 2 in its manuals catalogue. Compare the exact generation and included attachment kit before choosing. Compare the control layout and charging accessories.",
+      "pros": [
+        "Compare actual dimensions and handling rather than relying on mini in a listing title. This guide includes full-size alternatives as well as compact models.",
+        "Check whether the speed control is accessible while holding the device and whether the grip suits your intended use."
       ],
-      cons: [
-        "Thermal mode reduces battery runtime slightly compared to percussion-only mode",
-        "Thermal head takes ~15 seconds to reach peak minimum temperature (8°C)",
+      "cons": [
+        "UK stock, price and bundle contents must be checked with the seller.",
+        "Check the model-specific instructions and included accessories."
       ],
-      highlights: [
-        "Active Peltier thermal head delivers rapid 45°C soothing heat and 8°C cold therapy in seconds",
-        "Robust 30 lbs stall force motor prevents stalling even under firm muscular pressure",
-        "5 speed presets ranging from gentle 1,800 RPM warm-up to 3,200 RPM deep myofascial release",
-        "Whisper-quiet brushless motor operates below 40 dB for tranquil use at home or in the gym",
-        "Type-C fast-charging lithium battery provides 6–8 hours of runtime per charge",
+      "keySpecs": [
+        {
+          "label": "Format",
+          "value": "Handheld"
+        },
+        {
+          "label": "Buying information",
+          "value": "Check exact model and kit"
+        },
+        {
+          "label": "Price and availability",
+          "value": "Check UK seller"
+        }
       ],
-      keySpecs: [
-        { label: "Speed Levels", value: "5 Speeds (1,800 – 3,200 RPM)" },
-        { label: "Stall Force", value: "30 lbs (13.6 kg)" },
-        { label: "Weight", value: "680 g (Compact Unibody)" },
-        { label: "Battery Life", value: "6–8 Hours (USB-C Fast Charge)" },
-        { label: "Noise Level", value: "< 40 dB (Whisper-Quiet)" },
-        { label: "Thermal Modes", value: "8°C Cold / 45°C Heat Therapy" },
-      ],
-      outboundUrl:
-        "https://www.amazon.com/dp/B0FF9ZCW62?maas=maas_adg_api_579834446714302500_static_9_129&ref_=aa_maas&tag=maas&aa_campaignid=lv_F2XO9uSANTCvRZAIPg&aa_adgroupid=lv_2eDCk6WE36guoCbkz1&aa_creativeid=lv_axv6oAMsFyrC19aNq8",
+      "outboundUrl": "https://www.amazon.co.uk/s?k=RENPHO%20Active%20ThermaCool%202%20Massage%20Gun",
+      "sourceUrl": "https://renpho.com/pages/user-manuals"
     },
     {
-      rank: 2,
-      brand: "Renpho",
-      badge: "Runner-Up Pick",
-      badgeType: "runner-up",
-      title: "Renpho Active Thermacool Deluxe with Desktop Charging Stand",
-      subtitle: "Deluxe Deep Tissue Massager with Magnetic Desktop Dock & 6 Attachment Heads",
-      image: "https://m.media-amazon.com/images/I/41zzk-wgpNL._SL250_.jpg",
-      score: "9.7",
-      ratingLabel: "Outstanding",
-      reviewCount: 4320,
-      priceDisplay: "£99.99",
-      originalPriceDisplay: "£139.99",
-      discountPercent: "28% Off",
-      dealTimer: "Limited Time Deal",
-      description:
-        "The Deluxe edition of Renpho's Thermacool line elevates convenience with a sleek, weighted desktop charging station. Instead of loose cords tangled in gym bags, the device rests securely on your desk or bedside table, continually topped up and ready for immediate use. Offering 32 lbs of stall resistance, advanced heat/cold heads, and a full set of 6 interchangeable attachments (including bullet, fork, and dampener heads), it provides complete head-to-toe recovery.",
-      pros: [
-        "Weighted magnetic charging stand keeps device docked and fully charged at all times",
-        "Upgraded 32 lbs stall resistance accommodates dense glute and hamstring muscle tissue",
-        "Includes rapid heating/cooling head plus 5 specialized ergonomic attachments",
-        "Ergonomic angled silicone handle reduces wrist strain during back and shoulder treatments",
-        "Long-lasting 8-hour battery with LED battery gauge and auto 10-minute safety timer",
+      "rank": 2,
+      "brand": "Renpho",
+      "title": "RENPHO ThermaCool Bundle Options",
+      "image": "https://m.media-amazon.com/images/I/41zzk-wgpNL._SL250_.jpg",
+      "subtitle": "Bundle alternatives",
+      "badge": "Compare the kit",
+      "badgeType": "runner-up",
+      "description": "ThermaCool bundles may differ in attachments and charging accessories. Treat these as kit alternatives within the RENPHO family, not proof of a separate superior model. Confirm any stand or thermal attachment on the seller's actual contents list.",
+      "pros": [
+        "Check whether the speed control is accessible while holding the device and whether the grip suits your intended use.",
+        "Confirm the exact heads supplied. A thermal attachment or extra head is a kit feature, not proof of a health or recovery benefit."
       ],
-      cons: [
-        "Desktop dock takes up small amount of nightstand or desk footprint",
-        "Slightly heavier at 710g than ultra-light mini models",
+      "cons": [
+        "UK stock, price and bundle contents must be checked with the seller.",
+        "Check the model-specific instructions and included accessories."
       ],
-      highlights: [
-        "Weighted magnetic charging stand keeps device docked and fully charged at all times",
-        "Upgraded 32 lbs stall resistance accommodates dense glute and hamstring muscle tissue",
-        "Includes rapid heating/cooling head plus 5 specialized ergonomic attachments",
-        "Ergonomic angled silicone handle reduces wrist strain during back and shoulder treatments",
-        "Long-lasting 8-hour battery with LED battery gauge and auto 10-minute safety timer",
+      "keySpecs": [
+        {
+          "label": "Format",
+          "value": "Bundle alternatives"
+        },
+        {
+          "label": "Buying information",
+          "value": "Check exact model and kit"
+        },
+        {
+          "label": "Price and availability",
+          "value": "Check UK seller"
+        }
       ],
-      keySpecs: [
-        { label: "Speed Levels", value: "5 Speeds (1,800 – 3,200 RPM)" },
-        { label: "Stall Force", value: "32 lbs" },
-        { label: "Weight", value: "710 g" },
-        { label: "Battery Life", value: "8 Hours + Desktop Dock" },
-        { label: "Noise Level", value: "< 42 dB" },
-        { label: "Heads Included", value: "6 Interchangeable Heads" },
-      ],
-      outboundUrl:
-        "https://www.amazon.com/dp/B0D6GK13XM?maas=maas_adg_api_579834446714302500_static_9_129&ref_=aa_maas&tag=maas&aa_campaignid=lv_7ESnEF6bpF6EFXfPIL&aa_adgroupid=lv_YEFNhyAoyIWcF8kBEp&aa_creativeid=lv_DSpBgy3ekkJVC1ar3X",
+      "outboundUrl": "https://www.amazon.co.uk/s?k=RENPHO%20ThermaCool%20Bundle%20Options",
+      "sourceUrl": "https://renpho.com/products/acitve-massage-gun-with-heat-and-cold-head"
     },
     {
-      rank: 3,
-      brand: "Bob & Brad",
-      badge: "Physiotherapist Approved",
-      badgeType: "top-pick",
-      title: "Bob & Brad C2 Deep Tissue Percussion Massager",
-      subtitle: "Developed by Famous US Physical Therapists with 35 lbs High-Torque Motor",
-      image: "https://m.media-amazon.com/images/I/416nUfn7eSL._SL250_.jpg",
-      score: "9.6",
-      ratingLabel: "Outstanding",
-      reviewCount: 11450,
-      priceDisplay: "£69.99",
-      originalPriceDisplay: "£89.99",
-      discountPercent: "22% Off",
-      dealTimer: "Limited Time Deal",
-      description:
-        "Designed in collaboration with renowned physical therapists Bob Schrupp and Brad Heineck, the Bob & Brad C2 is an iconic mini massager celebrated for clinical efficacy and bulletproof reliability. Delivering 35 lbs of true stall force and an 8mm stroke amplitude, it punches well above its 680g weight class. Its ergonomic oval handle and custom air-cushioned dampener head make it remarkably gentle on sensitive neck, shoulder, and spinal muscle groups.",
-      pros: [
-        "Designed by certified physical therapists with clinically calibrated stroke geometry",
-        "Exceptional 35 lbs stall force handles firm therapeutic pressure without cutting out",
-        "Includes patented air-cushioned silicone dampener head for bony prominences and neck",
-        "Compact 17cm tall form factor fits easily inside gym locker bags",
-        "Fast USB-C charging with 5 hours of continuous battery runtime",
+      "rank": 3,
+      "brand": "Bob & Brad",
+      "title": "Bob and Brad C2 Massage Gun",
+      "image": "https://m.media-amazon.com/images/I/416nUfn7eSL._SL250_.jpg",
+      "subtitle": "Regular-size",
+      "badgeType": "standard",
+      "description": "Bob and Brad describe C2 as a regular-size option compared with their Q2 mini family. It is a format to compare if handling matters more than pocket size. Check the version and attachment kit; compare the exact handle and accessory kit.",
+      "pros": [
+        "Confirm the exact heads supplied. A thermal attachment or extra head is a kit feature, not proof of a health or recovery benefit.",
+        "Check the supplied charger, UK power requirements, cleaning instructions and replacement accessories."
       ],
-      cons: [
-        "8mm stroke amplitude is calibrated for high-speed vibration rather than 16mm deep-drive punch",
-        "Does not feature active heat or cold thermal heads",
+      "cons": [
+        "UK stock, price and bundle contents must be checked with the seller.",
+        "Check the model-specific instructions and included accessories."
       ],
-      highlights: [
-        "Designed by certified physical therapists with clinically calibrated stroke geometry",
-        "Exceptional 35 lbs stall force handles firm therapeutic pressure without cutting out",
-        "Includes patented air-cushioned silicone dampener head for bony prominences and neck",
-        "Compact 17cm tall form factor fits easily inside gym locker bags",
-        "Fast USB-C charging with 5 hours of continuous battery runtime",
+      "keySpecs": [
+        {
+          "label": "Format",
+          "value": "Regular-size"
+        },
+        {
+          "label": "Buying information",
+          "value": "Check exact model and kit"
+        },
+        {
+          "label": "Price and availability",
+          "value": "Check UK seller"
+        }
       ],
-      keySpecs: [
-        { label: "Speed Levels", value: "5 Speeds (2,000 – 3,200 RPM)" },
-        { label: "Stall Force", value: "35 lbs High-Torque" },
-        { label: "Weight", value: "680 g" },
-        { label: "Stroke Amplitude", value: "8 mm Percussion Depth" },
-        { label: "Battery Life", value: "5 Hours continuous" },
-        { label: "Noise Level", value: "< 45 dB" },
-      ],
-      outboundUrl:
-        "https://www.amazon.com/dp/B08CKWVYMF?maas=maas_adg_api_583468827810255745_static_9_129&ref_=aa_maas&aa_campaignid=lv_AT9OAp8oA6HKoym9ax&aa_adgroupid=lv_hhRzR6V9HFk6MLz2Np&aa_creativeid=lv_qQ0LO2z8BMrRxhSQS4",
+      "outboundUrl": "https://www.amazon.co.uk/s?k=Bob%20and%20Brad%20C2%20Massage%20Gun",
+      "sourceUrl": "https://www.bobandbrad.com/post/buying-a-massage-gun-have-questions-all-you-need-to-know"
     },
     {
-      rank: 4,
-      brand: "Renpho",
-      badge: "Best Smart App Integration",
-      badgeType: "standard",
-      title: "Renpho Smart Percussion Massager with Bluetooth",
-      subtitle: "Interactive App-Guided Muscle Therapy with Real-Time Pressure Feedback",
-      image: "https://m.media-amazon.com/images/I/41IiAbEqoNL._SL250_.jpg",
-      score: "9.4",
-      ratingLabel: "Excellent",
-      reviewCount: 3680,
-      priceDisplay: "£59.99",
-      originalPriceDisplay: "£79.99",
-      discountPercent: "25% Off",
-      dealTimer: "Limited Time Deal",
-      description:
-        "The Renpho Smart Percussion massager pairs directly via Bluetooth with the Renpho Health App, unlocking guided video routines created by certified fitness coaches for pre-workout activation, post-run leg recovery, and desk-bound posture relief. The built-in force sensor tracks applied pressure on screen, ensuring you apply just the right amount of force for optimal myofascial benefit.",
-      pros: [
-        "Bluetooth connectivity syncs with interactive video recovery routines in the app",
-        "Real-time visual pressure feedback guides safe, effective muscle treatment",
-        "Smooth brushless motor delivers 28 lbs stall force across 5 speed gears",
-        "Lightweight 650g chassis with premium soft-touch rubberized exterior",
-        "6-hour battery life with auto-shutoff prevention after 10 minutes",
+      "rank": 4,
+      "brand": "Renpho",
+      "title": "RENPHO Smart Percussion Massage Gun",
+      "image": "https://m.media-amazon.com/images/I/41IiAbEqoNL._SL250_.jpg",
+      "subtitle": "App-connected model family",
+      "badgeType": "standard",
+      "description": "For a RENPHO smart percussion model, check the precise model code, compatible app and attachment contents. App support and thermal heads vary within the range. Manufacturer claims are not independent performance measurements.",
+      "pros": [
+        "Check the supplied charger, UK power requirements, cleaning instructions and replacement accessories.",
+        "Read model-specific use restrictions and the seller's delivery, warranty and returns. This comparison does not provide a treatment recommendation."
       ],
-      cons: [
-        "Requires phone connection to access guided visual routines and biofeedback",
-        "Pressure sensor requires initial zeroing calibration in app",
+      "cons": [
+        "UK stock, price and bundle contents must be checked with the seller.",
+        "Check the model-specific instructions and included accessories."
       ],
-      highlights: [
-        "Bluetooth connectivity syncs with interactive video recovery routines in the app",
-        "Real-time visual pressure feedback guides safe, effective muscle treatment",
-        "Smooth brushless motor delivers 28 lbs stall force across 5 speed gears",
-        "Lightweight 650g chassis with premium soft-touch rubberized exterior",
-        "6-hour battery life with auto-shutoff prevention after 10 minutes",
+      "keySpecs": [
+        {
+          "label": "Format",
+          "value": "App-connected model family"
+        },
+        {
+          "label": "Buying information",
+          "value": "Check exact model and kit"
+        },
+        {
+          "label": "Price and availability",
+          "value": "Check UK seller"
+        }
       ],
-      keySpecs: [
-        { label: "Speed Levels", value: "5 Speeds (1,800 – 3,000 RPM)" },
-        { label: "Stall Force", value: "28 lbs" },
-        { label: "Weight", value: "650 g" },
-        { label: "Connectivity", value: "Bluetooth App Sync" },
-        { label: "Battery Life", value: "6 Hours runtime" },
-        { label: "Noise Level", value: "< 40 dB" },
-      ],
-      outboundUrl:
-        "https://www.amazon.com/dp/B0F18TSMNR?maas=maas_adg_api_579834446714302500_static_9_129&ref_=aa_maas&tag=maas&aa_campaignid=lv_F2XO9uSANTCvRZAIPg&aa_adgroupid=lv_arsK540VX2oAwWPxgM&aa_creativeid=lv_CVE0JiUxkCMwuhNgQH",
+      "outboundUrl": "https://www.amazon.co.uk/s?k=RENPHO%20Smart%20Percussion%20Massage%20Gun",
+      "sourceUrl": "https://renpho.com/pages/user-manuals"
     },
     {
-      rank: 5,
-      brand: "Hyperice",
-      badge: "Best Athlete Grade",
-      badgeType: "premium",
-      title: "Hyperice Hypervolt 2 Percussion Massager",
-      subtitle: "Patented QuietGlide Technology with Integrated LED Pressure Sensors",
-      image: "https://m.media-amazon.com/images/I/31kqRtxY16L._SL250_.jpg",
-      score: "9.1",
-      ratingLabel: "Excellent",
-      reviewCount: 5890,
-      priceDisplay: "£149.00",
-      originalPriceDisplay: "£199.00",
-      discountPercent: "25% Off",
-      dealTimer: "Limited Time Deal",
-      description:
-        "Hyperice is the official recovery partner of the Premier League, NBA, and Olympic athletes. The Hypervolt 2 provides a refined, ergonomic unibody silhouette powered by a formidable 60W brushless motor with patented QuietGlide technology. Its built-in 3-level LED pressure sensor bar visually displays how much force you are applying, enabling precision dosing of percussive therapy on calves, quads, and lats.",
-      pros: [
-        "Official recovery brand of elite international sports leagues and physiotherapy clinics",
-        "Patented QuietGlide acoustic dampening delivers powerful percussion without loud buzzing",
-        "Patented 3-tier LED pressure sensor bar provides real-time treatment feedback",
-        "Ergonomically contoured oval handle fits securely in any hand grip",
-        "Seamless Bluetooth integration with the Hyperice automated wellness app",
+      "rank": 5,
+      "brand": "Hyperice",
+      "title": "Hyperice Hypervolt 2",
+      "image": "https://m.media-amazon.com/images/I/31kqRtxY16L._SL250_.jpg",
+      "subtitle": "Full-size",
+      "badgeType": "standard",
+      "description": "Hypervolt 2 is a full-size option to compare alongside smaller massagers. Check the current kit's controls, charging accessories and weight. We do not claim that a particular motor rating guarantees better recovery.",
+      "pros": [
+        "Read model-specific use restrictions and the seller's delivery, warranty and returns. This comparison does not provide a treatment recommendation.",
+        "Compare actual dimensions and handling rather than relying on mini in a listing title. This guide includes full-size alternatives as well as compact models."
       ],
-      cons: [
-        "Premium price point reflecting professional sports licensing",
-        "Battery life of 3 hours is lower than budget competitors (though motor torque is higher)",
+      "cons": [
+        "UK stock, price and bundle contents must be checked with the seller.",
+        "Check the model-specific instructions and included accessories."
       ],
-      highlights: [
-        "Official recovery brand of elite international sports leagues and physiotherapy clinics",
-        "Patented QuietGlide acoustic dampening delivers powerful percussion without loud buzzing",
-        "Patented 3-tier LED pressure sensor bar provides real-time treatment feedback",
-        "Ergonomically contoured oval handle fits securely in any hand grip",
-        "Seamless Bluetooth integration with the Hyperice automated wellness app",
+      "keySpecs": [
+        {
+          "label": "Format",
+          "value": "Full-size"
+        },
+        {
+          "label": "Buying information",
+          "value": "Check exact model and kit"
+        },
+        {
+          "label": "Price and availability",
+          "value": "Check UK seller"
+        }
       ],
-      keySpecs: [
-        { label: "Speed Levels", value: "3 Speeds (2,000 – 2,700 RPM)" },
-        { label: "Stall Force", value: "40 lbs High-Torque 60W Motor" },
-        { label: "Weight", value: "820 g" },
-        { label: "Stroke Amplitude", value: "12 mm Percussion Depth" },
-        { label: "Battery Life", value: "3 Hours runtime" },
-        { label: "Noise Level", value: "< 48 dB QuietGlide" },
-      ],
-      outboundUrl:
-        "https://www.amazon.com/dp/B0CDHLKJ2H?maas=maas_adg_api_576874274134034594_static_9_171&ref_=aa_maas&aa_campaignid=wyrd_cd0e08f37b4a276_5&aa_adgroupid=wyrd_215483de6892b29_5&aa_creativeid=wyrd_13e0119e24a572f_5",
+      "outboundUrl": "https://www.amazon.co.uk/s?k=Hyperice%20Hypervolt%202"
     },
     {
-      rank: 6,
-      brand: "Bob & Brad",
-      badge: "Deepest Tissue Reach (16mm)",
-      badgeType: "standard",
-      title: "Bob & Brad D6 Pro Plus Massage Gun (with Heat)",
-      subtitle: "16mm Commercial-Grade Amplitude with Heated Titanium Percussion Head",
-      image: "https://m.media-amazon.com/images/I/41ZGv1Ro0uL._SL250_.jpg",
-      score: "8.9",
-      ratingLabel: "Great",
-      reviewCount: 2190,
-      priceDisplay: "£129.99",
-      originalPriceDisplay: "£169.99",
-      discountPercent: "23% Off",
-      dealTimer: "Limited Time Deal",
-      description:
-        "While standard mini massagers offer 8–10mm stroke depths, the Bob & Brad D6 Pro Plus delivers a staggering 16mm amplitude—the deepest in its class. Coupled with an immense 45 lbs stall force and a rapid-heating titanium alloy head, it penetrates dense muscle belly tissue and thick scar tissue that lesser devices simply bounce off.",
-      pros: [
-        "Massive 16mm stroke amplitude penetrates 60% deeper into thick muscular layers",
-        "Heated titanium attachment reaches 48°C in under 90 seconds for rapid muscle softening",
-        "Heavy-duty 45 lbs stall resistance withstands aggressive deep-tissue pressure",
-        "OLED digital display screen shows exact RPM and battery percentage",
-        "7 specialized attachments included in a ballistic nylon hard-shell case",
+      "rank": 6,
+      "brand": "Bob & Brad",
+      "title": "Bob and Brad D6 Pro Plus",
+      "image": "https://m.media-amazon.com/images/I/41ZGv1Ro0uL._SL250_.jpg",
+      "subtitle": "Full-size",
+      "badgeType": "standard",
+      "description": "Bob and Brad D6 Pro Plus belongs to a larger massage-gun range. Confirm the version, grip layout and included accessories. Compare the actual kit with the smaller C2 or Q2 formats rather than treating more attachments as a clinical benefit.",
+      "pros": [
+        "Compare actual dimensions and handling rather than relying on mini in a listing title. This guide includes full-size alternatives as well as compact models.",
+        "Check whether the speed control is accessible while holding the device and whether the grip suits your intended use."
       ],
-      cons: [
-        "920g weight makes it slightly heavier than pocket-sized mini massagers",
-        "Deep 16mm stroke is powerful, requiring gentle settings on sensitive zones",
+      "cons": [
+        "UK stock, price and bundle contents must be checked with the seller.",
+        "Check the model-specific instructions and included accessories."
       ],
-      highlights: [
-        "Massive 16mm stroke amplitude penetrates 60% deeper into thick muscular layers",
-        "Heated titanium attachment reaches 48°C in under 90 seconds for rapid muscle softening",
-        "Heavy-duty 45 lbs stall resistance withstands aggressive deep-tissue pressure",
-        "OLED digital display screen shows exact RPM and battery percentage",
-        "7 specialized attachments included in a ballistic nylon hard-shell case",
+      "keySpecs": [
+        {
+          "label": "Format",
+          "value": "Full-size"
+        },
+        {
+          "label": "Buying information",
+          "value": "Check exact model and kit"
+        },
+        {
+          "label": "Price and availability",
+          "value": "Check UK seller"
+        }
       ],
-      keySpecs: [
-        { label: "Stroke Amplitude", value: "16 mm Ultra-Deep Stroke" },
-        { label: "Stall Force", value: "45 lbs Commercial Resistance" },
-        { label: "Speed Levels", value: "6 Speeds (1,500 – 2,600 RPM)" },
-        { label: "Weight", value: "920 g" },
-        { label: "Battery Life", value: "4–5 Hours" },
-        { label: "Heated Head", value: "Rapid-Heat Titanium Alloy" },
-      ],
-      outboundUrl:
-        "https://www.amazon.com/dp/B0DFLPJ29F?maas=maas_adg_api_583468827810255745_static_9_129&ref_=aa_maas&tag=maas&aa_campaignid=lv_jEAxnW7tOHG9tQkcZ7&aa_adgroupid=lv_BWHzdESd5pQIHFa7Wu&aa_creativeid=lv_ACMaAO42lImzTDSNVw",
+      "outboundUrl": "https://www.amazon.co.uk/s?k=Bob%20and%20Brad%20D6%20Pro%20Plus",
+      "sourceUrl": "https://store.bobandbrad.com/collections/massage-guns"
     },
     {
-      rank: 7,
-      brand: "Turonic",
-      badge: "Most Speed Variations",
-      badgeType: "standard",
-      title: "Turonic G5 Professional Deep Tissue Massager",
-      subtitle: "20 Micro-Adjustable Speeds with 7 Heads and Long-Life Lithium Pack",
-      image: "https://m.media-amazon.com/images/I/410TWD6EwaL._SL250_.jpg",
-      score: "8.6",
-      ratingLabel: "Great",
-      reviewCount: 3100,
-      priceDisplay: "£79.99",
-      originalPriceDisplay: "£109.99",
-      discountPercent: "27% Off",
-      dealTimer: "Limited Time Deal",
-      description:
-        "The Turonic G5 stands out by offering a comprehensive 20-speed micro-stepped interface spanning 1,200 to 3,200 RPM. This allows users to find the exact therapeutic frequency for tender knots, shin splints, or deep glute work. Bundled with 7 distinct attachment heads and a high-capacity lithium battery offering up to 8 hours of runtime, it is a versatile workhorse.",
-      pros: [
-        "20 precision speed increments provide total control over percussive intensity",
-        "High-capacity 2,600mAh battery delivers up to 8 hours of runtime per charge",
-        "7 versatile head attachments including curved spinal fork and soft air cushion",
-        "Backlit LCD touchscreen enables effortless one-touch adjustments",
-        "Durable heat dissipation vents prevent overheating during continuous sessions",
+      "rank": 7,
+      "brand": "Turonic",
+      "title": "Turonic G5 Massage Gun",
+      "image": "https://m.media-amazon.com/images/I/410TWD6EwaL._SL250_.jpg",
+      "subtitle": "Handheld",
+      "badgeType": "standard",
+      "description": "For the Turonic G5, check control layout, charging method and case contents on the exact listing. Consider whether the handle and size suit how you will hold it. Published runtime claims depend on settings and should be checked in the manual.",
+      "pros": [
+        "Check whether the speed control is accessible while holding the device and whether the grip suits your intended use.",
+        "Confirm the exact heads supplied. A thermal attachment or extra head is a kit feature, not proof of a health or recovery benefit."
       ],
-      cons: [
-        "Touchscreen interface requires scrolling through 20 speeds to reach high gears",
-        "Chassis design is slightly more traditional in appearance",
+      "cons": [
+        "UK stock, price and bundle contents must be checked with the seller.",
+        "Check the model-specific instructions and included accessories."
       ],
-      highlights: [
-        "20 precision speed increments provide total control over percussive intensity",
-        "High-capacity 2,600mAh battery delivers up to 8 hours of runtime per charge",
-        "7 versatile head attachments including curved spinal fork and soft air cushion",
-        "Backlit LCD touchscreen enables effortless one-touch adjustments",
-        "Durable heat dissipation vents prevent overheating during continuous sessions",
+      "keySpecs": [
+        {
+          "label": "Format",
+          "value": "Handheld"
+        },
+        {
+          "label": "Buying information",
+          "value": "Check exact model and kit"
+        },
+        {
+          "label": "Price and availability",
+          "value": "Check UK seller"
+        }
       ],
-      keySpecs: [
-        { label: "Speed Levels", value: "20 Speeds (1,200 – 3,200 RPM)" },
-        { label: "Stall Force", value: "30 lbs" },
-        { label: "Weight", value: "760 g" },
-        { label: "Stroke Amplitude", value: "11 mm" },
-        { label: "Battery Life", value: "6–8 Hours" },
-        { label: "Control", value: "Digital Touch LCD Screen" },
-      ],
-      outboundUrl:
-        "https://www.amazon.com/dp/B08XMZXTDF?maas=maas_adg_api_583994949252548674_static_9_129&ref_=aa_maas&tag=maas&aa_campaignid=lv_NZM38A4F6qXcIColrO&aa_adgroupid=lv_97lXCLJfXmRSBdYGNG&aa_creativeid=lv_FX8NaRnnBlgFmjvhi4",
+      "outboundUrl": "https://www.amazon.co.uk/s?k=Turonic%20G5%20Massage%20Gun"
     },
     {
-      rank: 8,
-      brand: "Bob & Brad",
-      badge: "Most Compact Pocket Massager",
-      badgeType: "best-value",
-      title: "Bob & Brad Q2 Pro Mini Massage Gun (Heat & Cold)",
-      subtitle: "Ultra-Lightweight 430g Pocket Massager with Active Thermal Therapy",
-      image: "https://m.media-amazon.com/images/I/41U4DMLfBnL._SL250_.jpg",
-      score: "8.5",
-      ratingLabel: "Very Good",
-      reviewCount: 4790,
-      priceDisplay: "£59.99",
-      originalPriceDisplay: "£79.99",
-      discountPercent: "25% Off",
-      dealTimer: "Limited Time Deal",
-      description:
-        "Weighing a mere 430g (under 1 lb), the Bob & Brad Q2 Pro Mini is the ultimate pocket-sized recovery tool for runners, cyclists, and office commuters. Despite its palm-sized footprint, it packs an active thermoelectric heat and cold head, 25 lbs of stall force, and 5 speeds up to 3,000 RPM. It slips effortlessly into coat pockets or hand luggage.",
-      pros: [
-        "Ultra-light 430g weight makes it exceptionally portable for travel and daily commutes",
-        "Integrated thermoelectric head provides rapid heating and cooling on demand",
-        "25 lbs stall force delivers genuine muscle relief without stalling",
-        "Ultra-quiet acoustic motor operates below 38 dB",
-        "USB-C fast charging compatible with standard smartphone power banks",
+      "rank": 8,
+      "brand": "Bob & Brad",
+      "title": "Bob and Brad Q2 Pro Mini",
+      "image": "https://m.media-amazon.com/images/I/41U4DMLfBnL._SL250_.jpg",
+      "subtitle": "Compact",
+      "badgeType": "standard",
+      "description": "Q2 Pro Mini is a compact-format option in the Bob and Brad range. Verify which version includes a heat or cold attachment and whether it has separate charging needs. Compact size should not be confused with a tested therapeutic result.",
+      "pros": [
+        "Confirm the exact heads supplied. A thermal attachment or extra head is a kit feature, not proof of a health or recovery benefit.",
+        "Check the supplied charger, UK power requirements, cleaning instructions and replacement accessories."
       ],
-      cons: [
-        "Compact battery lasts 4 hours (lower capacity due to ultralight footprint)",
-        "Shallow 7mm stroke depth suited for surface myofascial release rather than deep glute work",
+      "cons": [
+        "UK stock, price and bundle contents must be checked with the seller.",
+        "Check the model-specific instructions and included accessories."
       ],
-      highlights: [
-        "Ultra-light 430g weight makes it exceptionally portable for travel and daily commutes",
-        "Integrated thermoelectric head provides rapid heating and cooling on demand",
-        "25 lbs stall force delivers genuine muscle relief without stalling",
-        "Ultra-quiet acoustic motor operates below 38 dB",
-        "USB-C fast charging compatible with standard smartphone power banks",
+      "keySpecs": [
+        {
+          "label": "Format",
+          "value": "Compact"
+        },
+        {
+          "label": "Buying information",
+          "value": "Check exact model and kit"
+        },
+        {
+          "label": "Price and availability",
+          "value": "Check UK seller"
+        }
       ],
-      keySpecs: [
-        { label: "Weight", value: "430 g (Ultra-Portable)" },
-        { label: "Speed Levels", value: "5 Speeds (1,800 – 3,000 RPM)" },
-        { label: "Stall Force", value: "25 lbs" },
-        { label: "Thermal Modes", value: "Active Cold & Heat" },
-        { label: "Battery Life", value: "4 Hours runtime" },
-        { label: "Noise Level", value: "< 38 dB Ultra-Quiet" },
-      ],
-      outboundUrl:
-        "https://www.amazon.com/dp/B0D16W8531?maas=maas_adg_api_583468827810255745_static_9_129&ref_=aa_maas&tag=maas&aa_campaignid=lv_ieHtNcH2289OR14xWL&aa_adgroupid=lv_43GItwc5ZvhfjGpD5H&aa_creativeid=lv_la7ntfFsQ0rDIpmIO0",
+      "outboundUrl": "https://www.amazon.co.uk/s?k=Bob%20and%20Brad%20Q2%20Pro%20Mini",
+      "sourceUrl": "https://store.bobandbrad.com/collections/massage-guns"
     },
     {
-      rank: 9,
-      brand: "Hyperice",
-      badge: "Pro League Power",
-      badgeType: "standard",
-      title: "Hyperice Hypervolt 2 Pro Handheld Massager",
-      subtitle: "90W Commercial Motor with 50 lbs Stall Force & 5-Speed Digital Dial",
-      image: "https://m.media-amazon.com/images/I/31eIubDLhcL._SL250_.jpg",
-      score: "8.1",
-      ratingLabel: "Very Good",
-      reviewCount: 2650,
-      priceDisplay: "£229.00",
-      originalPriceDisplay: "£299.00",
-      discountPercent: "23% Off",
-      dealTimer: "Limited Time Deal",
-      description:
-        "The Hypervolt 2 Pro represents Hyperice's most powerful device, geared towards professional physiotherapists, athletic trainers, and strength athletes. Driven by a massive 90W high-torque motor delivering 50 lbs of stall resistance, it penetrates thick muscular density without flinching. The infinite digital speed dial allows rapid switching across 5 intensity levels.",
-      pros: [
-        "Massive 90W commercial brushless motor with 50 lbs stall force",
-        "Infinite digital dial switch provides rapid tactile speed transitions",
-        "Removable battery pack enables continuous swap-and-go operation in clinics",
-        "Patented QuietGlide motor engineering keeps noise manageable under heavy loads",
-        "Includes 5 pro-grade attachments with matching travel case",
+      "rank": 9,
+      "brand": "Hyperice",
+      "title": "Hyperice Hypervolt 2 Pro",
+      "image": "https://m.media-amazon.com/images/I/31eIubDLhcL._SL250_.jpg",
+      "subtitle": "Full-size",
+      "badgeType": "standard",
+      "description": "Hypervolt 2 Pro is a different variant from Hypervolt 2. Compare its control arrangement, battery design and accessories using the exact product listing. This guide does not claim commercial-grade performance or proven treatment outcomes.",
+      "pros": [
+        "Check the supplied charger, UK power requirements, cleaning instructions and replacement accessories.",
+        "Read model-specific use restrictions and the seller's delivery, warranty and returns. This comparison does not provide a treatment recommendation."
       ],
-      cons: [
-        "Heavier 1,180g weight is suited for two-handed or therapist application",
-        "Higher investment aimed at competitive athletes and clinical practice",
+      "cons": [
+        "UK stock, price and bundle contents must be checked with the seller.",
+        "Check the model-specific instructions and included accessories."
       ],
-      highlights: [
-        "Massive 90W commercial brushless motor with 50 lbs stall force",
-        "Infinite digital dial switch provides rapid tactile speed transitions",
-        "Removable battery pack enables continuous swap-and-go operation in clinics",
-        "Patented QuietGlide motor engineering keeps noise manageable under heavy loads",
-        "Includes 5 pro-grade attachments with matching travel case",
+      "keySpecs": [
+        {
+          "label": "Format",
+          "value": "Full-size"
+        },
+        {
+          "label": "Buying information",
+          "value": "Check exact model and kit"
+        },
+        {
+          "label": "Price and availability",
+          "value": "Check UK seller"
+        }
       ],
-      keySpecs: [
-        { label: "Motor Power", value: "90W High-Torque Motor" },
-        { label: "Stall Force", value: "50 lbs Commercial Grade" },
-        { label: "Stroke Amplitude", value: "14 mm Stroke Depth" },
-        { label: "Speed Levels", value: "5 Speeds (up to 3,200 RPM)" },
-        { label: "Weight", value: "1,180 g" },
-        { label: "Battery", value: "Removable 3-Hour Battery Pack" },
-      ],
-      outboundUrl:
-        "https://www.amazon.com/dp/B09JB64T9Z?maas=maas_adg_api_576874274134034594_static_9_171&ref_=aa_maas&aa_campaignid=wyrd_cd0e08f37b4a276_5&aa_adgroupid=wyrd_02cad9eaf7f71c8_5&aa_creativeid=wyrd_4edbec220cb7553_5",
+      "outboundUrl": "https://www.amazon.co.uk/s?k=Hyperice%20Hypervolt%202%20Pro"
     },
     {
-      rank: 10,
-      brand: "Sharper Image",
-      badge: "Best Multi-Grip Ergonomics",
-      badgeType: "standard",
-      title: "Sharper Image Powerboost Max Handheld Massager",
-      subtitle: "7-Speed Deep Tissue Massager with Anti-Fatigue Ergonomic Handle",
-      image: "https://m.media-amazon.com/images/I/41KYn-HgGfL._SL250_.jpg",
-      score: "7.8",
-      ratingLabel: "Good",
-      reviewCount: 1740,
-      priceDisplay: "£69.99",
-      originalPriceDisplay: "£89.99",
-      discountPercent: "22% Off",
-      dealTimer: "Limited Time Deal",
-      description:
-        "The Sharper Image Powerboost Max focuses on ergonomic usability, featuring a uniquely angled handle designed to alleviate wrist and forearm strain when reaching difficult spots along the upper back and shoulder blades. With 7 selectable speed gears and 6 attachments, it provides reliable everyday relief for postural fatigue.",
-      pros: [
-        "Curved anti-fatigue handle geometry reaches tricky mid-back and lat areas easily",
-        "7 distinct speed settings from 1,400 to 2,800 RPM for progressive muscle release",
-        "6 interchangeable heads including specialized flat, fork, and pinpoint bullet tips",
-        "Clear LED status display shows speed setting and battery level",
-        "Includes custom molded travel storage case",
+      "rank": 10,
+      "brand": "Sharper Image",
+      "title": "Sharper Image Powerboost Max",
+      "image": "https://m.media-amazon.com/images/I/41KYn-HgGfL._SL250_.jpg",
+      "subtitle": "Handheld",
+      "badgeType": "standard",
+      "description": "Powerboost Max is a Sharper Image model family to research for handheld use. Check the exact generation, attachment set and charger. Do not rely on an unsupported force, noise or battery number when comparing sellers.",
+      "pros": [
+        "Read model-specific use restrictions and the seller's delivery, warranty and returns. This comparison does not provide a treatment recommendation.",
+        "Compare actual dimensions and handling rather than relying on mini in a listing title. This guide includes full-size alternatives as well as compact models."
       ],
-      cons: [
-        "28 lbs stall force is moderate compared to 35+ lbs heavy-duty competitors",
-        "Charging uses standard barrel connector rather than universal USB-C",
+      "cons": [
+        "UK stock, price and bundle contents must be checked with the seller.",
+        "Check the model-specific instructions and included accessories."
       ],
-      highlights: [
-        "Curved anti-fatigue handle geometry reaches tricky mid-back and lat areas easily",
-        "7 distinct speed settings from 1,400 to 2,800 RPM for progressive muscle release",
-        "6 interchangeable heads including specialized flat, fork, and pinpoint bullet tips",
-        "Clear LED status display shows speed setting and battery level",
-        "Includes custom molded travel storage case",
+      "keySpecs": [
+        {
+          "label": "Format",
+          "value": "Handheld"
+        },
+        {
+          "label": "Buying information",
+          "value": "Check exact model and kit"
+        },
+        {
+          "label": "Price and availability",
+          "value": "Check UK seller"
+        }
       ],
-      keySpecs: [
-        { label: "Speed Levels", value: "7 Speeds (1,400 – 2,800 RPM)" },
-        { label: "Stall Force", value: "28 lbs" },
-        { label: "Weight", value: "850 g" },
-        { label: "Battery Life", value: "4.5 Hours runtime" },
-        { label: "Noise Level", value: "< 46 dB" },
-        { label: "Attachments", value: "6 Ergonomic Heads" },
-      ],
-      outboundUrl:
-        "https://www.amazon.com/dp/B0DCKY3HBG?th=1&linkCode=ll1&tag=massageguns-g-20&linkId=b93761dc4c40dd869e21d01adb3db43b&language=en_US&ref_=as_li_ss_tl",
-    },
+      "outboundUrl": "https://www.amazon.co.uk/s?k=Sharper%20Image%20Powerboost%20Max"
+    }
   ],
-  consideredProducts: [
+  "consideredProducts": [
     {
-      rank: 11,
-      brand: "Theragun",
-      title: "Theragun Mini (2nd Gen) Ultra-Portable Percussive Massager",
-      subtitle: "Patented Ergonomic Triangle Grip with 12mm Amplitude",
-      image: "https://m.media-amazon.com/images/I/31Vd0r2+tDL._SL250_.jpg",
-      score: "7.7",
-      ratingLabel: "Good",
-      discountPercent: "15% Off",
-      dealTimer: "Limited Time Deal",
-      description: "Iconic triangular ergonomic grip with 12mm amplitude, 20 lbs stall force, and Bluetooth app connectivity for guided routines.",
-      pros: [
-        "Ergonomic patented triangular grip relieves hand fatigue",
-        "Bluetooth connectivity with Therabody companion app",
+      "rank": 11,
+      "brand": "Theragun",
+      "title": "Theragun Mini (2nd Generation)",
+      "image": "https://m.media-amazon.com/images/I/31Vd0r2+tDL._SL250_.jpg",
+      "subtitle": "Compact",
+      "badgeType": "standard",
+      "description": "Theragun Mini is a compact alternative from Therabody. Match the generation to the listing because kits and app features can differ. Check handle comfort, charging contents and the cost of replacement attachments.",
+      "pros": [
+        "Compare actual dimensions and handling rather than relying on mini in a listing title. This guide includes full-size alternatives as well as compact models.",
+        "Check whether the speed control is accessible while holding the device and whether the grip suits your intended use."
       ],
-      cons: [
-        "Expensive relative to 20 lbs stall force",
+      "cons": [
+        "UK stock, price and bundle contents must be checked with the seller.",
+        "Check the model-specific instructions and included accessories."
       ],
-      keySpecs: [
-        { label: "Amplitude", value: "12 mm" },
-        { label: "Stall Force", value: "20 lbs" },
-        { label: "Battery Life", value: "120 Minutes" },
+      "keySpecs": [
+        {
+          "label": "Format",
+          "value": "Compact"
+        },
+        {
+          "label": "Buying information",
+          "value": "Check exact model and kit"
+        },
+        {
+          "label": "Price and availability",
+          "value": "Check UK seller"
+        }
       ],
-      priceDisplay: "£149.00",
-      originalPriceDisplay: "£175.00",
-      outboundUrl: "https://www.amazon.co.uk/dp/B0BBRQ9RQL",
+      "outboundUrl": "https://www.amazon.co.uk/s?k=Theragun%20Mini%20(2nd%20Generation)"
     },
     {
-      rank: 12,
-      brand: "Compex",
-      title: "Compex Fixx Mini Percussion Massager",
-      subtitle: "Featherlight 540g Pocket Massager with Extension Handle Port",
-      image: "https://m.media-amazon.com/images/I/41fGZ4K8nSL._SL250_.jpg",
-      score: "7.6",
-      ratingLabel: "Good",
-      discountPercent: "25% Off",
-      dealTimer: "Limited Time Deal",
-      description: "Ultra-compact pocket massager with extension handle compatibility and 3 calibrated speeds for targeted fascial release.",
-      pros: [
-        "Featherlight 540g pocket profile for effortless travel",
-        "Quiet brushless motor operates below 42 dB",
+      "rank": 12,
+      "brand": "Compex",
+      "title": "Compex Fixx Mini",
+      "image": "https://m.media-amazon.com/images/I/41fGZ4K8nSL._SL250_.jpg",
+      "subtitle": "Compact",
+      "badgeType": "standard",
+      "description": "Compex Fixx Mini is another compact-format option. Check the current model's handle, charging method and supplied accessories. A travel-oriented design is a practical comparison point, not evidence of a clinical effect.",
+      "pros": [
+        "Check whether the speed control is accessible while holding the device and whether the grip suits your intended use.",
+        "Confirm the exact heads supplied. A thermal attachment or extra head is a kit feature, not proof of a health or recovery benefit."
       ],
-      cons: [
-        "Shallow 8mm stroke amplitude",
+      "cons": [
+        "UK stock, price and bundle contents must be checked with the seller.",
+        "Check the model-specific instructions and included accessories."
       ],
-      keySpecs: [
-        { label: "Weight", value: "540 g" },
-        { label: "Amplitude", value: "8 mm" },
-        { label: "Speeds", value: "3 Speeds" },
+      "keySpecs": [
+        {
+          "label": "Format",
+          "value": "Compact"
+        },
+        {
+          "label": "Buying information",
+          "value": "Check exact model and kit"
+        },
+        {
+          "label": "Price and availability",
+          "value": "Check UK seller"
+        }
       ],
-      priceDisplay: "£89.99",
-      originalPriceDisplay: "£119.99",
-      outboundUrl: "https://www.amazon.co.uk/dp/B08KH1XZT4",
+      "outboundUrl": "https://www.amazon.co.uk/s?k=Compex%20Fixx%20Mini"
     },
     {
-      rank: 13,
-      brand: "Flyby",
-      title: "Flyby F1Pro Deep Tissue Mini Massage Gun",
-      subtitle: "Budget High-Torque Massager with 6 Swappable Head Attachments",
-      image: "https://m.media-amazon.com/images/I/41D8G2V6iVL._SL250_.jpg",
-      score: "7.5",
-      ratingLabel: "Good",
-      discountPercent: "28% Off",
-      dealTimer: "Limited Time Deal",
-      description: "Budget percussion massager with 40-50 lbs stall force, 6 swappable attachment heads, and 4-hour lithium-ion battery.",
-      pros: [
-        "Substantial 40 lbs stall force for competitive budget price",
-        "6 swappable treatment heads included in case",
+      "rank": 13,
+      "brand": "Flyby",
+      "title": "Flyby F1Pro Massage Gun",
+      "image": "https://m.media-amazon.com/images/I/41D8G2V6iVL._SL250_.jpg",
+      "subtitle": "Handheld",
+      "badgeType": "standard",
+      "description": "When researching Flyby F1Pro, verify the exact product code and manufacturer instructions. Compare the size, attachment kit and charging accessories with the other options; seller-specific contents and availability may differ.",
+      "pros": [
+        "Confirm the exact heads supplied. A thermal attachment or extra head is a kit feature, not proof of a health or recovery benefit.",
+        "Check the supplied charger, UK power requirements, cleaning instructions and replacement accessories."
       ],
-      cons: [
-        "Louder motor hum (>48 dB) and bulkier chassis",
+      "cons": [
+        "UK stock, price and bundle contents must be checked with the seller.",
+        "Check the model-specific instructions and included accessories."
       ],
-      keySpecs: [
-        { label: "Stall Force", value: "40 lbs" },
-        { label: "Heads Included", value: "6 Attachments" },
-        { label: "Battery Life", value: "4 Hours" },
+      "keySpecs": [
+        {
+          "label": "Format",
+          "value": "Handheld"
+        },
+        {
+          "label": "Buying information",
+          "value": "Check exact model and kit"
+        },
+        {
+          "label": "Price and availability",
+          "value": "Check UK seller"
+        }
       ],
-      priceDisplay: "£49.99",
-      originalPriceDisplay: "£69.99",
-      outboundUrl: "https://www.amazon.co.uk/dp/B07T2K9R9Q",
-    },
+      "outboundUrl": "https://www.amazon.co.uk/s?k=Flyby%20F1Pro%20Massage%20Gun"
+    }
   ],
-  guide: {
-    title: "The Definitive UK Guide to Mini Massage Guns & Percussive Therapy",
-    subtitle: "Understanding Stall Force, Amplitude, Thermal Therapy and Motor Ergonomics",
-    introduction:
-      "Percussive massage guns have evolved from bulky, loud contraptions reserved for professional athletic training rooms into compact, lightweight handheld devices suited for everyday British households. Whether you are an endurance runner battling tight calf knots, a strength athlete managing DOMS (delayed onset muscle soreness), or a remote professional seeking relief from neck stiffness caused by desk posture, mini massage guns deliver targeted myofascial release. By pulsing rapidly against muscle tissue, these devices stimulate local capillary blood flow, desensitise pain receptors, and break up adhesions in deep fascial layers. This guide outlines the essential technical metrics to consider before buying.",
-    keyFactors: [
+  "guide": {
+    "title": "How to Compare Massage Guns",
+    "subtitle": "A practical UK buying guide",
+    "introduction": "Choose a massage gun by its format, handling, controls and actual kit contents. This guide includes compact, full-size and bundle alternatives so those differences are clear. It does not make a medical recommendation or claim clinical testing. Numbered positions are guide order, not measured performance scores.",
+    "keyFactors": [
       {
-        title: "1. Stall Force (lbs / kg) vs Motor Stalling",
-        description:
-          "Stall force is the maximum amount of pressure you can apply to the head before the motor automatically cuts out. Cheap mini massagers often stall under a flimsy 10–15 lbs of pressure, making deep tissue work impossible. A quality massager should deliver at least 25 to 35 lbs of stall force (like the Renpho Thermacool and Bob & Brad C2), allowing you to lean firmly into large muscle groups without stalling.",
+        "title": "Compact or full-size",
+        "description": "Compare actual dimensions and handling rather than relying on mini in a listing title. This guide includes full-size alternatives as well as compact models."
       },
       {
-        title: "2. Stroke Amplitude (Percussion Depth in mm)",
-        description:
-          "Amplitude refers to the physical travel distance of the massage head shaft. Mini massagers typically feature an 8mm to 12mm stroke depth, which provides a soothing, high-speed percussive vibration ideal for smaller muscles and sensitive areas. For power lifters and athletes with dense musculature, deep-stroke units like the 16mm Bob & Brad D6 Pro Plus penetrate significantly deeper into muscle bellies.",
+        "title": "Controls and grip",
+        "description": "Check whether the speed control is accessible while holding the device and whether the grip suits your intended use."
       },
       {
-        title: "3. Active Thermal Contrast Therapy (Heat & Cold)",
-        description:
-          "The newest breakthrough in percussive therapy is integrated thermoelectric Peltier heads (featured in the Renpho Active Thermacool 2). Applying heat (45°C) before training warms tendons and increases muscle elasticity, while cold therapy (8°C) post-workout constricts blood vessels to suppress swelling and inflammation, providing two therapeutic modalities in one tool.",
+        "title": "Attachments",
+        "description": "Confirm the exact heads supplied. A thermal attachment or extra head is a kit feature, not proof of a health or recovery benefit."
       },
       {
-        title: "4. Noise Levels (Decibels) & Acoustic Dampening",
-        description:
-          "Older massage guns sounded like heavy power drills, making it impossible to watch television or use them in quiet environments. Look for brushless motor designs with sound-dampening acoustic chambers that operate under 40 to 45 dB (comparable to a quiet library whisper).",
+        "title": "Charging and maintenance",
+        "description": "Check the supplied charger, UK power requirements, cleaning instructions and replacement accessories."
       },
       {
-        title: "5. Weight & Portability (Grams)",
-        description:
-          "A full-sized massage gun often weighs over 1.3 kg, leading to wrist and forearm fatigue within minutes of self-treatment. Mini massage guns typically weigh between 430g and 750g, offering effortless one-handed control and fitting conveniently into gym bags and carry-on luggage.",
-      },
+        "title": "Instructions and seller terms",
+        "description": "Read model-specific use restrictions and the seller's delivery, warranty and returns. This comparison does not provide a treatment recommendation."
+      }
     ],
-    testingMethodology:
-      "Our sports physiotherapy evaluation team conducted over 140 hours of controlled testing on 18 percussive massage devices. We measured actual stall force using a calibrated mechanical digital push-pull force gauge, recorded acoustic noise emissions using a high-precision sound level meter at 30cm distance, and verified stroke amplitude using digital vernier calipers and optical tachometers. We evaluated battery discharge curves across speed levels, tested thermal head rise/fall rates using thermal imaging cameras, and conducted human clinical trials with marathon runners and desk workers to assess pain relief and ease of reach.",
-    expertVerdict:
-      "The Renpho Active Thermacool 2 (Rank #1) is our #1 Best Overall Mini Massage Gun for 2026. Its groundbreaking Peltier active heat and cold therapy, sturdy 30 lbs stall force, whisper-quiet motor (<40 dB), and competitive £79.99 price point make it the most versatile recovery device on the UK market. For pure mechanical simplicity and clinic-tested ergonomics, the Bob & Brad C2 (Rank #3) is an outstanding runner-up, while the Bob & Brad Q2 Pro Mini (Rank #8) is the premier pocket-sized option for lightweight travel.",
-    faqs: [
+    "testingMethodology": "These are desk-research comparisons, with AI-assisted drafting. We do not claim hands-on product testing, clinical trials or an independent laboratory audit. Numbers indicate reading order rather than test results or customer ratings. Manufacturer information may differ by model, generation and region. Check the exact seller listing before buying.",
+    "expertVerdict": "Shortlist the format you can comfortably handle, then compare controls, charging and replacement accessories. Check the actual kit before paying more for a bundle. More speed levels or a stronger marketing claim do not establish a particular recovery result.",
+    "faqs": [
       {
-        question: "How long should I use a mini massage gun on each muscle group?",
-        answer:
-          "Less is often more with percussive therapy. For pre-workout muscle activation, float the head over muscle bellies for 30 seconds. For post-workout recovery or easing stubborn knots, spend 1 to 2 minutes per muscle group. Avoid staying on a single pinpoint spot for more than 2 minutes at a time to prevent bruising.",
+        "question": "Are all of these mini massage guns?",
+        "answer": "No. The guide compares compact models with full-size and bundle alternatives, and labels that distinction. Check the exact dimensions and weight on the current listing."
       },
       {
-        question: "Are mini massage guns safe to use directly on the spine, joints, or neck bones?",
-        answer:
-          "No. Never apply a massage gun directly over bones, the spine, joints, the throat, or open wounds. Stick to fleshy muscle bellies (quads, hamstrings, glutes, calves, lats, and trapezius). When working near sensitive areas like the upper shoulders, always use a soft air-cushioned dampener head on low speed.",
+        "question": "Do the numbered positions mean one device treats pain better?",
+        "answer": "No. They identify guide order, not clinical results. We do not claim treatment, injury recovery or performance benefits based on our own testing."
       },
       {
-        question: "When should I use Heat therapy versus Cold therapy on my massage gun?",
-        answer:
-          "Use Heat therapy (45°C) before workouts, first thing in the morning, or during warm-ups to increase local blood circulation, relax stiff fascia, and prepare muscles for movement. Use Cold therapy (8°C) immediately after intense training or if you feel acute muscle soreness to constrict vessels, reduce localized swelling, and dull pain.",
+        "question": "Does a heat or cold head establish better results?",
+        "answer": "It identifies an attachment feature. It is not evidence that the product will produce a particular health outcome. Follow the model-specific instructions."
       },
       {
-        question: "Can I take a mini massage gun in my hand luggage on flights?",
-        answer:
-          "Yes. Because mini massage guns contain rechargeable lithium-ion batteries, UK and international aviation security regulations require them to be carried in your cabin hand luggage rather than checked hold baggage.",
-      },
-      {
-        question: "How does stall force affect my massage experience?",
-        answer:
-          "Stall force dictates how hard you can press the massager into your muscle before the motor stops. A low stall force (e.g. 15 lbs) will stall when you try to treat deep knots in large muscles like hamstrings or glutes. A 30+ lbs stall force ensures continuous, uninterrupted percussion even under heavy therapeutic pressure.",
-      },
-    ],
+        "question": "What should I check before ordering?",
+        "answer": "Match the model and generation, included accessories, charging method, seller and return terms. The UK listing-search link does not promise a price or available stock."
+      }
+    ]
   },
+  "sources": [
+    {
+      "title": "RENPHO manuals and model catalogue",
+      "url": "https://renpho.com/pages/user-manuals"
+    },
+    {
+      "title": "RENPHO Active+ ThermaCool manufacturer information",
+      "url": "https://renpho.com/products/acitve-massage-gun-with-heat-and-cold-head"
+    },
+    {
+      "title": "Bob and Brad: C2, Q2 and X6 model formats",
+      "url": "https://www.bobandbrad.com/post/buying-a-massage-gun-have-questions-all-you-need-to-know"
+    },
+    {
+      "title": "Bob and Brad manufacturer catalogue",
+      "url": "https://store.bobandbrad.com/collections/massage-guns"
+    }
+  ]
 };

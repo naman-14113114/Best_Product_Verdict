@@ -12,8 +12,8 @@ interface BuyingGuideProps {
 
 export const BuyingGuide: React.FC<BuyingGuideProps> = ({
   guide,
-  authorName = "David Welch",
-  authorRole = "Senior Product Analyst",
+  authorName = "Best Product Verdict",
+  authorRole = "Product comparison publisher",
 }) => {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
@@ -51,7 +51,7 @@ export const BuyingGuide: React.FC<BuyingGuideProps> = ({
           <div className="mt-6 space-y-4">
             <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5 text-[#00c092]" />
-              <span>5 Critical Factors We Evaluate Before Recommending</span>
+              <span>5 Practical Buying Considerations</span>
             </h3>
 
             <div className="grid grid-cols-1 gap-3 pt-2">
@@ -78,35 +78,18 @@ export const BuyingGuide: React.FC<BuyingGuideProps> = ({
         <div className="max-w-4xl space-y-4">
           <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-3 py-1 rounded-full border border-blue-200/80">
             <FlaskConical className="w-3.5 h-3.5" />
-            <span>Standardized Lab Protocols</span>
+            <span>Desk-Research Method</span>
           </div>
 
           <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
-            How We Test &amp; Benchmark Hardware in the UK
+            How This Comparison Is Prepared
           </h3>
 
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
             {guide.testingMethodology}
           </p>
 
-          <div className="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-            <div className="bg-slate-50 p-3 rounded-xl border border-slate-200">
-              <span className="text-xl sm:text-2xl font-black text-[#00c092] block">100%</span>
-              <span className="text-[10px] text-slate-500 font-bold uppercase">UK Hands-On Tested</span>
-            </div>
-            <div className="bg-slate-50 p-3 rounded-xl border border-slate-200">
-              <span className="text-xl sm:text-2xl font-black text-[#0087ee] block">140h+</span>
-              <span className="text-[10px] text-slate-500 font-bold uppercase">Lab Benchmarking</span>
-            </div>
-            <div className="bg-slate-50 p-3 rounded-xl border border-slate-200">
-              <span className="text-xl sm:text-2xl font-black text-amber-500 block">£0</span>
-              <span className="text-[10px] text-slate-500 font-bold uppercase">Paid Placement</span>
-            </div>
-            <div className="bg-slate-50 p-3 rounded-xl border border-slate-200">
-              <span className="text-xl sm:text-2xl font-black text-emerald-600 block">Strict</span>
-              <span className="text-[10px] text-slate-500 font-bold uppercase">Data Integrity</span>
-            </div>
-          </div>
+          <p className="text-xs text-slate-500">Check manufacturer information for the exact model. Retailer terms and local availability can change.</p>
         </div>
       </div>
 
@@ -119,7 +102,7 @@ export const BuyingGuide: React.FC<BuyingGuideProps> = ({
           <div className="space-y-1.5">
             <div className="flex flex-wrap items-center gap-2">
               <span className="text-xs font-bold uppercase tracking-wider text-blue-900">
-                Editorial Board Final Verdict
+                Buying Summary
               </span>
               <span className="text-xs text-slate-400">•</span>
               <span className="text-xs font-semibold text-slate-600">

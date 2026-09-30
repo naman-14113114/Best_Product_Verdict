@@ -6,9 +6,9 @@ import { NewsletterBox } from "@/components/NewsletterBox";
 import { Search } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Product Ratings and Deals - Best Product Verdict UK",
+  title: "Product Comparisons and Buying Guides",
   description:
-    "Best Product Verdict is an independent product comparison site. Find the best products that our experts rate and review. Online shopping made easy.",
+    "UK-focused desk-research comparisons with practical buying considerations, source information and disclosed commercial relationships.",
 };
 
 export default function HomePage() {
@@ -22,7 +22,7 @@ export default function HomePage() {
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-normal">
-            Our experts surf the web for the top products and deals
+            Compare product formats and plan your next purchase
           </p>
 
           <div className="pt-3">
@@ -100,7 +100,7 @@ export default function HomePage() {
       <section id="search-products" className="w-full bg-[#f8f9fa] py-12 px-4 sm:px-6 lg:px-8 border-t border-b border-slate-200 scroll-mt-20">
         <div className="max-w-2xl mx-auto text-center space-y-4">
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
-            Search Tested Products &amp; Deals
+            Search Product Comparison Guides
           </h2>
           <form action="/search" method="get" className="max-w-xl mx-auto">
             <div className="flex items-center bg-white rounded-xl shadow-xs border border-slate-300 focus-within:ring-2 focus-within:ring-[#00c092]/30 focus-within:border-[#00c092] overflow-hidden transition-all">
@@ -131,7 +131,7 @@ export default function HomePage() {
               Connecting You With The Products You Love
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-lg">
-              Our shopping experts create innovative product lists and rankings. Compare choices and find the perfect fit.
+              Our buying guides explain practical differences and the questions to check with a seller before purchasing.
             </p>
           </div>
 
@@ -171,7 +171,7 @@ export default function HomePage() {
               Transforming The Online Marketplace
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-lg">
-              New products are ranked and reviewed every day using dozens of data points to evaluate each unique item.
+              Explore our published guides for product-format comparisons, buying considerations and links to current UK listings.
             </p>
           </div>
         </div>

@@ -20,21 +20,13 @@ export const ConsideredProducts: React.FC<ConsideredProductsProps> = ({
     <section className="w-full my-12 pt-4">
       <div className="mb-6 text-left">
         <h3 className="text-sm sm:text-base font-bold text-slate-900 underline underline-offset-4 decoration-slate-400">
-          Some other products we considered
+          More options to research
         </h3>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {products.slice(0, 3).map((product, idx) => {
-          const handleCtaClick = (e: React.MouseEvent) => {
-            e.preventDefault();
-            trackOutboundClick(
-              product.outboundUrl,
-              product.title,
-              product.rank || 11 + idx,
-              categoryName
-            );
-          };
+          const handleCtaClick = () => { trackOutboundClick(product.outboundUrl, product.title, product.rank || 11 + idx, categoryName); };
 
           return (
             <div
@@ -73,9 +65,10 @@ export const ConsideredProducts: React.FC<ConsideredProductsProps> = ({
                   href={product.outboundUrl}
                   onClick={handleCtaClick}
                   className="w-full py-2.5 px-4 rounded-lg bg-[#0080ff] hover:bg-[#0070e0] text-white font-bold text-xs sm:text-sm flex items-center justify-center shadow-xs hover:shadow transition-all cursor-pointer no-underline tracking-wide"
-                  rel="nofollow noopener noreferrer"
+                  target="_blank"
+                  rel="sponsored nofollow noopener noreferrer"
                 >
-                  <span>Check Price</span>
+                  <span>Find UK listings</span>
                 </a>
               </div>
             </div>

@@ -1,5 +1,2 @@
-import { redirect } from "next/navigation";
-
-export default function CatchAllRoute() {
-  redirect("/top-10");
-}
+import { notFound } from "next/navigation";
+export default function UnknownPage() { notFound(); }

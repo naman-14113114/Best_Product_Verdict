@@ -46,7 +46,7 @@ export default function BestMiniMassageGunsPage() {
       {/* Schema Markup for SEO */}
       <JsonLdSchema data={data} />
 
-      {/* Hero Section Container (ConsumerPicks Webflow classes) */}
+      {/* Hero Section Container (shared layout classes) */}
       <div className="hero__section">
         <div className="section-deals">
           {/* 1. Breadcrumbs: Home / Top 10 / [Category Name] */}
@@ -67,10 +67,10 @@ export default function BestMiniMassageGunsPage() {
           {/* 3. Headline with left vertical teal accent bar | */}
           <h1 className="title-main-desktop-copy">
             <span className="teal-vertical-line" />
-            <span>Top 10 {data.categoryName} - Compared &amp; Ranked By Experts</span>
+            <span>Top 10 {data.categoryName} - Compared for UK Buyers</span>
           </h1>
           <h1 className="title-main-mobile-top10">
-            Top 10 {data.categoryName} - Compared &amp; Ranked By Experts
+            Top 10 {data.categoryName} - Compared for UK Buyers
           </h1>
 
           {/* 4 & 5. Proof Pills bar, Trust Pills & Author Strip */}
@@ -78,7 +78,6 @@ export default function BestMiniMassageGunsPage() {
             categoryName={data.categoryName}
             updatedDate={data.updatedDate}
             authorName={data.author.name}
-            auditorName="Dr. Eleanor Vance"
           />
         </div>
       </div>
@@ -109,7 +108,7 @@ export default function BestMiniMassageGunsPage() {
           name={data.author.name}
           role={data.author.role}
           bio={data.author.bio}
-          avatarUrl={data.author.avatarUrl || "/images/david-welch.jpg"}
+          avatarUrl={data.author.avatarUrl}
         />
 
         {/* 9. Side-by-side comparison table */}
@@ -120,6 +119,7 @@ export default function BestMiniMassageGunsPage() {
 
         {/* 11. Newsletter Box */}
         <NewsletterBox />
+        {data.sources && <section className="my-8 rounded-2xl border border-slate-200 bg-white p-6 space-y-3"><h2 className="text-lg font-bold">Sources and further information</h2><p className="text-xs text-slate-600">Manufacturer information describes the named model or family; it is not our own testing. Details may differ by version and seller.</p><ul className="space-y-2">{data.sources.map(source => <li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer" className="text-sm text-blue-600 hover:underline">{source.title}</a></li>)}</ul></section>}
       </div>
     </div>
   );

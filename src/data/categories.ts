@@ -17,9 +17,6 @@ export interface CategoryData {
   iconName: string; // Lucide icon identifier
   itemCount: number;
   updatedDate: string;
-  testedCount: number;
-  labHours: number;
-  averageRating: string;
   featured: boolean;
   searchTags: string[];
   keyFactors: string[];
@@ -61,30 +58,27 @@ export const HOMEPAGE_CATEGORIES: CategoryColumn[] = [
     title: "Wellness & Recovery",
     image: "https://m.media-amazon.com/images/I/41qZt+HtZxL._SL250_.jpg",
     links: [
-      { name: "Top 10 Mini Massage Guns", href: "/top-10/best-mini-massage-guns", isLive: true },
-      { name: "Pocket Percussion Massagers", href: "/top-10/best-mini-massage-guns", isLive: true },
-      { name: "Deep Tissue Muscle Recovery Guns", href: "/top-10/best-mini-massage-guns", isLive: true },
+      { name: "Top 10 Massage Guns", href: "/top-10/best-mini-massage-guns", isLive: true },
+      { name: "Compact and Full-Size Massagers", href: "/top-10/best-mini-massage-guns", isLive: true },
+      { name: "Handheld Percussion Massagers", href: "/top-10/best-mini-massage-guns", isLive: true },
     ],
   },
 ];
 
 export const CATEGORIES: CategoryData[] = [
   {
-    id: "wireless-meat-thermometers",
-    slug: "best-wireless-meat-thermometers",
-    title: "Top 10 Best Wireless Meat Thermometers UK (2026)",
-    shortName: "Wireless Meat Thermometers",
-    categoryGroup: "Kitchen & Dining",
-    description: "Smart, wire-free Bluetooth and WiFi cooking probes benchmarked for thermal accuracy, ambient range, and app reliability.",
-    longDescription: "Our culinary lab evaluated 18 smart meat probes over 140 hours of smoking, roasting, and high-heat searing. We measured temperature accuracy to within 0.1°C, tested sub-zero to 300°C thermal endurance, and verified transmission stability through thick oven doors and cast iron.",
-    iconName: "Flame",
-    itemCount: 10,
-    updatedDate: "September 2026",
-    testedCount: 18,
-    labHours: 140,
-    averageRating: "4.9",
-    featured: true,
-    searchTags: [
+    "id": "wireless-meat-thermometers",
+    "slug": "best-wireless-meat-thermometers",
+    "title": "10 Wireless Meat Thermometer Options Compared for UK Buyers (2026)",
+    "shortName": "Wireless Meat Thermometers",
+    "categoryGroup": "Kitchen & Dining",
+    "description": "A wireless thermometer can mean a cable-free probe or a wired sensor with a wireless controller. Those formats are not interchangeable. This guide sets out ten options and bundle alternatives to research, with attention to apps, probe counts and UK seller details. Numbered positions indicate reading order, not accuracy-test rankings.",
+    "longDescription": "A wireless thermometer can mean a cable-free probe or a wired sensor with a wireless controller. Those formats are not interchangeable. This guide sets out ten options and bundle alternatives to research, with attention to apps, probe counts and UK seller details. Numbered positions indicate reading order, not accuracy-test rankings.",
+    "iconName": "Flame",
+    "itemCount": 10,
+    "updatedDate": "30 September 2026",
+    "featured": true,
+    "searchTags": [
       "wireless meat thermometer",
       "meat thermometer",
       "smart thermometer",
@@ -97,29 +91,50 @@ export const CATEGORIES: CategoryData[] = [
       "bluetooth probe",
       "wifi meat probe"
     ],
-    keyFactors: ["Thermal Accuracy (±0.1°C)", "Wireless Transmission Range", "Probe Diameter & Meat Insertion", "Companion App Alerts"],
-    topPicksPreview: [
-      { name: "Chef IQ Smart Wireless Thermometer", badge: "Best Overall 2026", rating: "9.9", priceEstimate: "£79.99", highlight: "Ultra-thin 3.9mm probe with infinite cloud Wi-Fi range" },
-      { name: "Typhur Sync 2-Probe System", badge: "Runner-Up", rating: "9.7", priceEstimate: "£149.99", highlight: "Sub-1G penetration frequency & NIST-traceable accuracy" },
-      { name: "ThermoMaven Pro Smart Thermometer", badge: "Lab-Grade Precision", rating: "9.6", priceEstimate: "£119.99", highlight: "NIST-certified 6-sensor array with rest-time prediction" }
+    "keyFactors": [
+      "Probe format",
+      "App and base",
+      "Cooking limits",
+      "Number of probes",
+      "UK kit and seller"
+    ],
+    "topPicksPreview": [
+      {
+        "name": "CHEF iQ Smart Wireless Thermometer",
+        "badge": "Comparison option",
+        "rating": "",
+        "priceEstimate": "Check UK seller",
+        "highlight": "CHEF iQ's Smart Thermometer family is now called iQ Sense by the manufacturer. The system combines a probe, hub and app. Compare which hub and probe generation is included, and check the kit's UK availability rather than treating every bundle as identical."
+      },
+      {
+        "name": "Typhur Sync Dual Wireless Thermometer",
+        "badge": "Comparison option",
+        "rating": "",
+        "priceEstimate": "Check UK seller",
+        "highlight": "Typhur Sync Dual is the two-probe option in the Sync family. A multi-probe setup can suit cooks who want separate readings for different foods. Check the base, supported app and local network requirements on the exact kit."
+      },
+      {
+        "name": "ThermoMaven Wireless Thermometer",
+        "badge": "Comparison option",
+        "rating": "",
+        "priceEstimate": "Check UK seller",
+        "highlight": "ThermoMaven offers several wireless models, including G1 and P2. Confirm the model on the seller's listing and compare its base display and phone requirements. Use the model-specific manual to check the operating limits."
+      }
     ]
   },
   {
-    id: "cordless-water-flossers",
-    slug: "best-cordless-water-flossers",
-    title: "Top 10 Best Cordless Water Flossers UK (2026)",
-    shortName: "Cordless Water Flossers",
-    categoryGroup: "Personal Care & Beauty",
-    description: "Rechargeable, IPX7 waterproof oral irrigators tested for plaque removal, pulse modulation, and gum comfort.",
-    longDescription: "Tested in consultation with UK dental professionals across 24 ergonomic, pressure-calibrated trials. We evaluated water stream PSI (30–120 PSI), pulse frequency, reservoir capacity, and battery longevity for both sensitive gums and orthodontic care.",
-    iconName: "Droplets",
-    itemCount: 10,
-    updatedDate: "September 2026",
-    testedCount: 22,
-    labHours: 110,
-    averageRating: "4.8",
-    featured: true,
-    searchTags: [
+    "id": "cordless-water-flossers",
+    "slug": "best-cordless-water-flossers",
+    "title": "10 Water Flossers Compared for UK Buyers (2026)",
+    "shortName": "Water Flossers",
+    "categoryGroup": "Personal Care & Beauty",
+    "description": "Start with the format you will actually use: a handheld flosser for portability, a home station for a fixed bathroom setup, or a combined brush and flosser. The list below explains what to check for ten options and includes countertop alternatives. The numbered order is not a clinical rating or a performance award.",
+    "longDescription": "Start with the format you will actually use: a handheld flosser for portability, a home station for a fixed bathroom setup, or a combined brush and flosser. The list below explains what to check for ten options and includes countertop alternatives. The numbered order is not a clinical rating or a performance award.",
+    "iconName": "Droplets",
+    "itemCount": 10,
+    "updatedDate": "30 September 2026",
+    "featured": true,
+    "searchTags": [
       "cordless water flosser",
       "water flosser",
       "oral irrigator",
@@ -132,29 +147,50 @@ export const CATEGORIES: CategoryData[] = [
       "flosser for braces",
       "portable flosser"
     ],
-    keyFactors: ["Water Jet PSI Calibration (30-120 PSI)", "Pulse Modulation Frequency", "Reservoir Fill Volume (200-300ml)", "Battery Runtime & USB-C Fast Charging"],
-    topPicksPreview: [
-      { name: "Coslus C20 Cordless Oral Flosser", badge: "Best Overall 2026", rating: "9.9", priceEstimate: "£29.99", highlight: "ADA accepted with 300ml reservoir and 40-day battery runtime" },
-      { name: "Coslus E40 Pro Adjustable Flosser", badge: "Runner-Up", rating: "9.7", priceEstimate: "£39.99", highlight: "10-stage pressure control with wide-aperture reservoir" },
-      { name: "usmile C30 Portable Flosser", badge: "Best Ergonomic Jet", rating: "9.6", priceEstimate: "£44.99", highlight: "Patented S-shaped curved nozzle with 5 smart cleaning modes" }
+    "keyFactors": [
+      "Pressure controls",
+      "Tank and refill access",
+      "Replacement tips",
+      "Charging and travel",
+      "Seller and returns"
+    ],
+    "topPicksPreview": [
+      {
+        "name": "COSLUS C20 Water Flosser",
+        "badge": "Comparison option",
+        "rating": "",
+        "priceEstimate": "Check UK seller",
+        "highlight": "The C20 uses three preset modes and a 300ml tank, according to COSLUS. It is an option to compare if you prefer preset controls to a pressure dial. Check replacement-tip availability and the seller's exact bundle before choosing."
+      },
+      {
+        "name": "COSLUS E40 Water Flosser",
+        "badge": "Comparison option",
+        "rating": "",
+        "priceEstimate": "Check UK seller",
+        "highlight": "COSLUS lists the E40 with a 10-level pressure dial and a 300ml reservoir. The dial is a practical distinction from the C20's preset modes. Compare grip, refill access and the included tips; published specifications are not our own test measurements."
+      },
+      {
+        "name": "usmile C30 Water Flosser",
+        "badge": "Comparison option",
+        "rating": "",
+        "priceEstimate": "Check UK seller",
+        "highlight": "When researching the usmile C30, check the exact model code and charging accessories on the UK seller's listing. For a portable unit, access to the refill opening and replacement nozzles matters as much as the number of modes."
+      }
     ]
   },
   {
-    id: "mini-massage-guns",
-    slug: "best-mini-massage-guns",
-    title: "Top 10 Best Mini Massage Guns UK (2026)",
-    shortName: "Mini Massage Guns",
-    categoryGroup: "Wellness & Recovery",
-    description: "Pocket-sized, brushless percussion massagers evaluated for stall force, amplitude depth, and silent operation.",
-    longDescription: "We put 20 ultra-portable percussion devices through mechanical torque, stall-force pressure gauges, and noise decibel tests. We measured stroke depth (8mm to 12mm), stall force resistance up to 35 lbs, and thermal dissipation during 20-minute continuous therapy sessions.",
-    iconName: "Activity",
-    itemCount: 10,
-    updatedDate: "September 2026",
-    testedCount: 20,
-    labHours: 95,
-    averageRating: "4.9",
-    featured: true,
-    searchTags: [
+    "id": "mini-massage-guns",
+    "slug": "best-mini-massage-guns",
+    "title": "10 Massage Guns Compared for UK Buyers: Compact and Full-Size Options (2026)",
+    "shortName": "Massage Guns",
+    "categoryGroup": "Wellness & Recovery",
+    "description": "Choose a massage gun by its format, handling, controls and actual kit contents. This guide includes compact, full-size and bundle alternatives so those differences are clear. It does not make a medical recommendation or claim clinical testing. Numbered positions are guide order, not measured performance scores.",
+    "longDescription": "Choose a massage gun by its format, handling, controls and actual kit contents. This guide includes compact, full-size and bundle alternatives so those differences are clear. It does not make a medical recommendation or claim clinical testing. Numbered positions are guide order, not measured performance scores.",
+    "iconName": "Activity",
+    "itemCount": 10,
+    "updatedDate": "30 September 2026",
+    "featured": true,
+    "searchTags": [
       "mini massage gun",
       "massage gun",
       "pocket massager",
@@ -166,11 +202,35 @@ export const CATEGORIES: CategoryData[] = [
       "physio gun",
       "fascia gun"
     ],
-    keyFactors: ["Stall Force Resistance (25-40 lbs)", "Percussion Stroke Amplitude (8-12mm)", "Acoustic Decibel Output (<45 dB)", "Aerospace-Grade Weight (<500g)"],
-    topPicksPreview: [
-      { name: "Renpho Active Thermacool 2", badge: "Best Overall 2026", rating: "9.9", priceEstimate: "£79.99", highlight: "Active Peltier heat 45°C & cold 8°C with 30 lbs stall force" },
-      { name: "Renpho Active Thermacool Deluxe", badge: "Runner-Up", rating: "9.7", priceEstimate: "£99.99", highlight: "Desktop magnetic charging stand with 6 therapeutic attachments" },
-      { name: "Bob & Brad C2 Deep Tissue Massager", badge: "Physio Approved", rating: "9.6", priceEstimate: "£69.99", highlight: "Designed by renowned physical therapists with 35 lbs torque" }
+    "keyFactors": [
+      "Compact or full-size",
+      "Controls and grip",
+      "Attachments",
+      "Charging and maintenance",
+      "Instructions and seller terms"
+    ],
+    "topPicksPreview": [
+      {
+        "name": "RENPHO Active ThermaCool 2 Massage Gun",
+        "badge": "Comparison option",
+        "rating": "",
+        "priceEstimate": "Check UK seller",
+        "highlight": "RENPHO lists Active ThermaCool 2 in its manuals catalogue. Compare the exact generation and included attachment kit before choosing. We do not make a tested pain-relief, clinical recovery or noise-level claim for this listing."
+      },
+      {
+        "name": "RENPHO ThermaCool Bundle Options",
+        "badge": "Comparison option",
+        "rating": "",
+        "priceEstimate": "Check UK seller",
+        "highlight": "ThermaCool bundles may differ in attachments and charging accessories. Treat these as kit alternatives within the RENPHO family, not proof of a separate superior model. Confirm any stand or thermal attachment on the seller's actual contents list."
+      },
+      {
+        "name": "Bob and Brad C2 Massage Gun",
+        "badge": "Comparison option",
+        "rating": "",
+        "priceEstimate": "Check UK seller",
+        "highlight": "Bob and Brad describe C2 as a regular-size option compared with their Q2 mini family. It is a format to compare if handling matters more than pocket size. Check the version and attachment kit; the guide does not imply a physiotherapist's endorsement."
+      }
     ]
   }
 ];

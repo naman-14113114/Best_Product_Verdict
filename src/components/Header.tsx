@@ -38,7 +38,7 @@ export const Header: React.FC = () => {
             </div>
           </Link>
 
-          {/* Search bar in the center (ConsumerPicks Webflow classes) */}
+          {/* Search bar in the center (shared layout classes) */}
           <div className="hidden md:flex flex-1 max-w-sm mx-4">
             <form onSubmit={handleSearchSubmit} className="search-2-6-cfddsfd">
               <Search className="w-4 h-4 text-slate-400 shrink-0 ml-3 mr-1" />
@@ -60,12 +60,12 @@ export const Header: React.FC = () => {
             <ul className="nav-menu-cp">
               <li>
                 <Link href="/top-10" className="nav-link-cp">
-                  Top Pick
+                  Buying Guides
                 </Link>
               </li>
               <li>
                 <Link href="/top-10/best-cordless-water-flossers" className="nav-link-cp">
-                  Best Deal
+                  Water Flossers
                 </Link>
               </li>
               <li>
@@ -121,14 +121,14 @@ export const Header: React.FC = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="block px-3 py-2 rounded-lg hover:bg-slate-50 transition-colors"
               >
-                Top Pick
+                Buying Guides
               </Link>
               <Link
                 href="/top-10/best-cordless-water-flossers"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="block px-3 py-2 rounded-lg hover:bg-slate-50 transition-colors"
               >
-                Best Deal
+                Water Flossers
               </Link>
               <button
                 type="button"
@@ -182,7 +182,7 @@ export const Header: React.FC = () => {
         )}
       </header>
 
-      {/* Interactive Disclosure modal popup (ConsumerPicks Webflow classes) */}
+      {/* Interactive Disclosure modal popup (shared layout classes) */}
       {isDisclosureOpen && (
         <div
           className="disclosureboxbanks popupbank1 popup"
@@ -204,7 +204,7 @@ export const Header: React.FC = () => {
               </button>
             </div>
             <p className="disclosure-card-text">
-              If you buy a product after clicking one of our links, we may be paid a commission at no extra cost to you. Best Product Verdict is an independent product comparison service funded by affiliate referral partnerships. Our ratings, scores, and rankings are calculated using objective editorial testing and verified review analytics.
+              If you buy a product after clicking one of our links, we may earn a commission where an affiliate link is used. Best Product Verdict publishes desk-research comparisons with AI-assisted drafting. Commercial relationships may influence inclusion and order. Numbered positions are not test scores or customer ratings.
             </p>
             <div className="flex items-center justify-between pt-2">
               <Link

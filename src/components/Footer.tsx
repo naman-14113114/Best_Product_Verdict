@@ -13,7 +13,7 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="w-full mt-16">
-      {/* "Back to Top" top bar (ConsumerPicks Webflow classes) */}
+      {/* "Back to Top" top bar (shared layout classes) */}
       <div className="backtotopdiv-top10">
         <div className="backtotop">
           <button
@@ -28,7 +28,7 @@ export const Footer: React.FC = () => {
         </div>
       </div>
 
-      {/* Main 5-Column Footer (ConsumerPicks Webflow classes) */}
+      {/* Main 5-Column Footer (shared layout classes) */}
       <div className="footer-3-copy-copy-copy-copy-3-cojkjk">
         <div className="footer-row">
           {/* Column 1: Info (Logo + Tagline + DMCA + Copyright) */}
@@ -45,15 +45,6 @@ export const Footer: React.FC = () => {
             <p className="text-small-2">
               Breaking down the online shopping barrier to help you make the right purchasing decisions.
             </p>
-
-            {/* DMCA Protected Badge */}
-            <div className="pt-1">
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-slate-900 text-white text-[11px] font-bold tracking-wider">
-                <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-                <span className="text-emerald-400">DMCA</span>
-                <span className="text-slate-300 font-normal">PROTECTED</span>
-              </div>
-            </div>
 
             <div className="text-small-2 pt-1">
               &copy; 2026 Best Product Verdict. All Rights Reserved.
@@ -142,7 +133,7 @@ export const Footer: React.FC = () => {
                 Contact
               </Link>
               <Link href="/mailing-list" className="footer-link-3">
-                Mailing List
+                Guide Updates
               </Link>
               <Link href="/partnerships" className="footer-link-3">
                 Partnerships
@@ -153,7 +144,7 @@ export const Footer: React.FC = () => {
 
         {/* ASA/FTC Compliance subtext */}
         <div className="max-w-[1200px] mx-auto mt-8 pt-6 border-t border-slate-200/80 text-[11px] text-slate-400 text-center leading-relaxed">
-          Best Product Verdict is a participant in affiliate advertising programs designed to provide a means for sites to earn advertising fees by advertising and linking to official UK retail stores including Amazon.co.uk. Product prices, availability, and promotional offers are accurate as of the date/time indicated and are subject to change.
+          Best Product Verdict is operated by Naman Kharbanda. Some links may earn a commission and commercial relationships may affect inclusion and order. Guides use desk research with AI-assisted drafting. Retailers set prices, stock, delivery and returns. Contact: support@bestproductverdict.com.
         </div>
       </div>
     </footer>

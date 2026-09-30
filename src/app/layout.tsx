@@ -14,11 +14,12 @@ const rubik = Rubik({
 export const metadata: Metadata = {
   title: {
     template: "%s | Best Product Verdict UK",
-    default: "Best Product Verdict | Top 10 Product Reviews & Buying Guides UK",
+    default: "Best Product Verdict | Product Comparisons & Buying Guides UK",
   },
   description:
-    "Independent UK product testing, side-by-side comparison tables, and top 10 rankings across smart kitchen hardware, oral health, and athletic recovery.",
-  metadataBase: new URL("https://www.bestproductverdict.co.uk"),
+    "UK-focused product comparisons and buying guides for kitchen thermometers, water flossers and massage guns. Research methods and commercial relationships are disclosed.",
+  alternates: { canonical: "https://www.bestproductverdict.com" },
+  metadataBase: new URL("https://www.bestproductverdict.com"),
   robots: {
     index: true,
     follow: true,
