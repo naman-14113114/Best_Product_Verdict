@@ -19,6 +19,18 @@ const nextConfig = {
         protocol: "https",
         hostname: "images.unsplash.com",
       },
+      {
+        protocol: "https",
+        hostname: "img.thesitebase.net",
+      },
+      {
+        protocol: "https",
+        hostname: "www.buudy.co.uk",
+      },
+      {
+        protocol: "https",
+        hostname: "buudy.com",
+      },
     ],
   },
   async redirects() {

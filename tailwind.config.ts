@@ -22,6 +22,9 @@ const config: Config = {
       fontFamily: {
         sans: ["Rubik", "system-ui", "-apple-system", "sans-serif"],
         rubik: ["Rubik", "sans-serif"],
+        serif: ["'Playfair Display'", "Georgia", "Baskerville", "serif"],
+        editorial: ["'Playfair Display'", "Georgia", "Baskerville", "serif"],
+        jakarta: ["'Plus Jakarta Sans'", "Rubik", "sans-serif"],
       },
       boxShadow: {
         card: "0 4px 20px rgba(0, 0, 0, 0.06)",
