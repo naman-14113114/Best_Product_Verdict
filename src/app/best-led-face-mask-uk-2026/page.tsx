@@ -62,8 +62,8 @@ export default function BestLedFaceMaskPage() {
         "inLanguage": "en-GB",
         "author": {
           "@type": "Person",
-          "name": "Dr. Megan Vincze",
-          "jobTitle": "Certified Dermatologist",
+          "name": "Dr. Shannon",
+          "jobTitle": "Consultant Dermatologist",
         },
         "publisher": {
           "@type": "Organization",
@@ -102,57 +102,6 @@ export default function BestLedFaceMaskPage() {
             "@type": "ListItem",
             "position": 5,
             "name": "Dr. Dennis Gross DRx SpectraLite",
-          },
-        ],
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://www.bestproductverdict.com/best-led-face-mask-uk-2026#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What is the best LED face mask in the UK in 2026?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text":
-                "The Buudy 7 Colour LED Mask ranks #1 in the UK for 2026. It features 7 therapeutic wavelengths plus 830nm near-infrared, built-in neck coverage, cordless tap controls, and a 90-day money-back guarantee at £179.",
-            },
-          },
-          {
-            "@type": "Question",
-            "name": "Does LED light face mask therapy really work for wrinkles and acne?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text":
-                "Yes, clinical research confirms that specific LED wavelengths stimulate collagen synthesis (Red and Near-Infrared light) to reduce wrinkles and eliminate P. acnes bacteria (Blue light) to clear active breakouts.",
-            },
-          },
-          {
-            "@type": "Question",
-            "name": "What makes the Buudy 7 Colour LED Mask different from single-colour masks?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text":
-                "While single-colour masks only emit red light, the Buudy 7 Colour LED Mask offers Red, Blue, Green, Cyan, Yellow, Purple, and White light plus 830nm Near-Infrared to target pigmentation, redness, acne, and deep wrinkles in one device.",
-            },
-          },
-          {
-            "@type": "Question",
-            "name": "Why is neck coverage important for LED face mask therapy?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text":
-                "The delicate neck and décolletage area ages faster than facial skin. Masks lacking neck coverage leave a noticeable age gap, whereas Buudy includes full face and neck coverage standard.",
-            },
-          },
-          {
-            "@type": "Question",
-            "name": "How often should you use an at-home LED light therapy face mask?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text":
-                "For optimal results, use an at-home LED face mask for 10 to 15 minutes, 3 to 5 times per week. Most users notice visible skin improvements within 4 to 8 weeks.",
-            },
           },
         ],
       },
