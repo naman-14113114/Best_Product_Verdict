@@ -8,7 +8,7 @@ import { Check, ArrowUp } from "lucide-react";
 export const Footer: React.FC = () => {
   const pathname = usePathname();
 
-  if (pathname?.includes("best-led-face-mask")) {
+  if (pathname?.includes("best-led-face-mask") || pathname?.includes("best-electric-toothbrush")) {
     return null;
   }
   const scrollToTop = () => {

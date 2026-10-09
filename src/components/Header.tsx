@@ -12,7 +12,7 @@ export const Header: React.FC = () => {
   const [isDisclosureOpen, setIsDisclosureOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  if (pathname?.includes("best-led-face-mask")) {
+  if (pathname?.includes("best-led-face-mask") || pathname?.includes("best-electric-toothbrush")) {
     return null;
   }
 
