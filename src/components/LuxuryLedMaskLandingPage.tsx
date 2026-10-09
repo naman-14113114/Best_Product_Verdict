@@ -154,9 +154,7 @@ function PerformanceMetricBar({ label, value, isWinner }: { label: string; value
       </div>
       <div className="h-2.5 w-full bg-[#f1f5f9] rounded-full overflow-hidden border border-[#e2e8f0]">
         <div
-          className={`h-full rounded-full transition-all duration-1000 ease-out ${
-            isWinner ? "bg-[#181818]" : "bg-neutral-600"
-          }`}
+          className="h-full rounded-full transition-all duration-1000 ease-out bg-[#181818]"
           style={{ width: `${animatedWidth}%` }}
         />
       </div>
@@ -280,7 +278,7 @@ export function LuxuryLedMaskLandingPage() {
             <img
               src="/img/TOP 5 LED Mask uk.png"
               alt="Top 5 Best LED Face Masks UK 2026 Comparison"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover rounded-2xl"
             />
           </div>
 
@@ -416,27 +414,29 @@ export function LuxuryLedMaskLandingPage() {
               {/* ============================================================
                   ROW 1 (TOP): 2-COLUMN SPLIT (Image + Compact Promo on Left, Info + Bars + CTA on Right)
                   ============================================================ */}
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-8">
-                {/* LEFT COLUMN: Direct Image & Compact Promo Box Below */}
-                <div className="lg:col-span-5 flex flex-col">
-                  <div className="w-full">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-8">
+                {/* LEFT COLUMN: Direct Large Image on Top, Single-Line Promo / Voucher Box at Bottom */}
+                <div className="lg:col-span-5 flex flex-col justify-between h-full">
+                  <div className="flex-1 w-full flex items-center justify-center min-h-[340px] sm:min-h-[400px] lg:min-h-0">
                     {/* Direct Image with Clean Border Radius & No Hover Effect */}
                     <a
                       href={product.link}
-                      className="block w-full aspect-square"
+                      className="block w-full h-full flex items-center justify-center rounded-2xl overflow-hidden bg-white shadow-xs"
                       aria-label={`View ${product.name}`}
                     >
                       <img
                         src={product.image}
                         alt={product.name}
-                        className="w-full h-full object-contain rounded-2xl bg-white shadow-xs"
+                        className="w-full h-full max-h-[440px] object-cover rounded-2xl"
                         loading={product.isWinner ? "eager" : "lazy"}
                       />
                     </a>
+                  </div>
 
-                    {/* Compact Promo / Voucher Box Directly Under Image (Strictly 1 Line) */}
+                  {/* Promo / Voucher Box (Bottom aligned, inline with CTA button on the right) */}
+                  <div className="mt-4 shrink-0">
                     {product.isWinner ? (
-                      <div className="w-full mt-3 px-3 py-2 rounded-xl bg-[#fdf4ff] border-2 border-[#d1a3ff] flex items-center justify-between gap-2 shadow-xs whitespace-nowrap overflow-hidden">
+                      <div className="w-full px-3.5 py-2.5 rounded-xl bg-[#fdf4ff] border-2 border-[#d1a3ff] flex items-center justify-between gap-2 shadow-xs">
                         <span className="font-mono text-xs sm:text-sm font-black text-[#7e22ce] tracking-wider uppercase truncate">
                           COUPON: {product.voucher.code}
                         </span>
@@ -446,11 +446,11 @@ export function LuxuryLedMaskLandingPage() {
                         </span>
                       </div>
                     ) : (
-                      <div className="w-full mt-3 px-3 py-2 rounded-xl bg-[#fafafa] border border-[#e7e7e7] flex items-center justify-between gap-2 whitespace-nowrap overflow-hidden">
+                      <div className="w-full px-3.5 py-2.5 rounded-xl bg-[#fafafa] border border-[#e7e7e7] flex items-center justify-between gap-2 shadow-xs">
                         <span className="font-mono text-xs sm:text-sm font-bold text-neutral-400 line-through tracking-wider uppercase truncate">
                           COUPON: {product.voucher.code}
                         </span>
-                        <span className="font-openSans text-[10px] sm:text-xs font-extrabold text-[#ef4444] bg-red-50 border border-red-200 px-2 py-0.5 rounded uppercase tracking-wide shrink-0">
+                        <span className="font-openSans text-[10px] sm:text-xs font-extrabold text-[#ef4444] bg-red-50 border border-red-200 px-2.5 py-1 rounded uppercase tracking-wide shrink-0">
                           EXPIRED
                         </span>
                       </div>
@@ -508,7 +508,7 @@ export function LuxuryLedMaskLandingPage() {
                   </div>
 
                   {/* Primary / Secondary CTA Button */}
-                  <div className="mt-2">
+                  <div className="mt-4">
                     {product.isWinner ? (
                       <a
                         href={product.link}
@@ -549,14 +549,14 @@ export function LuxuryLedMaskLandingPage() {
                         key={gIdx}
                         className="bg-neutral-900 rounded-xl p-3.5 border border-neutral-800 text-center relative"
                       >
-                        <div className="relative w-full aspect-square rounded-lg overflow-hidden bg-neutral-800 mb-3 border border-neutral-700/60 p-1">
+                        <div className="relative w-full aspect-square rounded-xl overflow-hidden mb-3">
                           <span className="absolute top-2 right-2 z-20 bg-[#b265ff] text-white font-openSans font-extrabold text-[11px] px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-md pointer-events-none">
                             FREE
                           </span>
                           <img
                             src={gift.image}
                             alt={gift.name}
-                            className="w-full h-full object-cover rounded-md block pointer-events-none"
+                            className="w-full h-full object-cover rounded-xl block pointer-events-none"
                           />
                         </div>
 
@@ -723,8 +723,8 @@ export function LuxuryLedMaskLandingPage() {
         </section>
 
         {/* 9. SIDE-BY-SIDE COMPARISON TABLE MATRIX (Clean Minimal Styling) */}
-        <section className="mt-20 bg-white rounded-3xl p-6 sm:p-9 border border-[#e7e7e7] shadow-sm overflow-hidden">
-          <div className="text-center max-w-2xl mx-auto mb-8">
+        <section className="mt-20 bg-white rounded-3xl p-3 sm:p-5 lg:p-6 border border-[#e7e7e7] shadow-sm overflow-hidden">
+          <div className="text-center max-w-2xl mx-auto mb-6">
             <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-bold">
               Complete Side-by-Side Matrix
             </span>
@@ -734,16 +734,16 @@ export function LuxuryLedMaskLandingPage() {
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm sm:text-base border-collapse">
+            <table className="w-full text-left text-xs sm:text-[13px] border-collapse min-w-[700px] lg:min-w-0 lg:table-fixed">
               <thead>
-                <tr className="border-b-2 border-[#e7e7e7] text-neutral-500 font-openSans text-xs uppercase tracking-wider">
-                  <th className="py-3.5 px-3 font-extrabold">Device Model</th>
-                  <th className="py-3.5 px-3 font-extrabold">Optical Spectrum</th>
-                  <th className="py-3.5 px-3 font-extrabold">Neck Coverage</th>
-                  <th className="py-3.5 px-3 font-extrabold">Controls</th>
-                  <th className="py-3.5 px-3 font-extrabold">Money-Back Trial</th>
-                  <th className="py-3.5 px-3 font-extrabold">Price</th>
-                  <th className="py-3.5 px-3 font-extrabold text-right">Action</th>
+                <tr className="border-b-2 border-[#e7e7e7] text-neutral-500 font-openSans text-[11px] sm:text-xs uppercase tracking-wider whitespace-nowrap">
+                  <th className="py-2.5 px-2 sm:px-2.5 font-extrabold lg:w-[17%]">Device Model</th>
+                  <th className="py-2.5 px-2 sm:px-2.5 font-extrabold lg:w-[17%]">Optical Spectrum</th>
+                  <th className="py-2.5 px-2 sm:px-2.5 font-extrabold lg:w-[12%]">Neck Coverage</th>
+                  <th className="py-2.5 px-2 sm:px-2.5 font-extrabold lg:w-[13%]">Controls</th>
+                  <th className="py-2.5 px-2 sm:px-2.5 font-extrabold lg:w-[15%]">Money-Back Trial</th>
+                  <th className="py-2.5 px-2 sm:px-2.5 font-extrabold lg:w-[10%]">Price</th>
+                  <th className="py-2.5 px-2 sm:px-2.5 font-extrabold text-right lg:w-[16%]">Action</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#f1f5f9]">
@@ -752,63 +752,63 @@ export function LuxuryLedMaskLandingPage() {
                     key={p.id}
                     className={p.isWinner ? "bg-[#fdf4ff]/60 font-semibold" : "hover:bg-[#fafafa]"}
                   >
-                    <td className="py-4 px-3">
-                      <div className="flex items-center gap-3">
+                    <td className="py-3 px-2 sm:px-2.5">
+                      <div className="flex items-center gap-2">
                         <img
                           src={p.image}
                           alt={p.name}
-                          className="h-12 w-12 rounded-xl object-contain border border-[#e7e7e7] bg-white p-1 shrink-0"
+                          className="h-11 w-11 sm:h-12 sm:w-12 rounded-xl object-contain shrink-0"
                         />
                         <div>
-                          <div className="font-lato font-bold text-[#181818] text-base">
+                          <div className="font-lato font-bold text-[#181818] text-xs sm:text-sm">
                             {p.rank} {p.name}
                           </div>
                           {p.isWinner && (
-                            <span className="font-openSans text-[11px] text-[#7e22ce] font-extrabold uppercase tracking-wide">
+                            <span className="font-openSans text-[10px] text-[#7e22ce] font-extrabold uppercase tracking-wide">
                               ★ #1 Best Overall
                             </span>
                           )}
                         </div>
                       </div>
                     </td>
-                    <td className="py-4 px-3 text-[#181818]">
-                      <div className="flex items-center gap-1.5 mb-1">
+                    <td className="py-3 px-2 sm:px-2.5 text-[#181818]">
+                      <div className="flex items-center gap-1 mb-0.5">
                         {p.specSheet.spectrumDots.map((dot, dIdx) => (
                           <span
                             key={dIdx}
-                            className="h-3 w-3 rounded-full border border-neutral-300 shadow-xs"
+                            className="h-2.5 w-2.5 rounded-full border border-neutral-300 shadow-xs"
                             style={{ backgroundColor: dot.color }}
                             title={dot.name}
                           />
                         ))}
                       </div>
-                      <span className="font-lora text-xs text-neutral-600 block">{p.specSheet.wavelengths}</span>
+                      <span className="font-lora text-[11px] sm:text-xs text-neutral-600 block">{p.specSheet.wavelengths}</span>
                     </td>
-                    <td className="py-4 px-3">
+                    <td className="py-3 px-2 sm:px-2.5">
                       {p.isWinner ? (
-                        <span className="inline-flex items-center gap-1 text-[#7e22ce] font-openSans font-bold text-sm">
-                          <Check size={16} strokeWidth={3} /> Included Free
+                        <span className="inline-flex items-center gap-1 text-[#7e22ce] font-openSans font-bold text-xs sm:text-sm whitespace-nowrap">
+                          <Check size={15} strokeWidth={3} /> Included Free
                         </span>
                       ) : (
                         <span className="font-lora text-neutral-500 text-xs">{p.specSheet.neckIncluded}</span>
                       )}
                     </td>
-                    <td className="py-4 px-3 font-lora text-neutral-700 text-sm">{p.specSheet.cordless}</td>
-                    <td className="py-4 px-3 font-lora text-neutral-700 text-sm">{p.specSheet.trial}</td>
-                    <td className="py-4 px-3 font-lato font-extrabold text-[#181818] text-lg">
+                    <td className="py-3 px-2 sm:px-2.5 font-lora text-neutral-700 text-xs sm:text-sm">{p.specSheet.cordless}</td>
+                    <td className="py-3 px-2 sm:px-2.5 font-lora text-neutral-700 text-xs sm:text-sm">{p.specSheet.trial}</td>
+                    <td className="py-3 px-2 sm:px-2.5 font-lato font-extrabold text-[#181818] text-base sm:text-lg whitespace-nowrap">
                       {p.price}
                     </td>
-                    <td className="py-4 px-3 text-right">
+                    <td className="py-3 px-2 sm:px-2.5 text-right whitespace-nowrap">
                       <a
                         href={p.link}
-                        className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-openSans font-extrabold uppercase tracking-wider transition-all ${
+                        className={`inline-flex items-center gap-1 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg text-xs font-bold uppercase tracking-normal whitespace-nowrap transition-all ${
                           p.isWinner
-                            ? "bg-[#000000] hover:bg-[#b265ff] text-white shadow-sm"
+                            ? "bg-[#000000] hover:bg-[#b265ff] text-white shadow-xs"
                             : "border border-neutral-300 text-[#181818] hover:border-[#181818] bg-white"
                         }`}
                       >
                         <span>{p.isWinner ? "Official Store" : "View"}</span>
-                        <ExternalLink size={14} />
+                        <ExternalLink size={13} className="shrink-0" />
                       </a>
                     </td>
                   </tr>
