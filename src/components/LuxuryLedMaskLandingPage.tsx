@@ -166,6 +166,7 @@ export function LuxuryLedMaskLandingPage() {
   const [ukDate, setUkDate] = useState<string>(getUkFormattedDate());
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [isDisclosureOpen, setIsDisclosureOpen] = useState(false);
+  const [visibleCount, setVisibleCount] = useState<number>(5);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const timer = useUkMidnightTimer();
 
@@ -391,7 +392,7 @@ export function LuxuryLedMaskLandingPage() {
 
         {/* 7. THE RANKED PRODUCTS (STRICT 3-TIER WIREFRAME & WOMENSKINHEALTH STYLING) */}
         <div className="space-y-16">
-          {LED_MASK_PRODUCTS.map((product) => (
+          {LED_MASK_PRODUCTS.slice(0, visibleCount).map((product) => (
             <article
               key={product.id}
               id={`product-${product.id}`}
@@ -622,6 +623,31 @@ export function LuxuryLedMaskLandingPage() {
               </div>
             </article>
           ))}
+
+          {/* INTERACTIVE LOAD MORE / SHOW LESS BUTTON */}
+          <div className="pt-2 text-center">
+            {visibleCount < LED_MASK_PRODUCTS.length ? (
+              <button
+                type="button"
+                onClick={() => setVisibleCount(LED_MASK_PRODUCTS.length)}
+                className="inline-flex items-center justify-center px-10 py-4 rounded-2xl bg-[#181818] hover:bg-[#b265ff] text-white font-openSans font-extrabold text-base uppercase tracking-wider shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.01] cursor-pointer"
+              >
+                <span>Load More</span>
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={() => {
+                  setVisibleCount(5);
+                  const el = document.getElementById("product-5");
+                  if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+                }}
+                className="inline-flex items-center justify-center px-8 py-3 rounded-xl border border-neutral-300 hover:border-[#181818] bg-white text-[#181818] font-openSans font-bold text-sm uppercase tracking-wide transition-colors cursor-pointer shadow-xs"
+              >
+                <span>Show Less</span>
+              </button>
+            )}
+          </div>
         </div>
 
         {/* 8. DERMATOLOGIST'S VIDEO & FINAL VERDICT */}
@@ -727,7 +753,7 @@ export function LuxuryLedMaskLandingPage() {
               Complete Side-by-Side Matrix
             </span>
             <h2 className="font-lato text-2xl sm:text-3xl font-extrabold text-[#181818] mt-1">
-              Top 5 LED Face Masks at a Glance
+              Top 10 LED Face Masks at a Glance
             </h2>
           </div>
 

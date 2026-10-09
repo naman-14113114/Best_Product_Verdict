@@ -74,14 +74,14 @@ export default function BestLedFaceMaskPage() {
       {
         "@type": "ItemList",
         "@id": "https://www.bestproductverdict.com/best-led-face-mask-uk-2026#itemlist",
-        "name": "Top 5 LED Face Masks UK 2026",
-        "numberOfItems": 5,
+        "name": "Top 10 LED Face Masks UK 2026",
+        "numberOfItems": 10,
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
             "name": "Buudy 7 Colour LED Mask",
-            "url": "https://www.buudy.co.uk/products/buudy-led-mask",
+            "url": "https://www.buudy.co.uk/products/buudy-led-face-mask",
           },
           {
             "@type": "ListItem",
@@ -102,6 +102,31 @@ export default function BestLedFaceMaskPage() {
             "@type": "ListItem",
             "position": 5,
             "name": "Dr. Dennis Gross DRx SpectraLite",
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "name": "Equinox LED Face Mask",
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "name": "Silk'n LED Face Mask Pro",
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "name": "BlockBlueLight Face Mask",
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "name": "Philips ReAura 7000 Series",
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "name": "Therabody TheraFace Mask",
           },
         ],
       },
