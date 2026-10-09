@@ -271,60 +271,58 @@ export function LuxuryLedMaskLandingPage() {
       </section>
 
       {/* 4. HERO BANNER IMAGE & DR. SHANNON PROFILE */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 -mt-8 relative z-20">
-        <div className="bg-white rounded-3xl p-5 sm:p-7 shadow-xl shadow-black/5 border border-[#e7e7e7]">
-          {/* Main Top 5 Comparison Hero Graphic */}
-          <div className="relative overflow-hidden rounded-2xl border border-[#e7e7e7] mb-8 aspect-[1536/461] bg-[#fafafa]">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 mt-8 space-y-8 relative z-20">
+        {/* Main Top 5 Comparison Hero Graphic */}
+        <div className="relative overflow-hidden rounded-2xl border border-[#e7e7e7] shadow-sm aspect-[1536/461] bg-[#fafafa]">
+          <img
+            src="/img/TOP 5 LED Mask uk.png"
+            alt="Top 5 Best LED Face Masks UK 2026 Comparison"
+            className="w-full h-full object-cover rounded-2xl"
+          />
+        </div>
+
+        {/* Dr. Shannon Clinical Profile Box */}
+        <div className="bg-[#fafafa] rounded-2xl p-6 sm:p-8 border border-[#e7e7e7] shadow-sm">
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
             <img
-              src="/img/TOP 5 LED Mask uk.png"
-              alt="Top 5 Best LED Face Masks UK 2026 Comparison"
-              className="w-full h-full object-cover rounded-2xl"
+              src="/img/dr-shannon.png"
+              alt="Dr. Shannon"
+              className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-3 border-white shadow-md shrink-0"
             />
-          </div>
-
-          {/* Dr. Shannon Clinical Profile Box */}
-          <div className="bg-[#fafafa] rounded-2xl p-6 sm:p-8 border border-[#e7e7e7]">
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-              <img
-                src="/img/dr-shannon.png"
-                alt="Dr. Shannon"
-                className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-3 border-white shadow-md shrink-0"
-              />
-              <div className="flex-1 text-center md:text-left">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
-                  <div>
-                    <h3 className="font-lato text-2xl font-extrabold text-[#181818]">
-                      Dr. Shannon, MD
-                    </h3>
-                    <p className="font-openSans text-xs uppercase tracking-wider text-neutral-600 font-bold mt-0.5">
-                      Consultant Dermatologist &amp; Medical Phototherapy Specialist
-                    </p>
-                  </div>
-                  <span className="inline-flex self-center sm:self-auto items-center gap-1.5 px-3 py-1 rounded-full bg-[#f5f3ff] border border-[#d1a3ff] text-xs font-openSans font-bold text-[#7e22ce] shadow-xs">
-                    <CheckCircle2 size={14} className="text-[#7e22ce]" />
-                    Verified Clinical Review
-                  </span>
-                </div>
-
-                <div className="font-lora text-base sm:text-[18px] text-[#181818] leading-[1.8] space-y-3 mb-4 font-normal">
-                  <p>
-                    With <strong>over a decade of clinical dermatological practice</strong>, Dr. Shannon
-                    scrutinised <strong>18 leading UK LED masks over 200+ testing hours</strong>. She evaluated
-                    spectral wavebands, optical irradiance, facial ergonomics, eye safety shields, integrated neck
-                    treatment, and authentic long-term patient outcomes.
-                  </p>
-                  <p className="italic text-[#181818] bg-white p-4 sm:p-5 rounded-xl border-l-4 border-[#181818] border border-[#e7e7e7] shadow-xs text-base sm:text-[17px]">
-                    &ldquo;My primary finding was that exorbitant price tags and celebrity sponsorship do not ensure
-                    superior phototherapy. The standout device is the one that delivers scientifically verified
-                    wavelengths with complete face and neck coverage in a routine comfortable enough for daily home
-                    use.&rdquo;
+            <div className="flex-1 text-center md:text-left">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+                <div>
+                  <h3 className="font-lato text-2xl font-extrabold text-[#181818]">
+                    Dr. Shannon, MD
+                  </h3>
+                  <p className="font-openSans text-xs uppercase tracking-wider text-neutral-600 font-bold mt-0.5">
+                    Consultant Dermatologist &amp; Medical Phototherapy Specialist
                   </p>
                 </div>
+                <span className="inline-flex self-center sm:self-auto items-center gap-1.5 px-3 py-1 rounded-full bg-[#f5f3ff] border border-[#d1a3ff] text-xs font-openSans font-bold text-[#7e22ce] shadow-xs">
+                  <CheckCircle2 size={14} className="text-[#7e22ce]" />
+                  Verified Clinical Review
+                </span>
+              </div>
 
-                <div className="pt-3 border-t border-[#e7e7e7] flex flex-wrap items-center justify-between text-xs font-openSans text-neutral-600">
-                  <span>* Tested &amp; recommended for mature skin (ages 40+)</span>
-                  <span className="font-bold text-[#181818]">100% Independent Medical Audit</span>
-                </div>
+              <div className="font-lora text-base sm:text-[18px] text-[#181818] leading-[1.8] space-y-3 mb-4 font-normal">
+                <p>
+                  With <strong>over a decade of clinical dermatological practice</strong>, Dr. Shannon
+                  scrutinised <strong>18 leading UK LED masks over 200+ testing hours</strong>. She evaluated
+                  spectral wavebands, optical irradiance, facial ergonomics, eye safety shields, integrated neck
+                  treatment, and authentic long-term patient outcomes.
+                </p>
+                <p className="italic text-[#181818] bg-white p-4 sm:p-5 rounded-xl border-l-4 border-[#181818] border border-[#e7e7e7] shadow-xs text-base sm:text-[17px]">
+                  &ldquo;My primary finding was that exorbitant price tags and celebrity sponsorship do not ensure
+                  superior phototherapy. The standout device is the one that delivers scientifically verified
+                  wavelengths with complete face and neck coverage in a routine comfortable enough for daily home
+                  use.&rdquo;
+                </p>
+              </div>
+
+              <div className="pt-3 border-t border-[#e7e7e7] flex flex-wrap items-center justify-between text-xs font-openSans text-neutral-600">
+                <span>* Tested &amp; recommended for mature skin (ages 40+)</span>
+                <span className="font-bold text-[#181818]">100% Independent Medical Audit</span>
               </div>
             </div>
           </div>
