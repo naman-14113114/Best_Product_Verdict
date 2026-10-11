@@ -93,7 +93,7 @@ export const TOOTHBRUSH_PRODUCTS: ToothbrushProduct[] = [
     description: [
       "The Miroooo Brush X2 earns our undisputed #1 ranking for UK buyers in 2026 because it decisively leads every clinical usability, battery longevity, and engineering benchmark we tested. Weighing just 51g, it is the lightest electric toothbrush on the UK market, precision-milled from a seamless, mould-resistant aerospace aluminium unibody with a flush capacitive touch control.",
       "Cleaning performance is uncompromising. The Miroooo Brush X2 features a dentist-recommended 45° Bass sweep that angles high-frequency acoustic micro-vibrations directly along the gumline for deep subgingival plaque clearance, 3 tailored brushing modes (Standard, Whitening, and Deep Clean), and an active smart pressure sensor halo ring with real-time visual alerts to protect sensitive gums and delicate enamel from excessive brushing force.",
-      "Its daily convenience is exceptional: featuring an industry-leading 90+ days of battery life per charge (180 uses) via universal USB-C fast charging, whisper-quiet motor sound under 50dB, an included Luxury Travel Case, Wall-Mounted Storage Dock, up to 4 extra brush heads, a 90-day money-back guarantee, and a comprehensive 3-year warranty.",
+      "Its daily convenience is exceptional: featuring an industry-leading 90+ days of battery life per charge (180 uses) via universal USB-C fast charging, whisper-quiet motor sound under 50dB, an included Luxury Travel Case, Wall-Mounted Storage Dock, 2 extra Free Heads, a 90-day money-back guarantee, and a comprehensive 3-year warranty.",
     ],
     metrics: [
       { label: "Plaque Removal & Cleaning", value: 98 },
@@ -109,7 +109,7 @@ export const TOOTHBRUSH_PRODUCTS: ToothbrushProduct[] = [
       "Whisper-Quiet Sound (<50dB): Acoustic magnetic motor operates below 50dB for a smooth, whisper-quiet clean that eliminates harsh morning buzzing and hand rattling",
       "Long-Lasting Aerospace Aluminium: Precision-milled aluminium unibody with flush capacitive touch button resists drops and mould, lasting years longer than fragile plastic alternatives",
       "45° Bass Sweep & Smart Pressure Halo: Angled acoustic motion follows dentist-recommended Bass technique, backed by a smart pressure sensor halo ring with alert LED and 3 modes (Standard, Whitening, Deep Clean)",
-      "Included Luxury Package: Complete set includes Luxury Travel Case, Wall-Mounted Storage Dock, and up to 4 extra replacement brush heads",
+      "Included Luxury Package: Complete set includes Luxury Travel Case, Wall-Mounted Storage Dock, and 2 extra Free Heads",
       "90-Day Money-Back Guarantee: 100% risk-free home testing trial with full refund protection and free UK returns",
       "3-Year Comprehensive Warranty: Complete 3-year manufacturer warranty ensuring lasting daily reliability",
     ],
@@ -134,9 +134,9 @@ export const TOOTHBRUSH_PRODUCTS: ToothbrushProduct[] = [
           image: "/img/toothbrushes/miroooo-brush-x2-wall-mounted-storage-dock-gift.webp",
         },
         {
-          name: "Up to 4 Extra Brush Heads",
+          name: "2 Extra Free Heads",
           regularPrice: "£39",
-          image: "/img/toothbrushes/miroooo-brush-x2-extra-brush-heads-package.webp",
+          image: "/img/toothbrushes/miroooo-brush-x2-2-extra-free-heads-gift.webp",
         },
       ],
     },
