@@ -326,7 +326,7 @@ export function LuxuryToothbrushLandingPage() {
         </div>
       </section>
 
-      {/* 4. HERO BANNER IMAGE & DR. OLIVIA PROFILE */}
+      {/* 4. HERO BANNER IMAGE & DR. JULIAN VANCE PROFILE */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 mt-8 space-y-8 relative z-20">
         {/* Main Top 5 Comparison Hero Graphic (Exact Trustpilot Structure) */}
         <div className="relative w-full max-w-5xl mx-auto flex items-center justify-center">
@@ -344,19 +344,19 @@ export function LuxuryToothbrushLandingPage() {
           </div>
         </div>
 
-        {/* Dr. Olivia Clinical Profile Box */}
+        {/* Dr. Julian Vance Clinical Profile Box */}
         <div className="bg-[#fafafa] rounded-2xl p-6 sm:p-8 border border-[#e7e7e7] shadow-sm">
           <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
             <img
-              src="/img/toothbrushes/dr-olivia.webp"
-              alt="Dr. Olivia, BDS - Clinical Dental Consultant &amp; Oral Health Specialist"
+              src="/img/toothbrushes/miroooo-dr-julian-vance-dental-consultant.webp"
+              alt="Dr. Julian Vance, BDS - Clinical Dental Consultant &amp; Oral Health Specialist"
               className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-3 border-white shadow-md shrink-0"
             />
             <div className="flex-1 text-center md:text-left">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
                 <div>
                   <h3 className="font-lato text-2xl font-extrabold text-[#181818]">
-                    Dr. Olivia, BDS
+                    Dr. Julian Vance, BDS
                   </h3>
                   <p className="font-openSans text-xs uppercase tracking-wider text-neutral-600 font-bold mt-0.5">
                     Clinical Dental Consultant &amp; Oral Health Specialist
@@ -371,7 +371,7 @@ export function LuxuryToothbrushLandingPage() {
               <div className="font-lora text-base sm:text-[18px] text-[#181818] leading-[1.8] space-y-3 mb-4 font-normal">
                 <p>
                   With <strong>over 14 years</strong> of clinical dental experience in the UK,{" "}
-                  <strong>Dr. Olivia</strong> evaluated the leading electric toothbrushes for 2026 across{" "}
+                  <strong>Dr. Julian Vance</strong> evaluated the leading electric toothbrushes for 2026 across{" "}
                   <strong>180+ hours of comparative testing</strong>. Her conclusion was simple: daily brushing should
                   be effortless. The ideal brush should be whisper-quiet rather than loudly buzzing in your ear, featherlight
                   (around 50g) for easy handling, and gentle on gums while delivering a deep sonic clean. You don&apos;t

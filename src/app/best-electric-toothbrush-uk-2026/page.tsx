@@ -63,7 +63,7 @@ export default function BestElectricToothbrushPage() {
         "inLanguage": "en-GB",
         "author": {
           "@type": "Person",
-          "name": "Dr. Olivia",
+          "name": "Dr. Julian Vance",
           "jobTitle": "Clinical Dental Consultant",
         },
         "publisher": {
