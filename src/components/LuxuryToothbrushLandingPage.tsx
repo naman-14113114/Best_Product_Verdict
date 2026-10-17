@@ -679,16 +679,16 @@ export function LuxuryToothbrushLandingPage() {
         <section className="mt-20 bg-white rounded-3xl p-6 sm:p-10 border-2 border-[#181818] shadow-lg relative overflow-hidden">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-bold">
-              Clinical Dental Consultant Verdict
+              Hands-On Review &amp; Comparison
             </span>
             <h2 className="font-lato text-3xl sm:text-4xl font-extrabold text-[#181818] mt-1">
-              Dentist&apos;s Verdict
+              Hands-On Verdict &amp; Specs
             </h2>
             <div className="w-16 h-1 bg-[#181818] mx-auto mt-4 rounded-full" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-            {/* Dr. Olivia Walkthrough Video */}
+            {/* Miroooo Brush X Hands-On Walkthrough & Oral-B Comparison Video */}
             <div className="relative">
               <div className="relative mx-auto max-w-[280px] sm:max-w-xs rounded-2xl overflow-hidden border border-[#e7e7e7] bg-black shadow-xl aspect-[9/16]">
                 <video
@@ -697,13 +697,13 @@ export function LuxuryToothbrushLandingPage() {
                   controls
                   playsInline
                   preload="metadata"
-                  poster="/assets/miroooo-dentist-verdict-poster.webp"
-                  aria-label="Dentist walkthrough of the Miroooo Brush X"
+                  poster="/assets/miroooo-brush-x-walkthrough-poster.webp"
+                  aria-label="Hands-on walkthrough of Miroooo Brush X and comparison with Oral-B"
                   onPlay={() => setIsVideoPlaying(true)}
                   onPause={() => setIsVideoPlaying(false)}
                   onEnded={() => setIsVideoPlaying(false)}
                 >
-                  <source src="/assets/miroooo-dentist-verdict.mp4" type="video/mp4" />
+                  <source src="/assets/miroooo-brush-x-walkthrough.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
 
@@ -711,7 +711,7 @@ export function LuxuryToothbrushLandingPage() {
                   <button
                     type="button"
                     onClick={handlePlayVideo}
-                    aria-label="Play dentist walkthrough video"
+                    aria-label="Play hands-on walkthrough video"
                     className="absolute inset-0 flex items-center justify-center bg-transparent group cursor-pointer focus:outline-none"
                   >
                     <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white text-[#181818] shadow-2xl transition-transform duration-300 group-hover:scale-110">
@@ -721,12 +721,12 @@ export function LuxuryToothbrushLandingPage() {
                 )}
 
                 <div className="pointer-events-none absolute top-3 left-3 bg-[#181818]/90 text-white text-[11px] font-openSans font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-xs z-10">
-                  Clinical Walkthrough
+                  Hands-On Comparison
                 </div>
               </div>
 
               <p className="mt-3.5 text-center font-lora text-xs sm:text-sm text-neutral-500 max-w-xs mx-auto font-medium">
-                Watch Dr. Olivia demonstrate the 51g unibody design, acoustic motor, and magnetic dock in action.
+                Hands-on review: Miroooo Brush X unibody specs, magnetic charging, and side-by-side comparison with Oral-B.
               </p>
             </div>
 
