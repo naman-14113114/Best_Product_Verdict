@@ -162,6 +162,61 @@ function PerformanceMetricBar({ label, value, isWinner }: { label: string; value
   );
 }
 
+/**
+ * Safely renders bold formatting for HTML <b> / <strong> tags and markdown **bold** markers
+ * without dangerouslySetInnerHTML, while preserving mathematical brackets like <50dB.
+ */
+function renderFormattedBoldText(text: string): React.ReactNode {
+  if (!text) return null;
+
+  if (
+    !text.includes("<b>") &&
+    !text.includes("<B>") &&
+    !text.includes("<strong>") &&
+    !text.includes("<STRONG>") &&
+    !text.includes("**")
+  ) {
+    return text;
+  }
+
+  const tokens = text.split(
+    /(<b\b[^>]*>[\s\S]*?<\/b>|<strong\b[^>]*>[\s\S]*?<\/strong>|\*\*[\s\S]*?\*\*)/gi
+  );
+
+  return tokens.map((part, index) => {
+    if (!part) return null;
+
+    if (/^<b\b[^>]*>[\s\S]*?<\/b>$/i.test(part)) {
+      const content = part.replace(/^<b\b[^>]*>|<\/b>$/gi, "");
+      return (
+        <strong key={index} className="font-bold text-[#181818]">
+          {content}
+        </strong>
+      );
+    }
+
+    if (/^<strong\b[^>]*>[\s\S]*?<\/strong>$/i.test(part)) {
+      const content = part.replace(/^<strong\b[^>]*>|<\/strong>$/gi, "");
+      return (
+        <strong key={index} className="font-bold text-[#181818]">
+          {content}
+        </strong>
+      );
+    }
+
+    if (/^\*\*[\s\S]*?\*\*$/.test(part) && part.length >= 4) {
+      const content = part.slice(2, -2);
+      return (
+        <strong key={index} className="font-bold text-[#181818]">
+          {content}
+        </strong>
+      );
+    }
+
+    return part;
+  });
+}
+
 export function LuxuryToothbrushLandingPage() {
   const [ukDate, setUkDate] = useState<string>(getUkFormattedDate());
   const [isDisclosureOpen, setIsDisclosureOpen] = useState(false);
@@ -587,7 +642,7 @@ export function LuxuryToothbrushLandingPage() {
                         className="font-lora text-[16px] sm:text-[18px] leading-[1.7] text-[#181818] flex items-start gap-3"
                       >
                         <Check size={18} className="text-[#10b981] mt-1 shrink-0 stroke-[3]" />
-                        <span>{pro}</span>
+                        <span>{renderFormattedBoldText(pro)}</span>
                       </li>
                     ))}
                   </ul>
@@ -610,7 +665,7 @@ export function LuxuryToothbrushLandingPage() {
                         className="font-lora text-[16px] sm:text-[18px] leading-[1.7] text-[#181818] flex items-start gap-3"
                       >
                         <XCircle size={18} className="text-[#ef4444] mt-1 shrink-0 stroke-[2.5]" />
-                        <span>{con}</span>
+                        <span>{renderFormattedBoldText(con)}</span>
                       </li>
                     ))}
                   </ul>
@@ -812,7 +867,7 @@ export function LuxuryToothbrushLandingPage() {
             </Link>
             <span className="text-neutral-300">•</span>
             <Link href="/terms-and-conditions" className="hover:text-[#181818] transition-colors">
-              Terms of Service
+              Terms and Conditions
             </Link>
             <span className="text-neutral-300">•</span>
             <button
