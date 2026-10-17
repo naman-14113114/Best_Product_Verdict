@@ -199,7 +199,7 @@ export const TOOTHBRUSH_PRODUCTS: ToothbrushProduct[] = [
       "Bulky 2-Pin Shaver Plug: Requires an obsolete 2-pin UK bathroom socket adapter rather than convenient USB-C",
       "Extortionate Refill Costs: Proprietary iO brush heads cost £8 to £12 each, creating high recurring yearly bills",
       "Plastic Seam Mildew Vulnerability: Rubberised grip sections and joint seams easily trap moisture and bathroom grime",
-      "Zero Included Wall Mount: Base kit excludes magnetic wall mounts or protective aluminium travel accessories",
+      "No Magnetic USB-C Dock: Ships with an outdated 2-pin shaver stand rather than a modern compact magnetic USB-C charging dock",
       "Short 30-Day Return Terms: Standard corporate retail return policy with no extended 90-day home trial period",
     ],
     specSheet: {
@@ -295,7 +295,7 @@ export const TOOTHBRUSH_PRODUCTS: ToothbrushProduct[] = [
     },
     description: [
       "The SURI Pro 2.0 champions an eco-conscious design ethos, utilising recyclable cornstarch brush heads, plant-based castor oil bristles, and a modular aluminium body with an integrated Touchsense™ pressure sensor for £85.",
-      "While its sustainability ethos is commendable, real-world testing highlights significant durability and value compromises. The £85 standalone package includes zero extra replacement heads or travel accessories. Moisture easily causes the plant-based cornstarch stems to develop hairline cracks or loosen on the vibrating metal shaft, diminishing cleaning power. Additionally, the magnetic mirror mount frequently gathers dark mildew, and replacement heads cost a steep £14.99 per 2-pack.",
+      "While its sustainability ethos is commendable, real-world testing highlights significant durability and value compromises. The £85 standalone package includes zero extra replacement heads or travel accessories. Moisture easily causes the plant-based cornstarch stems to develop hairline cracks or loosen on the vibrating metal shaft, diminishing cleaning power. Additionally, the charging base frequently gathers dark mildew, and replacement heads cost a steep £14.99 per 2-pack.",
     ],
     metrics: [
       { label: "Plaque Removal & Cleaning", value: 74 },
@@ -312,7 +312,7 @@ export const TOOTHBRUSH_PRODUCTS: ToothbrushProduct[] = [
     ],
     cons: [
       "Fragile Cornstarch Head Stems: Plant-based heads crack or work loose on the vibrating motor shaft under moisture",
-      "Mildew-Prone Mirror Mount: Traps damp toothpaste residue behind the magnetic mount, breeding unsightly mold",
+      "Mildew-Prone Charging Base: Traps damp toothpaste residue around the charging base, breeding unsightly mold",
       "Steep Refill Pricing: Proprietary plant-based heads cost £14.99 per 2-pack (£7.50/head)",
       "Zero Included Accessories: Standalone £85 box includes no travel case, spare heads, or magnetic stand",
       "Audible Motor Buzz (~54dB): Generates noticeable sonic noise compared to sub-50dB acoustic motors",
@@ -326,7 +326,7 @@ export const TOOTHBRUSH_PRODUCTS: ToothbrushProduct[] = [
       noiseLevel: "~54dB (Motor Buzz)",
       batteryLife: "34 Days (USB-C)",
       chassisMaterial: "Modular Aluminium Alloy",
-      dockType: "Mirror Mount + USB-C",
+      dockType: "Magnetic Stand + USB-C",
       trial: "30-Day Guarantee",
     },
   },
@@ -376,7 +376,7 @@ export const TOOTHBRUSH_PRODUCTS: ToothbrushProduct[] = [
       "Dated 14-Day Battery & 16-Hour Charge: Demands frequent overnight charging via an obsolete 2-pin plug",
       "Costly £8–£12 iO Refill Trap: Incompatible with cheaper standard Oral-B heads, creating high annual costs",
       "Heavy 136g Plastic Handle: Bulky polycarbonate chassis feels cumbersome compared to lightweight aluminium",
-      "Countertop Mildew Build-Up: Base collects standing bathroom moisture without any wall-mounted storage",
+      "Countertop Slurry Build-Up: Base collects standing bathroom moisture and messy toothpaste residue on bathroom countertops",
       "Standard 30-Day Return Terms: Single head in the box with standard 30-day retail return conditions",
     ],
     specSheet: {
