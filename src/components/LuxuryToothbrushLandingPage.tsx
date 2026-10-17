@@ -9,7 +9,6 @@ import {
   ExternalLink,
   Award,
   Clock,
-  Timer,
   CheckCircle2,
   XCircle,
   HelpCircle,
@@ -168,7 +167,6 @@ export function LuxuryToothbrushLandingPage() {
   const [isDisclosureOpen, setIsDisclosureOpen] = useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const timer = useUkMidnightTimer();
 
   const handlePlayVideo = () => {
     if (videoRef.current) {
@@ -284,8 +282,8 @@ export function LuxuryToothbrushLandingPage() {
           />
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-[18%] min-w-[110px] max-w-[280px]">
             <img
-              src="/img/toothbrushes/miroooo-brush-x-sonic-electric-toothbrush-studio-banner.webp"
-              alt="Miroooo Brush X Sonic Electric Toothbrush - #1 Best Electric Toothbrush UK 2026"
+              src="/img/toothbrushes/miroooo-brush-x-sonic-electric-toothbrush-in-hand-hero-banner.webp"
+              alt="Miroooo Brush X Sonic Electric Toothbrush in Hand - #1 Best Electric Toothbrush UK 2026"
               className="w-full aspect-[696/1087] rounded-xl sm:rounded-2xl md:rounded-3xl object-cover shadow-[0_18px_45px_rgba(0,0,0,0.32),0_8px_20px_rgba(0,0,0,0.18)] border-2 border-white ring-1 ring-slate-900/10 pointer-events-none"
             />
           </div>
@@ -420,8 +418,8 @@ export function LuxuryToothbrushLandingPage() {
                   ROW 1 (TOP): 2-COLUMN SPLIT (Image + Compact Promo on Left, Info + Bars + CTA on Right)
                   ============================================================ */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-8">
-                {/* LEFT COLUMN: Direct Large Image on Top, Single-Line Promo / Voucher Box at Bottom */}
-                <div className="lg:col-span-5 flex flex-col justify-between h-full">
+                {/* LEFT COLUMN: Direct Large Image */}
+                <div className="lg:col-span-5 flex flex-col justify-center h-full">
                   <div className="flex-1 w-full flex items-center justify-center min-h-[340px] sm:min-h-[400px] lg:min-h-0">
                     {/* Direct Image with Clean Border Radius & No Hover Effect */}
                     <a
@@ -436,30 +434,6 @@ export function LuxuryToothbrushLandingPage() {
                         loading={product.isWinner ? "eager" : "lazy"}
                       />
                     </a>
-                  </div>
-
-                  {/* Promo / Voucher Box (Bottom aligned, inline with CTA button on the right) */}
-                  <div className="mt-4 shrink-0">
-                    {product.isWinner ? (
-                      <div className="w-full px-3.5 py-2.5 rounded-xl bg-[#fdf4ff] border-2 border-[#d1a3ff] flex items-center justify-between gap-2 shadow-xs">
-                        <span className="font-mono text-xs sm:text-sm font-black text-[#7e22ce] tracking-wider uppercase truncate">
-                          COUPON: {product.voucher.code}
-                        </span>
-                        <span className="bg-[#181818] text-white font-mono font-bold text-[11px] sm:text-xs px-2.5 py-1 rounded-lg shadow-inner flex items-center gap-1 shrink-0">
-                          <Timer size={13} className="text-[#b265ff]" />
-                          <span>{timer.hours}h {timer.minutes}m {timer.seconds}s</span>
-                        </span>
-                      </div>
-                    ) : (
-                      <div className="w-full px-3.5 py-2.5 rounded-xl bg-[#fafafa] border border-[#e7e7e7] flex items-center justify-between gap-2 shadow-xs">
-                        <span className="font-mono text-xs sm:text-sm font-bold text-neutral-400 line-through tracking-wider uppercase truncate">
-                          COUPON: {product.voucher.code}
-                        </span>
-                        <span className="font-openSans text-[10px] sm:text-xs font-extrabold text-[#ef4444] bg-red-50 border border-red-200 px-2.5 py-1 rounded uppercase tracking-wide shrink-0">
-                          EXPIRED
-                        </span>
-                      </div>
-                    )}
                   </div>
                 </div>
 

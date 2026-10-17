@@ -218,14 +218,14 @@ export const TOOTHBRUSH_PRODUCTS: ToothbrushProduct[] = [
     rankBadge: "Premium Sonic • Luxury Bathroom Glass",
     name: "Philips Sonicare DiamondClean 9000",
     tag: "High-Frequency Sonic Toothbrush with Countertop Charging Glass & BrushSync",
-    image: "/img/toothbrushes/philips-sonicare-comparison.png",
-    price: "£149.99",
+    image: "/img/toothbrushes/philips-sonicare-diamondclean-9000.webp",
+    price: "£124.99",
     originalPrice: "£349.99",
-    discount: "57% OFF",
+    discount: "64% OFF",
     rating: 4.1,
     ratingDisplay: "4.1 / 5",
     reviewCount: "1,420+",
-    link: "https://amzn.to/4hQE7BS",
+    link: "https://link.amazon/B0ad5Rtl8",
     isWinner: false,
     ctaText: "Check Availability",
     voucher: {
@@ -236,7 +236,7 @@ export const TOOTHBRUSH_PRODUCTS: ToothbrushProduct[] = [
     },
     description: [
       "The Philips Sonicare DiamondClean 9000 is renowned for its high-end bathroom vanity presentation and signature inductive charging tumbler. Providing up to 62,000 bristle movements per minute, its sonic engine generates fluid micro-bubbles to sweep between teeth, while BrushSync technology automatically monitors head wear.",
-      "Nevertheless, at an upfront price of £149.99 (and an RRP of £349.99), the value proposition is hard to justify. The handle weighs a hefty 135g, the sonic motor produces a sharp high-pitched 56–60dB humming, and the battery lasts only 14 days before needing placement in the bulky glass charging cup powered by a 2-pin bathroom cable. With replacement heads priced at £9 to £12 apiece, running costs remain substantially higher than newer unibody alternatives.",
+      "Nevertheless, at an upfront price of £124.99 (and an RRP of £349.99), the value proposition is hard to justify. The handle weighs a hefty 135g, the sonic motor produces a sharp high-pitched 56–60dB humming, and the battery lasts only 14 days before needing placement in the bulky glass charging cup powered by a 2-pin bathroom cable. With replacement heads priced at £9 to £12 apiece, running costs remain substantially higher than newer unibody alternatives.",
     ],
     metrics: [
       { label: "Plaque Removal & Cleaning", value: 86 },
@@ -252,7 +252,7 @@ export const TOOTHBRUSH_PRODUCTS: ToothbrushProduct[] = [
       "4 Custom Cleaning Modes: Includes Clean, White+, Gum Health, and Deep Clean+ with 3 intensity levels",
     ],
     cons: [
-      "High Upfront Investment: £149.99 sale price (£349 RRP) makes it the priciest toothbrush in our comparison",
+      "High Upfront Investment: £124.99 sale price (£349.99 RRP) makes it the priciest toothbrush in our comparison",
       "Piercing High-Pitched Buzz (~56–60dB): High-frequency sonic vibration generates an irritating buzzing sensation",
       "Short 14-Day Battery Runtime: Requires bi-weekly charging, falling far short of modern 90-day benchmarks",
       "Cumbersome Countertop Footprint: Bulky glass charging base clutters bathroom sinks and needs a 2-pin shaver plug",
@@ -337,13 +337,13 @@ export const TOOTHBRUSH_PRODUCTS: ToothbrushProduct[] = [
     name: "Oral-B iO3 Matt Black Electric Toothbrush",
     tag: "Entry-Level iO Micro-Vibration Toothbrush with Smart Pressure Ring & Travel Case",
     image: "/img/toothbrushes/oral-b-io3-comparison.png",
-    price: "£65",
+    price: "£75",
     originalPrice: "£160",
-    discount: "59% OFF",
+    discount: "53% OFF",
     rating: 3.4,
     ratingDisplay: "3.4 / 5",
     reviewCount: "650+",
-    link: "https://amzn.to/4gD6zVF",
+    link: "https://link.amazon/B0erAArJa",
     isWinner: false,
     ctaText: "Check Availability",
     voucher: {
@@ -353,7 +353,7 @@ export const TOOTHBRUSH_PRODUCTS: ToothbrushProduct[] = [
       note: "Standard Amazon UK Terms Apply",
     },
     description: [
-      "The Oral-B iO3 Matt Black functions as an entry-level tier into Oral-B's magnetic micro-vibration line at £65 (RRP £160). It features the brand's classic round head, a 360-degree smart pressure ring, 3 basic cleaning modes, and an included plastic travel case.",
+      "The Oral-B iO3 Matt Black functions as an entry-level tier into Oral-B's magnetic micro-vibration line at £75 (RRP £160). It features the brand's classic round head, a 360-degree smart pressure ring, 3 basic cleaning modes, and an included plastic travel case.",
       "However, in stripping down the unit to lower the cost, Oral-B removed the defining smart innovations of the iO ecosystem. The iO3 lacks an interactive OLED screen, has zero Bluetooth app coaching, and relies on an outdated 14-day battery that requires a sluggish 16-hour charge on an obsolete 2-pin bathroom plug. Crucially, it still locks users into pricey £8 to £12 iO refills, making long-term ownership expensive despite the stripped-down hardware.",
     ],
     metrics: [
