@@ -14,6 +14,7 @@ import {
   XCircle,
   HelpCircle,
   Sparkles,
+  Play,
 } from "lucide-react";
 import {
   MIROOOO_PRODUCT_URL,
@@ -165,7 +166,16 @@ function PerformanceMetricBar({ label, value, isWinner }: { label: string; value
 export function LuxuryToothbrushLandingPage() {
   const [ukDate, setUkDate] = useState<string>(getUkFormattedDate());
   const [isDisclosureOpen, setIsDisclosureOpen] = useState(false);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const timer = useUkMidnightTimer();
+
+  const handlePlayVideo = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+      setIsVideoPlaying(true);
+    }
+  };
 
   useEffect(() => {
     setUkDate(getUkFormattedDate());
@@ -274,8 +284,8 @@ export function LuxuryToothbrushLandingPage() {
           />
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-[18%] min-w-[110px] max-w-[280px]">
             <img
-              src="/img/toothbrushes/miroooo-brush-x2-electric-toothbrush-banner.webp"
-              alt="Miroooo Brush X2 Electric Toothbrush"
+              src="/img/toothbrushes/miroooo-brush-x-sonic-electric-toothbrush-in-hand-banner.webp"
+              alt="Miroooo Brush X Sonic Electric Toothbrush in Hand - #1 Best Electric Toothbrush UK 2026"
               className="w-full aspect-[696/1087] rounded-xl sm:rounded-2xl md:rounded-3xl object-cover shadow-[0_18px_45px_rgba(0,0,0,0.32),0_8px_20px_rgba(0,0,0,0.18)] border-2 border-white ring-1 ring-slate-900/10 pointer-events-none"
             />
           </div>
@@ -285,7 +295,7 @@ export function LuxuryToothbrushLandingPage() {
         <div className="bg-[#fafafa] rounded-2xl p-6 sm:p-8 border border-[#e7e7e7] shadow-sm">
           <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
             <img
-              src="/img/toothbrushes/miroooo-dr-olivia-dental-consultant.webp"
+              src="/img/toothbrushes/dr-olivia.webp"
               alt="Dr. Olivia, BDS - Clinical Dental Consultant &amp; Oral Health Specialist"
               className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-3 border-white shadow-md shrink-0"
             />
@@ -312,8 +322,8 @@ export function LuxuryToothbrushLandingPage() {
                   <strong>180+ hours of comparative testing</strong>. Her conclusion was simple: daily brushing should
                   be effortless. The ideal brush should be whisper-quiet rather than loudly buzzing in your ear, featherlight
                   (around 50g) for easy handling, and gentle on gums while delivering a deep sonic clean. You don&apos;t
-                  need to spend £200+ on heavy, loud, clunky handles to get a dentist-clean smile, whisper-quiet sound, and
-                  90+ days of battery life.
+                  need to spend £200+ on heavy, clunky handles or outdated 2-pin bathroom chargers to get a dentist-clean
+                  smile and 60+ days of battery life.
                 </p>
               </div>
 
@@ -530,8 +540,11 @@ export function LuxuryToothbrushLandingPage() {
                   ============================================================ */}
               {product.isWinner && product.gifts && (
                 <div className="w-full bg-[#181818] text-white rounded-2xl p-6 sm:p-8 border border-neutral-800 shadow-xl mb-8 relative overflow-hidden">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-800 border border-neutral-700 text-xs font-openSans font-bold text-[#b265ff] uppercase tracking-wider mb-3">
+                    <span>💡 Editor&apos;s Tip</span>
+                  </div>
                   <h3 className="font-lato text-2xl sm:text-3xl font-extrabold text-white mb-2 leading-tight">
-                    {product.gifts.title}
+                    What&apos;s Included &amp; <span className="text-[#b265ff]">FREE GIFTS WORTH £20</span>
                   </h3>
                   <p className="font-lora text-sm sm:text-base text-neutral-300 leading-relaxed mb-6 font-normal">
                     {product.gifts.description}
@@ -542,22 +555,34 @@ export function LuxuryToothbrushLandingPage() {
                     {product.gifts.items.map((gift, gIdx) => (
                       <div
                         key={gIdx}
-                        className="bg-neutral-900 rounded-xl p-3.5 border border-neutral-800 text-center relative"
+                        className="bg-neutral-900 rounded-xl p-3.5 border border-neutral-800 text-center relative flex flex-col justify-between"
                       >
-                        <div className="relative w-full aspect-square rounded-xl overflow-hidden mb-3">
-                          <span className="absolute top-2 right-2 z-20 bg-[#b265ff] text-white font-openSans font-extrabold text-[11px] px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-md pointer-events-none">
-                            FREE
-                          </span>
-                          <img
-                            src={gift.image}
-                            alt={gift.name}
-                            className="w-full h-full object-cover rounded-xl block pointer-events-none"
-                          />
-                        </div>
+                        <div>
+                          <div className="relative w-full aspect-square rounded-xl overflow-hidden mb-3 bg-neutral-950">
+                            <span
+                              className={`absolute top-2 right-2 z-20 font-openSans font-extrabold text-[11px] px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-md pointer-events-none text-white ${
+                                gift.badge === "IN THE BOX" ? "bg-emerald-600" : "bg-[#b265ff]"
+                              }`}
+                            >
+                              {gift.badge || "FREE"}
+                            </span>
+                            <img
+                              src={gift.image}
+                              alt={gift.name}
+                              className="w-full h-full object-cover rounded-xl block pointer-events-none"
+                            />
+                          </div>
 
-                        <span className="block font-openSans text-xs text-neutral-400 line-through font-semibold mb-1">
-                          Worth {gift.regularPrice}
-                        </span>
+                          <span className="block font-openSans text-xs text-neutral-400 font-semibold mb-1">
+                            {gift.badge === "IN THE BOX" ? (
+                              <span className="text-emerald-400 font-bold uppercase tracking-wider text-[11px]">
+                                {gift.regularPrice}
+                              </span>
+                            ) : (
+                              <span className="line-through">Normally {gift.regularPrice}</span>
+                            )}
+                          </span>
+                        </div>
                         <h4 className="font-lato text-sm sm:text-base font-bold text-white leading-snug">
                           {gift.name}
                         </h4>
@@ -634,18 +659,46 @@ export function LuxuryToothbrushLandingPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-            {/* Dr. Olivia Image Box */}
-            <div className="relative flex justify-center items-center">
-              <div className="relative w-full max-w-[280px] sm:max-w-xs md:max-w-sm aspect-square overflow-hidden rounded-2xl border border-[#e7e7e7] bg-white shadow-xl">
-                <img
-                  src="/img/toothbrushes/miroooo-brush-x2-dentist-verdict-dr-olivia.webp"
-                  alt="Dr. Olivia holding Miroooo Brush X2 Electric Toothbrush in dental clinic - Dentist's Verdict"
-                  className="w-full h-full object-cover rounded-2xl block"
-                />
+            {/* Dr. Olivia Walkthrough Video */}
+            <div className="relative">
+              <div className="relative mx-auto max-w-[280px] sm:max-w-xs rounded-2xl overflow-hidden border border-[#e7e7e7] bg-black shadow-xl aspect-[9/16]">
+                <video
+                  ref={videoRef}
+                  className="w-full h-full object-cover block"
+                  controls
+                  playsInline
+                  preload="metadata"
+                  poster="/assets/miroooo-dentist-verdict-poster.webp"
+                  aria-label="Dentist walkthrough of the Miroooo Brush X"
+                  onPlay={() => setIsVideoPlaying(true)}
+                  onPause={() => setIsVideoPlaying(false)}
+                  onEnded={() => setIsVideoPlaying(false)}
+                >
+                  <source src="/assets/miroooo-dentist-verdict.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+
+                {!isVideoPlaying && (
+                  <button
+                    type="button"
+                    onClick={handlePlayVideo}
+                    aria-label="Play dentist walkthrough video"
+                    className="absolute inset-0 flex items-center justify-center bg-transparent group cursor-pointer focus:outline-none"
+                  >
+                    <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white text-[#181818] shadow-2xl transition-transform duration-300 group-hover:scale-110">
+                      <Play size={28} fill="currentColor" className="ml-1 text-[#181818]" />
+                    </span>
+                  </button>
+                )}
+
                 <div className="pointer-events-none absolute top-3 left-3 bg-[#181818]/90 text-white text-[11px] font-openSans font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-xs z-10">
-                  Clinical Audit
+                  Clinical Walkthrough
                 </div>
               </div>
+
+              <p className="mt-3.5 text-center font-lora text-xs sm:text-sm text-neutral-500 max-w-xs mx-auto font-medium">
+                Watch Dr. Olivia demonstrate the 51g unibody design, acoustic motor, and magnetic dock in action.
+              </p>
             </div>
 
             {/* Verdict Summary Box */}
@@ -654,7 +707,7 @@ export function LuxuryToothbrushLandingPage() {
                 #1 Rated Sonic System for UK Homes
               </span>
               <h3 className="font-lato text-2xl sm:text-3xl font-extrabold text-[#181818] mb-2">
-                Miroooo Brush X2 Electric Toothbrush
+                Miroooo Brush X Electric Toothbrush
               </h3>
 
               <div className="font-lato text-3xl font-extrabold text-[#181818] mb-6">
@@ -663,8 +716,6 @@ export function LuxuryToothbrushLandingPage() {
                   50% OFF Today
                 </span>
               </div>
-
-
 
               {/* Trust Badge */}
               <div className="bg-[#fafafa] rounded-2xl p-4 border border-[#e7e7e7] mb-6 flex flex-col items-center sm:items-start">
@@ -721,7 +772,7 @@ export function LuxuryToothbrushLandingPage() {
                     <td className="py-3 px-2.5 sm:px-3">
                       <div className="flex items-center gap-2">
                         <img
-                          src={p.image}
+                          src={p.isWinner ? "/img/toothbrushes/miroooo-brush-x-sonic-electric-toothbrush-in-hand-banner.webp" : p.image}
                           alt={p.name}
                           className="h-11 w-11 sm:h-12 sm:w-12 rounded-xl object-contain shrink-0"
                         />

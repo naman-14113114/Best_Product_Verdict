@@ -13,8 +13,9 @@ export const metadata: Metadata = {
     "top 5 electric toothbrushes",
     "electric toothbrush reviews uk",
     "best electric toothbrush for sensitive gums",
-    "miroooo brush x2",
-    "miroooo x2",
+    "miroooo brush x",
+    "miroooo x",
+    "miroooo x1",
     "oral b io series 6 review",
     "philips sonicare diamondclean 9000",
     "suri pro 2.0 review",
@@ -80,8 +81,8 @@ export default function BestElectricToothbrushPage() {
           {
             "@type": "ListItem",
             "position": 1,
-            "name": "Miroooo Brush X2 Electric Toothbrush",
-            "url": "https://www.trymiroooo.com/products/miroooo-x2",
+            "name": "Miroooo Brush X Electric Toothbrush",
+            "url": "https://www.trymiroooo.com/products/miroooo-x",
           },
           {
             "@type": "ListItem",

@@ -1,4 +1,4 @@
-export const MIROOOO_PRODUCT_URL = "https://www.trymiroooo.com/products/miroooo-x2";
+export const MIROOOO_PRODUCT_URL = "https://www.trymiroooo.com/products/miroooo-x";
 
 export interface Metric {
   label: string;
@@ -9,6 +9,7 @@ export interface GiftItem {
   name: string;
   regularPrice: string;
   image: string;
+  badge?: string;
 }
 
 export interface ToothbrushProduct {
@@ -72,9 +73,9 @@ export const TOOTHBRUSH_PRODUCTS: ToothbrushProduct[] = [
     id: 1,
     rank: "#1",
     rankBadge: "Editor's Choice • #1 Best Overall",
-    name: "Miroooo Brush X2 Electric Toothbrush",
-    tag: "Ultra-Lightweight 51g Aerospace Aluminium Sonic Brush with 45° Bass Sweep, Smart Pressure Halo & 90+ Day Battery",
-    image: "/img/toothbrushes/miroooo-x2-ranked-product-box-case-brush.webp",
+    name: "Miroooo Brush X Electric Toothbrush",
+    tag: "Ultra-Lightweight 51g Aerospace Aluminium Sonic Brush with 32,000 VPM Acoustic Motor, USB-C Magnetic Dock & 60+ Day Battery",
+    image: "/img/toothbrushes/miroooo-brush-x-sonic-electric-toothbrush-rose-gold-space-grey-silver.webp",
     price: "£69",
     originalPrice: "£139",
     discount: "50% OFF",
@@ -91,62 +92,64 @@ export const TOOTHBRUSH_PRODUCTS: ToothbrushProduct[] = [
       note: "Active & Tested Today • Free UK Tracked Delivery Included",
     },
     description: [
-      "The Miroooo Brush X2 earns our undisputed #1 ranking for UK buyers in 2026 because it decisively leads every clinical usability, battery longevity, and engineering benchmark we tested. Weighing just 51g, it is the lightest electric toothbrush on the UK market, precision-milled from a seamless, mould-resistant aerospace aluminium unibody with a flush capacitive touch control.",
-      "Cleaning performance is uncompromising. The Miroooo Brush X2 features a dentist-recommended 45° Bass sweep that angles high-frequency acoustic micro-vibrations directly along the gumline for deep subgingival plaque clearance, 3 tailored brushing modes (Standard, Whitening, and Deep Clean), and an active smart pressure sensor halo ring with real-time visual alerts to protect sensitive gums and delicate enamel from excessive brushing force.",
-      "Its daily convenience is exceptional: featuring an industry-leading 90+ days of battery life per charge (180 uses) via universal USB-C fast charging, whisper-quiet motor sound under 50dB, an included Luxury Travel Case, Wall-Mounted Storage Dock, 2 extra Free Heads, a 90-day money-back guarantee, and a comprehensive 3-year warranty.",
+      "The Miroooo Brush X takes our #1 ranking for UK buyers in 2026 because it decisively eliminates the most frustrating flaws of legacy electric toothbrushes: heavy bulky handles, loud motor noise, weak battery life, bulky 2-pin bathroom socket adapters, and extortionate ongoing refill head prices. Weighing just 51g with quiet sound under 50dB, its aerospace aluminium chassis delivers an ultra-comfortable, dentist-clean brushing experience.",
+      "Its everyday convenience and comprehensive coverage are second to none. Charging is effortless: simply place the toothbrush onto the included magnetic charging dock, powered by a universal USB-C cable, for 60+ days of brushing per charge with no awkward 2-pin shaver adapters required. Backed by the Dental Care Companion App for smart brushing habits, a verified 4.9★ customer rating, an included £20 free gift bundle (2 free brush heads and a £10 Miroooo digital gift card), a 90-day money-back guarantee, and a 2-year comprehensive warranty, the Miroooo Brush X sets the gold standard for electric toothbrushes in the UK.",
     ],
     metrics: [
-      { label: "Plaque Removal & Cleaning", value: 98 },
-      { label: "Lightweight & Ergonomic (51g)", value: 99 },
-      { label: "Whisper Quiet (<50dB)", value: 97 },
-      { label: "Chassis Durability (Aluminium)", value: 96 },
-      { label: "Battery Life & Endurance (90+ Days)", value: 99 },
+      { label: "Plaque Removal & Cleaning", value: 97 },
+      { label: "Durability", value: 96 },
+      { label: "Lightweight & Ergonomic (51g)", value: 98 },
+      { label: "Whisper Quiet (<50dB)", value: 96 },
+      { label: "Battery Life & Endurance (60+ Days)", value: 99 },
     ],
     pros: [
-      "Proven Clinical Results: 4.9 / 5 rating based on over 4,000 verified UK reviews with 98% plaque clearance efficiency in laboratory tests",
+      "Proven Results: Has an outstanding rating of 5/5 and 4.9 stars based on over 4,000 reviews and performed well in internal testing",
       "Ultra Light Weight (51g): Precision-engineered 51g aerospace aluminium body eliminates wrist fatigue and feels effortless in hand",
-      "90+ Day Battery Life: Massive 90-day cobalt battery endurance powered by universal USB-C fast charging, delivering 180 uses on a single charge with zero need for proprietary chargers",
-      "Whisper-Quiet Sound (<50dB): Acoustic magnetic motor operates below 50dB for a smooth, whisper-quiet clean that eliminates harsh morning buzzing and hand rattling",
-      "Long-Lasting Aerospace Aluminium: Precision-milled aluminium unibody with flush capacitive touch button resists drops and mould, lasting years longer than fragile plastic alternatives",
-      "45° Bass Sweep & Smart Pressure Halo: Angled acoustic motion follows dentist-recommended Bass technique, backed by a smart pressure sensor halo ring with alert LED and 3 modes (Standard, Whitening, Deep Clean)",
-      "Included Luxury Package: Complete set includes Luxury Travel Case, Wall-Mounted Storage Dock, and 2 extra Free Heads",
-      "90-Day Money-Back Guarantee: 100% risk-free home testing trial with full refund protection and free UK returns",
-      "3-Year Comprehensive Warranty: Complete 3-year manufacturer warranty ensuring lasting daily reliability",
+      "Quiet Sound (<50dB): Acoustic magnetic motor operates below 50dB for a smooth, whisper-quiet clean that eliminates harsh buzzing noise and hand rattling",
+      "60+ Day Battery Life: Massive 60+ day battery endurance powered by a convenient magnetic charging dock and USB-C cable. Simply place the brush on the magnetic base to charge—completely eliminating the need for bulky 2-pin bathroom shaver socket adapters",
+      "Long-Lasting Aluminium Design: Precision-milled aerospace aluminium unibody resists drops and mold, ensuring the brush lasts years longer than fragile plastic alternatives",
+      "2 Free Brush Heads & £10 Gift Card (£20 bundle): Active promotion includes 2 Free Brush Heads (£10) and a Miroooo Digital Gift Card (£10) at zero added cost",
+      "Dental Care Companion App: Integrated smart companion app tracks brushing zones and reinforces dentist-recommended habits",
+      "90-Day Money-Back Guarantee: 100% risk-free home trial with full refund protection",
+      "2-Year Comprehensive Warranty: Complete 2-year manufacturer warranty ensuring lasting peace of mind",
     ],
     cons: [
-      "High Promotional Demand: The £69 flagship package frequently encounters temporary stock sellouts during peak UK sale periods",
-      "Official Website Exclusive: Replacement brush heads must be purchased directly from their official UK website rather than retail marketplaces",
-      "Promotional Window: Usually retails at £139, currently selling for £69 during the active promotional discount",
+      "High Promotional Demand: The £69 bundle frequently encounters temporary stock sellouts during peak UK sale periods",
+      "Direct-to-Consumer: Available online only to eliminate high retail distributor markups",
     ],
     gifts: {
-      totalValue: "£87",
-      title: "Complimentary Luxury Dental Care Suite (£87 Value)",
-      description: "During our 2026 dental audit, we verified that every Miroooo Brush X2 package includes these essential luxury accessories bundled in the box.",
+      totalValue: "£20",
+      title: "What's Included & Free Gifts Worth £20",
+      description:
+        "While doing our research, we found that Miroooo is currently running a limited-time promotional sale where you get these premium dental accessories bundled completely free with every brush.",
       items: [
         {
-          name: "Luxury Travel Case",
-          regularPrice: "£29",
-          image: "/img/toothbrushes/miroooo-brush-x2-luxury-travel-case-gift.webp",
-        },
-        {
-          name: "Wall-Mounted Storage",
-          regularPrice: "£19",
-          image: "/img/toothbrushes/miroooo-brush-x2-wall-mounted-storage-dock-gift.webp",
+          name: "What's Included in Box",
+          regularPrice: "Included in Kit",
+          image: "/img/toothbrushes/miroooo-brush-x-what-is-included-package.webp",
+          badge: "IN THE BOX",
         },
         {
           name: "2 Extra Free Heads",
-          regularPrice: "£39",
-          image: "/img/toothbrushes/miroooo-brush-x2-2-extra-free-heads-gift.webp",
+          regularPrice: "£10",
+          image: "/img/toothbrushes/miroooo-brush-x-2-extra-free-brush-heads.webp",
+          badge: "FREE GIFT",
+        },
+        {
+          name: "Miroooo Digital Gift Card",
+          regularPrice: "£10",
+          image: "/img/toothbrushes/miroooo-digital-gift-card.webp",
+          badge: "FREE GIFT",
         },
       ],
     },
     specSheet: {
-      technology: "45° Bass Acoustic Sweep",
+      technology: "32,000 VPM Acoustic Clean",
       weight: "51g (Aluminium)",
       noiseLevel: "<50dB (Whisper Quiet)",
-      batteryLife: "90+ Days (USB-C)",
+      batteryLife: "60+ Days (Magnetic USB-C)",
       chassisMaterial: "Aerospace Aluminium Unibody",
-      dockType: "Wall Dock + USB-C",
+      dockType: "Magnetic Dock + USB-C",
       trial: "90-Day Money-Back",
     },
   },
@@ -192,7 +195,7 @@ export const TOOTHBRUSH_PRODUCTS: ToothbrushProduct[] = [
     cons: [
       "Loud Mechanical Noise (>64dB): Oscillating gearbox creates a persistent loud whine and harsh jaw vibration",
       "Heavy 140g Plastic Body: Nearly three times the weight of modern aluminium toothbrushes, increasing grip fatigue",
-      "Dated 14-Day Battery Life: Demands bi-weekly recharging, trailing modern 90-day standards set by Miroooo Brush X2",
+      "Dated 14-Day Battery Life: Demands bi-weekly recharging, trailing modern 60-day standards set by Miroooo Brush X",
       "Bulky 2-Pin Shaver Plug: Requires an obsolete 2-pin UK bathroom socket adapter rather than convenient USB-C",
       "Extortionate Refill Costs: Proprietary iO brush heads cost £8 to £12 each, creating high recurring yearly bills",
       "Plastic Seam Mildew Vulnerability: Rubberised grip sections and joint seams easily trap moisture and bathroom grime",
