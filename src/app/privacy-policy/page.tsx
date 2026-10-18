@@ -21,7 +21,7 @@ export default function Page() { return <InformationPage {...{
     },
     {
       "title": "Analytics",
-      "body": "The website source includes outbound-click event support for analytics integrations if configured. It does not currently initialise advertising or analytics tags. Any future tracking setup should be reflected in this policy and appropriate privacy choices before activation."
+      "body": "We use Microsoft Clarity to understand page visits and interactions through usage analytics and session recordings. We also use Tawk.to to monitor visitor activity; its chat widget is hidden on this website. These services may process technical details, page URLs and interactions, and use cookies or browser storage. Please avoid entering private information in website searches. Microsoft and Tawk.to explain their data practices in their respective privacy policies."
     },
     {
       "title": "External websites",

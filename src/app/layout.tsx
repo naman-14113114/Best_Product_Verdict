@@ -53,6 +53,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-grow">{children}</main>
         <Footer />
+        <script src="/assets/visitor-tracking.js?v=20261018" defer />
       </body>
     </html>
   );

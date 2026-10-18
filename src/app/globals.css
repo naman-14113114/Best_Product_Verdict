@@ -1461,3 +1461,15 @@ html, body {
 .animate-fadeIn {
   animation: fadeIn 0.2s ease-out forwards;
 }
+
+/* Keep the Tawk visitor integration active without displaying its chat UI. */
+iframe[src*="tawk.to"],
+iframe[id*="tawk" i],
+iframe[name*="tawk" i],
+iframe[title="chat widget" i],
+iframe[title="chat widget button" i],
+iframe[title="chat message" i] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
