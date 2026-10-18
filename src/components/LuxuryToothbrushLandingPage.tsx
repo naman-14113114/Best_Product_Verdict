@@ -296,7 +296,7 @@ export function LuxuryToothbrushLandingPage({ guide }: LuxuryToothbrushLandingPa
       {/* 4. HERO BANNER IMAGE, DR. JULIAN VANCE PROFILE & HANDS-ON VIDEO */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 mt-8 space-y-8 relative z-20">
         {/* Main Top 5 Comparison Hero Graphic */}
-        <div className="relative overflow-hidden rounded-2xl border border-[#e7e7e7] shadow-sm aspect-[1536/430] bg-[#fafafa]">
+        <div className="relative overflow-hidden rounded-2xl border border-[#e7e7e7] shadow-sm aspect-[1536/461] bg-[#fafafa]">
           <img
             src="/img/toothbrushes/top-5-electric-toothbrushes-uk.webp"
             alt="Top 5 Best Electric Toothbrushes UK 2026 Comparison"
@@ -1085,20 +1085,20 @@ export function LuxuryToothbrushLandingPage({ guide }: LuxuryToothbrushLandingPa
 function StickyWinnerBox({ winnerProduct }: { winnerProduct: ToothbrushProduct }) {
   return (
     <>
-      {/* 1. DESKTOP STICKY BOX (Bottom-Right) */}
+      {/* 1. DESKTOP STICKY BOX (Compact, Right-Gutter, Never Overlaps Content) */}
       <aside
         aria-label="Winner recommendation sticky card"
-        className="hidden md:flex flex-col items-center fixed bottom-8 right-6 z-50 w-[215px] bg-[#181818] border border-[#2e2e2e] rounded-2xl p-3 shadow-2xl transition-all duration-300 hover:border-[#3e3e3e]"
+        className="hidden md:flex flex-col items-center fixed bottom-6 right-3 xl:right-6 z-50 w-[136px] bg-[#181818] border border-[#2e2e2e] rounded-xl p-2 shadow-2xl transition-all duration-300 hover:border-[#3e3e3e]"
       >
         {/* Top Badge: #1 WINNER */}
-        <div className="mb-2">
-          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#f5f3ff] text-[#7e22ce] border border-[#d1a3ff] text-[10px] font-openSans font-extrabold uppercase tracking-wider shadow-xs">
+        <div className="mb-1.5">
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#f5f3ff] text-[#7e22ce] border border-[#d1a3ff] text-[9px] font-openSans font-extrabold uppercase tracking-wider shadow-xs">
             #1 WINNER
           </span>
         </div>
 
         {/* Video: 360 View */}
-        <div className="relative w-full aspect-square rounded-xl overflow-hidden bg-black/80 border border-[#2e2e2e]">
+        <div className="relative w-full aspect-square rounded-lg overflow-hidden bg-black/80 border border-[#2e2e2e]">
           <video
             autoPlay
             loop
@@ -1114,8 +1114,8 @@ function StickyWinnerBox({ winnerProduct }: { winnerProduct: ToothbrushProduct }
         </div>
 
         {/* Title: #1 Product Name in Bold Uppercase */}
-        <div className="mt-2.5 mb-2.5 text-center px-1">
-          <h4 className="font-lato font-extrabold text-white text-[13px] tracking-wider uppercase leading-snug">
+        <div className="mt-1.5 mb-1.5 text-center px-0.5">
+          <h4 className="font-lato font-extrabold text-white text-[11px] tracking-wider uppercase leading-tight">
             MIROOOO BRUSH X
           </h4>
         </div>
@@ -1125,23 +1125,25 @@ function StickyWinnerBox({ winnerProduct }: { winnerProduct: ToothbrushProduct }
           href={winnerProduct.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full py-2.5 px-3 rounded-xl bg-white hover:bg-[#b265ff] text-[#181818] hover:text-white font-openSans font-extrabold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all duration-300 shadow-md group"
+          className="w-full py-1.5 px-2 rounded-lg bg-white hover:bg-[#b265ff] text-[#181818] hover:text-white font-openSans font-extrabold text-[10px] uppercase tracking-wider flex items-center justify-center gap-1 transition-all duration-200 shadow-md group"
         >
           <span>VISIT WINNING SITE</span>
-          <ExternalLink size={13} className="shrink-0 group-hover:translate-x-0.5 transition-transform" />
+          <ExternalLink size={11} className="shrink-0 group-hover:translate-x-0.5 transition-transform" />
         </a>
       </aside>
 
-      {/* 2. MOBILE STICKY BAR (Bottom Full-Width Bar with ONLY the Button) */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden p-3 bg-white/95 backdrop-blur-md border-t border-[#e7e7e7] shadow-[0_-4px_25px_rgba(0,0,0,0.12)]">
+      {/* 2. MOBILE FLOATING STICKY BUTTON (No background bar - button only) */}
+      <div className="fixed bottom-4 left-4 right-4 z-50 md:hidden pointer-events-none">
         <a
           href={winnerProduct.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full py-3.5 px-5 rounded-xl bg-[#181818] hover:bg-[#b265ff] text-white font-openSans font-extrabold text-sm uppercase tracking-wider flex items-center justify-center gap-2 transition-all duration-200 shadow-md active:scale-[0.99]"
+          className="pointer-events-auto block w-full py-3 px-4 rounded-xl bg-[#181818] hover:bg-[#b265ff] text-white font-openSans font-extrabold text-sm uppercase tracking-wider text-center shadow-2xl transition-colors cursor-pointer border border-neutral-800 active:scale-[0.99]"
         >
-          <span>Visit Winning Site</span>
-          <ExternalLink size={16} />
+          <span className="inline-flex items-center justify-center gap-2">
+            <span>Visit Winning Site</span>
+            <ExternalLink size={15} className="shrink-0" />
+          </span>
         </a>
       </div>
     </>
