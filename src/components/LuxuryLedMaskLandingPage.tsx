@@ -13,7 +13,8 @@ import {
   Timer,
   CheckCircle2,
   XCircle,
-  HelpCircle,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 import {
   BUUDY_PRODUCT_URL,
@@ -166,6 +167,7 @@ export function LuxuryLedMaskLandingPage() {
   const [ukDate, setUkDate] = useState<string>(getUkFormattedDate());
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [isDisclosureOpen, setIsDisclosureOpen] = useState(false);
+  const [isStandardsOpen, setIsStandardsOpen] = useState(false);
   const [visibleCount, setVisibleCount] = useState<number>(5);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const timer = useUkMidnightTimer();
@@ -181,66 +183,7 @@ export function LuxuryLedMaskLandingPage() {
 
   return (
     <div className="min-h-screen bg-white text-[#181818] antialiased selection:bg-[#d1a3ff] selection:text-[#181818]">
-      {/* 1. TOP MINIMAL ACCENT LINE */}
-      <div className="w-full h-1 bg-[#181818]" />
-
-      {/* 2. CLEAN EDITORIAL HEADER (womenskinhealth.com style) */}
-      <header className="border-b border-[#e7e7e7] bg-white sticky top-0 z-40 shadow-xs">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 group text-decoration-none">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#181818] text-white font-openSans font-bold text-sm tracking-tight shadow-sm">
-              BV
-            </span>
-            <div className="flex flex-col">
-              <span className="font-lato font-extrabold text-lg sm:text-xl tracking-tight text-[#181818] group-hover:text-[#7e22ce] transition-colors">
-                Best Product Verdict <span className="text-[#b265ff]">UK</span>
-              </span>
-              <span className="font-openSans text-[11px] tracking-wider uppercase text-neutral-500 font-semibold">
-                Independent 2026 Phototherapy Audit
-              </span>
-            </div>
-          </Link>
-
-          <div className="flex items-center gap-4 text-xs sm:text-sm font-openSans font-semibold">
-            <button
-              onClick={() => setIsDisclosureOpen(true)}
-              className="hidden sm:inline-flex items-center gap-1.5 text-neutral-600 hover:text-[#181818] transition-colors py-1 px-2.5 rounded-md hover:bg-neutral-100"
-            >
-              <HelpCircle size={15} />
-              <span>Advertising Disclosure</span>
-            </button>
-            <span className="inline-flex items-center gap-1.5 bg-[#f5f3ff] text-[#7e22ce] border border-[#d1a3ff] px-3 py-1 rounded-full text-xs font-bold tracking-wide">
-              <span className="h-2 w-2 rounded-full bg-[#b265ff] animate-pulse" />
-              Verified UK Report
-            </span>
-          </div>
-        </div>
-      </header>
-
-      {/* DISCLOSURE MODAL */}
-      {isDisclosureOpen && (
-        <div className="cp-overlay" onClick={() => setIsDisclosureOpen(false)}>
-          <div className="disclosure-card-inner" onClick={(e) => e.stopPropagation()}>
-            <h3 className="disclosure-card-title font-lato text-xl font-bold text-[#181818]">
-              Advertising &amp; Editorial Disclosure
-            </h3>
-            <p className="disclosure-card-text font-lora text-neutral-700 leading-relaxed text-sm mb-4">
-              Best Product Verdict is an independent consumer testing and evaluation platform. We are reader-supported.
-              When you purchase through links on our site, we may earn an affiliate commission at no extra cost to you.
-              Our evaluations, ratings, and doctor reviews are based on rigorous clinical benchmarks, optical testing,
-              and genuine user feedback.
-            </p>
-            <button
-              onClick={() => setIsDisclosureOpen(false)}
-              className="bg-[#181818] hover:bg-[#b265ff] text-white font-openSans font-bold text-sm py-2.5 px-6 rounded-lg transition-colors cursor-pointer"
-            >
-              Understood &amp; Close
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* 3. HERO EDITORIAL SECTION (Clean White / Off-White Aesthetic) */}
+      {/* HERO EDITORIAL SECTION (Clean White / Off-White Aesthetic) */}
       <section className="bg-[#fafafa] text-[#181818] pt-12 pb-14 md:pt-16 md:pb-20 px-4 sm:px-6 border-b border-[#e7e7e7] relative overflow-hidden">
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#d1a3ff] bg-[#f5f3ff] text-xs uppercase tracking-[0.15em] font-openSans font-bold text-[#7e22ce] mb-6 shadow-xs">
@@ -356,38 +299,68 @@ export function LuxuryLedMaskLandingPage() {
           </p>
         </div>
 
-        {/* 6. 10 EVALUATION CRITERIA (ACCESSIBLE GRID IN LAT & OPEN SANS) */}
-        <section className="bg-white rounded-3xl p-6 sm:p-9 border border-[#e7e7e7] shadow-sm mb-16">
-          <div className="text-center max-w-2xl mx-auto mb-8">
-            <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-bold">
-              Testing Methodology
-            </span>
-            <h2 className="font-lato text-2xl sm:text-3xl font-extrabold text-[#181818] mt-1">
-              We Evaluated LED Face Masks on 10 Key Standards
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-6">
-            {EVALUATION_CRITERIA.map((criterion, idx) => (
+        {/* 6. 10 EVALUATION CRITERIA (COLLAPSIBLE ACCORDION) */}
+        <section className="bg-white rounded-3xl border border-[#e7e7e7] shadow-sm mb-16 overflow-hidden transition-all duration-300">
+          <button
+            type="button"
+            onClick={() => setIsStandardsOpen((prev) => !prev)}
+            aria-expanded={isStandardsOpen}
+            aria-controls="led-mask-standards-panel"
+            className="w-full text-left p-6 sm:p-8 sm:px-9 flex items-center justify-between gap-4 cursor-pointer hover:bg-neutral-50/75 transition-colors group select-none focus:outline-hidden"
+          >
+            <div className="flex-1 min-w-0 pr-2 sm:pr-4">
+              <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-bold block mb-1">
+                Testing Methodology
+              </span>
+              <h2 className="font-lato text-xl sm:text-2xl md:text-3xl font-extrabold text-[#181818] tracking-tight group-hover:text-[#7e22ce] transition-colors">
+                We Evaluated LED Face Masks on 10 Key Standards
+              </h2>
+            </div>
+            <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+              <span className="hidden sm:inline font-openSans text-xs font-bold uppercase tracking-wider text-neutral-400 group-hover:text-[#7e22ce] transition-colors">
+                {isStandardsOpen ? "Hide Criteria" : "View Criteria"}
+              </span>
               <div
-                key={idx}
-                className="flex items-center gap-3 p-3.5 rounded-xl bg-[#fafafa] border border-[#e7e7e7] hover:border-neutral-400 transition-colors"
+                className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-[#fafafa] border border-[#e7e7e7] group-hover:border-[#d1a3ff] group-hover:bg-[#f5f3ff] text-neutral-600 group-hover:text-[#7e22ce] transition-all duration-200"
+                aria-hidden="true"
               >
-                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#181818] text-white text-xs font-openSans font-bold shadow-xs">
-                  {idx + 1}
-                </div>
-                <span className="font-lato text-sm sm:text-base font-semibold text-[#181818] tracking-tight">
-                  {criterion}
-                </span>
+                {isStandardsOpen ? (
+                  <ChevronUp className="h-5 w-5 transition-transform duration-200" />
+                ) : (
+                  <ChevronDown className="h-5 w-5 transition-transform duration-200" />
+                )}
               </div>
-            ))}
-          </div>
+            </div>
+          </button>
 
-          <div className="p-4 rounded-2xl bg-[#181818] text-white font-lora text-sm sm:text-base text-center leading-relaxed">
-            Synthesising <strong>laboratory bench measurements</strong>, <strong>dermatological oversight</strong>, and{" "}
-            <strong>thousands of verified UK consumer submissions</strong>, the following five devices distinguished
-            themselves in 2026.
-          </div>
+          {isStandardsOpen && (
+            <div
+              id="led-mask-standards-panel"
+              className="px-6 pb-6 sm:px-9 sm:pb-9 pt-4 sm:pt-6 border-t border-[#e7e7e7] animate-fadeIn"
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-6">
+                {EVALUATION_CRITERIA.map((criterion, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-center gap-3 p-3.5 rounded-xl bg-[#fafafa] border border-[#e7e7e7] hover:border-neutral-400 transition-colors"
+                  >
+                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#181818] text-white text-xs font-openSans font-bold shadow-xs">
+                      {idx + 1}
+                    </div>
+                    <span className="font-lato text-sm sm:text-base font-semibold text-[#181818] tracking-tight">
+                      {criterion}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="p-4 rounded-2xl bg-[#181818] text-white font-lora text-sm sm:text-base text-center leading-relaxed">
+                Synthesising <strong>laboratory bench measurements</strong>, <strong>dermatological oversight</strong>, and{" "}
+                <strong>thousands of verified UK consumer submissions</strong>, the following five devices distinguished
+                themselves in 2026.
+              </div>
+            </div>
+          )}
         </section>
 
         {/* 7. THE RANKED PRODUCTS (STRICT 3-TIER WIREFRAME & WOMENSKINHEALTH STYLING) */}
@@ -621,6 +594,21 @@ export function LuxuryLedMaskLandingPage() {
                   </ul>
                 </div>
               </div>
+
+              {/* ROW 4 (BOTTOM CTA): "GO TO OFFICIAL WEBSITE" (Winner Only) */}
+              {product.isWinner && (
+                <div className="mt-8">
+                  <a
+                    href={product.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-4 sm:py-5 px-6 sm:px-8 rounded-2xl bg-[#181818] hover:bg-[#b265ff] text-white font-openSans font-extrabold text-base sm:text-lg uppercase tracking-wider flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.01] group cursor-pointer"
+                  >
+                    <span>Go to Official Website</span>
+                    <ArrowRight size={22} className="shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
+                  </a>
+                </div>
+              )}
             </article>
           ))}
 
@@ -873,6 +861,29 @@ export function LuxuryLedMaskLandingPage() {
           </p>
         </footer>
       </main>
+
+      {/* DISCLOSURE MODAL (TRIGGERED FROM FOOTER) */}
+      {isDisclosureOpen && (
+        <div className="cp-overlay" onClick={() => setIsDisclosureOpen(false)}>
+          <div className="disclosure-card-inner" onClick={(e) => e.stopPropagation()}>
+            <h3 className="disclosure-card-title font-lato text-xl font-bold text-[#181818]">
+              Advertising &amp; Editorial Disclosure
+            </h3>
+            <p className="disclosure-card-text font-lora text-neutral-700 leading-relaxed text-sm mb-4">
+              Best Product Verdict is an independent consumer testing and evaluation platform. We are reader-supported.
+              When you purchase through links on our site, we may earn an affiliate commission at no extra cost to you.
+              Our evaluations, ratings, and doctor reviews are based on rigorous clinical benchmarks, optical testing,
+              and genuine user feedback.
+            </p>
+            <button
+              onClick={() => setIsDisclosureOpen(false)}
+              className="bg-[#181818] hover:bg-[#b265ff] text-white font-openSans font-bold text-sm py-2.5 px-6 rounded-lg transition-colors cursor-pointer"
+            >
+              Understood &amp; Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

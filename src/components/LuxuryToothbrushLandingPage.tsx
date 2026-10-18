@@ -14,6 +14,8 @@ import {
   HelpCircle,
   Sparkles,
   Play,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 import {
   MIROOOO_PRODUCT_URL,
@@ -21,11 +23,7 @@ import {
   TOOTHBRUSH_PRODUCTS,
   type ToothbrushProduct,
 } from "@/data/toothbrushData";
-import {
-  type ToothbrushGuide,
-  TOOTHBRUSH_GUIDES,
-  type ToothbrushGuideSlug,
-} from "@/data/toothbrushGuidesData";
+import { type ToothbrushGuide } from "@/data/toothbrushGuidesData";
 
 /* Helper to format UK dynamic date (e.g. "8 October 2026") */
 function getUkFormattedDate(): string {
@@ -230,6 +228,7 @@ export function LuxuryToothbrushLandingPage({ guide }: LuxuryToothbrushLandingPa
   const [ukDate, setUkDate] = useState<string>(getUkFormattedDate());
   const [isDisclosureOpen, setIsDisclosureOpen] = useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [isStandardsOpen, setIsStandardsOpen] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const handlePlayVideo = () => {
@@ -247,67 +246,10 @@ export function LuxuryToothbrushLandingPage({ guide }: LuxuryToothbrushLandingPa
     ? guide.criteria
     : TOOTHBRUSH_EVALUATION_CRITERIA;
 
+  const winnerProduct = TOOTHBRUSH_PRODUCTS.find((p) => p.isWinner) || TOOTHBRUSH_PRODUCTS[0];
+
   return (
     <div className="min-h-screen bg-white text-[#181818] antialiased selection:bg-[#d1a3ff] selection:text-[#181818]">
-      {/* 1. TOP MINIMAL ACCENT LINE */}
-      <div className="w-full h-1 bg-[#181818]" />
-
-      {/* 2. CLEAN EDITORIAL HEADER */}
-      <header className="border-b border-[#e7e7e7] bg-white relative z-10 shadow-xs">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 group text-decoration-none">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#181818] text-white font-openSans font-bold text-sm tracking-tight shadow-sm">
-              BV
-            </span>
-            <div className="flex flex-col">
-              <span className="font-lato font-extrabold text-lg sm:text-xl tracking-tight text-[#181818] group-hover:text-[#7e22ce] transition-colors">
-                Best Product Verdict <span className="text-[#b265ff]">UK</span>
-              </span>
-              <span className="font-openSans text-[11px] tracking-wider uppercase text-neutral-500 font-semibold">
-                Independent 2026 Dental Care Audit
-              </span>
-            </div>
-          </Link>
-
-          <div className="flex items-center gap-4 text-xs sm:text-sm font-openSans font-semibold">
-            <button
-              onClick={() => setIsDisclosureOpen(true)}
-              className="hidden sm:inline-flex items-center gap-1.5 text-neutral-600 hover:text-[#181818] transition-colors py-1 px-2.5 rounded-md hover:bg-neutral-100"
-            >
-              <HelpCircle size={15} />
-              <span>Advertising Disclosure</span>
-            </button>
-            <span className="inline-flex items-center gap-1.5 bg-[#f5f3ff] text-[#7e22ce] border border-[#d1a3ff] px-3 py-1 rounded-full text-xs font-bold tracking-wide">
-              <span className="h-2 w-2 rounded-full bg-[#b265ff] animate-pulse" />
-              Verified UK Report
-            </span>
-          </div>
-        </div>
-      </header>
-
-      {/* DISCLOSURE MODAL */}
-      {isDisclosureOpen && (
-        <div className="cp-overlay" onClick={() => setIsDisclosureOpen(false)}>
-          <div className="disclosure-card-inner" onClick={(e) => e.stopPropagation()}>
-            <h3 className="disclosure-card-title font-lato text-xl font-bold text-[#181818]">
-              Advertising &amp; Editorial Disclosure
-            </h3>
-            <p className="disclosure-card-text font-lora text-neutral-700 leading-relaxed text-sm mb-4">
-              Best Product Verdict is an independent consumer testing and evaluation platform. We are reader-supported.
-              When you purchase through links on our site, we may earn an affiliate commission at no extra cost to you.
-              Our evaluations, ratings, and dentist reviews are based on rigorous clinical benchmarks, acoustic testing,
-              plaque removal measurements, and genuine user feedback.
-            </p>
-            <button
-              onClick={() => setIsDisclosureOpen(false)}
-              className="bg-[#181818] hover:bg-[#b265ff] text-white font-openSans font-bold text-sm py-2.5 px-6 rounded-lg transition-colors cursor-pointer"
-            >
-              Understood &amp; Close
-            </button>
-          </div>
-        </div>
-      )}
-
       {/* 3. HERO EDITORIAL SECTION */}
       <section className="bg-[#fafafa] text-[#181818] pt-12 pb-14 md:pt-16 md:pb-20 px-4 sm:px-6 border-b border-[#e7e7e7] relative overflow-hidden">
         <div className="max-w-4xl mx-auto text-center relative z-10">
@@ -351,85 +293,174 @@ export function LuxuryToothbrushLandingPage({ guide }: LuxuryToothbrushLandingPa
         </div>
       </section>
 
-      {/* 4. HERO BANNER IMAGE & DR. JULIAN VANCE PROFILE */}
+      {/* 4. HERO BANNER IMAGE, DR. JULIAN VANCE PROFILE & HANDS-ON VIDEO */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 mt-8 space-y-8 relative z-20">
-        {/* Main Top 5 Comparison Hero Graphic (Exact Luxury Structure) */}
-        <div className="relative w-full max-w-5xl mx-auto flex items-center justify-center">
+        {/* Main Top 5 Comparison Hero Graphic */}
+        <div className="relative overflow-hidden rounded-2xl border border-[#e7e7e7] shadow-sm aspect-[1536/430] bg-[#fafafa]">
           <img
-            src="/img/toothbrushes/top-4-competitors-container-bar.webp"
-            alt="Electric Toothbrushes UK Comparison"
-            className="w-full h-auto object-contain pointer-events-none"
+            src="/img/toothbrushes/top-5-electric-toothbrushes-uk.webp"
+            alt="Top 5 Best Electric Toothbrushes UK 2026 Comparison"
+            className="w-full h-full object-cover rounded-2xl"
           />
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-[18%] min-w-[110px] max-w-[280px]">
-            <img
-              src="/img/toothbrushes/miroooo-brush-x-sonic-electric-toothbrush-in-hand-hero-banner.webp"
-              alt="Miroooo Brush X Sonic Electric Toothbrush in Hand - #1 Best Electric Toothbrush UK 2026"
-              className="w-full aspect-[696/1087] rounded-xl sm:rounded-2xl md:rounded-3xl object-cover shadow-[0_18px_45px_rgba(0,0,0,0.32),0_8px_20px_rgba(0,0,0,0.18)] border-2 border-white ring-1 ring-slate-900/10 pointer-events-none"
-            />
-          </div>
         </div>
 
-        {/* Dr. Julian Vance Clinical Profile Box */}
+        {/* Dr. Julian Vance Clinical Profile Box (Centered) */}
         <div className="bg-[#fafafa] rounded-2xl p-6 sm:p-8 border border-[#e7e7e7] shadow-sm">
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
+          <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
+            {/* 1. Doctor Avatar */}
             <img
               src="/img/toothbrushes/miroooo-dr-julian-vance-dental-consultant.webp"
               alt="Dr. Julian Vance, BDS - Clinical Dental Consultant &amp; Oral Health Specialist"
-              className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-3 border-white shadow-md shrink-0"
+              className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-white shadow-md shrink-0 mb-3"
             />
-            <div className="flex-1 text-center md:text-left">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
-                <div>
-                  <h3 className="font-lato text-2xl font-extrabold text-[#181818]">
-                    {guide?.drVanceVerdict.name || "Dr. Julian Vance, BDS"}
-                  </h3>
-                  <p className="font-openSans text-xs uppercase tracking-wider text-neutral-600 font-bold mt-0.5">
-                    {guide?.drVanceVerdict.title || "Clinical Dental Consultant & Oral Health Specialist"}
-                  </p>
+
+            {/* 2. Doctor Name Centered Below Avatar */}
+            <h3 className="font-lato text-2xl sm:text-3xl font-extrabold text-[#181818] text-center">
+              {guide?.drVanceVerdict.name || "Dr. Julian Vance, BDS"}
+            </h3>
+
+            {/* 3. Title and Badge Centered Below Name */}
+            <p className="font-openSans text-xs sm:text-sm uppercase tracking-wider text-neutral-600 font-bold mt-1 text-center">
+              {guide?.drVanceVerdict.title || "Clinical Dental Consultant & Oral Health Specialist"}
+            </p>
+            <div className="mt-2.5 mb-5 flex justify-center">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f5f3ff] border border-[#d1a3ff] text-xs font-openSans font-bold text-[#7e22ce] shadow-xs">
+                <CheckCircle2 size={14} className="text-[#7e22ce]" />
+                Verified Clinical Review
+              </span>
+            </div>
+
+            {/* 4. Centered Paragraph / Quote / Rationale Copy */}
+            <div className="w-full font-lora text-base sm:text-[18px] text-[#181818] leading-[1.8] space-y-3 mb-5 font-normal text-center">
+              {guide ? (
+                <>
+                  <blockquote className="border-y border-[#d1a3ff]/60 px-4 italic text-neutral-800 bg-[#fbf9fe] py-3 rounded-lg my-3 text-center">
+                    &ldquo;{guide.drVanceVerdict.quote}&rdquo;
+                  </blockquote>
+                  <p>{guide.drVanceVerdict.clinicalRationale}</p>
+                  {guide.drVanceVerdict.recommendation && (
+                    <p className="text-sm font-semibold text-neutral-800 pt-1 text-center">
+                      <strong>Clinical Recommendation:</strong> {guide.drVanceVerdict.recommendation}
+                    </p>
+                  )}
+                </>
+              ) : (
+                <p>
+                  With <strong>over 14 years</strong> of clinical dental experience in the UK,{" "}
+                  <strong>Dr. Julian Vance</strong> evaluated the leading electric toothbrushes for 2026 across{" "}
+                  <strong>180+ hours of comparative testing</strong>. Her conclusion was simple: daily brushing should
+                  be effortless. The ideal brush should be whisper-quiet rather than loudly buzzing in your ear, featherlight
+                  (around 50g) for easy handling, and gentle on gums while delivering a deep sonic clean. You don&apos;t
+                  need to spend £200+ on heavy, clunky handles or outdated 2-pin bathroom chargers to get a dentist-clean
+                  smile and 60+ days of battery life.
+                </p>
+              )}
+            </div>
+
+            {/* Footer Audit Bar */}
+            <div className="w-full pt-3 border-t border-[#e7e7e7] flex flex-col sm:flex-row items-center justify-between gap-2 text-xs font-openSans text-neutral-600">
+              <span>* Evaluated across UK dental clinics &amp; independent tests.</span>
+              <span className="font-bold text-[#181818]">100% Independent Medical Audit</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Hands-On Verdict & Specs Video Section (Directly Below Doctor Section) */}
+        <div className="bg-white rounded-3xl p-6 sm:p-10 border-2 border-[#181818] shadow-lg relative overflow-hidden">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-bold">
+              Hands-On Review &amp; Comparison
+            </span>
+            <h2 className="font-lato text-3xl sm:text-4xl font-extrabold text-[#181818] mt-1">
+              Hands-On Verdict &amp; Specs
+            </h2>
+            <div className="w-16 h-1 bg-[#181818] mx-auto mt-4 rounded-full" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+            {/* Miroooo Brush X Hands-On Walkthrough & Oral-B Comparison Video */}
+            <div className="relative">
+              <div className="relative mx-auto max-w-[280px] sm:max-w-xs rounded-2xl overflow-hidden border border-[#e7e7e7] bg-black shadow-xl aspect-[9/16]">
+                <video
+                  ref={videoRef}
+                  className="w-full h-full object-cover block"
+                  controls
+                  playsInline
+                  preload="metadata"
+                  poster="/assets/miroooo-brush-x-walkthrough-poster.webp"
+                  aria-label="Hands-on walkthrough of Miroooo Brush X and comparison with Oral-B"
+                  onPlay={() => setIsVideoPlaying(true)}
+                  onPause={() => setIsVideoPlaying(false)}
+                  onEnded={() => setIsVideoPlaying(false)}
+                >
+                  <source src="/assets/miroooo-brush-x-walkthrough.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+
+                {!isVideoPlaying && (
+                  <button
+                    type="button"
+                    onClick={handlePlayVideo}
+                    aria-label="Play hands-on walkthrough video"
+                    className="absolute inset-0 flex items-center justify-center bg-transparent group cursor-pointer focus:outline-none"
+                  >
+                    <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white text-[#181818] shadow-2xl transition-transform duration-300 group-hover:scale-110">
+                      <Play size={28} fill="currentColor" className="ml-1 text-[#181818]" />
+                    </span>
+                  </button>
+                )}
+
+                <div className="pointer-events-none absolute top-3 left-3 bg-[#181818]/90 text-white text-[11px] font-openSans font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-xs z-10">
+                  Hands-On Comparison
                 </div>
-                <span className="inline-flex self-center sm:self-auto items-center gap-1.5 px-3 py-1 rounded-full bg-[#f5f3ff] border border-[#d1a3ff] text-xs font-openSans font-bold text-[#7e22ce] shadow-xs">
-                  <CheckCircle2 size={14} className="text-[#7e22ce]" />
-                  Verified Clinical Review
+              </div>
+
+              <p className="mt-3.5 text-center font-lora text-xs sm:text-sm text-neutral-500 max-w-xs mx-auto font-medium">
+                Hands-on review: Miroooo Brush X unibody specs, magnetic charging, and side-by-side comparison with Oral-B.
+              </p>
+            </div>
+
+            {/* Verdict Summary Box */}
+            <div className="flex flex-col justify-center text-center md:text-left">
+              <span className="inline-block font-openSans text-xs uppercase tracking-widest font-extrabold text-[#7e22ce] mb-1">
+                #1 Rated Sonic System for UK Homes
+              </span>
+              <h3 className="font-lato text-2xl sm:text-3xl font-extrabold text-[#181818] mb-2">
+                Miroooo Brush X Electric Toothbrush
+              </h3>
+
+              <div className="font-lato text-3xl font-extrabold text-[#181818] mb-6">
+                Now £69 <span className="text-base font-lora text-neutral-400 font-normal line-through">£139</span>{" "}
+                <span className="font-openSans text-xs font-extrabold text-[#7e22ce] bg-[#f5f3ff] border border-[#d1a3ff] px-2.5 py-1 rounded-md ml-2 inline-block">
+                  50% OFF Today
                 </span>
               </div>
 
-              <div className="font-lora text-base sm:text-[18px] text-[#181818] leading-[1.8] space-y-3 mb-4 font-normal">
-                {guide ? (
-                  <>
-                    <blockquote className="border-l-3 border-[#7e22ce] pl-4 italic text-neutral-800 bg-[#fbf9fe] py-2.5 rounded-r-lg my-2">
-                      &ldquo;{guide.drVanceVerdict.quote}&rdquo;
-                    </blockquote>
-                    <p>{guide.drVanceVerdict.clinicalRationale}</p>
-                    {guide.drVanceVerdict.recommendation && (
-                      <p className="text-sm font-semibold text-neutral-800 pt-1">
-                        <strong>Clinical Recommendation:</strong> {guide.drVanceVerdict.recommendation}
-                      </p>
-                    )}
-                  </>
-                ) : (
-                  <p>
-                    With <strong>over 14 years</strong> of clinical dental experience in the UK,{" "}
-                    <strong>Dr. Julian Vance</strong> evaluated the leading electric toothbrushes for 2026 across{" "}
-                    <strong>180+ hours of comparative testing</strong>. Her conclusion was simple: daily brushing should
-                    be effortless. The ideal brush should be whisper-quiet rather than loudly buzzing in your ear, featherlight
-                    (around 50g) for easy handling, and gentle on gums while delivering a deep sonic clean. You don&apos;t
-                    need to spend £200+ on heavy, clunky handles or outdated 2-pin bathroom chargers to get a dentist-clean
-                    smile and 60+ days of battery life.
-                  </p>
-                )}
+              {/* Trust Badge */}
+              <div className="bg-[#fafafa] rounded-2xl p-4 border border-[#e7e7e7] mb-6 flex flex-col items-center sm:items-start">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="font-lato font-extrabold text-lg text-[#181818]">Rated 4.9 / 5 on Trustpilot</span>
+                  <GoldStars rating={5} size={18} />
+                </div>
+                <span className="font-lora text-xs text-neutral-600 font-medium">
+                  Trusted by 4,000+ UK users &bull; 90-Day Money-Back Risk-Free Guarantee
+                </span>
               </div>
 
-              <div className="pt-3 border-t border-[#e7e7e7] flex flex-wrap items-center justify-between text-xs font-openSans text-neutral-600">
-                <span>* Evaluated across UK dental clinics &amp; independent tests.</span>
-                <span className="font-bold text-[#181818]">100% Independent Medical Audit</span>
-              </div>
+              <a
+                href={MIROOOO_PRODUCT_URL}
+                className="w-full py-4 px-8 rounded-xl bg-[#000000] hover:bg-[#b265ff] text-white font-openSans font-extrabold text-base uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:shadow-lg hover:scale-[1.01] transition-all"
+              >
+                <span>Check Official Availability &amp; Claim Offer</span>
+                <ArrowRight size={20} />
+              </a>
             </div>
           </div>
         </div>
       </section>
 
       {/* 5. EXECUTIVE SUMMARY & INTRO */}
-      <main className="max-w-5xl mx-auto px-4 sm:px-6 py-12">
+      <main className="max-w-5xl mx-auto px-4 sm:px-6 py-12 pb-24 md:pb-12">
         <div className="max-w-3xl mx-auto font-lora text-[18px] text-[#181818] leading-[1.8] space-y-6 mb-14">
           {guide ? (
             guide.intro.map((para, pIdx) => (
@@ -471,54 +502,84 @@ export function LuxuryToothbrushLandingPage({ guide }: LuxuryToothbrushLandingPa
           )}
         </div>
 
-        {/* 6. EVALUATION STANDARDS & CRITERIA */}
-        <section className="bg-white rounded-3xl p-6 sm:p-9 border border-[#e7e7e7] shadow-sm mb-16">
-          <div className="text-center max-w-2xl mx-auto mb-8">
-            <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-bold">
-              Testing Methodology
-            </span>
-            <h2 className="font-lato text-2xl sm:text-3xl font-extrabold text-[#181818] mt-1">
-              {guide ? `Clinical Standards for ${guide.cardTitle}` : "We Evaluated Electric Toothbrushes on 10 Key Standards"}
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-6">
-            {activeCriteria.map((criterion, idx) => (
+        {/* 6. EVALUATION STANDARDS & CRITERIA (COLLAPSIBLE ACCORDION) */}
+        <section className="bg-white rounded-3xl border border-[#e7e7e7] shadow-sm mb-16 overflow-hidden transition-all duration-300">
+          <button
+            type="button"
+            onClick={() => setIsStandardsOpen((prev) => !prev)}
+            aria-expanded={isStandardsOpen}
+            aria-controls="toothbrush-standards-panel"
+            className="w-full text-left p-6 sm:p-8 sm:px-9 flex items-center justify-between gap-4 cursor-pointer hover:bg-neutral-50/75 transition-colors group select-none focus:outline-hidden"
+          >
+            <div className="flex-1 min-w-0 pr-2 sm:pr-4">
+              <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-bold block mb-1">
+                Testing Methodology
+              </span>
+              <h2 className="font-lato text-xl sm:text-2xl md:text-3xl font-extrabold text-[#181818] tracking-tight group-hover:text-[#7e22ce] transition-colors">
+                {guide ? `Clinical Standards for ${guide.cardTitle}` : "We Evaluated Electric Toothbrushes on 10 Key Standards"}
+              </h2>
+            </div>
+            <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+              <span className="hidden sm:inline font-openSans text-xs font-bold uppercase tracking-wider text-neutral-400 group-hover:text-[#7e22ce] transition-colors">
+                {isStandardsOpen ? "Hide Criteria" : "View Criteria"}
+              </span>
               <div
-                key={idx}
-                className="flex items-center gap-3 p-3.5 rounded-xl bg-[#fafafa] border border-[#e7e7e7] hover:border-neutral-400 transition-colors"
+                className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-[#fafafa] border border-[#e7e7e7] group-hover:border-[#d1a3ff] group-hover:bg-[#f5f3ff] text-neutral-600 group-hover:text-[#7e22ce] transition-all duration-200"
+                aria-hidden="true"
               >
-                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#181818] text-white text-xs font-openSans font-bold shadow-xs">
-                  {idx + 1}
-                </div>
-                <span className="font-lato text-sm sm:text-base font-semibold text-[#181818] tracking-tight">
-                  {criterion}
-                </span>
+                {isStandardsOpen ? (
+                  <ChevronUp className="h-5 w-5 transition-transform duration-200" />
+                ) : (
+                  <ChevronDown className="h-5 w-5 transition-transform duration-200" />
+                )}
               </div>
-            ))}
-          </div>
+            </div>
+          </button>
 
-          {guide?.winnerBullets && guide.winnerBullets.length > 0 && (
-            <div className="mt-8 p-6 rounded-2xl bg-[#fafafa] border border-[#e7e7e7]">
-              <div className="flex items-center gap-2 mb-3">
-                <Sparkles size={18} className="text-[#7e22ce]" />
-                <h3 className="font-lato font-bold text-lg text-[#181818]">Key Clinical Findings at a Glance</h3>
-              </div>
-              <ul className="space-y-2.5">
-                {guide.winnerBullets.map((bullet, bIdx) => (
-                  <li key={bIdx} className="flex items-start gap-2.5 font-lora text-sm sm:text-base text-neutral-800">
-                    <CheckCircle2 size={16} className="text-[#10b981] mt-1 shrink-0" />
-                    <span>{bullet}</span>
-                  </li>
+          {isStandardsOpen && (
+            <div
+              id="toothbrush-standards-panel"
+              className="px-6 pb-6 sm:px-9 sm:pb-9 pt-4 sm:pt-6 border-t border-[#e7e7e7] animate-fadeIn"
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-6">
+                {activeCriteria.map((criterion, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-center gap-3 p-3.5 rounded-xl bg-[#fafafa] border border-[#e7e7e7] hover:border-neutral-400 transition-colors"
+                  >
+                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#181818] text-white text-xs font-openSans font-bold shadow-xs">
+                      {idx + 1}
+                    </div>
+                    <span className="font-lato text-sm sm:text-base font-semibold text-[#181818] tracking-tight">
+                      {criterion}
+                    </span>
+                  </div>
                 ))}
-              </ul>
+              </div>
+
+              {guide?.winnerBullets && guide.winnerBullets.length > 0 && (
+                <div className="mt-8 p-6 rounded-2xl bg-[#fafafa] border border-[#e7e7e7]">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Sparkles size={18} className="text-[#7e22ce]" />
+                    <h3 className="font-lato font-bold text-lg text-[#181818]">Key Clinical Findings at a Glance</h3>
+                  </div>
+                  <ul className="space-y-2.5">
+                    {guide.winnerBullets.map((bullet, bIdx) => (
+                      <li key={bIdx} className="flex items-start gap-2.5 font-lora text-sm sm:text-base text-neutral-800">
+                        <CheckCircle2 size={16} className="text-[#10b981] mt-1 shrink-0" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              <div className="p-4 rounded-2xl bg-[#181818] text-white font-lora text-sm sm:text-base text-center leading-relaxed mt-6">
+                Synthesising <strong>laboratory bench measurements</strong>, <strong>clinical dental oversight</strong>, and{" "}
+                <strong>thousands of verified UK consumer submissions</strong>, the following models distinguished themselves in 2026.
+              </div>
             </div>
           )}
-
-          <div className="p-4 rounded-2xl bg-[#181818] text-white font-lora text-sm sm:text-base text-center leading-relaxed mt-6">
-            Synthesising <strong>laboratory bench measurements</strong>, <strong>clinical dental oversight</strong>, and{" "}
-            <strong>thousands of verified UK consumer submissions</strong>, the following models distinguished themselves in 2026.
-          </div>
         </section>
 
         {/* 6B. GUIDE-SPECIFIC HEAD-TO-HEAD COMPARISON TABLE */}
@@ -816,102 +877,24 @@ export function LuxuryToothbrushLandingPage({ guide }: LuxuryToothbrushLandingPa
                   </ul>
                 </div>
               </div>
+
+              {/* ROW 4 (BOTTOM CTA): "GO TO OFFICIAL WEBSITE" (Winner Only) */}
+              {product.isWinner && (
+                <div className="mt-8">
+                  <a
+                    href={product.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-4 sm:py-5 px-6 sm:px-8 rounded-2xl bg-[#181818] hover:bg-[#b265ff] text-white font-openSans font-extrabold text-base sm:text-lg uppercase tracking-wider flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.01] group cursor-pointer"
+                  >
+                    <span>Go to Official Website</span>
+                    <ArrowRight size={22} className="shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
+                  </a>
+                </div>
+              )}
             </article>
           ))}
         </div>
-
-        {/* 8. DENTIST'S VERDICT */}
-        <section className="mt-20 bg-white rounded-3xl p-6 sm:p-10 border-2 border-[#181818] shadow-lg relative overflow-hidden">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-bold">
-              Hands-On Review &amp; Comparison
-            </span>
-            <h2 className="font-lato text-3xl sm:text-4xl font-extrabold text-[#181818] mt-1">
-              Hands-On Verdict &amp; Specs
-            </h2>
-            <div className="w-16 h-1 bg-[#181818] mx-auto mt-4 rounded-full" />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-            {/* Miroooo Brush X Hands-On Walkthrough & Oral-B Comparison Video */}
-            <div className="relative">
-              <div className="relative mx-auto max-w-[280px] sm:max-w-xs rounded-2xl overflow-hidden border border-[#e7e7e7] bg-black shadow-xl aspect-[9/16]">
-                <video
-                  ref={videoRef}
-                  className="w-full h-full object-cover block"
-                  controls
-                  playsInline
-                  preload="metadata"
-                  poster="/assets/miroooo-brush-x-walkthrough-poster.webp"
-                  aria-label="Hands-on walkthrough of Miroooo Brush X and comparison with Oral-B"
-                  onPlay={() => setIsVideoPlaying(true)}
-                  onPause={() => setIsVideoPlaying(false)}
-                  onEnded={() => setIsVideoPlaying(false)}
-                >
-                  <source src="/assets/miroooo-brush-x-walkthrough.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-
-                {!isVideoPlaying && (
-                  <button
-                    type="button"
-                    onClick={handlePlayVideo}
-                    aria-label="Play hands-on walkthrough video"
-                    className="absolute inset-0 flex items-center justify-center bg-transparent group cursor-pointer focus:outline-none"
-                  >
-                    <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white text-[#181818] shadow-2xl transition-transform duration-300 group-hover:scale-110">
-                      <Play size={28} fill="currentColor" className="ml-1 text-[#181818]" />
-                    </span>
-                  </button>
-                )}
-
-                <div className="pointer-events-none absolute top-3 left-3 bg-[#181818]/90 text-white text-[11px] font-openSans font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-xs z-10">
-                  Hands-On Comparison
-                </div>
-              </div>
-
-              <p className="mt-3.5 text-center font-lora text-xs sm:text-sm text-neutral-500 max-w-xs mx-auto font-medium">
-                Hands-on review: Miroooo Brush X unibody specs, magnetic charging, and side-by-side comparison with Oral-B.
-              </p>
-            </div>
-
-            {/* Verdict Summary Box */}
-            <div className="flex flex-col justify-center text-center md:text-left">
-              <span className="inline-block font-openSans text-xs uppercase tracking-widest font-extrabold text-[#7e22ce] mb-1">
-                #1 Rated Sonic System for UK Homes
-              </span>
-              <h3 className="font-lato text-2xl sm:text-3xl font-extrabold text-[#181818] mb-2">
-                Miroooo Brush X Electric Toothbrush
-              </h3>
-
-              <div className="font-lato text-3xl font-extrabold text-[#181818] mb-6">
-                Now £69 <span className="text-base font-lora text-neutral-400 font-normal line-through">£139</span>{" "}
-                <span className="font-openSans text-xs font-extrabold text-[#7e22ce] bg-[#f5f3ff] border border-[#d1a3ff] px-2.5 py-1 rounded-md ml-2 inline-block">
-                  50% OFF Today
-                </span>
-              </div>
-
-              {/* Trust Badge */}
-              <div className="bg-[#fafafa] rounded-2xl p-4 border border-[#e7e7e7] mb-6 flex flex-col items-center sm:items-start">
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="font-lato font-extrabold text-lg text-[#181818]">Rated 4.9 / 5 on Trustpilot</span>
-                  <GoldStars rating={5} size={18} />
-                </div>
-                <span className="font-lora text-xs text-neutral-600 font-medium">
-                  Trusted by 4,000+ UK users &bull; 90-Day Money-Back Risk-Free Guarantee
-                </span>
-              </div>
-
-              <a
-                href={MIROOOO_PRODUCT_URL}
-                className="w-full py-4 px-8 rounded-xl bg-[#000000] hover:bg-[#b265ff] text-white font-openSans font-extrabold text-base uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:shadow-lg hover:scale-[1.01] transition-all"
-              >
-                <span>Check Official Availability &amp; Claim Offer</span>
-                <ArrowRight size={20} />
-              </a>
-            </div>
-          </div>
-        </section>
 
         {/* 9. SIDE-BY-SIDE COMPARISON TABLE MATRIX */}
         <section className="mt-20 bg-white rounded-3xl p-3 sm:p-5 lg:p-6 border border-[#e7e7e7] shadow-sm overflow-hidden">
@@ -1038,71 +1021,6 @@ export function LuxuryToothbrushLandingPage({ guide }: LuxuryToothbrushLandingPa
           </section>
         )}
 
-        {/* 9C. RELATED 2026 CLINICAL GUIDES & COMPARISONS */}
-        <section className="mt-20 bg-[#fafafa] rounded-3xl p-6 sm:p-9 border border-[#e7e7e7]">
-          <div className="text-center max-w-2xl mx-auto mb-8">
-            <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-bold">
-              Complete Editorial Coverage
-            </span>
-            <h2 className="font-lato text-2xl sm:text-3xl font-extrabold text-[#181818] mt-1">
-              Explore Our 2026 Electric Toothbrush Reviews
-            </h2>
-            <p className="font-lora text-sm sm:text-base text-neutral-600 mt-2">
-              Explore our laboratory test results, head-to-head comparisons, and specialized oral care buyer guides.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <Link
-              href="/best-electric-toothbrush-uk-2026"
-              className="group p-4 bg-white rounded-2xl border border-[#e7e7e7] hover:border-[#181818] transition-all shadow-xs flex flex-col justify-between"
-            >
-              <div>
-                <span className="inline-block px-2.5 py-0.5 rounded-full bg-[#181818] text-white text-[10px] font-openSans font-extrabold uppercase tracking-wider mb-2">
-                  Master Pillar
-                </span>
-                <h4 className="font-lato text-base font-bold text-[#181818] group-hover:text-[#7e22ce] transition-colors leading-snug">
-                  Best Electric Toothbrush UK 2026
-                </h4>
-                <p className="font-lora text-xs text-neutral-600 mt-1.5 line-clamp-2">
-                  Our comprehensive, ranked Top 5 electric toothbrushes for UK homes based on 180+ laboratory hours.
-                </p>
-              </div>
-              <div className="mt-3 flex items-center gap-1 text-xs font-openSans font-bold text-[#181818] group-hover:text-[#7e22ce]">
-                <span>Read Full Audit</span>
-                <ArrowRight size={13} />
-              </div>
-            </Link>
-
-            {Object.values(TOOTHBRUSH_GUIDES).map((g) => {
-              if (guide?.slug === g.slug) return null;
-              return (
-                <Link
-                  key={g.slug}
-                  href={`/${g.slug}`}
-                  className="group p-4 bg-white rounded-2xl border border-[#e7e7e7] hover:border-[#181818] transition-all shadow-xs flex flex-col justify-between"
-                >
-                  <div>
-                    <span className="inline-block px-2.5 py-0.5 rounded-full bg-[#f5f3ff] text-[#7e22ce] border border-[#d1a3ff] text-[10px] font-openSans font-bold uppercase tracking-wider mb-2">
-                      {g.cardCode}
-                    </span>
-                    <h4 className="font-lato text-base font-bold text-[#181818] group-hover:text-[#7e22ce] transition-colors leading-snug">
-                      {g.cardTitle}
-                    </h4>
-                    <p className="font-lora text-xs text-neutral-600 mt-1.5 line-clamp-2">
-                      {g.cardDescription}
-                    </p>
-                  </div>
-                  <div className="mt-3 flex items-center gap-1 text-xs font-openSans font-bold text-[#181818] group-hover:text-[#7e22ce]">
-                    <span>View Guide</span>
-                    <ArrowRight size={13} />
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </section>
-
         {/* 10. EDITORIAL FOOTER & DISCLOSURES */}
         <footer className="mt-20 pt-12 border-t border-[#e7e7e7] text-center text-xs text-neutral-500 font-openSans">
           <div className="mb-6 flex flex-wrap items-center justify-center gap-4 text-xs font-semibold">
@@ -1134,6 +1052,98 @@ export function LuxuryToothbrushLandingPage({ guide }: LuxuryToothbrushLandingPa
           </p>
         </footer>
       </main>
+
+      {/* DISCLOSURE MODAL */}
+      {isDisclosureOpen && (
+        <div className="cp-overlay" onClick={() => setIsDisclosureOpen(false)}>
+          <div className="disclosure-card-inner" onClick={(e) => e.stopPropagation()}>
+            <h3 className="disclosure-card-title font-lato text-xl font-bold text-[#181818]">
+              Advertising &amp; Editorial Disclosure
+            </h3>
+            <p className="disclosure-card-text font-lora text-neutral-700 leading-relaxed text-sm mb-4">
+              Best Product Verdict is an independent consumer testing and evaluation platform. We are reader-supported.
+              When you purchase through links on our site, we may earn an affiliate commission at no extra cost to you.
+              Our evaluations, ratings, and dentist reviews are based on rigorous clinical benchmarks, acoustic testing,
+              plaque removal measurements, and genuine user feedback.
+            </p>
+            <button
+              onClick={() => setIsDisclosureOpen(false)}
+              className="bg-[#181818] hover:bg-[#b265ff] text-white font-openSans font-bold text-sm py-2.5 px-6 rounded-lg transition-colors cursor-pointer"
+            >
+              Understood &amp; Close
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* STICKY WINNER BOX (DESKTOP) & STICKY BAR (MOBILE) */}
+      <StickyWinnerBox winnerProduct={winnerProduct} />
     </div>
+  );
+}
+
+function StickyWinnerBox({ winnerProduct }: { winnerProduct: ToothbrushProduct }) {
+  return (
+    <>
+      {/* 1. DESKTOP STICKY BOX (Bottom-Right) */}
+      <aside
+        aria-label="Winner recommendation sticky card"
+        className="hidden md:flex flex-col items-center fixed bottom-8 right-6 z-50 w-[215px] bg-[#181818] border border-[#2e2e2e] rounded-2xl p-3 shadow-2xl transition-all duration-300 hover:border-[#3e3e3e]"
+      >
+        {/* Top Badge: #1 WINNER */}
+        <div className="mb-2">
+          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#f5f3ff] text-[#7e22ce] border border-[#d1a3ff] text-[10px] font-openSans font-extrabold uppercase tracking-wider shadow-xs">
+            #1 WINNER
+          </span>
+        </div>
+
+        {/* Video: 360 View */}
+        <div className="relative w-full aspect-square rounded-xl overflow-hidden bg-black/80 border border-[#2e2e2e]">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            poster="/img/toothbrushes/miroooo-brush-x-sonic-electric-toothbrush-studio-banner.webp"
+            aria-label="Miroooo Brush X 360 View"
+            className="w-full h-full object-cover pointer-events-none"
+          >
+            <source src="/assets/miroooo-x-360-view.mp4" type="video/mp4" />
+          </video>
+        </div>
+
+        {/* Title: #1 Product Name in Bold Uppercase */}
+        <div className="mt-2.5 mb-2.5 text-center px-1">
+          <h4 className="font-lato font-extrabold text-white text-[13px] tracking-wider uppercase leading-snug">
+            MIROOOO BRUSH X
+          </h4>
+        </div>
+
+        {/* Desktop CTA Button */}
+        <a
+          href={winnerProduct.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full py-2.5 px-3 rounded-xl bg-white hover:bg-[#b265ff] text-[#181818] hover:text-white font-openSans font-extrabold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all duration-300 shadow-md group"
+        >
+          <span>VISIT WINNING SITE</span>
+          <ExternalLink size={13} className="shrink-0 group-hover:translate-x-0.5 transition-transform" />
+        </a>
+      </aside>
+
+      {/* 2. MOBILE STICKY BAR (Bottom Full-Width Bar with ONLY the Button) */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden p-3 bg-white/95 backdrop-blur-md border-t border-[#e7e7e7] shadow-[0_-4px_25px_rgba(0,0,0,0.12)]">
+        <a
+          href={winnerProduct.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full py-3.5 px-5 rounded-xl bg-[#181818] hover:bg-[#b265ff] text-white font-openSans font-extrabold text-sm uppercase tracking-wider flex items-center justify-center gap-2 transition-all duration-200 shadow-md active:scale-[0.99]"
+        >
+          <span>Visit Winning Site</span>
+          <ExternalLink size={16} />
+        </a>
+      </div>
+    </>
   );
 }

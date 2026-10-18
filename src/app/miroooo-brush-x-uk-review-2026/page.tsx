@@ -67,7 +67,6 @@ export default function MirooooBrushXUkReviewPage() {
             "@type": "Offer",
             "price": "69.00",
             "priceCurrency": "GBP",
-            "availability": "https://schema.org/InStock",
             "url": "https://www.trymiroooo.com/products/miroooo-x",
           },
         },
