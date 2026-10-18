@@ -21,6 +21,11 @@ import {
   TOOTHBRUSH_PRODUCTS,
   type ToothbrushProduct,
 } from "@/data/toothbrushData";
+import {
+  type ToothbrushGuide,
+  TOOTHBRUSH_GUIDES,
+  type ToothbrushGuideSlug,
+} from "@/data/toothbrushGuidesData";
 
 /* Helper to format UK dynamic date (e.g. "8 October 2026") */
 function getUkFormattedDate(): string {
@@ -217,7 +222,11 @@ function renderFormattedBoldText(text: string): React.ReactNode {
   });
 }
 
-export function LuxuryToothbrushLandingPage() {
+export interface LuxuryToothbrushLandingPageProps {
+  guide?: ToothbrushGuide;
+}
+
+export function LuxuryToothbrushLandingPage({ guide }: LuxuryToothbrushLandingPageProps = {}) {
   const [ukDate, setUkDate] = useState<string>(getUkFormattedDate());
   const [isDisclosureOpen, setIsDisclosureOpen] = useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
@@ -233,6 +242,10 @@ export function LuxuryToothbrushLandingPage() {
   useEffect(() => {
     setUkDate(getUkFormattedDate());
   }, []);
+
+  const activeCriteria = guide?.criteria && guide.criteria.length > 0
+    ? guide.criteria
+    : TOOTHBRUSH_EVALUATION_CRITERIA;
 
   return (
     <div className="min-h-screen bg-white text-[#181818] antialiased selection:bg-[#d1a3ff] selection:text-[#181818]">
@@ -300,19 +313,31 @@ export function LuxuryToothbrushLandingPage() {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#d1a3ff] bg-[#f5f3ff] text-xs uppercase tracking-[0.15em] font-openSans font-bold text-[#7e22ce] mb-6 shadow-xs">
             <Award size={15} className="text-[#9333ea]" />
-            <span>2026 United Kingdom Dental Care Audit</span>
+            <span>{guide?.eyebrow || "2026 United Kingdom Dental Care Audit"}</span>
           </div>
 
           <h1 className="font-lato text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#181818] mb-5 leading-[1.15]">
-            Best Electric Toothbrush
-            <span className="block mt-2 font-lato font-normal text-2xl sm:text-3xl md:text-4xl text-neutral-600">
-              United Kingdom — 2026 Clinical Comparison
-            </span>
+            {guide ? (
+              <>
+                {guide.headline}
+                <span className="block mt-2 font-lato font-normal text-2xl sm:text-3xl md:text-4xl text-neutral-600">
+                  {guide.subheadline}
+                </span>
+              </>
+            ) : (
+              <>
+                Best Electric Toothbrush
+                <span className="block mt-2 font-lato font-normal text-2xl sm:text-3xl md:text-4xl text-neutral-600">
+                  United Kingdom — 2026 Clinical Comparison
+                </span>
+              </>
+            )}
           </h1>
 
           <p className="font-lora text-base sm:text-lg md:text-[19px] text-[#181818] max-w-3xl mx-auto leading-[1.8] mb-6 font-normal">
-            A rigorous clinical assessment evaluating acoustic motor dynamics, plaque removal efficiency, enamel safety,
-            ergonomic weight distribution, and verified patient outcomes across 16 leading models.
+            {guide
+              ? guide.quickTake
+              : "A rigorous clinical assessment evaluating acoustic motor dynamics, plaque removal efficiency, enamel safety, ergonomic weight distribution, and verified patient outcomes across 16 leading models."}
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs sm:text-sm font-openSans font-semibold text-neutral-600">
@@ -328,7 +353,7 @@ export function LuxuryToothbrushLandingPage() {
 
       {/* 4. HERO BANNER IMAGE & DR. JULIAN VANCE PROFILE */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 mt-8 space-y-8 relative z-20">
-        {/* Main Top 5 Comparison Hero Graphic (Exact Trustpilot Structure) */}
+        {/* Main Top 5 Comparison Hero Graphic (Exact Luxury Structure) */}
         <div className="relative w-full max-w-5xl mx-auto flex items-center justify-center">
           <img
             src="/img/toothbrushes/top-4-competitors-container-bar.webp"
@@ -356,10 +381,10 @@ export function LuxuryToothbrushLandingPage() {
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
                 <div>
                   <h3 className="font-lato text-2xl font-extrabold text-[#181818]">
-                    Dr. Julian Vance, BDS
+                    {guide?.drVanceVerdict.name || "Dr. Julian Vance, BDS"}
                   </h3>
                   <p className="font-openSans text-xs uppercase tracking-wider text-neutral-600 font-bold mt-0.5">
-                    Clinical Dental Consultant &amp; Oral Health Specialist
+                    {guide?.drVanceVerdict.title || "Clinical Dental Consultant & Oral Health Specialist"}
                   </p>
                 </div>
                 <span className="inline-flex self-center sm:self-auto items-center gap-1.5 px-3 py-1 rounded-full bg-[#f5f3ff] border border-[#d1a3ff] text-xs font-openSans font-bold text-[#7e22ce] shadow-xs">
@@ -369,15 +394,29 @@ export function LuxuryToothbrushLandingPage() {
               </div>
 
               <div className="font-lora text-base sm:text-[18px] text-[#181818] leading-[1.8] space-y-3 mb-4 font-normal">
-                <p>
-                  With <strong>over 14 years</strong> of clinical dental experience in the UK,{" "}
-                  <strong>Dr. Julian Vance</strong> evaluated the leading electric toothbrushes for 2026 across{" "}
-                  <strong>180+ hours of comparative testing</strong>. Her conclusion was simple: daily brushing should
-                  be effortless. The ideal brush should be whisper-quiet rather than loudly buzzing in your ear, featherlight
-                  (around 50g) for easy handling, and gentle on gums while delivering a deep sonic clean. You don&apos;t
-                  need to spend £200+ on heavy, clunky handles or outdated 2-pin bathroom chargers to get a dentist-clean
-                  smile and 60+ days of battery life.
-                </p>
+                {guide ? (
+                  <>
+                    <blockquote className="border-l-3 border-[#7e22ce] pl-4 italic text-neutral-800 bg-[#fbf9fe] py-2.5 rounded-r-lg my-2">
+                      &ldquo;{guide.drVanceVerdict.quote}&rdquo;
+                    </blockquote>
+                    <p>{guide.drVanceVerdict.clinicalRationale}</p>
+                    {guide.drVanceVerdict.recommendation && (
+                      <p className="text-sm font-semibold text-neutral-800 pt-1">
+                        <strong>Clinical Recommendation:</strong> {guide.drVanceVerdict.recommendation}
+                      </p>
+                    )}
+                  </>
+                ) : (
+                  <p>
+                    With <strong>over 14 years</strong> of clinical dental experience in the UK,{" "}
+                    <strong>Dr. Julian Vance</strong> evaluated the leading electric toothbrushes for 2026 across{" "}
+                    <strong>180+ hours of comparative testing</strong>. Her conclusion was simple: daily brushing should
+                    be effortless. The ideal brush should be whisper-quiet rather than loudly buzzing in your ear, featherlight
+                    (around 50g) for easy handling, and gentle on gums while delivering a deep sonic clean. You don&apos;t
+                    need to spend £200+ on heavy, clunky handles or outdated 2-pin bathroom chargers to get a dentist-clean
+                    smile and 60+ days of battery life.
+                  </p>
+                )}
               </div>
 
               <div className="pt-3 border-t border-[#e7e7e7] flex flex-wrap items-center justify-between text-xs font-openSans text-neutral-600">
@@ -392,42 +431,59 @@ export function LuxuryToothbrushLandingPage() {
       {/* 5. EXECUTIVE SUMMARY & INTRO */}
       <main className="max-w-5xl mx-auto px-4 sm:px-6 py-12">
         <div className="max-w-3xl mx-auto font-lora text-[18px] text-[#181818] leading-[1.8] space-y-6 mb-14">
-          <p className="first-letter:font-lato first-letter:text-5xl first-letter:font-extrabold first-letter:float-left first-letter:mr-3 first-letter:text-[#181818] leading-[1.8]">
-            Upgrading to a high-performance electric toothbrush is one of the most impactful decisions you can make for
-            your long-term oral health. However, navigating the UK dental market has become increasingly frustrating.
-            Prices range from <strong>£40 to well over £300</strong>, with major household brands frequently relying on
-            clunky plastic handles, loud vibrating gearboxes, and overpriced replacement heads.
-          </p>
-          <p>
-            To separate true acoustic engineering from marketing hype, our clinical panel spent{" "}
-            <strong>180+ laboratory hours testing 16 prominent UK models</strong>. We evaluated plaque removal
-            efficiency, gumline gentleness, motor noise decibels, handle weight balance, battery longevity, and thousands
-            of verified patient reviews.
-          </p>
-          <p>
-            Our core conclusion: <em>a higher price tag does not guarantee better oral health</em>. The top-performing
-            toothbrushes combine whisper-quiet acoustic motors (&lt;50dB), ultra-lightweight ergonomic chassis design
-            (~50g), universal USB-C magnetic charging, and affordable replacement heads.
-          </p>
-          <p className="font-semibold text-[#181818]">
-            Below is our definitive, ranked top 5 electric toothbrushes for UK buyers in 2026, starting with our undisputed
-            #1 winner.
-          </p>
+          {guide ? (
+            guide.intro.map((para, pIdx) => (
+              <p
+                key={pIdx}
+                className={
+                  pIdx === 0
+                    ? "first-letter:font-lato first-letter:text-5xl first-letter:font-extrabold first-letter:float-left first-letter:mr-3 first-letter:text-[#181818] leading-[1.8]"
+                    : ""
+                }
+              >
+                {para}
+              </p>
+            ))
+          ) : (
+            <>
+              <p className="first-letter:font-lato first-letter:text-5xl first-letter:font-extrabold first-letter:float-left first-letter:mr-3 first-letter:text-[#181818] leading-[1.8]">
+                Upgrading to a high-performance electric toothbrush is one of the most impactful decisions you can make for
+                your long-term oral health. However, navigating the UK dental market has become increasingly frustrating.
+                Prices range from <strong>£40 to well over £300</strong>, with major household brands frequently relying on
+                clunky plastic handles, loud vibrating gearboxes, and overpriced replacement heads.
+              </p>
+              <p>
+                To separate true acoustic engineering from marketing hype, our clinical panel spent{" "}
+                <strong>180+ laboratory hours testing 16 prominent UK models</strong>. We evaluated plaque removal
+                efficiency, gumline gentleness, motor noise decibels, handle weight balance, battery longevity, and thousands
+                of verified patient reviews.
+              </p>
+              <p>
+                Our core conclusion: <em>a higher price tag does not guarantee better oral health</em>. The top-performing
+                toothbrushes combine whisper-quiet acoustic motors (&lt;50dB), ultra-lightweight ergonomic chassis design
+                (~50g), universal USB-C magnetic charging, and affordable replacement heads.
+              </p>
+              <p className="font-semibold text-[#181818]">
+                Below is our definitive, ranked top 5 electric toothbrushes for UK buyers in 2026, starting with our undisputed
+                #1 winner.
+              </p>
+            </>
+          )}
         </div>
 
-        {/* 6. 10 EVALUATION CRITERIA */}
+        {/* 6. EVALUATION STANDARDS & CRITERIA */}
         <section className="bg-white rounded-3xl p-6 sm:p-9 border border-[#e7e7e7] shadow-sm mb-16">
           <div className="text-center max-w-2xl mx-auto mb-8">
             <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-bold">
               Testing Methodology
             </span>
             <h2 className="font-lato text-2xl sm:text-3xl font-extrabold text-[#181818] mt-1">
-              We Evaluated Electric Toothbrushes on 10 Key Standards
+              {guide ? `Clinical Standards for ${guide.cardTitle}` : "We Evaluated Electric Toothbrushes on 10 Key Standards"}
             </h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-6">
-            {TOOTHBRUSH_EVALUATION_CRITERIA.map((criterion, idx) => (
+            {activeCriteria.map((criterion, idx) => (
               <div
                 key={idx}
                 className="flex items-center gap-3 p-3.5 rounded-xl bg-[#fafafa] border border-[#e7e7e7] hover:border-neutral-400 transition-colors"
@@ -442,12 +498,101 @@ export function LuxuryToothbrushLandingPage() {
             ))}
           </div>
 
-          <div className="p-4 rounded-2xl bg-[#181818] text-white font-lora text-sm sm:text-base text-center leading-relaxed">
+          {guide?.winnerBullets && guide.winnerBullets.length > 0 && (
+            <div className="mt-8 p-6 rounded-2xl bg-[#fafafa] border border-[#e7e7e7]">
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles size={18} className="text-[#7e22ce]" />
+                <h3 className="font-lato font-bold text-lg text-[#181818]">Key Clinical Findings at a Glance</h3>
+              </div>
+              <ul className="space-y-2.5">
+                {guide.winnerBullets.map((bullet, bIdx) => (
+                  <li key={bIdx} className="flex items-start gap-2.5 font-lora text-sm sm:text-base text-neutral-800">
+                    <CheckCircle2 size={16} className="text-[#10b981] mt-1 shrink-0" />
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <div className="p-4 rounded-2xl bg-[#181818] text-white font-lora text-sm sm:text-base text-center leading-relaxed mt-6">
             Synthesising <strong>laboratory bench measurements</strong>, <strong>clinical dental oversight</strong>, and{" "}
-            <strong>thousands of verified UK consumer submissions</strong>, the following five electric toothbrushes
-            distinguished themselves in 2026.
+            <strong>thousands of verified UK consumer submissions</strong>, the following models distinguished themselves in 2026.
           </div>
         </section>
+
+        {/* 6B. GUIDE-SPECIFIC HEAD-TO-HEAD COMPARISON TABLE */}
+        {guide?.comparisonRows && guide.comparisonRows.length > 0 && (
+          <section className="bg-white rounded-3xl p-6 sm:p-9 border border-[#e7e7e7] shadow-sm mb-16 overflow-hidden">
+            <div className="text-center max-w-2xl mx-auto mb-8">
+              <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-bold">
+                Head-to-Head Specification Matrix
+              </span>
+              <h2 className="font-lato text-2xl sm:text-3xl font-extrabold text-[#181818] mt-1">
+                {guide.headline}
+              </h2>
+              <p className="font-lora text-sm sm:text-base text-neutral-600 mt-2">
+                Side-by-side benchmark comparison across acoustic engineering, battery endurance, handle ergonomics, and UK refill pricing.
+              </p>
+            </div>
+
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs sm:text-sm border-collapse min-w-[640px]">
+                <thead>
+                  <tr className="border-b-2 border-[#e7e7e7] text-neutral-500 font-openSans text-[11px] sm:text-xs uppercase tracking-wider bg-[#fafafa]">
+                    <th className="py-3 px-4 font-extrabold w-[25%]">Feature / Metric</th>
+                    <th className="py-3 px-4 font-extrabold w-[25%] text-[#7e22ce]">Miroooo Brush X</th>
+                    <th className="py-3 px-4 font-extrabold w-[25%]">Comparison Benchmark</th>
+                    <th className="py-3 px-4 font-extrabold w-[25%]">Why It Matters in Practice</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[#f1f5f9]">
+                  {guide.comparisonRows.map((row, rIdx) => (
+                    <tr key={rIdx} className={rIdx % 2 === 0 ? "bg-white" : "bg-[#fafafa]/60"}>
+                      <td className="py-3.5 px-4 font-lato font-bold text-[#181818]">{row.feature}</td>
+                      <td className="py-3.5 px-4 font-openSans font-bold text-[#7e22ce] bg-[#fdf4ff]/40">
+                        {row.miroooo}
+                      </td>
+                      <td className="py-3.5 px-4 font-lora text-neutral-700">{row.competitor}</td>
+                      <td className="py-3.5 px-4 font-lora text-neutral-600 text-xs sm:text-[13px] leading-relaxed">
+                        {row.whyItMatters}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        )}
+
+        {/* 6C. GUIDE-SPECIFIC BUYER GUIDANCE BLOCKS */}
+        {guide?.buyerBlocks && guide.buyerBlocks.length > 0 && (
+          <section className="space-y-6 mb-16">
+            <div className="text-center max-w-2xl mx-auto mb-8">
+              <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-bold">
+                Clinical Analysis &amp; Buyer Guidance
+              </span>
+              <h2 className="font-lato text-2xl sm:text-3xl font-extrabold text-[#181818] mt-1">
+                What UK Patients &amp; Consumers Need to Know
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 gap-6">
+              {guide.buyerBlocks.map((block, bIdx) => (
+                <div key={bIdx} className="bg-white rounded-2xl p-6 sm:p-8 border border-[#e7e7e7] shadow-xs">
+                  <h3 className="font-lato text-xl sm:text-2xl font-bold text-[#181818] mb-3 flex items-center gap-2.5">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#181818] text-white text-xs font-openSans font-bold shrink-0">
+                      {bIdx + 1}
+                    </span>
+                    {block.title}
+                  </h3>
+                  <p className="font-lora text-[16px] sm:text-[17px] text-[#181818] leading-[1.8] font-normal">
+                    {block.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* 7. THE RANKED PRODUCTS */}
         <div className="space-y-16">
@@ -856,6 +1001,105 @@ export function LuxuryToothbrushLandingPage() {
                 ))}
               </tbody>
             </table>
+          </div>
+        </section>
+
+        {/* 9B. GUIDE-SPECIFIC FAQS */}
+        {guide?.faqs && guide.faqs.length > 0 && (
+          <section className="mt-20 bg-white rounded-3xl p-6 sm:p-9 border border-[#e7e7e7] shadow-sm">
+            <div className="text-center max-w-2xl mx-auto mb-8">
+              <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-bold">
+                Clinical Questions &amp; Answers
+              </span>
+              <h2 className="font-lato text-2xl sm:text-3xl font-extrabold text-[#181818] mt-1">
+                Frequently Asked Questions
+              </h2>
+              <p className="font-lora text-sm sm:text-base text-neutral-600 mt-2">
+                Evidence-based answers reviewed by Dr. Julian Vance, BDS.
+              </p>
+            </div>
+
+            <div className="space-y-4 max-w-3xl mx-auto">
+              {guide.faqs.map((faq, fIdx) => (
+                <div
+                  key={fIdx}
+                  className="bg-[#fafafa] rounded-2xl p-5 sm:p-6 border border-[#e7e7e7] hover:border-neutral-300 transition-colors"
+                >
+                  <h3 className="font-lato text-base sm:text-lg font-bold text-[#181818] mb-2.5 flex items-start gap-2.5">
+                    <HelpCircle size={18} className="text-[#7e22ce] mt-0.5 shrink-0" />
+                    <span>{faq.question}</span>
+                  </h3>
+                  <p className="font-lora text-sm sm:text-base text-neutral-700 leading-relaxed pl-7">
+                    {faq.answer}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* 9C. RELATED 2026 CLINICAL GUIDES & COMPARISONS */}
+        <section className="mt-20 bg-[#fafafa] rounded-3xl p-6 sm:p-9 border border-[#e7e7e7]">
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-bold">
+              Complete Editorial Coverage
+            </span>
+            <h2 className="font-lato text-2xl sm:text-3xl font-extrabold text-[#181818] mt-1">
+              Explore Our 2026 Electric Toothbrush Reviews
+            </h2>
+            <p className="font-lora text-sm sm:text-base text-neutral-600 mt-2">
+              Explore our laboratory test results, head-to-head comparisons, and specialized oral care buyer guides.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <Link
+              href="/best-electric-toothbrush-uk-2026"
+              className="group p-4 bg-white rounded-2xl border border-[#e7e7e7] hover:border-[#181818] transition-all shadow-xs flex flex-col justify-between"
+            >
+              <div>
+                <span className="inline-block px-2.5 py-0.5 rounded-full bg-[#181818] text-white text-[10px] font-openSans font-extrabold uppercase tracking-wider mb-2">
+                  Master Pillar
+                </span>
+                <h4 className="font-lato text-base font-bold text-[#181818] group-hover:text-[#7e22ce] transition-colors leading-snug">
+                  Best Electric Toothbrush UK 2026
+                </h4>
+                <p className="font-lora text-xs text-neutral-600 mt-1.5 line-clamp-2">
+                  Our comprehensive, ranked Top 5 electric toothbrushes for UK homes based on 180+ laboratory hours.
+                </p>
+              </div>
+              <div className="mt-3 flex items-center gap-1 text-xs font-openSans font-bold text-[#181818] group-hover:text-[#7e22ce]">
+                <span>Read Full Audit</span>
+                <ArrowRight size={13} />
+              </div>
+            </Link>
+
+            {Object.values(TOOTHBRUSH_GUIDES).map((g) => {
+              if (guide?.slug === g.slug) return null;
+              return (
+                <Link
+                  key={g.slug}
+                  href={`/${g.slug}`}
+                  className="group p-4 bg-white rounded-2xl border border-[#e7e7e7] hover:border-[#181818] transition-all shadow-xs flex flex-col justify-between"
+                >
+                  <div>
+                    <span className="inline-block px-2.5 py-0.5 rounded-full bg-[#f5f3ff] text-[#7e22ce] border border-[#d1a3ff] text-[10px] font-openSans font-bold uppercase tracking-wider mb-2">
+                      {g.cardCode}
+                    </span>
+                    <h4 className="font-lato text-base font-bold text-[#181818] group-hover:text-[#7e22ce] transition-colors leading-snug">
+                      {g.cardTitle}
+                    </h4>
+                    <p className="font-lora text-xs text-neutral-600 mt-1.5 line-clamp-2">
+                      {g.cardDescription}
+                    </p>
+                  </div>
+                  <div className="mt-3 flex items-center gap-1 text-xs font-openSans font-bold text-[#181818] group-hover:text-[#7e22ce]">
+                    <span>View Guide</span>
+                    <ArrowRight size={13} />
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </section>
 
