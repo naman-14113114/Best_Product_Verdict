@@ -4,11 +4,30 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Check, ArrowUp } from "lucide-react";
+import { getAllToothbrushGuideSlugs } from "@/data/toothbrushGuidesData";
+
+const STANDALONE_PAGE_SLUGS = new Set([
+  "best-electric-toothbrush-uk-2026",
+  "best-led-face-mask-uk-2026",
+  ...getAllToothbrushGuideSlugs(),
+]);
+
+function shouldHideFooter(pathname: string | null): boolean {
+  if (!pathname) return false;
+  const clean = pathname.split("?")[0].replace(/^\/|\/$/g, "").toLowerCase();
+  if (STANDALONE_PAGE_SLUGS.has(clean)) return true;
+  return (
+    clean.includes("best-led-face-mask") ||
+    clean.includes("electric-toothbrush") ||
+    clean.includes("miroooo") ||
+    clean.includes("why-switch-from-legacy")
+  );
+}
 
 export const Footer: React.FC = () => {
   const pathname = usePathname();
 
-  if (pathname?.includes("best-led-face-mask") || pathname?.includes("best-electric-toothbrush")) {
+  if (shouldHideFooter(pathname)) {
     return null;
   }
   const scrollToTop = () => {

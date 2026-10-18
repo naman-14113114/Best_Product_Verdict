@@ -4,6 +4,25 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import { Check, Search, Menu, X, ShieldCheck } from "lucide-react";
+import { getAllToothbrushGuideSlugs } from "@/data/toothbrushGuidesData";
+
+const STANDALONE_PAGE_SLUGS = new Set([
+  "best-electric-toothbrush-uk-2026",
+  "best-led-face-mask-uk-2026",
+  ...getAllToothbrushGuideSlugs(),
+]);
+
+function shouldHideHeader(pathname: string | null): boolean {
+  if (!pathname) return false;
+  const clean = pathname.split("?")[0].replace(/^\/|\/$/g, "").toLowerCase();
+  if (STANDALONE_PAGE_SLUGS.has(clean)) return true;
+  return (
+    clean.includes("best-led-face-mask") ||
+    clean.includes("electric-toothbrush") ||
+    clean.includes("miroooo") ||
+    clean.includes("why-switch-from-legacy")
+  );
+}
 
 export const Header: React.FC = () => {
   const router = useRouter();
@@ -12,7 +31,7 @@ export const Header: React.FC = () => {
   const [isDisclosureOpen, setIsDisclosureOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  if (pathname?.includes("best-led-face-mask") || pathname?.includes("best-electric-toothbrush")) {
+  if (shouldHideHeader(pathname)) {
     return null;
   }
 
