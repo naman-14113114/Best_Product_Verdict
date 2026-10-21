@@ -281,29 +281,16 @@ export function LuxuryLedMaskLandingPage() {
           />
         </div>
 
-        {/* Clinical Research & Hands-On Video Box (Unified Section) */}
+        {/* Dr. Shannon's Clinical Recommendation & Hands-On Video Box (Unified Section) */}
         <div className="bg-white rounded-3xl p-5 sm:p-7 md:px-8 border-2 border-[#181818] shadow-lg relative overflow-hidden">
           <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
             <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-bold">
-              Independent Dermatologist Audit
+              Consultant Dermatologist Verdict
             </span>
             <h2 className="font-lato text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#181818] mt-1">
-              Verified Clinical Reviews
+              Dr. Shannon&apos;s Final Recommendation
             </h2>
-
-            {/* Rating Stars & Trustline (Clean without container, directly below heading) */}
-            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mt-3">
-              <div className="flex items-center gap-1.5">
-                <span className="font-lato font-extrabold text-base sm:text-lg text-[#181818]">Rated 4.9 / 5</span>
-                <GoldStars rating={5} size={18} />
-              </div>
-              <span className="text-neutral-300 hidden sm:inline">•</span>
-              <span className="font-lora text-xs sm:text-sm text-neutral-600 font-medium">
-                Trusted by 16,000+ UK users &bull; 90-Day Money-Back Risk-Free Guarantee
-              </span>
-            </div>
-
-            <div className="w-16 h-1 bg-[#181818] mx-auto mt-3.5 rounded-full" />
+            <div className="w-16 h-1 bg-[#181818] mx-auto mt-3 rounded-full" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-center">
@@ -345,32 +332,26 @@ export function LuxuryLedMaskLandingPage() {
               </div>
             </div>
 
-            {/* Right Column: Research Data & Dermatologist Credentials */}
+            {/* Right Column: Verified Clinical Reviews & Research Data */}
             <div className="flex flex-col justify-center text-center md:text-left">
-              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 mb-4">
-                <img
-                  src="/img/dr-shannon.png"
-                  alt="Dr. Shannon"
-                  className="w-20 h-20 sm:w-22 sm:h-22 rounded-full object-cover border-3 border-white shadow-md shrink-0"
-                />
-                <div className="flex-1">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-1">
-                    <div>
-                      <h3 className="font-lato text-2xl font-extrabold text-[#181818]">
-                        Dr. Shannon, MD
-                      </h3>
-                      <p className="font-openSans text-xs uppercase tracking-wider text-neutral-600 font-bold mt-0.5">
-                        Consultant Dermatologist &amp; Medical Phototherapy Specialist
-                      </p>
-                    </div>
-                    <span className="inline-flex self-center sm:self-auto items-center gap-1.5 px-3 py-1 rounded-full bg-[#f5f3ff] border border-[#d1a3ff] text-xs font-openSans font-bold text-[#7e22ce] shadow-xs">
-                      <CheckCircle2 size={14} className="text-[#7e22ce]" />
-                      Verified Clinical Review
-                    </span>
-                  </div>
+              {/* Heading */}
+              <h3 className="font-lato text-2xl sm:text-3xl font-extrabold text-[#181818] mb-1">
+                Verified Clinical Reviews
+              </h3>
+
+              {/* Rating & Stars Directly Below Heading, Nothing Else */}
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 sm:gap-3 mb-4">
+                <div className="flex items-center gap-1.5">
+                  <span className="font-lato font-extrabold text-base sm:text-lg text-[#181818]">Rated 4.9 / 5</span>
+                  <GoldStars rating={5} size={18} />
                 </div>
+                <span className="text-neutral-400 hidden sm:inline">•</span>
+                <span className="font-lora text-xs sm:text-sm text-neutral-600 font-medium">
+                  Trusted by 16,000+ UK users &bull; 90-Day Money-Back Risk-Free Guarantee
+                </span>
               </div>
 
+              {/* Research Paragraphs */}
               <div className="font-lora text-sm sm:text-[16px] text-[#181818] leading-[1.7] space-y-3 mb-4 font-normal">
                 <p>
                   With <strong>over a decade of clinical dermatological practice</strong>, Dr. Shannon
