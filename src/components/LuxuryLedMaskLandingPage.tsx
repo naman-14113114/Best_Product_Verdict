@@ -163,6 +163,61 @@ function PerformanceMetricBar({ label, value, isWinner }: { label: string; value
   );
 }
 
+/**
+ * Safely renders bold formatting for HTML <b> / <strong> tags and markdown **bold** markers
+ * without dangerouslySetInnerHTML, while preserving mathematical brackets like <50dB.
+ */
+function renderFormattedBoldText(text: string): React.ReactNode {
+  if (!text) return null;
+
+  if (
+    !text.includes("<b>") &&
+    !text.includes("<B>") &&
+    !text.includes("<strong>") &&
+    !text.includes("<STRONG>") &&
+    !text.includes("**")
+  ) {
+    return text;
+  }
+
+  const tokens = text.split(
+    /(<b\b[^>]*>[\s\S]*?<\/b>|<strong\b[^>]*>[\s\S]*?<\/strong>|\*\*[\s\S]*?\*\*)/gi
+  );
+
+  return tokens.map((part, index) => {
+    if (!part) return null;
+
+    if (/^<b\b[^>]*>[\s\S]*?<\/b>$/i.test(part)) {
+      const content = part.replace(/^<b\b[^>]*>|<\/b>$/gi, "");
+      return (
+        <strong key={index} className="font-bold text-[#181818]">
+          {content}
+        </strong>
+      );
+    }
+
+    if (/^<strong\b[^>]*>[\s\S]*?<\/strong>$/i.test(part)) {
+      const content = part.replace(/^<strong\b[^>]*>|<\/strong>$/gi, "");
+      return (
+        <strong key={index} className="font-bold text-[#181818]">
+          {content}
+        </strong>
+      );
+    }
+
+    if (/^\*\*[\s\S]*?\*\*$/.test(part) && part.length >= 4) {
+      const content = part.slice(2, -2);
+      return (
+        <strong key={index} className="font-bold text-[#181818]">
+          {content}
+        </strong>
+      );
+    }
+
+    return part;
+  });
+}
+
 export function LuxuryLedMaskLandingPage() {
   const [ukDate, setUkDate] = useState<string>(getUkFormattedDate());
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
@@ -171,6 +226,7 @@ export function LuxuryLedMaskLandingPage() {
   const [visibleCount, setVisibleCount] = useState<number>(5);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const timer = useUkMidnightTimer();
+  const winnerProduct = LED_MASK_PRODUCTS.find((p) => p.isWinner) || LED_MASK_PRODUCTS[0];
 
   useEffect(() => {
     setUkDate(getUkFormattedDate());
@@ -214,7 +270,7 @@ export function LuxuryLedMaskLandingPage() {
         </div>
       </section>
 
-      {/* 4. HERO BANNER IMAGE & DR. SHANNON PROFILE */}
+      {/* 4. HERO BANNER IMAGE & DR. SHANNON CLINICAL VIDEO & RESEARCH */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 mt-8 space-y-8 relative z-20">
         {/* Main Top 5 Comparison Hero Graphic */}
         <div className="relative overflow-hidden rounded-2xl border border-[#e7e7e7] shadow-sm aspect-[1536/461] bg-[#fafafa]">
@@ -225,38 +281,104 @@ export function LuxuryLedMaskLandingPage() {
           />
         </div>
 
-        {/* Dr. Shannon Clinical Profile Box */}
-        <div className="bg-[#fafafa] rounded-2xl p-6 sm:p-8 border border-[#e7e7e7] shadow-sm">
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-            <img
-              src="/img/dr-shannon.png"
-              alt="Dr. Shannon"
-              className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-3 border-white shadow-md shrink-0"
-            />
-            <div className="flex-1 text-center md:text-left">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
-                <div>
-                  <h3 className="font-lato text-2xl font-extrabold text-[#181818]">
-                    Dr. Shannon, MD
-                  </h3>
-                  <p className="font-openSans text-xs uppercase tracking-wider text-neutral-600 font-bold mt-0.5">
-                    Consultant Dermatologist &amp; Medical Phototherapy Specialist
-                  </p>
+        {/* Clinical Research & Hands-On Video Box (Unified Section) */}
+        <div className="bg-white rounded-3xl p-5 sm:p-7 md:px-8 border-2 border-[#181818] shadow-lg relative overflow-hidden">
+          <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
+            <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-bold">
+              Independent Dermatologist Audit
+            </span>
+            <h2 className="font-lato text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#181818] mt-1">
+              Verified Clinical Reviews
+            </h2>
+
+            {/* Rating Stars & Trustline (Clean without container, directly below heading) */}
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mt-3">
+              <div className="flex items-center gap-1.5">
+                <span className="font-lato font-extrabold text-base sm:text-lg text-[#181818]">Rated 4.9 / 5</span>
+                <GoldStars rating={5} size={18} />
+              </div>
+              <span className="text-neutral-300 hidden sm:inline">•</span>
+              <span className="font-lora text-xs sm:text-sm text-neutral-600 font-medium">
+                Trusted by 16,000+ UK users &bull; 90-Day Money-Back Risk-Free Guarantee
+              </span>
+            </div>
+
+            <div className="w-16 h-1 bg-[#181818] mx-auto mt-3.5 rounded-full" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-center">
+            {/* Left Column: Video Box */}
+            <div className="relative flex justify-center">
+              <div className="relative w-full max-w-[280px] sm:max-w-xs rounded-2xl overflow-hidden border border-[#e7e7e7] bg-black shadow-xl aspect-[9/16]">
+                <video
+                  ref={videoRef}
+                  className="w-full h-full object-cover block"
+                  controls
+                  playsInline
+                  preload="metadata"
+                  poster="/assets/buudy-dr-shannon-poster.jpg"
+                  aria-label="Dr. Shannon walkthrough of the Buudy 7 Colour LED Mask"
+                  onPlay={() => setIsVideoPlaying(true)}
+                  onPause={() => setIsVideoPlaying(false)}
+                  onEnded={() => setIsVideoPlaying(false)}
+                >
+                  <source src="/assets/buudy-dr-shannon-verdict.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+
+                {!isVideoPlaying && (
+                  <button
+                    type="button"
+                    onClick={handlePlayVideo}
+                    aria-label="Play Dr. Shannon walkthrough video"
+                    className="absolute inset-0 flex items-center justify-center bg-transparent group cursor-pointer focus:outline-none"
+                  >
+                    <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white text-[#181818] shadow-2xl transition-transform duration-300 group-hover:scale-110">
+                      <Play size={28} fill="currentColor" className="ml-1 text-[#181818]" />
+                    </span>
+                  </button>
+                )}
+
+                <div className="pointer-events-none absolute top-3 left-3 bg-[#181818]/90 text-white text-[11px] font-openSans font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-xs z-10">
+                  Clinical Walkthrough
                 </div>
-                <span className="inline-flex self-center sm:self-auto items-center gap-1.5 px-3 py-1 rounded-full bg-[#f5f3ff] border border-[#d1a3ff] text-xs font-openSans font-bold text-[#7e22ce] shadow-xs">
-                  <CheckCircle2 size={14} className="text-[#7e22ce]" />
-                  Verified Clinical Review
-                </span>
+              </div>
+            </div>
+
+            {/* Right Column: Research Data & Dermatologist Credentials */}
+            <div className="flex flex-col justify-center text-center md:text-left">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 mb-4">
+                <img
+                  src="/img/dr-shannon.png"
+                  alt="Dr. Shannon"
+                  className="w-20 h-20 sm:w-22 sm:h-22 rounded-full object-cover border-3 border-white shadow-md shrink-0"
+                />
+                <div className="flex-1">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-1">
+                    <div>
+                      <h3 className="font-lato text-2xl font-extrabold text-[#181818]">
+                        Dr. Shannon, MD
+                      </h3>
+                      <p className="font-openSans text-xs uppercase tracking-wider text-neutral-600 font-bold mt-0.5">
+                        Consultant Dermatologist &amp; Medical Phototherapy Specialist
+                      </p>
+                    </div>
+                    <span className="inline-flex self-center sm:self-auto items-center gap-1.5 px-3 py-1 rounded-full bg-[#f5f3ff] border border-[#d1a3ff] text-xs font-openSans font-bold text-[#7e22ce] shadow-xs">
+                      <CheckCircle2 size={14} className="text-[#7e22ce]" />
+                      Verified Clinical Review
+                    </span>
+                  </div>
+                </div>
               </div>
 
-              <div className="font-lora text-base sm:text-[18px] text-[#181818] leading-[1.8] space-y-3 mb-4 font-normal">
+              <div className="font-lora text-sm sm:text-[16px] text-[#181818] leading-[1.7] space-y-3 mb-4 font-normal">
                 <p>
                   With <strong>over a decade of clinical dermatological practice</strong>, Dr. Shannon
                   scrutinised <strong>18 leading UK LED masks over 200+ testing hours</strong>. She evaluated
                   spectral wavebands, optical irradiance, facial ergonomics, eye safety shields, integrated neck
                   treatment, and authentic long-term patient outcomes.
                 </p>
-                <p className="italic text-[#181818] bg-white p-4 sm:p-5 rounded-xl border-l-4 border-[#181818] border border-[#e7e7e7] shadow-xs text-base sm:text-[17px]">
+                <p className="italic text-[#181818] bg-[#fafafa] p-3.5 sm:p-4 rounded-xl border-l-4 border-[#181818] border border-[#e7e7e7] shadow-xs text-sm sm:text-[15px] leading-relaxed">
                   &ldquo;My primary finding was that exorbitant price tags and celebrity sponsorship do not ensure
                   superior phototherapy. The standout device is the one that delivers scientifically verified
                   wavelengths with complete face and neck coverage in a routine comfortable enough for daily home
@@ -270,11 +392,24 @@ export function LuxuryLedMaskLandingPage() {
               </div>
             </div>
           </div>
+
+          {/* Full-Width Availability CTA Button (Big like pros & cons bottom CTA) */}
+          <div className="mt-6 sm:mt-8">
+            <a
+              href={BUUDY_PRODUCT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-4 sm:py-5 px-6 sm:px-8 rounded-2xl bg-[#181818] hover:bg-[#b265ff] text-white font-openSans font-extrabold text-base sm:text-lg uppercase tracking-wider flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.01] group cursor-pointer"
+            >
+              <span>Check Official Availability &amp; Claim Offer</span>
+              <ArrowRight size={22} className="shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
+          </div>
         </div>
       </section>
 
       {/* 5. EXECUTIVE SUMMARY & INTRO */}
-      <main className="max-w-5xl mx-auto px-4 sm:px-6 py-12">
+      <main className="max-w-5xl mx-auto px-4 sm:px-6 py-12 pb-24 md:pb-12">
         <div className="max-w-3xl mx-auto font-lora text-[18px] text-[#181818] leading-[1.8] space-y-6 mb-14">
           <p className="first-letter:font-lato first-letter:text-5xl first-letter:font-extrabold first-letter:float-left first-letter:mr-3 first-letter:text-[#181818] leading-[1.8]">
             LED face masks have quickly become the most sought-after beauty tech devices in the United Kingdom.
@@ -565,7 +700,7 @@ export function LuxuryLedMaskLandingPage() {
                         className="font-lora text-[16px] sm:text-[18px] leading-[1.7] text-[#181818] flex items-start gap-3"
                       >
                         <Check size={18} className="text-[#10b981] mt-1 shrink-0 stroke-[3]" />
-                        <span>{pro}</span>
+                        <span>{renderFormattedBoldText(pro)}</span>
                       </li>
                     ))}
                   </ul>
@@ -588,7 +723,7 @@ export function LuxuryLedMaskLandingPage() {
                         className="font-lora text-[16px] sm:text-[18px] leading-[1.7] text-[#181818] flex items-start gap-3"
                       >
                         <XCircle size={18} className="text-[#ef4444] mt-1 shrink-0 stroke-[2.5]" />
-                        <span>{con}</span>
+                        <span>{renderFormattedBoldText(con)}</span>
                       </li>
                     ))}
                   </ul>
@@ -638,103 +773,7 @@ export function LuxuryLedMaskLandingPage() {
           </div>
         </div>
 
-        {/* 8. DERMATOLOGIST'S VIDEO & FINAL VERDICT */}
-        <section className="mt-20 bg-white rounded-3xl p-6 sm:p-10 border-2 border-[#181818] shadow-lg relative overflow-hidden">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-bold">
-              Consultant Dermatologist Verdict
-            </span>
-            <h2 className="font-lato text-3xl sm:text-4xl font-extrabold text-[#181818] mt-1">
-              Dr. Shannon&apos;s Final Recommendation
-            </h2>
-            <div className="w-16 h-1 bg-[#181818] mx-auto mt-4 rounded-full" />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-            {/* Video Box */}
-            <div className="relative">
-              <div className="relative mx-auto max-w-[280px] sm:max-w-xs rounded-2xl overflow-hidden border border-[#e7e7e7] bg-black shadow-xl aspect-[9/16]">
-                <video
-                  ref={videoRef}
-                  className="w-full h-full object-cover block"
-                  controls
-                  playsInline
-                  preload="metadata"
-                  poster="/assets/buudy-dr-shannon-poster.jpg"
-                  aria-label="Dr. Shannon walkthrough of the Buudy 7 Colour LED Mask"
-                  onPlay={() => setIsVideoPlaying(true)}
-                  onPause={() => setIsVideoPlaying(false)}
-                  onEnded={() => setIsVideoPlaying(false)}
-                >
-                  <source src="/assets/buudy-dr-shannon-verdict.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-
-                {!isVideoPlaying && (
-                  <button
-                    type="button"
-                    onClick={handlePlayVideo}
-                    aria-label="Play Dr. Shannon walkthrough video"
-                    className="absolute inset-0 flex items-center justify-center bg-transparent group cursor-pointer focus:outline-none"
-                  >
-                    <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white text-[#181818] shadow-2xl transition-transform duration-300 group-hover:scale-110">
-                      <Play size={28} fill="currentColor" className="ml-1 text-[#181818]" />
-                    </span>
-                  </button>
-                )}
-
-                <div className="pointer-events-none absolute top-3 left-3 bg-[#181818]/90 text-white text-[11px] font-openSans font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-xs z-10">
-                  Clinical Walkthrough
-                </div>
-              </div>
-
-              <p className="mt-3.5 text-center font-lora text-xs sm:text-sm text-neutral-500 max-w-xs mx-auto font-medium">
-                Watch the light modes, neck fitting, eye protection, and tap controls in action.
-              </p>
-            </div>
-
-            {/* Verdict Summary Box */}
-            <div className="flex flex-col justify-center text-center md:text-left">
-              <span className="inline-block font-openSans text-xs uppercase tracking-widest font-extrabold text-[#7e22ce] mb-1">
-                #1 Rated System for UK Homes
-              </span>
-              <h3 className="font-lato text-2xl sm:text-3xl font-extrabold text-[#181818] mb-2">
-                Buudy 7 Colour LED Mask
-              </h3>
-
-              <div className="font-lato text-3xl font-extrabold text-[#181818] mb-4">
-                Now £179 <span className="text-base font-lora text-neutral-400 font-normal line-through">£449</span>
-              </div>
-
-              <p className="font-lora text-base sm:text-[18px] text-[#181818] leading-[1.8] mb-6 font-normal">
-                &ldquo;Buudy outclasses alternatives by providing a full 7-colour medical spectrum plus 830nm
-                near-infrared with standard built-in neck coverage. At £179 with an included 90-day guarantee and £128
-                free gifts, it represents the soundest investment for UK phototherapy in 2026.&rdquo;
-              </p>
-
-              {/* Trust Badge */}
-              <div className="bg-[#fafafa] rounded-2xl p-4 border border-[#e7e7e7] mb-6 flex flex-col items-center sm:items-start">
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="font-lato font-extrabold text-lg text-[#181818]">Rated 4.9 / 5</span>
-                  <GoldStars rating={5} size={18} />
-                </div>
-                <span className="font-lora text-xs text-neutral-600 font-medium">
-                  Trusted by 16,000+ UK users &bull; 90-Day Money-Back Risk-Free Guarantee
-                </span>
-              </div>
-
-              <a
-                href={BUUDY_PRODUCT_URL}
-                className="w-full py-4 px-8 rounded-xl bg-[#000000] hover:bg-[#b265ff] text-white font-openSans font-extrabold text-base uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:shadow-lg hover:scale-[1.01] transition-all"
-              >
-                <span>Check Official Availability &amp; Claim Offer</span>
-                <ArrowRight size={20} />
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* 9. SIDE-BY-SIDE COMPARISON TABLE MATRIX (Clean Minimal Styling) */}
+        {/* 8. SIDE-BY-SIDE COMPARISON TABLE MATRIX (Clean Minimal Styling) */}
         <section className="mt-20 bg-white rounded-3xl p-3 sm:p-5 lg:p-6 border border-[#e7e7e7] shadow-sm overflow-hidden">
           <div className="text-center max-w-2xl mx-auto mb-6">
             <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-bold">
@@ -884,6 +923,70 @@ export function LuxuryLedMaskLandingPage() {
           </div>
         </div>
       )}
+
+      {/* STICKY WINNER BOX (DESKTOP RIGHT-GUTTER & MOBILE BOTTOM CTA) */}
+      <StickyWinnerBox winnerProduct={winnerProduct} />
     </div>
+  );
+}
+
+function StickyWinnerBox({ winnerProduct }: { winnerProduct: LedMaskProduct }) {
+  return (
+    <>
+      {/* 1. DESKTOP STICKY BOX (Compact, Right-Gutter, Never Overlaps Content) */}
+      <aside
+        aria-label="Winner recommendation sticky card"
+        className="hidden md:flex flex-col items-center fixed bottom-6 right-3 xl:right-6 z-50 w-[136px] bg-[#181818] border border-[#2e2e2e] rounded-xl p-2 shadow-2xl transition-all duration-300 hover:border-[#3e3e3e]"
+      >
+        {/* Top Badge: #1 WINNER */}
+        <div className="mb-1.5">
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#f5f3ff] text-[#7e22ce] border border-[#d1a3ff] text-[9px] font-openSans font-extrabold uppercase tracking-wider shadow-xs">
+            #1 WINNER
+          </span>
+        </div>
+
+        {/* Image: using same #1 image in sticky box */}
+        <div className="relative w-full aspect-square rounded-lg overflow-hidden bg-white border border-[#2e2e2e]">
+          <img
+            src={winnerProduct.image}
+            alt={winnerProduct.name}
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Title: #1 Product Name in Bold Uppercase */}
+        <div className="mt-1.5 mb-1.5 text-center px-0.5">
+          <h4 className="font-lato font-extrabold text-white text-[11px] tracking-wider uppercase leading-tight">
+            {winnerProduct.name}
+          </h4>
+        </div>
+
+        {/* Desktop CTA Button */}
+        <a
+          href={winnerProduct.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full py-1.5 px-2 rounded-lg bg-white hover:bg-[#b265ff] text-[#181818] hover:text-white font-openSans font-extrabold text-[10px] uppercase tracking-wider flex items-center justify-center gap-1 transition-all duration-200 shadow-md group"
+        >
+          <span>VISIT WINNING SITE</span>
+          <ExternalLink size={11} className="shrink-0 group-hover:translate-x-0.5 transition-transform" />
+        </a>
+      </aside>
+
+      {/* 2. MOBILE FLOATING STICKY BUTTON (No background bar - button only) */}
+      <div className="fixed bottom-4 left-4 right-4 z-50 md:hidden pointer-events-none">
+        <a
+          href={winnerProduct.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="pointer-events-auto block w-full py-3 px-4 rounded-xl bg-[#181818] hover:bg-[#b265ff] text-white font-openSans font-extrabold text-sm uppercase tracking-wider text-center shadow-2xl transition-colors cursor-pointer border border-neutral-800 active:scale-[0.99]"
+        >
+          <span className="inline-flex items-center justify-center gap-2">
+            <span>Visit Winning Site</span>
+            <ExternalLink size={15} className="shrink-0" />
+          </span>
+        </a>
+      </div>
+    </>
   );
 }
