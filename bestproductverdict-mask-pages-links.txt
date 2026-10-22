@@ -1,0 +1,53 @@
+# Best Product Verdict - LED Mask Comparison, Guide & Blog Pages
+# Generated on: 2026-10-22
+# Production Domain: https://www.bestproductverdict.com
+
+=== COMPETITOR HEAD-TO-HEAD VS PAGES (5) ===
+https://www.bestproductverdict.com/currentbody-vs-buudy
+https://www.bestproductverdict.com/deluxeskin-vs-buudy
+https://www.bestproductverdict.com/qureskincare-vs-buudy
+https://www.bestproductverdict.com/theraface-vs-other-masks
+https://www.bestproductverdict.com/therabody-vs-buudy
+
+=== TECHNICAL WARNING & SPEC EXPOSES (5) ===
+https://www.bestproductverdict.com/silicone-led-mask-dangers
+https://www.bestproductverdict.com/floating-head-warning
+https://www.bestproductverdict.com/missing-colors-expose
+https://www.bestproductverdict.com/led-density-scam
+https://www.bestproductverdict.com/brand-name-premium
+
+=== STANDALONE & ADVERTORIAL LANDERS (4) ===
+https://www.bestproductverdict.com/new-advertorial
+https://www.bestproductverdict.com/best-red-light-therapy-mask
+https://www.bestproductverdict.com/buudy-led-mask-uk
+https://www.bestproductverdict.com/top-5-led-mask
+
+=== EDUCATIONAL & CLINICAL BLOG ARTICLES (6) ===
+https://www.bestproductverdict.com/blog/red-light-therapy-ultimate-guide
+https://www.bestproductverdict.com/blog/blue-red-light-blemish-prone-skin
+https://www.bestproductverdict.com/blog/led-masks-for-mature-skin
+https://www.bestproductverdict.com/blog/led-mask-face-neck-coverage-guide
+https://www.bestproductverdict.com/blog/choosing-safe-led-mask
+https://www.bestproductverdict.com/blog/understanding-led-light-colours
+
+=== LOCAL TEST LINKS (PORT 3000) ===
+http://localhost:3000/currentbody-vs-buudy
+http://localhost:3000/deluxeskin-vs-buudy
+http://localhost:3000/qureskincare-vs-buudy
+http://localhost:3000/theraface-vs-other-masks
+http://localhost:3000/therabody-vs-buudy
+http://localhost:3000/silicone-led-mask-dangers
+http://localhost:3000/floating-head-warning
+http://localhost:3000/missing-colors-expose
+http://localhost:3000/led-density-scam
+http://localhost:3000/brand-name-premium
+http://localhost:3000/new-advertorial
+http://localhost:3000/best-red-light-therapy-mask
+http://localhost:3000/buudy-led-mask-uk
+http://localhost:3000/top-5-led-mask
+http://localhost:3000/blog/red-light-therapy-ultimate-guide
+http://localhost:3000/blog/blue-red-light-blemish-prone-skin
+http://localhost:3000/blog/led-masks-for-mature-skin
+http://localhost:3000/blog/led-mask-face-neck-coverage-guide
+http://localhost:3000/blog/choosing-safe-led-mask
+http://localhost:3000/blog/understanding-led-light-colours

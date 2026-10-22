@@ -15,6 +15,7 @@ import {
   XCircle,
   ChevronDown,
   ChevronUp,
+  HelpCircle,
 } from "lucide-react";
 import {
   BUUDY_PRODUCT_URL,
@@ -22,6 +23,12 @@ import {
   LED_MASK_PRODUCTS,
   type LedMaskProduct,
 } from "@/data/ledMaskData";
+import {
+  type LedMaskGuide,
+  type LedMaskComparisonRow,
+  type LedMaskBuyerBlock,
+  type LedMaskFAQ,
+} from "@/data/ledMaskGuidesData";
 
 /* Helper to format UK dynamic date (e.g. "8 October 2026") */
 function getUkFormattedDate(): string {
@@ -267,7 +274,7 @@ function renderFormattedBoldText(text: string): React.ReactNode {
   });
 }
 
-export function LuxuryLedMaskLandingPage() {
+export function LuxuryLedMaskLandingPage({ guide }: { guide?: LedMaskGuide } = {}) {
   const [ukDate, setUkDate] = useState<string>(getUkFormattedDate());
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [isDisclosureOpen, setIsDisclosureOpen] = useState(false);
@@ -294,19 +301,33 @@ export function LuxuryLedMaskLandingPage() {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#d1a3ff] bg-[#f5f3ff] text-xs uppercase tracking-[0.15em] font-openSans font-bold text-[#7e22ce] mb-6 shadow-xs">
             <Award size={15} className="text-[#9333ea]" />
-            <span>2026 United Kingdom Phototherapy Audit</span>
+            <span>{guide?.cardCode || "2026 United Kingdom Phototherapy Audit"}</span>
           </div>
 
           <h1 className="font-lato text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#181818] mb-5 leading-[1.15]">
-            Best LED Face Mask
-            <span className="block mt-2 font-lato font-normal text-2xl sm:text-3xl md:text-4xl text-neutral-600">
-              United Kingdom — 2026 Clinical Comparison
-            </span>
+            {guide ? (
+              <>
+                {guide.headline}
+                {guide.subheadline && (
+                  <span className="block mt-2 font-lato font-normal text-2xl sm:text-3xl md:text-4xl text-neutral-600">
+                    {guide.subheadline}
+                  </span>
+                )}
+              </>
+            ) : (
+              <>
+                Best LED Face Mask
+                <span className="block mt-2 font-lato font-normal text-2xl sm:text-3xl md:text-4xl text-neutral-600">
+                  United Kingdom — 2026 Clinical Comparison
+                </span>
+              </>
+            )}
           </h1>
 
           <p className="font-lora text-base sm:text-lg md:text-[19px] text-[#181818] max-w-3xl mx-auto leading-[1.8] mb-6 font-normal">
-            A comprehensive clinical assessment evaluating light wavelength precision, full face &amp; neck coverage,
-            optical energy density, and verified customer results across 18 leading models.
+            {guide
+              ? guide.quickTake
+              : "A comprehensive clinical assessment evaluating light wavelength precision, full face & neck coverage, optical energy density, and verified customer results across 18 leading models."}
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs sm:text-sm font-openSans font-semibold text-neutral-600">
@@ -325,8 +346,8 @@ export function LuxuryLedMaskLandingPage() {
         {/* Main Top 5 Comparison Hero Graphic */}
         <div className="relative overflow-hidden rounded-2xl border border-[#e7e7e7] shadow-sm aspect-[1536/461] bg-[#fafafa]">
           <img
-            src="/img/top-5-best-led-face-masks-uk-buudy.png"
-            alt="Top 5 Best LED Face Masks UK 2026 Comparison - Buudy 7 Colour LED Mask Rated #1 Overall"
+            src={guide?.heroImage || "/img/top-5-best-led-face-masks-uk-buudy.png"}
+            alt={guide?.headline || "Top 5 Best LED Face Masks UK 2026 Comparison - Buudy 7 Colour LED Mask Rated #1 Overall"}
             className="w-full h-full object-cover rounded-2xl"
           />
         </div>
@@ -338,7 +359,9 @@ export function LuxuryLedMaskLandingPage() {
               Consultant Dermatologist Verdict
             </span>
             <h2 className="font-lato text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#181818] mt-1">
-              Dr. Shannon&apos;s Final Recommendation
+              {guide?.drShannonVerdict?.name
+                ? `${guide.drShannonVerdict.name}'s Recommendation`
+                : "Dr. Shannon's Final Recommendation"}
             </h2>
             <div className="w-16 h-1 bg-[#181818] mx-auto mt-3 rounded-full" />
           </div>
@@ -403,18 +426,34 @@ export function LuxuryLedMaskLandingPage() {
 
               {/* Research Paragraphs */}
               <div className="font-lora text-sm sm:text-[16px] text-[#181818] leading-[1.7] space-y-3 mb-4 font-normal">
-                <p>
-                  With <strong>over a decade of clinical dermatological practice</strong>, Dr. Shannon
-                  scrutinised <strong>18 leading UK LED masks over 200+ testing hours</strong>. She evaluated
-                  spectral wavebands, optical irradiance, facial ergonomics, eye safety shields, integrated neck
-                  treatment, and authentic long-term patient outcomes.
-                </p>
-                <p className="italic text-[#181818] bg-[#fafafa] p-3.5 sm:p-4 rounded-xl border-l-4 border-[#181818] border border-[#e7e7e7] shadow-xs text-sm sm:text-[15px] leading-relaxed">
-                  &ldquo;My primary finding was that exorbitant price tags and celebrity sponsorship do not ensure
-                  superior phototherapy. The standout device is the one that delivers scientifically verified
-                  wavelengths with complete face and neck coverage in a routine comfortable enough for daily home
-                  use.&rdquo;
-                </p>
+                {guide?.drShannonVerdict ? (
+                  <>
+                    <blockquote className="border-y border-[#d1a3ff]/60 px-4 italic text-neutral-800 bg-[#fbf9fe] py-3 rounded-lg my-2 text-left">
+                      &ldquo;{guide.drShannonVerdict.quote}&rdquo;
+                    </blockquote>
+                    <p>{guide.drShannonVerdict.clinicalRationale}</p>
+                    {guide.drShannonVerdict.recommendation && (
+                      <p className="text-sm font-semibold text-neutral-800 pt-1 text-left">
+                        <strong>Clinical Recommendation:</strong> {guide.drShannonVerdict.recommendation}
+                      </p>
+                    )}
+                  </>
+                ) : (
+                  <>
+                    <p>
+                      With <strong>over a decade of clinical dermatological practice</strong>, Dr. Shannon
+                      scrutinised <strong>18 leading UK LED masks over 200+ testing hours</strong>. She evaluated
+                      spectral wavebands, optical irradiance, facial ergonomics, eye safety shields, integrated neck
+                      treatment, and authentic long-term patient outcomes.
+                    </p>
+                    <p className="italic text-[#181818] bg-[#fafafa] p-3.5 sm:p-4 rounded-xl border-l-4 border-[#181818] border border-[#e7e7e7] shadow-xs text-sm sm:text-[15px] leading-relaxed">
+                      &ldquo;My primary finding was that exorbitant price tags and celebrity sponsorship do not ensure
+                      superior phototherapy. The standout device is the one that delivers scientifically verified
+                      wavelengths with complete face and neck coverage in a routine comfortable enough for daily home
+                      use.&rdquo;
+                    </p>
+                  </>
+                )}
               </div>
 
               <div className="pt-3 border-t border-[#e7e7e7] flex items-center justify-end text-xs font-openSans text-neutral-600">
@@ -441,27 +480,44 @@ export function LuxuryLedMaskLandingPage() {
       {/* 5. EXECUTIVE SUMMARY & INTRO */}
       <main className="max-w-5xl mx-auto px-4 sm:px-6 py-12 pb-24 md:pb-12">
         <div className="max-w-3xl mx-auto font-lora text-[18px] text-[#181818] leading-[1.8] space-y-6 mb-14">
-          <p className="first-letter:font-lato first-letter:text-5xl first-letter:font-extrabold first-letter:float-left first-letter:mr-3 first-letter:text-[#181818] leading-[1.8]">
-            LED face masks have quickly become the most sought-after beauty tech devices in the United Kingdom.
-            However, selecting the correct device is fraught with confusion. Prices fluctuate wildly from{" "}
-            <strong>£100 to over £600</strong>, with multiple manufacturers making identical promises regarding
-            collagen restoration, acne eradication, and anti-ageing transformation.
-          </p>
-          <p>
-            To separate authentic phototherapy science from marketing exaggeration, our clinical team spent{" "}
-            <strong>200+ hours laboratory-testing 18 popular UK devices</strong>. We measured wavelength accuracy,
-            optical density, neck coverage, facial weight distribution, battery endurance, and thousands of verified
-            customer experiences.
-          </p>
-          <p>
-            Our core finding: <em>a higher price does not equal better results</em>. The highest-performing masks
-            offered medical-grade multi-spectrum LEDs, standard full-neck treatment, and lightweight cordless mobility
-            for effortless consistency.
-          </p>
-          <p className="font-semibold text-[#181818]">
-            Below is our definitive, ranked top 10 LED face masks for UK buyers in 2026, beginning with our undisputed #1
-            winner.
-          </p>
+          {guide?.intro && guide.intro.length > 0 ? (
+            guide.intro.map((para: string, pIdx: number) => (
+              <p
+                key={pIdx}
+                className={
+                  pIdx === 0
+                    ? "first-letter:font-lato first-letter:text-5xl first-letter:font-extrabold first-letter:float-left first-letter:mr-3 first-letter:text-[#181818] leading-[1.8]"
+                    : ""
+                }
+              >
+                {para}
+              </p>
+            ))
+          ) : (
+            <>
+              <p className="first-letter:font-lato first-letter:text-5xl first-letter:font-extrabold first-letter:float-left first-letter:mr-3 first-letter:text-[#181818] leading-[1.8]">
+                LED face masks have quickly become the most sought-after beauty tech devices in the United Kingdom.
+                However, selecting the correct device is fraught with confusion. Prices fluctuate wildly from{" "}
+                <strong>£100 to over £600</strong>, with multiple manufacturers making identical promises regarding
+                collagen restoration, acne eradication, and anti-ageing transformation.
+              </p>
+              <p>
+                To separate authentic phototherapy science from marketing exaggeration, our clinical team spent{" "}
+                <strong>200+ hours laboratory-testing 18 popular UK devices</strong>. We measured wavelength accuracy,
+                optical density, neck coverage, facial weight distribution, battery endurance, and thousands of verified
+                customer experiences.
+              </p>
+              <p>
+                Our core finding: <em>a higher price does not equal better results</em>. The highest-performing masks
+                offered medical-grade multi-spectrum LEDs, standard full-neck treatment, and lightweight cordless mobility
+                for effortless consistency.
+              </p>
+              <p className="font-semibold text-[#181818]">
+                Below is our definitive, ranked top 10 LED face masks for UK buyers in 2026, beginning with our undisputed #1
+                winner.
+              </p>
+            </>
+          )}
         </div>
 
         {/* 6. 10 EVALUATION CRITERIA (COLLAPSIBLE ACCORDION) */}
@@ -527,6 +583,79 @@ export function LuxuryLedMaskLandingPage() {
             </div>
           )}
         </section>
+
+        {/* 6B. GUIDE-SPECIFIC HEAD-TO-HEAD COMPARISON TABLE */}
+        {guide?.comparisonRows && guide.comparisonRows.length > 0 && (
+          <section className="bg-white rounded-3xl p-6 sm:p-9 border border-[#e7e7e7] shadow-sm mb-16 overflow-hidden">
+            <div className="text-center max-w-2xl mx-auto mb-8">
+              <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-bold">
+                Head-to-Head Specification Matrix
+              </span>
+              <h2 className="font-lato text-2xl sm:text-3xl font-extrabold text-[#181818] mt-1">
+                {guide.headline}
+              </h2>
+              <p className="font-lora text-sm sm:text-base text-neutral-600 mt-2">
+                Side-by-side benchmark comparison across optical wavelengths, neck treatment modules, irradiance density, and clinical UK pricing.
+              </p>
+            </div>
+
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs sm:text-sm border-collapse min-w-[640px]">
+                <thead>
+                  <tr className="border-b-2 border-[#e7e7e7] text-neutral-500 font-openSans text-[11px] sm:text-xs uppercase tracking-wider bg-[#fafafa]">
+                    <th className="py-3 px-4 font-extrabold w-[25%]">Feature / Metric</th>
+                    <th className="py-3 px-4 font-extrabold w-[25%] text-[#7e22ce]">Buudy 7 Colour LED Mask</th>
+                    <th className="py-3 px-4 font-extrabold w-[25%]">Comparison Benchmark</th>
+                    <th className="py-3 px-4 font-extrabold w-[25%]">Why It Matters in Practice</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[#f1f5f9]">
+                  {guide.comparisonRows.map((row: LedMaskComparisonRow, rIdx: number) => (
+                    <tr key={rIdx} className={rIdx % 2 === 0 ? "bg-white" : "bg-[#fafafa]/60"}>
+                      <td className="py-3.5 px-4 font-lato font-bold text-[#181818]">{row.feature}</td>
+                      <td className="py-3.5 px-4 font-openSans font-bold text-[#7e22ce] bg-[#fdf4ff]/40">
+                        {row.buudy}
+                      </td>
+                      <td className="py-3.5 px-4 font-lora text-neutral-700">{row.competitor}</td>
+                      <td className="py-3.5 px-4 font-lora text-neutral-600 text-xs sm:text-[13px] leading-relaxed">
+                        {row.whyItMatters}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        )}
+
+        {/* 6C. GUIDE-SPECIFIC BUYER GUIDANCE BLOCKS */}
+        {guide?.buyerBlocks && guide.buyerBlocks.length > 0 && (
+          <section className="space-y-6 mb-16">
+            <div className="text-center max-w-2xl mx-auto mb-8">
+              <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-bold">
+                Clinical Analysis &amp; Buyer Guidance
+              </span>
+              <h2 className="font-lato text-2xl sm:text-3xl font-extrabold text-[#181818] mt-1">
+                What UK Patients &amp; Consumers Need to Know
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 gap-6">
+              {guide.buyerBlocks.map((block: LedMaskBuyerBlock, bIdx: number) => (
+                <div key={bIdx} className="bg-white rounded-2xl p-6 sm:p-8 border border-[#e7e7e7] shadow-xs">
+                  <h3 className="font-lato text-xl sm:text-2xl font-bold text-[#181818] mb-3 flex items-center gap-2.5">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#181818] text-white text-xs font-openSans font-bold shrink-0">
+                      {bIdx + 1}
+                    </span>
+                    {block.title}
+                  </h3>
+                  <p className="font-lora text-[16px] sm:text-[17px] text-[#181818] leading-[1.8] font-normal">
+                    {block.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* 7. THE RANKED PRODUCTS (STRICT 3-TIER WIREFRAME & WOMENSKINHEALTH STYLING) */}
         <div className="space-y-16">
@@ -914,6 +1043,40 @@ export function LuxuryLedMaskLandingPage() {
             )}
           </div>
         </section>
+
+        {/* 9B. GUIDE-SPECIFIC FAQS */}
+        {guide?.faqs && guide.faqs.length > 0 && (
+          <section className="mt-20 bg-white rounded-3xl p-6 sm:p-9 border border-[#e7e7e7] shadow-sm">
+            <div className="text-center max-w-2xl mx-auto mb-8">
+              <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-bold">
+                Clinical Questions &amp; Answers
+              </span>
+              <h2 className="font-lato text-2xl sm:text-3xl font-extrabold text-[#181818] mt-1">
+                Frequently Asked Questions
+              </h2>
+              <p className="font-lora text-sm sm:text-base text-neutral-600 mt-2">
+                Evidence-based answers reviewed by Dr. Shannon Vance, Consultant Dermatologist.
+              </p>
+            </div>
+
+            <div className="space-y-4 max-w-3xl mx-auto">
+              {guide.faqs.map((faq: LedMaskFAQ, fIdx: number) => (
+                <div
+                  key={fIdx}
+                  className="bg-[#fafafa] rounded-2xl p-5 sm:p-6 border border-[#e7e7e7] hover:border-neutral-300 transition-colors"
+                >
+                  <h3 className="font-lato text-base sm:text-lg font-bold text-[#181818] mb-2.5 flex items-start gap-2.5">
+                    <HelpCircle size={18} className="text-[#7e22ce] mt-0.5 shrink-0" />
+                    <span>{faq.question}</span>
+                  </h3>
+                  <p className="font-lora text-sm sm:text-base text-neutral-700 leading-relaxed pl-7">
+                    {faq.answer}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* 10. EDITORIAL FOOTER & DISCLOSURES */}
         <footer className="mt-20 pt-12 border-t border-[#e7e7e7] text-center text-xs text-neutral-500 font-openSans">

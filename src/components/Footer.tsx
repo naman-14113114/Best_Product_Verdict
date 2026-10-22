@@ -5,11 +5,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Check, ArrowUp } from "lucide-react";
 import { getAllToothbrushGuideSlugs } from "@/data/toothbrushGuidesData";
+import { getAllLedMaskGuideSlugs } from "@/data/ledMaskGuidesData";
 
 const STANDALONE_PAGE_SLUGS = new Set([
   "best-electric-toothbrush-uk-2026",
   "best-led-face-mask-uk-2026",
   ...getAllToothbrushGuideSlugs(),
+  ...getAllLedMaskGuideSlugs(),
 ]);
 
 function shouldHideFooter(pathname: string | null): boolean {
@@ -20,7 +22,19 @@ function shouldHideFooter(pathname: string | null): boolean {
     clean.includes("best-led-face-mask") ||
     clean.includes("electric-toothbrush") ||
     clean.includes("miroooo") ||
-    clean.includes("why-switch-from-legacy")
+    clean.includes("why-switch-from-legacy") ||
+    clean.startsWith("blog/") ||
+    clean.includes("-vs-buudy") ||
+    clean.includes("theraface-vs") ||
+    clean.includes("silicone-led-mask") ||
+    clean.includes("floating-head") ||
+    clean.includes("missing-colors") ||
+    clean.includes("led-density") ||
+    clean.includes("brand-name") ||
+    clean.includes("new-advertorial") ||
+    clean.includes("best-red-light") ||
+    clean.includes("top-5-led-mask") ||
+    clean.includes("buudy-led-mask-uk")
   );
 }
 
