@@ -133,10 +133,10 @@ function RankRibbon({
   featured?: boolean;
 }) {
   const displayRank = rank.startsWith("#") ? rank : `#${rank}`;
-  const outerSize = featured ? "h-[118px] w-[138px]" : "h-[96px] w-[112px]";
-  const triangleSize = featured ? "h-[108px] w-[128px]" : "h-[88px] w-[108px]";
-  const textBox = featured ? "h-[78px] w-[82px]" : "h-[64px] w-[68px]";
-  const textSize = featured ? "text-[2rem]" : "text-[1.55rem]";
+  const outerSize = featured ? "h-[108px] w-[126px]" : "h-[92px] w-[108px]";
+  const triangleSize = featured ? "h-[98px] w-[116px]" : "h-[84px] w-[98px]";
+  const textBox = featured ? "h-[70px] w-[74px]" : "h-[60px] w-[64px]";
+  const textSize = featured ? "text-[1.85rem]" : "text-[1.5rem]";
 
   return (
     <div
@@ -534,10 +534,10 @@ export function LuxuryLedMaskLandingPage() {
             <article
               key={product.id}
               id={`product-${product.id}`}
-              className={`relative bg-white rounded-3xl p-6 sm:p-9 pt-28 sm:pt-32 md:pt-32 transition-all duration-300 ${
+              className={`relative bg-white rounded-3xl p-6 sm:p-9 transition-all duration-300 ${
                 product.isWinner
-                  ? "border-2 border-[#181818] shadow-xl shadow-black/5 ring-4 ring-neutral-100"
-                  : "border border-[#e7e7e7] shadow-sm"
+                  ? "border-2 border-[#181818] shadow-xl shadow-black/5 ring-4 ring-neutral-100 pt-12 sm:pt-14 md:pt-14"
+                  : "border border-[#e7e7e7] shadow-sm pt-8 sm:pt-9"
               }`}
             >
               {/* CORNER RANK BADGE (#1 - #10) */}
@@ -548,7 +548,7 @@ export function LuxuryLedMaskLandingPage() {
                   ============================================================ */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-8">
                 {/* LEFT COLUMN: Direct Large Image on Top, Single-Line Promo / Voucher Box at Bottom */}
-                <div className="lg:col-span-5 flex flex-col justify-between h-full">
+                <div className={`lg:col-span-5 flex flex-col justify-between h-full ${product.isWinner ? "pt-2 sm:pt-3 pl-1 sm:pl-2" : ""}`}>
                   <div className="flex-1 w-full flex items-center justify-center min-h-[340px] sm:min-h-[400px] lg:min-h-0">
                     {/* Direct Image with Clean Border Radius & No Hover Effect */}
                     <a
