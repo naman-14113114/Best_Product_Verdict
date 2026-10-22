@@ -124,6 +124,55 @@ function GoldStars({ rating, size = 20 }: { rating: number; size?: number }) {
   );
 }
 
+/* Corner Rank Badge for Product Cards (#1 - #10) */
+function RankRibbon({
+  rank,
+  featured = false,
+}: {
+  rank: string;
+  featured?: boolean;
+}) {
+  const displayRank = rank.startsWith("#") ? rank : `#${rank}`;
+  const outerSize = featured ? "h-[118px] w-[138px]" : "h-[96px] w-[112px]";
+  const triangleSize = featured ? "h-[108px] w-[128px]" : "h-[88px] w-[108px]";
+  const textBox = featured ? "h-[78px] w-[82px]" : "h-[64px] w-[68px]";
+  const textSize = featured ? "text-[2rem]" : "text-[1.55rem]";
+
+  return (
+    <div
+      aria-label={`Rank ${displayRank}`}
+      className={`pointer-events-none absolute left-0 top-0 z-30 overflow-visible rounded-tl-3xl ${outerSize}`}
+    >
+      {/* 1. Ambient 3D Back Shadow / Blur */}
+      {featured && (
+        <div
+          className={`absolute left-[7px] top-[7px] rounded-tl-3xl bg-black/50 blur-[2px] [clip-path:polygon(0_0,100%_0,0_100%)] ${triangleSize}`}
+        />
+      )}
+      {/* 2. Main 3D Beveled Body (Pure Black with 3D Inset Shadows) */}
+      <div
+        className={`absolute left-0 top-0 rounded-tl-3xl ${
+          featured
+            ? "bg-gradient-to-br from-[#383838] via-[#1c1c1c] to-[#000000] shadow-[0_18px_28px_rgba(0,0,0,0.65),inset_0_2px_0_rgba(255,255,255,0.4),inset_-10px_-10px_16px_rgba(0,0,0,0.85)]"
+            : "bg-gradient-to-br from-[#2e2e2e] via-[#181818] to-[#0a0a0a] shadow-[0_10px_18px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.25)]"
+        } [clip-path:polygon(0_0,100%_0,0_100%)] ${triangleSize}`}
+      />
+      {/* 3. 3D Sheen / Gloss Reflection Overlay */}
+      {featured && (
+        <div
+          className={`absolute left-[2px] top-[2px] rounded-tl-3xl bg-[linear-gradient(135deg,rgba(255,255,255,0.5)_0%,rgba(255,255,255,0.16)_32%,rgba(255,255,255,0)_58%)] [clip-path:polygon(0_0,100%_0,0_100%)] ${triangleSize}`}
+        />
+      )}
+      {/* 4. Pure Crisp White Rank Number with 3D Drop Shadow */}
+      <span
+        className={`absolute left-0 top-0 flex items-center justify-center font-serif font-black leading-none text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.7)] ${textBox} ${textSize}`}
+      >
+        {displayRank}
+      </span>
+    </div>
+  );
+}
+
 /* Accessible High-Contrast Performance Bar with Smooth Viewport Animation (womenskinhealth.com styling) */
 function PerformanceMetricBar({ label, value, isWinner }: { label: string; value: number; isWinner?: boolean }) {
   const [animatedWidth, setAnimatedWidth] = useState(0);
@@ -224,6 +273,7 @@ export function LuxuryLedMaskLandingPage() {
   const [isDisclosureOpen, setIsDisclosureOpen] = useState(false);
   const [isStandardsOpen, setIsStandardsOpen] = useState(false);
   const [visibleCount, setVisibleCount] = useState<number>(5);
+  const [tableVisibleCount, setTableVisibleCount] = useState<number>(5);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const timer = useUkMidnightTimer();
   const winnerProduct = LED_MASK_PRODUCTS.find((p) => p.isWinner) || LED_MASK_PRODUCTS[0];
@@ -275,8 +325,8 @@ export function LuxuryLedMaskLandingPage() {
         {/* Main Top 5 Comparison Hero Graphic */}
         <div className="relative overflow-hidden rounded-2xl border border-[#e7e7e7] shadow-sm aspect-[1536/461] bg-[#fafafa]">
           <img
-            src="/img/TOP 5 LED Mask uk.png"
-            alt="Top 5 Best LED Face Masks UK 2026 Comparison"
+            src="/img/top-5-best-led-face-masks-uk-buudy.png"
+            alt="Top 5 Best LED Face Masks UK 2026 Comparison - Buudy 7 Colour LED Mask Rated #1 Overall"
             className="w-full h-full object-cover rounded-2xl"
           />
         </div>
@@ -367,8 +417,7 @@ export function LuxuryLedMaskLandingPage() {
                 </p>
               </div>
 
-              <div className="pt-3 border-t border-[#e7e7e7] flex flex-wrap items-center justify-between text-xs font-openSans text-neutral-600">
-                <span>* Tested &amp; recommended for mature skin (ages 40+)</span>
+              <div className="pt-3 border-t border-[#e7e7e7] flex items-center justify-end text-xs font-openSans text-neutral-600">
                 <span className="font-bold text-[#181818]">100% Independent Medical Audit</span>
               </div>
             </div>
@@ -410,7 +459,7 @@ export function LuxuryLedMaskLandingPage() {
             for effortless consistency.
           </p>
           <p className="font-semibold text-[#181818]">
-            Below is our definitive, ranked top 5 LED face masks for UK buyers in 2026, beginning with our undisputed #1
+            Below is our definitive, ranked top 10 LED face masks for UK buyers in 2026, beginning with our undisputed #1
             winner.
           </p>
         </div>
@@ -472,7 +521,7 @@ export function LuxuryLedMaskLandingPage() {
 
               <div className="p-4 rounded-2xl bg-[#181818] text-white font-lora text-sm sm:text-base text-center leading-relaxed">
                 Synthesising <strong>laboratory bench measurements</strong>, <strong>dermatological oversight</strong>, and{" "}
-                <strong>thousands of verified UK consumer submissions</strong>, the following five devices distinguished
+                <strong>thousands of verified UK consumer submissions</strong>, the following ten devices distinguished
                 themselves in 2026.
               </div>
             </div>
@@ -485,19 +534,14 @@ export function LuxuryLedMaskLandingPage() {
             <article
               key={product.id}
               id={`product-${product.id}`}
-              className={`relative bg-white rounded-3xl p-6 sm:p-9 transition-all duration-300 ${
+              className={`relative bg-white rounded-3xl p-6 sm:p-9 pt-28 sm:pt-32 md:pt-32 transition-all duration-300 ${
                 product.isWinner
                   ? "border-2 border-[#181818] shadow-xl shadow-black/5 ring-4 ring-neutral-100"
                   : "border border-[#e7e7e7] shadow-sm"
               }`}
             >
-              {/* TOP WINNER RIBBON */}
-              {product.isWinner && (
-                <div className="absolute -top-4 sm:-top-5 left-1/2 -translate-x-1/2 bg-[#181818] text-white px-6 sm:px-8 py-2 rounded-full font-openSans text-xs sm:text-sm font-extrabold tracking-wider uppercase flex items-center gap-2 shadow-lg z-20 whitespace-nowrap">
-                  <Award size={16} className="text-[#f59e0b]" />
-                  <span>#1 Editor&apos;s Choice Winner</span>
-                </div>
-              )}
+              {/* CORNER RANK BADGE (#1 - #10) */}
+              <RankRibbon rank={`#${product.rank.replace(/^#/, "")}`} featured={product.isWinner} />
 
               {/* ============================================================
                   ROW 1 (TOP): 2-COLUMN SPLIT (Image + Compact Promo on Left, Info + Bars + CTA on Right)
@@ -551,7 +595,7 @@ export function LuxuryLedMaskLandingPage() {
                   <div>
                     {/* Product Title (No duplicate #1 and no subtitle paragraph) */}
                     <h2 className="font-lato text-2xl sm:text-3xl font-extrabold text-[#181818] leading-tight mb-2">
-                      {product.isWinner ? product.name : `${product.rank} ${product.name}`}
+                      {product.name}
                     </h2>
 
                     {/* Rating Stars & Review Count */}
@@ -567,12 +611,12 @@ export function LuxuryLedMaskLandingPage() {
                       <span className="font-lato text-3xl sm:text-4xl font-extrabold text-[#181818]">
                         {product.price}
                       </span>
-                      {product.originalPrice && (
+                      {product.isWinner && product.originalPrice && (
                         <span className="text-lg sm:text-xl text-neutral-400 line-through font-semibold font-lato">
                           {product.originalPrice}
                         </span>
                       )}
-                      {product.discount && (
+                      {product.isWinner && product.discount && (
                         <span className="font-openSans text-xs font-extrabold text-[#7e22ce] bg-[#f5f3ff] border border-[#d1a3ff] px-2.5 py-1 rounded-md">
                           {product.discount} Today
                         </span>
@@ -779,7 +823,7 @@ export function LuxuryLedMaskLandingPage() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#f1f5f9]">
-                {LED_MASK_PRODUCTS.map((p) => (
+                {LED_MASK_PRODUCTS.slice(0, tableVisibleCount).map((p) => (
                   <tr
                     key={p.id}
                     className={p.isWinner ? "bg-[#fdf4ff]/60 font-semibold" : "hover:bg-[#fafafa]"}
@@ -847,6 +891,27 @@ export function LuxuryLedMaskLandingPage() {
                 ))}
               </tbody>
             </table>
+          </div>
+
+          {/* Toggle Load More / Show Less for Comparison Table */}
+          <div className="mt-6 text-center">
+            {tableVisibleCount < LED_MASK_PRODUCTS.length ? (
+              <button
+                onClick={() => setTableVisibleCount(LED_MASK_PRODUCTS.length)}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#181818] hover:bg-[#b265ff] text-white font-openSans font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg cursor-pointer"
+              >
+                <span>Load More (Show All 10 Models)</span>
+                <ChevronDown size={16} />
+              </button>
+            ) : (
+              <button
+                onClick={() => setTableVisibleCount(5)}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-[#181818] text-[#181818] hover:bg-[#181818] hover:text-white font-openSans font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 cursor-pointer"
+              >
+                <span>Show Top 5 Only</span>
+                <ChevronUp size={16} />
+              </button>
+            )}
           </div>
         </section>
 
@@ -926,13 +991,20 @@ function StickyWinnerBox({ winnerProduct }: { winnerProduct: LedMaskProduct }) {
           </span>
         </div>
 
-        {/* Image: using same #1 image in sticky box */}
-        <div className="relative w-full aspect-square rounded-lg overflow-hidden bg-white border border-[#2e2e2e]">
-          <img
-            src={winnerProduct.image}
-            alt={winnerProduct.name}
-            className="w-full h-full object-cover"
-          />
+        {/* Video: autoplay looping demonstration */}
+        <div className="relative w-full aspect-square rounded-lg overflow-hidden bg-black border border-[#2e2e2e]">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-label="Buudy 7 Colour LED Mask UK Demonstration"
+            title="Buudy 7 Colour LED Mask UK Demonstration"
+            className="w-full h-full object-cover pointer-events-none"
+          >
+            <source src="/assets/buudy-7-colour-led-mask-uk-demonstration.mp4" type="video/mp4" />
+          </video>
         </div>
 
         {/* Title: #1 Product Name in Bold Uppercase */}

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { LuxuryLedMaskLandingPage } from "@/components/LuxuryLedMaskLandingPage";
 
 export const metadata: Metadata = {
-  title: "Best LED Face Mask UK (2026) | Top 5 Light Therapy Masks Compared",
+  title: "Best LED Face Mask UK (2026) | Top 10 Light Therapy Masks Compared",
   description:
-    "Compare the top 5 best LED face masks in the UK for 2026. Ranked for light therapy wavelengths, face & neck coverage, red light therapy, anti-ageing, wrinkles, acne and value.",
+    "Compare the top 10 best LED face masks in the UK for 2026. Ranked for light therapy wavelengths, face & neck coverage, red light therapy, anti-ageing, wrinkles, acne and value.",
   keywords: [
     "best led face mask",
     "best light led face mask",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "best red light face mask",
     "best at home led face mask",
     "led light face mask therapy",
-    "top 5 led face masks",
+    "top 10 led face masks",
     "buudy 7 colour led mask",
     "led face and neck mask",
   ],
@@ -24,20 +24,20 @@ export const metadata: Metadata = {
     canonical: "https://www.bestproductverdict.com/best-led-face-mask-uk-2026",
   },
   openGraph: {
-    title: "Best LED Face Mask UK (2026) | Top 5 Light Therapy Masks Compared",
+    title: "Best LED Face Mask UK (2026) | Top 10 Light Therapy Masks Compared",
     description:
-      "Compare the top 5 best LED face masks in the UK for 2026. Ranked for light therapy wavelengths, face & neck coverage, red light therapy, anti-ageing, wrinkles, acne and value.",
+      "Compare the top 10 best LED face masks in the UK for 2026. Ranked for light therapy wavelengths, face & neck coverage, red light therapy, anti-ageing, wrinkles, acne and value.",
     type: "article",
     url: "https://www.bestproductverdict.com/best-led-face-mask-uk-2026",
     siteName: "Best Product Verdict UK",
-    images: ["/img/TOP 5 LED Mask uk.png"],
+    images: ["/img/top-5-best-led-face-masks-uk-buudy.png"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Best LED Face Mask UK (2026) | Top 5 Light Therapy Masks Compared",
+    title: "Best LED Face Mask UK (2026) | Top 10 Light Therapy Masks Compared",
     description:
-      "Compare the top 5 best LED face masks in the UK for 2026. Ranked for light therapy wavelengths, face & neck coverage, red light therapy, anti-ageing, wrinkles, acne and value.",
-    images: ["/img/TOP 5 LED Mask uk.png"],
+      "Compare the top 10 best LED face masks in the UK for 2026. Ranked for light therapy wavelengths, face & neck coverage, red light therapy, anti-ageing, wrinkles, acne and value.",
+    images: ["/img/top-5-best-led-face-masks-uk-buudy.png"],
   },
 };
 
@@ -49,16 +49,16 @@ export default function BestLedFaceMaskPage() {
         "@type": "WebPage",
         "@id": "https://www.bestproductverdict.com/best-led-face-mask-uk-2026#webpage",
         "url": "https://www.bestproductverdict.com/best-led-face-mask-uk-2026",
-        "name": "Best LED Face Mask UK (2026) | Top 5 Light Therapy Masks Compared",
+        "name": "Best LED Face Mask UK (2026) | Top 10 Light Therapy Masks Compared",
         "inLanguage": "en-GB",
       },
       {
         "@type": "Article",
         "@id": "https://www.bestproductverdict.com/best-led-face-mask-uk-2026#article",
-        "headline": "Best LED Face Mask UK (2026) | Top 5 Light Therapy Masks Compared",
+        "headline": "Best LED Face Mask UK (2026) | Top 10 Light Therapy Masks Compared",
         "description":
-          "Compare the top 5 best LED face masks in the UK for 2026. Ranked for light therapy wavelengths, face and neck coverage, red light therapy, wrinkles, acne and overall value.",
-        "image": "https://www.bestproductverdict.com/img/TOP%205%20LED%20Mask%20uk.png",
+          "Compare the top 10 best LED face masks in the UK for 2026. Ranked for light therapy wavelengths, face and neck coverage, red light therapy, wrinkles, acne and overall value.",
+        "image": "https://www.bestproductverdict.com/img/top-5-best-led-face-masks-uk-buudy.png",
         "inLanguage": "en-GB",
         "author": {
           "@type": "Person",
