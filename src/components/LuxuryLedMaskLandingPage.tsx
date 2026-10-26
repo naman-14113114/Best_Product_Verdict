@@ -385,7 +385,7 @@ export function LuxuryLedMaskLandingPage({
                   controls
                   playsInline
                   preload="metadata"
-                  poster="/assets/buudy-dr-shannon-poster.jpg?v=2"
+                  poster="/assets/buudy-dr-shannon-poster.jpg?v=3"
                   aria-label="Dr. Shannon walkthrough of the Buudy 7 Colour LED Mask"
                   onPlay={() => setIsVideoPlaying(true)}
                   onPause={() => setIsVideoPlaying(false)}
