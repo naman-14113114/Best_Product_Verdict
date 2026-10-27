@@ -39,6 +39,8 @@ Structured data describes the publisher, articles, breadcrumbs and ordered compa
 
 GitHub main is connected to the existing Vercel production project. Verify the deployment status and rendered custom-domain content after each push. Website improvements do not guarantee Google or Microsoft advertising approval; advertiser verification, account history and campaign content require their own review.
 
+Microsoft Advertising UET tag `355062041` is installed once in the root layout with automatic SPA tracking enabled. It applies site-wide alongside the existing Clarity and hidden Tawk loader. Existing outbound-click events use the same `uetq` queue. Microsoft Advertising conversion goals are configured separately in the advertising account.
+
 ## LED mask landing page
 
 `/best-led-face-mask-uk-2026` uses the owner's TrustpilotReview reference layout captured on 27 October 2026. It retains Best Product Verdict's Dr. Shannon portrait, original video and poster, and the existing products at ranks 6–10 behind separate ranking and table reveal controls. Other LED-mask guides continue to use the shared landing-page component.
