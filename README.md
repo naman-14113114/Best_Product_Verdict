@@ -38,3 +38,17 @@ The same check accepts the production origin. It examines all published pages, t
 Structured data describes the publisher, articles, breadcrumbs and ordered comparison lists. It does not publish unverified offers, stock or rating markup. Unknown pages return 404 instead of unrelated product redirects.
 
 GitHub main is connected to the existing Vercel production project. Verify the deployment status and rendered custom-domain content after each push. Website improvements do not guarantee Google or Microsoft advertising approval; advertiser verification, account history and campaign content require their own review.
+
+## LED mask landing page
+
+`/best-led-face-mask-uk-2026` uses the owner's TrustpilotReview reference layout captured on 27 October 2026. It retains Best Product Verdict's Dr. Shannon portrait, original video and poster, and the existing products at ranks 6–10 behind separate ranking and table reveal controls. Other LED-mask guides continue to use the shared landing-page component.
+
+The reviewed HTML, scoped styles, media hashes and reference URL are in `src/features/led-mask-reference/`. The HTML is rendered on the server; a small client component handles video playback, reveal controls, metric animation and native outbound-click tracking. Copied reference images and the decorative font have a dedicated asset directory so existing images remain unchanged. Campaign attribution is carried to Buudy links without delaying navigation. The existing site-wide Clarity and hidden Tawk loader remains in the root layout.
+
+To verify a running build or the production page against the reference:
+
+```sh
+node scripts/verify-led-mask-reference.mjs http://localhost:4173 ../led-mask-qa
+```
+
+Install the Playwright Chromium browser with `pnpm exec playwright install chromium` if needed. The check compares the first five product cards and layout at desktop and two mobile sizes, tests both expansion controls, plays and pauses the preserved video, checks images, and verifies native outbound navigation and attribution. It saves screenshots and a JSON result to the output directory. Future reference updates should preserve the doctor media, Best Product Verdict metadata, scoped styles and extra rankings, then rerun these checks.
