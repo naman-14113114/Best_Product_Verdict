@@ -24,8 +24,12 @@ export default function Page() { return <InformationPage {...{
       "body": "We use Microsoft Clarity to understand page visits and interactions through usage analytics and session recordings. We also use Tawk.to to monitor visitor activity; its chat widget is hidden on this website. These services may process technical details, page URLs and interactions, and use cookies or browser storage. Please avoid entering private information in website searches. Microsoft and Tawk.to explain their data practices in their respective privacy policies."
     },
     {
+      "title": "Advertising measurement",
+      "body": "We use Microsoft Advertising Universal Event Tracking (UET) to measure page visits, outbound link clicks and advertising campaign performance. Microsoft may process page URLs, browser and device information, campaign identifiers and interactions, and use cookies or browser storage for advertising measurement. Microsoft explains its data practices in its privacy policy."
+    },
+    {
       "title": "External websites",
-      "body": "Retailer and manufacturer links lead to third-party websites with their own privacy and cookie policies. We do not forward your page query parameters to retailer links. Sending an email opens your own email service."
+      "body": "Retailer and manufacturer links lead to third-party websites with their own privacy and cookie policies. Campaign identifiers may be retained when linking to Buudy to help attribute visits. Sending an email opens your own email service."
     },
     {
       "title": "Enquiries and your rights",
