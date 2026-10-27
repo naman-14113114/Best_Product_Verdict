@@ -35,6 +35,7 @@ try {
     page.on("pageerror", (error) => errors.push(error.message));
     await page.goto(reference + route, { waitUntil: "domcontentloaded" });
     await page.locator("header img").first().evaluate((img) => img.decode());
+    await page.evaluate(() => document.fonts.ready);
     const expected = await geometry(page);
     await page.screenshot({ path: path.join(output, `reference-${width}.png`) });
 
@@ -42,6 +43,7 @@ try {
     await page.locator("[data-led-updated-date]").filter({ hasText: /2026/ }).waitFor();
     await page.waitForFunction(() => document.querySelector('a[href*="buudy.co.uk"]')?.href.includes("qa-led-reference"));
     await page.locator("header img").first().evaluate((img) => img.decode());
+    await page.evaluate(() => document.fonts.ready);
     const actual = await geometry(page);
     for (const section of ["heading", "hero", "bio", "firstCard"]) {
       for (const dimension of ["x", "y", "width", "height"]) {
