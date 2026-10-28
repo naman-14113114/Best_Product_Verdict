@@ -43,14 +43,6 @@ Microsoft Advertising UET tag `355062041` is installed once in the root layout w
 
 ## LED mask landing page
 
-`/best-led-face-mask-uk-2026` uses the owner's TrustpilotReview reference layout captured on 27 October 2026. It retains Best Product Verdict's Dr. Shannon portrait, original video and poster, and the existing products at ranks 6–10 behind separate ranking and table reveal controls. Other LED-mask guides continue to use the shared landing-page component.
+`/best-led-face-mask-uk-2026` uses the original `LuxuryLedMaskLandingPage` with its hero banner disabled, restored from the pre-clone version (`40fcfc0`). The `/top-10/best-led-face-mask-uk-2026` alias re-exports the same page. Dr. Shannon's original video, poster, existing product imagery, top-five default ranking and controls for viewing all ten models remain part of that layout.
 
-The reviewed HTML, scoped styles, media hashes and reference URL are in `src/features/led-mask-reference/`. The HTML is rendered on the server; a small client component handles video playback, reveal controls, metric animation and native outbound-click tracking. Copied reference images and the decorative font have a dedicated asset directory so existing images remain unchanged. Campaign attribution is carried to Buudy links without delaying navigation. The existing site-wide Clarity and hidden Tawk loader remains in the root layout.
-
-To verify a running build or the production page against the reference:
-
-```sh
-node scripts/verify-led-mask-reference.mjs http://localhost:4173 ../led-mask-qa
-```
-
-Install the Playwright Chromium browser with `pnpm exec playwright install chromium` if needed. The check compares the first five product cards and layout at desktop and two mobile sizes, tests both expansion controls, plays and pauses the preserved video, checks images, and verifies native outbound navigation and attribution. It saves screenshots and a JSON result to the output directory. Future reference updates should preserve the doctor media, Best Product Verdict metadata, scoped styles and extra rankings, then rerun these checks.
+Microsoft Advertising UET `355062041`, automatic SPA tracking, Clarity and the hidden Tawk loader remain in the root layout. The nonvisual `LedMaskTracking` component preserves existing outbound-click events and Buudy campaign attribution, including newly revealed rankings. Verify the original layout on desktop and mobile, the ranking/table reveal controls, video playback, image delivery and UET page-view requests after publishing. The unused reference snapshot and its parity script remain as historical artifacts; they are not the active page or its verification target.
