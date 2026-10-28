@@ -17,13 +17,13 @@ export const metadata: Metadata = {
     type: "article",
     url: `https://www.bestproductverdict.com/${guide.slug}`,
     siteName: "Best Product Verdict UK",
-    images: ["/img/toothbrushes/top-4-competitors-container-bar.webp"],
+    images: ["/img/toothbrushes/top-5-electric-toothbrushes-uk.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: guide.seoTitle,
     description: guide.seoDescription,
-    images: ["/img/toothbrushes/top-4-competitors-container-bar.webp"],
+    images: ["/img/toothbrushes/top-5-electric-toothbrushes-uk.webp"],
   },
 };
 
@@ -43,7 +43,7 @@ export default function MirooooBrushXUkReviewPage() {
         "@id": `https://www.bestproductverdict.com/${guide.slug}#article`,
         "headline": guide.headline,
         "description": guide.seoDescription,
-        "image": "https://www.bestproductverdict.com/img/toothbrushes/top-4-competitors-container-bar.webp",
+        "image": "https://www.bestproductverdict.com/img/toothbrushes/top-5-electric-toothbrushes-uk.webp",
         "inLanguage": "en-GB",
         "author": {
           "@type": "Person",
@@ -61,13 +61,13 @@ export default function MirooooBrushXUkReviewPage() {
         "@id": `https://www.bestproductverdict.com/${guide.slug}#review`,
         "itemReviewed": {
           "@type": "Product",
-          "name": "Miroooo Brush X Sonic Electric Toothbrush",
-          "image": "https://www.bestproductverdict.com/img/toothbrushes/top-4-competitors-container-bar.webp",
+          "name": "Miroooo Brush X2 Sonic Electric Toothbrush",
+          "image": "https://www.bestproductverdict.com/img/toothbrushes/top-5-electric-toothbrushes-uk.webp",
           "offers": {
             "@type": "Offer",
             "price": "69.00",
             "priceCurrency": "GBP",
-            "url": "https://www.trymiroooo.com/products/miroooo-x",
+            "url": "https://www.trymiroooo.com/products/miroooo-x2",
           },
         },
         "reviewRating": {

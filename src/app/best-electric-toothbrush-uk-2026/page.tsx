@@ -13,9 +13,10 @@ export const metadata: Metadata = {
     "top 5 electric toothbrushes",
     "electric toothbrush reviews uk",
     "best electric toothbrush for sensitive gums",
+    "miroooo brush x2",
+    "miroooo x2",
     "miroooo brush x",
     "miroooo x",
-    "miroooo x1",
     "oral b io series 6 review",
     "philips sonicare diamondclean 9000",
     "suri pro 2.0 review",
@@ -31,14 +32,14 @@ export const metadata: Metadata = {
     type: "article",
     url: "https://www.bestproductverdict.com/best-electric-toothbrush-uk-2026",
     siteName: "Best Product Verdict UK",
-    images: ["/img/toothbrushes/top-4-competitors-container-bar.webp"],
+    images: ["/img/toothbrushes/top-5-electric-toothbrushes-uk.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Best Electric Toothbrush UK (2026) | Top 5 Toothbrushes Compared",
     description:
       "Compare the top 5 best electric toothbrushes in the UK for 2026. Ranked for acoustic fluid dynamics, plaque removal, battery life, gum protection, refill costs and value.",
-    images: ["/img/toothbrushes/top-4-competitors-container-bar.webp"],
+    images: ["/img/toothbrushes/top-5-electric-toothbrushes-uk.webp"],
   },
 };
 
@@ -59,7 +60,7 @@ export default function BestElectricToothbrushPage() {
         "headline": "Best Electric Toothbrush UK (2026) | Top 5 Toothbrushes Compared",
         "description":
           "Compare the top 5 best electric toothbrushes in the UK for 2026. Ranked for acoustic fluid dynamics, plaque clearance, battery life, enamel safety, and overall value.",
-        "image": "https://www.bestproductverdict.com/img/toothbrushes/top-5-electric-toothbrushes-uk.png",
+        "image": "https://www.bestproductverdict.com/img/toothbrushes/top-5-electric-toothbrushes-uk.webp",
         "inLanguage": "en-GB",
         "author": {
           "@type": "Person",
@@ -81,8 +82,8 @@ export default function BestElectricToothbrushPage() {
           {
             "@type": "ListItem",
             "position": 1,
-            "name": "Miroooo Brush X Electric Toothbrush",
-            "url": "https://www.trymiroooo.com/products/miroooo-x",
+            "name": "Miroooo Brush X2 Electric Toothbrush",
+            "url": "https://www.trymiroooo.com/products/miroooo-x2",
           },
           {
             "@type": "ListItem",

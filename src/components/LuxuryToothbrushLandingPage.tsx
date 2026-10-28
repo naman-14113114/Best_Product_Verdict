@@ -9,11 +9,11 @@ import {
   ExternalLink,
   Award,
   Clock,
+  Timer,
   CheckCircle2,
   XCircle,
   HelpCircle,
   Sparkles,
-  Play,
   ChevronDown,
   ChevronUp,
 } from "lucide-react";
@@ -227,16 +227,8 @@ export interface LuxuryToothbrushLandingPageProps {
 export function LuxuryToothbrushLandingPage({ guide }: LuxuryToothbrushLandingPageProps = {}) {
   const [ukDate, setUkDate] = useState<string>(getUkFormattedDate());
   const [isDisclosureOpen, setIsDisclosureOpen] = useState(false);
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [isStandardsOpen, setIsStandardsOpen] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  const handlePlayVideo = () => {
-    if (videoRef.current) {
-      videoRef.current.play();
-      setIsVideoPlaying(true);
-    }
-  };
+  const timer = useUkMidnightTimer();
 
   useEffect(() => {
     setUkDate(getUkFormattedDate());
@@ -351,8 +343,8 @@ export function LuxuryToothbrushLandingPage({ guide }: LuxuryToothbrushLandingPa
                   <strong>180+ hours of comparative testing</strong>. Her conclusion was simple: daily brushing should
                   be effortless. The ideal brush should be whisper-quiet rather than loudly buzzing in your ear, featherlight
                   (around 50g) for easy handling, and gentle on gums while delivering a deep sonic clean. You don&apos;t
-                  need to spend £200+ on heavy, clunky handles or outdated 2-pin bathroom chargers to get a dentist-clean
-                  smile and 60+ days of battery life.
+                  need to spend £200+ on heavy, loud, clunky handles or outdated 2-pin bathroom chargers to get a dentist-clean
+                  smile, whisper-quiet sound, and 90+ days of battery life.
                 </p>
               )}
             </div>
@@ -361,99 +353,6 @@ export function LuxuryToothbrushLandingPage({ guide }: LuxuryToothbrushLandingPa
             <div className="w-full pt-3 border-t border-[#e7e7e7] flex flex-col sm:flex-row items-center justify-between gap-2 text-xs font-openSans text-neutral-600">
               <span>* Evaluated across UK dental clinics &amp; independent tests.</span>
               <span className="font-bold text-[#181818]">100% Independent Medical Audit</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Hands-On Verdict & Specs Video Section (Directly Below Doctor Section) */}
-        <div className="bg-white rounded-3xl p-6 sm:p-10 border-2 border-[#181818] shadow-lg relative overflow-hidden">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-bold">
-              Hands-On Review &amp; Comparison
-            </span>
-            <h2 className="font-lato text-3xl sm:text-4xl font-extrabold text-[#181818] mt-1">
-              Hands-On Verdict &amp; Specs
-            </h2>
-            <div className="w-16 h-1 bg-[#181818] mx-auto mt-4 rounded-full" />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-            {/* Miroooo Brush X Hands-On Walkthrough & Oral-B Comparison Video */}
-            <div className="relative">
-              <div className="relative mx-auto max-w-[280px] sm:max-w-xs rounded-2xl overflow-hidden border border-[#e7e7e7] bg-black shadow-xl aspect-[9/16]">
-                <video
-                  ref={videoRef}
-                  className="w-full h-full object-cover block"
-                  controls
-                  playsInline
-                  preload="metadata"
-                  poster="/assets/miroooo-brush-x-walkthrough-poster.webp"
-                  aria-label="Hands-on walkthrough of Miroooo Brush X and comparison with Oral-B"
-                  onPlay={() => setIsVideoPlaying(true)}
-                  onPause={() => setIsVideoPlaying(false)}
-                  onEnded={() => setIsVideoPlaying(false)}
-                >
-                  <source src="/assets/miroooo-brush-x-walkthrough.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-
-                {!isVideoPlaying && (
-                  <button
-                    type="button"
-                    onClick={handlePlayVideo}
-                    aria-label="Play hands-on walkthrough video"
-                    className="absolute inset-0 flex items-center justify-center bg-transparent group cursor-pointer focus:outline-none"
-                  >
-                    <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white text-[#181818] shadow-2xl transition-transform duration-300 group-hover:scale-110">
-                      <Play size={28} fill="currentColor" className="ml-1 text-[#181818]" />
-                    </span>
-                  </button>
-                )}
-
-                <div className="pointer-events-none absolute top-3 left-3 bg-[#181818]/90 text-white text-[11px] font-openSans font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-xs z-10">
-                  Hands-On Comparison
-                </div>
-              </div>
-
-              <p className="mt-3.5 text-center font-lora text-xs sm:text-sm text-neutral-500 max-w-xs mx-auto font-medium">
-                Hands-on review: Miroooo Brush X unibody specs, magnetic charging, and side-by-side comparison with Oral-B.
-              </p>
-            </div>
-
-            {/* Verdict Summary Box */}
-            <div className="flex flex-col justify-center text-center md:text-left">
-              <span className="inline-block font-openSans text-xs uppercase tracking-widest font-extrabold text-[#7e22ce] mb-1">
-                #1 Rated Sonic System for UK Homes
-              </span>
-              <h3 className="font-lato text-2xl sm:text-3xl font-extrabold text-[#181818] mb-2">
-                Miroooo Brush X Electric Toothbrush
-              </h3>
-
-              <div className="font-lato text-3xl font-extrabold text-[#181818] mb-6">
-                Now £69 <span className="text-base font-lora text-neutral-400 font-normal line-through">£139</span>{" "}
-                <span className="font-openSans text-xs font-extrabold text-[#7e22ce] bg-[#f5f3ff] border border-[#d1a3ff] px-2.5 py-1 rounded-md ml-2 inline-block">
-                  50% OFF Today
-                </span>
-              </div>
-
-              {/* Trust Badge */}
-              <div className="bg-[#fafafa] rounded-2xl p-4 border border-[#e7e7e7] mb-6 flex flex-col items-center sm:items-start">
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="font-lato font-extrabold text-lg text-[#181818]">Rated 4.9 / 5 on Trustpilot</span>
-                  <GoldStars rating={5} size={18} />
-                </div>
-                <span className="font-lora text-xs text-neutral-600 font-medium">
-                  Trusted by 4,000+ UK users &bull; 90-Day Money-Back Risk-Free Guarantee
-                </span>
-              </div>
-
-              <a
-                href={MIROOOO_PRODUCT_URL}
-                className="w-full py-4 px-8 rounded-xl bg-[#000000] hover:bg-[#b265ff] text-white font-openSans font-extrabold text-base uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:shadow-lg hover:scale-[1.01] transition-all"
-              >
-                <span>Check Official Availability &amp; Claim Offer</span>
-                <ArrowRight size={20} />
-              </a>
             </div>
           </div>
         </div>
@@ -602,7 +501,7 @@ export function LuxuryToothbrushLandingPage({ guide }: LuxuryToothbrushLandingPa
                 <thead>
                   <tr className="border-b-2 border-[#e7e7e7] text-neutral-500 font-openSans text-[11px] sm:text-xs uppercase tracking-wider bg-[#fafafa]">
                     <th className="py-3 px-4 font-extrabold w-[25%]">Feature / Metric</th>
-                    <th className="py-3 px-4 font-extrabold w-[25%] text-[#7e22ce]">Miroooo Brush X</th>
+                    <th className="py-3 px-4 font-extrabold w-[25%] text-[#7e22ce]">Miroooo Brush X2</th>
                     <th className="py-3 px-4 font-extrabold w-[25%]">Comparison Benchmark</th>
                     <th className="py-3 px-4 font-extrabold w-[25%]">Why It Matters in Practice</th>
                   </tr>
@@ -679,8 +578,8 @@ export function LuxuryToothbrushLandingPage({ guide }: LuxuryToothbrushLandingPa
                   ROW 1 (TOP): 2-COLUMN SPLIT (Image + Compact Promo on Left, Info + Bars + CTA on Right)
                   ============================================================ */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-8">
-                {/* LEFT COLUMN: Direct Large Image */}
-                <div className="lg:col-span-5 flex flex-col justify-center h-full">
+                {/* LEFT COLUMN: Direct Large Image on Top, Single-Line Promo / Voucher Box at Bottom */}
+                <div className={`lg:col-span-5 flex flex-col justify-between h-full ${product.isWinner ? "pt-2 sm:pt-3 pl-1 sm:pl-2" : ""}`}>
                   <div className="flex-1 w-full flex items-center justify-center min-h-[340px] sm:min-h-[400px] lg:min-h-0">
                     {/* Direct Image with Clean Border Radius & No Hover Effect */}
                     <a
@@ -695,6 +594,30 @@ export function LuxuryToothbrushLandingPage({ guide }: LuxuryToothbrushLandingPa
                         loading={product.isWinner ? "eager" : "lazy"}
                       />
                     </a>
+                  </div>
+
+                  {/* Promo / Voucher Box (Bottom aligned, inline with CTA button on the right) */}
+                  <div className="mt-4 shrink-0">
+                    {product.isWinner ? (
+                      <div className="w-full px-3.5 py-2.5 rounded-xl bg-[#fdf4ff] border-2 border-[#d1a3ff] flex items-center justify-between gap-2 shadow-xs">
+                        <span className="font-mono text-xs sm:text-sm font-black text-[#7e22ce] tracking-wider uppercase truncate">
+                          COUPON: {product.voucher.code}
+                        </span>
+                        <span className="bg-[#181818] text-white font-mono font-bold text-[11px] sm:text-xs px-2.5 py-1 rounded-lg shadow-inner flex items-center gap-1 shrink-0">
+                          <Timer size={13} className="text-[#b265ff]" />
+                          <span>{timer.hours}h {timer.minutes}m {timer.seconds}s</span>
+                        </span>
+                      </div>
+                    ) : (
+                      <div className="w-full px-3.5 py-2.5 rounded-xl bg-[#fafafa] border border-[#e7e7e7] flex items-center justify-between gap-2 shadow-xs">
+                        <span className="font-mono text-xs sm:text-sm font-bold text-neutral-400 line-through tracking-wider uppercase truncate">
+                          COUPON: {product.voucher.code}
+                        </span>
+                        <span className="font-openSans text-[10px] sm:text-xs font-extrabold text-[#ef4444] bg-red-50 border border-red-200 px-2.5 py-1 rounded uppercase tracking-wide shrink-0">
+                          EXPIRED
+                        </span>
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -779,7 +702,7 @@ export function LuxuryToothbrushLandingPage({ guide }: LuxuryToothbrushLandingPa
                     <span>💡 Editor&apos;s Tip</span>
                   </div>
                   <h3 className="font-lato text-2xl sm:text-3xl font-extrabold text-white mb-2 leading-tight">
-                    What&apos;s Included &amp; <span className="text-[#b265ff]">FREE GIFTS WORTH £20</span>
+                    What&apos;s Included &amp; <span className="text-[#b265ff]">FREE GIFTS WORTH {product.gifts.totalValue}</span>
                   </h3>
                   <p className="font-lora text-sm sm:text-base text-neutral-300 leading-relaxed mb-6 font-normal">
                     {product.gifts.description}
@@ -896,6 +819,62 @@ export function LuxuryToothbrushLandingPage({ guide }: LuxuryToothbrushLandingPa
           ))}
         </div>
 
+        {/* 8B. DENTIST'S VERDICT SECTION (Trustpilot Parity) */}
+        <section className="mt-20 mb-12 relative max-w-5xl mx-auto">
+          <div className="bg-[#f8f4e6] rounded-3xl p-6 sm:p-10 md:p-12 shadow-[0_15px_40px_-10px_rgba(0,0,0,0.1)] border border-[#e8dccb] relative z-10">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center text-[#8b1528] mb-6 md:mb-10 font-lato tracking-tight">
+              Dentist&apos;s Verdict
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center">
+              {/* Left Image Area */}
+              <div className="relative flex justify-center items-center">
+                <div className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-[360px] aspect-square overflow-hidden rounded-2xl border border-[#dfd1bd] bg-white shadow-xl">
+                  <img
+                    src="/img/toothbrushes/miroooo-brush-x2-dentist-verdict-dr-olivia.webp"
+                    alt="Dr. Julian Vance - Dentist's Verdict on Miroooo Brush X2"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+
+              {/* Right Content Area */}
+              <div className="flex flex-col justify-center text-center">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-3 md:mb-4 font-lato tracking-tight">
+                  Miroooo X2
+                </h3>
+
+                <div className="w-28 md:w-32 h-[1px] bg-[#d4af37] mx-auto mb-5 md:mb-6" />
+
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#8b1528] mb-5 md:mb-6 font-lato">
+                  Now at 50% off
+                </div>
+
+                {/* Trust Badge */}
+                <div className="border border-neutral-200 bg-white/80 rounded-xl p-3.5 mx-auto mb-6 inline-block shadow-2xs">
+                  <div className="flex items-center justify-center gap-2 mb-1.5">
+                    <span className="font-extrabold text-base text-[#181818] font-lato">
+                      Excellent
+                    </span>
+                    <GoldStars rating={5} size={20} />
+                  </div>
+                  <div className="text-xs text-neutral-600 flex items-center justify-center gap-1 font-openSans font-medium">
+                    Rated 4.9 / 5 on <span className="font-bold text-[#181818]">Trustpilot</span>
+                  </div>
+                </div>
+
+                <a
+                  href={MIROOOO_PRODUCT_URL}
+                  className="mx-auto w-full max-w-[280px] sm:max-w-xs py-4 px-8 rounded-full bg-gradient-to-b from-[#1a7444] to-[#0d4a29] hover:from-[#145c35] hover:to-[#0a381f] text-white text-sm sm:text-base font-extrabold tracking-wider uppercase shadow-[0_8px_20px_rgba(13,74,41,0.4)] transition-all text-center flex items-center justify-center gap-2"
+                >
+                  <span>Check Availability</span>
+                  <ArrowRight size={18} />
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* 9. SIDE-BY-SIDE COMPARISON TABLE MATRIX */}
         <section className="mt-20 bg-white rounded-3xl p-3 sm:p-5 lg:p-6 border border-[#e7e7e7] shadow-sm overflow-hidden">
           <div className="text-center max-w-2xl mx-auto mb-6">
@@ -929,7 +908,7 @@ export function LuxuryToothbrushLandingPage({ guide }: LuxuryToothbrushLandingPa
                     <td className="py-3 px-2.5 sm:px-3">
                       <div className="flex items-center gap-2">
                         <img
-                          src={p.isWinner ? "/img/toothbrushes/miroooo-brush-x-sonic-electric-toothbrush-in-hand-banner.webp" : p.image}
+                          src={p.isWinner ? "/img/toothbrushes/miroooo-brush-x2-electric-toothbrush-banner.webp" : p.image}
                           alt={p.name}
                           className="h-11 w-11 sm:h-12 sm:w-12 rounded-xl object-contain shrink-0"
                         />
@@ -1097,26 +1076,19 @@ function StickyWinnerBox({ winnerProduct }: { winnerProduct: ToothbrushProduct }
           </span>
         </div>
 
-        {/* Video: 360 View */}
+        {/* #1 Product Image */}
         <div className="relative w-full aspect-square rounded-lg overflow-hidden bg-black/80 border border-[#2e2e2e]">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            poster="/img/toothbrushes/miroooo-brush-x-sonic-electric-toothbrush-studio-banner.webp"
-            aria-label="Miroooo Brush X 360 View"
+          <img
+            src="/img/toothbrushes/miroooo-x2-sonic-electric-toothbrush-silver-global-dental-innovation-award.webp"
+            alt="Miroooo Brush X2 Sonic Electric Toothbrush"
             className="w-full h-full object-cover pointer-events-none"
-          >
-            <source src="/assets/miroooo-x-360-view.mp4" type="video/mp4" />
-          </video>
+          />
         </div>
 
         {/* Title: #1 Product Name in Bold Uppercase */}
         <div className="mt-1.5 mb-1.5 text-center px-0.5">
           <h4 className="font-lato font-extrabold text-white text-[11px] tracking-wider uppercase leading-tight">
-            MIROOOO BRUSH X
+            MIROOOO BRUSH X2
           </h4>
         </div>
 
