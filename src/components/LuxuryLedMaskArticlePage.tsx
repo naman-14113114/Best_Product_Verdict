@@ -310,7 +310,7 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
 
               {/* Coupon Bar */}
               <div className="w-full max-w-[260px] px-3 py-2 rounded-xl bg-[#fdf4ff] border-2 border-[#d1a3ff] flex items-center justify-between text-xs font-mono">
-                <span className="font-bold text-[#7e22ce]">CODE: BUUDY10</span>
+                <span className="font-bold text-[#7e22ce]">CODE: {winnerProduct.voucher.code}</span>
                 <span className="bg-[#181818] text-white font-bold text-[10px] px-2 py-0.5 rounded flex items-center gap-1">
                   <Timer size={11} className="text-[#b265ff]" />
                   {timer.hours}h {timer.minutes}m
@@ -543,20 +543,15 @@ function StickyWinnerBox({ winnerProduct }: { winnerProduct: LedMaskProduct }) {
           </span>
         </div>
 
-        {/* Video: autoplay looping demonstration */}
-        <div className="relative w-full aspect-square rounded-lg overflow-hidden bg-black border border-[#2e2e2e]">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            aria-label="Buudy 7 Colour LED Mask UK Demonstration"
-            title="Buudy 7 Colour LED Mask UK Demonstration"
-            className="w-full h-full object-cover pointer-events-none"
-          >
-            <source src="/assets/buudy-7-colour-led-mask-uk-demonstration.mp4" type="video/mp4" />
-          </video>
+        {/* Sticky Winner Image according to BUUDY SEO & GEO */}
+        <div className="relative w-full aspect-square rounded-lg overflow-hidden bg-[#181818] border border-[#2e2e2e]">
+          <img
+            src="/img/buudy-7-colour-led-mask-uk-winner.webp"
+            alt="Buudy 7 Colour LED Face and Neck Mask - UK Rated #1 Light Therapy Mask Winner 2026"
+            title="Buudy 7 Colour LED Face and Neck Mask UK Winner"
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
         </div>
 
         {/* Title: #1 Product Name in Bold Uppercase */}

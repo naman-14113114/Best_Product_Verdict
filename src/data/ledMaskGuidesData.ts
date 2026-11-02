@@ -212,7 +212,7 @@ export const LED_MASK_GUIDES: Record<LedMaskGuideSlug, LedMaskGuide> = {
     comparisonRows: [
       {
         feature: "Price & Promotional Offer",
-        buudy: "£179 (Active £128 gift suite & code BUUDY10)",
+        buudy: "£179 (Active £128 gift suite & code BLACKFRIDAY10)",
         competitor: "£199 (Standard bundle price, rarely discounted)",
         whyItMatters: "Buudy saves you £20 upfront while providing three additional targeted accessories.",
         advantage: "buudy"
