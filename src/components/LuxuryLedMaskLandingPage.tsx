@@ -205,7 +205,7 @@ function PerformanceMetricBar({ label, value, isWinner }: { label: string; value
 
   return (
     <div ref={barRef} className="mb-3">
-      <div className="flex justify-between items-center text-sm font-semibold mb-1 text-[#181818] font-lato">
+      <div className="flex justify-between items-center text-sm font-semibold mb-1 text-[#181818] font-lora">
         <span className="tracking-tight">{label}</span>
         <span className="font-bold text-[#181818]">{value}%</span>
       </div>
@@ -311,12 +311,12 @@ export function LuxuryLedMaskLandingPage({
             <span>{guide?.cardCode || "2026 United Kingdom Phototherapy Audit"}</span>
           </div>
 
-          <h1 className="font-lato text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#181818] mb-5 leading-[1.15]">
+          <h1 className="font-lora text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#181818] mb-5 leading-[1.15]">
             {guide ? (
               <>
                 {guide.headline}
                 {guide.subheadline && (
-                  <span className="block mt-2 font-lato font-normal text-2xl sm:text-3xl md:text-4xl text-neutral-600">
+                  <span className="block mt-2 font-lora font-normal text-2xl sm:text-3xl md:text-4xl text-neutral-600">
                     {guide.subheadline}
                   </span>
                 )}
@@ -324,7 +324,7 @@ export function LuxuryLedMaskLandingPage({
             ) : (
               <>
                 Best LED Face Mask
-                <span className="block mt-2 font-lato font-normal text-2xl sm:text-3xl md:text-4xl text-neutral-600">
+                <span className="block mt-2 font-lora font-normal text-2xl sm:text-3xl md:text-4xl text-neutral-600">
                   United Kingdom — 2026 Clinical Comparison
                 </span>
               </>
@@ -367,7 +367,7 @@ export function LuxuryLedMaskLandingPage({
             <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-bold">
               Consultant Dermatologist Verdict
             </span>
-            <h2 className="font-lato text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#181818] mt-1">
+            <h2 className="font-lora text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#181818] mt-1">
               {guide?.drShannonVerdict?.name
                 ? `${guide.drShannonVerdict.name}'s Recommendation`
                 : "Dr. Shannon's Final Recommendation"}
@@ -417,14 +417,14 @@ export function LuxuryLedMaskLandingPage({
             {/* Right Column: Verified Clinical Reviews & Research Data */}
             <div className="flex flex-col justify-center text-center md:text-left">
               {/* Heading */}
-              <h3 className="font-lato text-2xl sm:text-3xl font-extrabold text-[#181818] mb-1">
+              <h3 className="font-lora text-2xl sm:text-3xl font-extrabold text-[#181818] mb-1">
                 Verified Clinical Reviews
               </h3>
 
               {/* Rating & Stars Directly Below Heading, Nothing Else */}
               <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 sm:gap-3 mb-4">
                 <div className="flex items-center gap-1.5">
-                  <span className="font-lato font-extrabold text-base sm:text-lg text-[#181818]">Rated 4.9 / 5</span>
+                  <span className="font-lora font-extrabold text-base sm:text-lg text-[#181818]">Rated 4.9 / 5</span>
                   <GoldStars rating={5} size={18} />
                 </div>
                 <span className="text-neutral-400 hidden sm:inline">•</span>
@@ -495,7 +495,7 @@ export function LuxuryLedMaskLandingPage({
                 key={pIdx}
                 className={
                   pIdx === 0
-                    ? "first-letter:font-lato first-letter:text-5xl first-letter:font-extrabold first-letter:float-left first-letter:mr-3 first-letter:text-[#181818] leading-[1.8]"
+                    ? "first-letter:font-lora first-letter:text-5xl first-letter:font-extrabold first-letter:float-left first-letter:mr-3 first-letter:text-[#181818] leading-[1.8]"
                     : ""
                 }
               >
@@ -504,7 +504,7 @@ export function LuxuryLedMaskLandingPage({
             ))
           ) : (
             <>
-              <p className="first-letter:font-lato first-letter:text-5xl first-letter:font-extrabold first-letter:float-left first-letter:mr-3 first-letter:text-[#181818] leading-[1.8]">
+              <p className="first-letter:font-lora first-letter:text-5xl first-letter:font-extrabold first-letter:float-left first-letter:mr-3 first-letter:text-[#181818] leading-[1.8]">
                 LED face masks range wildly from <strong>£100 to over £600</strong> in the UK, yet higher prices rarely deliver better results. To cut through marketing exaggeration, our clinical team spent <strong>200+ hours laboratory-testing 18 leading UK devices</strong>—measuring wavelength precision, optical energy density, and neck coverage. The highest-performing models delivered medical-grade multi-spectrum LEDs, integrated neck treatment, and lightweight cordless mobility for effortless consistency.
               </p>
               <p className="font-semibold text-[#181818]">
@@ -527,7 +527,7 @@ export function LuxuryLedMaskLandingPage({
               <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-bold block mb-1">
                 Testing Methodology
               </span>
-              <h2 className="font-lato text-xl sm:text-2xl md:text-3xl font-extrabold text-[#181818] tracking-tight group-hover:text-[#7e22ce] transition-colors">
+              <h2 className="font-lora text-xl sm:text-2xl md:text-3xl font-extrabold text-[#181818] tracking-tight group-hover:text-[#7e22ce] transition-colors">
                 We Evaluated LED Face Masks on 10 Key Standards
               </h2>
             </div>
@@ -562,7 +562,7 @@ export function LuxuryLedMaskLandingPage({
                     <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#181818] text-white text-xs font-openSans font-bold shadow-xs">
                       {idx + 1}
                     </div>
-                    <span className="font-lato text-sm sm:text-base font-semibold text-[#181818] tracking-tight">
+                    <span className="font-lora text-sm sm:text-base font-semibold text-[#181818] tracking-tight">
                       {criterion}
                     </span>
                   </div>
@@ -585,7 +585,7 @@ export function LuxuryLedMaskLandingPage({
               <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-bold">
                 Head-to-Head Specification Matrix
               </span>
-              <h2 className="font-lato text-2xl sm:text-3xl font-extrabold text-[#181818] mt-1">
+              <h2 className="font-lora text-2xl sm:text-3xl font-extrabold text-[#181818] mt-1">
                 {guide.headline}
               </h2>
               <p className="font-lora text-sm sm:text-base text-neutral-600 mt-2">
@@ -606,7 +606,7 @@ export function LuxuryLedMaskLandingPage({
                 <tbody className="divide-y divide-[#f1f5f9]">
                   {guide.comparisonRows.map((row: LedMaskComparisonRow, rIdx: number) => (
                     <tr key={rIdx} className={rIdx % 2 === 0 ? "bg-white" : "bg-[#fafafa]/60"}>
-                      <td className="py-3.5 px-4 font-lato font-bold text-[#181818]">{row.feature}</td>
+                      <td className="py-3.5 px-4 font-lora font-bold text-[#181818]">{row.feature}</td>
                       <td className="py-3.5 px-4 font-openSans font-bold text-[#7e22ce] bg-[#fdf4ff]/40">
                         {row.buudy}
                       </td>
@@ -629,14 +629,14 @@ export function LuxuryLedMaskLandingPage({
               <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-bold">
                 Clinical Analysis &amp; Buyer Guidance
               </span>
-              <h2 className="font-lato text-2xl sm:text-3xl font-extrabold text-[#181818] mt-1">
+              <h2 className="font-lora text-2xl sm:text-3xl font-extrabold text-[#181818] mt-1">
                 What UK Patients &amp; Consumers Need to Know
               </h2>
             </div>
             <div className="grid grid-cols-1 gap-6">
               {guide.buyerBlocks.map((block: LedMaskBuyerBlock, bIdx: number) => (
                 <div key={bIdx} className="bg-white rounded-2xl p-6 sm:p-8 border border-[#e7e7e7] shadow-xs">
-                  <h3 className="font-lato text-xl sm:text-2xl font-bold text-[#181818] mb-3 flex items-center gap-2.5">
+                  <h3 className="font-lora text-xl sm:text-2xl font-bold text-[#181818] mb-3 flex items-center gap-2.5">
                     <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#181818] text-white text-xs font-openSans font-bold shrink-0">
                       {bIdx + 1}
                     </span>
@@ -717,7 +717,7 @@ export function LuxuryLedMaskLandingPage({
                 <div className="lg:col-span-7 flex flex-col justify-between h-full pt-1 sm:pt-2">
                   <div>
                     {/* Product Title (No duplicate #1 and no subtitle paragraph) */}
-                    <h2 className="font-lato text-2xl sm:text-3xl font-extrabold text-[#181818] leading-tight mb-2">
+                    <h2 className="font-lora text-2xl sm:text-3xl font-extrabold text-[#181818] leading-tight mb-2">
                       {product.name}
                     </h2>
 
@@ -731,11 +731,11 @@ export function LuxuryLedMaskLandingPage({
 
                     {/* Price Display */}
                     <div className="flex items-baseline gap-3 mb-3.5">
-                      <span className="font-lato text-3xl sm:text-4xl font-extrabold text-[#181818]">
+                      <span className="font-lora text-3xl sm:text-4xl font-extrabold text-[#181818]">
                         {product.price}
                       </span>
                       {product.isWinner && product.originalPrice && (
-                        <span className="text-lg sm:text-xl text-neutral-400 line-through font-semibold font-lato">
+                        <span className="text-lg sm:text-xl text-neutral-400 line-through font-semibold font-lora">
                           {product.originalPrice}
                         </span>
                       )}
@@ -763,10 +763,20 @@ export function LuxuryLedMaskLandingPage({
                     {product.isWinner ? (
                       <a
                         href={product.link}
-                        className="w-full py-4 px-6 rounded-xl bg-[#000000] hover:bg-[#b265ff] text-white font-openSans font-extrabold text-base uppercase tracking-wider flex items-center justify-center gap-2 transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.01]"
+                        className="group relative overflow-hidden w-full py-4 px-6 rounded-xl bg-[#000000] hover:bg-[#7e22ce] text-white font-openSans font-extrabold text-base uppercase tracking-wider flex items-center justify-center gap-2.5 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-[#b265ff]/40 hover:-translate-y-1 hover:scale-[1.025] active:scale-[0.985] animate-ctaPulse"
                       >
-                        <span>{product.ctaText}</span>
-                        <ArrowRight size={20} />
+                        {/* Continuous Idle Light Shimmer Sweep */}
+                        <span
+                          aria-hidden="true"
+                          className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent animate-ctaShimmer"
+                        />
+                        <span className="relative z-10 transition-transform duration-300 group-hover:scale-105">
+                          {product.ctaText}
+                        </span>
+                        <ArrowRight
+                          size={20}
+                          className="relative z-10 shrink-0 transition-transform duration-300 group-hover:translate-x-2 animate-bounceX"
+                        />
                       </a>
                     ) : (
                       <a
@@ -786,7 +796,7 @@ export function LuxuryLedMaskLandingPage({
                   ============================================================ */}
               {product.isWinner && product.gifts && (
                 <div className="w-full bg-[#181818] text-white rounded-2xl p-6 sm:p-8 border border-neutral-800 shadow-xl mb-8 relative overflow-hidden">
-                  <h3 className="font-lato text-2xl sm:text-3xl font-extrabold text-white mb-2 leading-tight">
+                  <h3 className="font-lora text-2xl sm:text-3xl font-extrabold text-white mb-2 leading-tight">
                     {product.gifts.title}
                   </h3>
                   <p className="font-lora text-sm sm:text-base text-neutral-300 leading-relaxed mb-6 font-normal">
@@ -811,10 +821,16 @@ export function LuxuryLedMaskLandingPage({
                           />
                         </div>
 
-                        <span className="block font-openSans text-xs text-neutral-400 line-through font-semibold mb-1">
-                          Worth {gift.regularPrice}
-                        </span>
-                        <h4 className="font-lato text-sm sm:text-base font-bold text-white leading-snug">
+                        <div className="flex items-center justify-center gap-1.5 mb-1.5">
+                          <span className="font-openSans text-xs text-neutral-400 font-semibold uppercase tracking-wider">Worth</span>
+                          <span className="font-openSans text-sm sm:text-base font-bold text-neutral-200 line-through decoration-red-400/90 decoration-2">
+                            {gift.regularPrice}
+                          </span>
+                          <span className="text-[10px] font-extrabold text-emerald-400 uppercase tracking-wide bg-emerald-950/70 border border-emerald-500/30 px-1.5 py-0.5 rounded">
+                            FREE
+                          </span>
+                        </div>
+                        <h4 className="font-lora text-sm sm:text-base font-bold text-white leading-snug">
                           {gift.name}
                         </h4>
                       </div>
@@ -833,7 +849,7 @@ export function LuxuryLedMaskLandingPage({
                     <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#10b981] text-white shadow-xs">
                       <Check size={16} strokeWidth={3} />
                     </span>
-                    <span className="font-lato text-xl sm:text-2xl font-black text-[#181818] tracking-tight">
+                    <span className="font-lora text-xl sm:text-2xl font-black text-[#181818] tracking-tight">
                       Pros
                     </span>
                   </div>
@@ -856,7 +872,7 @@ export function LuxuryLedMaskLandingPage({
                     <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#ef4444] text-white shadow-xs">
                       <X size={16} strokeWidth={3} />
                     </span>
-                    <span className="font-lato text-xl sm:text-2xl font-black text-[#181818] tracking-tight">
+                    <span className="font-lora text-xl sm:text-2xl font-black text-[#181818] tracking-tight">
                       Cons
                     </span>
                   </div>
@@ -923,7 +939,7 @@ export function LuxuryLedMaskLandingPage({
             <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-bold">
               Complete Side-by-Side Matrix
             </span>
-            <h2 className="font-lato text-2xl sm:text-3xl font-extrabold text-[#181818] mt-1">
+            <h2 className="font-lora text-2xl sm:text-3xl font-extrabold text-[#181818] mt-1">
               Top 10 LED Face Masks at a Glance
             </h2>
           </div>
@@ -955,7 +971,7 @@ export function LuxuryLedMaskLandingPage({
                           className="h-11 w-11 sm:h-12 sm:w-12 rounded-xl object-contain shrink-0"
                         />
                         <div>
-                          <div className="font-lato font-bold text-[#181818] text-xs sm:text-sm">
+                          <div className="font-lora font-bold text-[#181818] text-xs sm:text-sm">
                             {p.rank} {p.name}
                           </div>
                           {p.isWinner && (
@@ -990,7 +1006,7 @@ export function LuxuryLedMaskLandingPage({
                     </td>
                     <td className="py-3 px-2 sm:px-2.5 font-lora text-neutral-700 text-xs sm:text-sm">{p.specSheet.cordless}</td>
                     <td className="py-3 px-2 sm:px-2.5 font-lora text-neutral-700 text-xs sm:text-sm">{p.specSheet.trial}</td>
-                    <td className="py-3 px-2 sm:px-2.5 font-lato font-extrabold text-[#181818] text-base sm:text-lg whitespace-nowrap">
+                    <td className="py-3 px-2 sm:px-2.5 font-lora font-extrabold text-[#181818] text-base sm:text-lg whitespace-nowrap">
                       {p.price}
                     </td>
                     <td className="py-3 px-2 sm:px-2.5 text-right whitespace-nowrap">
@@ -1041,7 +1057,7 @@ export function LuxuryLedMaskLandingPage({
               <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-bold">
                 Clinical Questions &amp; Answers
               </span>
-              <h2 className="font-lato text-2xl sm:text-3xl font-extrabold text-[#181818] mt-1">
+              <h2 className="font-lora text-2xl sm:text-3xl font-extrabold text-[#181818] mt-1">
                 Frequently Asked Questions
               </h2>
               <p className="font-lora text-sm sm:text-base text-neutral-600 mt-2">
@@ -1055,7 +1071,7 @@ export function LuxuryLedMaskLandingPage({
                   key={fIdx}
                   className="bg-[#fafafa] rounded-2xl p-5 sm:p-6 border border-[#e7e7e7] hover:border-neutral-300 transition-colors"
                 >
-                  <h3 className="font-lato text-base sm:text-lg font-bold text-[#181818] mb-2.5 flex items-start gap-2.5">
+                  <h3 className="font-lora text-base sm:text-lg font-bold text-[#181818] mb-2.5 flex items-start gap-2.5">
                     <HelpCircle size={18} className="text-[#7e22ce] mt-0.5 shrink-0" />
                     <span>{faq.question}</span>
                   </h3>
@@ -1104,7 +1120,7 @@ export function LuxuryLedMaskLandingPage({
       {isDisclosureOpen && (
         <div className="cp-overlay" onClick={() => setIsDisclosureOpen(false)}>
           <div className="disclosure-card-inner" onClick={(e) => e.stopPropagation()}>
-            <h3 className="disclosure-card-title font-lato text-xl font-bold text-[#181818]">
+            <h3 className="disclosure-card-title font-lora text-xl font-bold text-[#181818]">
               Advertising &amp; Editorial Disclosure
             </h3>
             <p className="disclosure-card-text font-lora text-neutral-700 leading-relaxed text-sm mb-4">
@@ -1157,7 +1173,7 @@ function StickyWinnerBox({ winnerProduct }: { winnerProduct: LedMaskProduct }) {
 
         {/* Title: #1 Product Name in Bold Uppercase */}
         <div className="mt-1.5 mb-1.5 text-center px-0.5">
-          <h4 className="font-lato font-extrabold text-white text-[11px] tracking-wider uppercase leading-tight">
+          <h4 className="font-lora font-extrabold text-white text-[11px] tracking-wider uppercase leading-tight">
             {winnerProduct.name}
           </h4>
         </div>

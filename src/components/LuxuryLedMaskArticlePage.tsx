@@ -165,7 +165,7 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
         </div>
 
         {/* Article Headline */}
-        <h1 className="font-lato text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#181818] mb-6 leading-[1.2]">
+        <h1 className="font-lora text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#181818] mb-6 leading-[1.2]">
           {article.title}
         </h1>
 
@@ -245,7 +245,7 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
               <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#7e22ce] text-white">
                 <Sparkles size={18} />
               </span>
-              <h2 className="font-lato text-xl sm:text-2xl font-extrabold text-[#181818]">
+              <h2 className="font-lora text-xl sm:text-2xl font-extrabold text-[#181818]">
                 Key Takeaways &amp; Executive Summary
               </h2>
             </div>
@@ -267,7 +267,7 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
               key={pIdx}
               className={
                 pIdx === 0
-                  ? "first-letter:font-lato first-letter:text-5xl first-letter:font-extrabold first-letter:float-left first-letter:mr-3 first-letter:text-[#181818] leading-[1.85]"
+                  ? "first-letter:font-lora first-letter:text-5xl first-letter:font-extrabold first-letter:float-left first-letter:mr-3 first-letter:text-[#181818] leading-[1.85]"
                   : ""
               }
             >
@@ -288,12 +288,12 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
             <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-extrabold block mb-1">
               Top Rated by Dermatologist Panel
             </span>
-            <h3 className="font-lato text-2xl sm:text-3xl font-extrabold text-[#181818] mb-2">
+            <h3 className="font-lora text-2xl sm:text-3xl font-extrabold text-[#181818] mb-2">
               {winnerProduct.name}
             </h3>
             <p className="font-lora text-sm sm:text-base text-neutral-600 mb-6">
               Full-coverage facial and neck phototherapy with 7 clinical wavelengths, medical-grade silicone, and
-              complimentary 3-piece gift suite.
+              Black Friday 3 free gifts suite.
             </p>
           </div>
 
@@ -321,11 +321,11 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
             {/* Right Highlights & CTA */}
             <div className="md:col-span-7 space-y-4">
               <div className="flex items-baseline gap-3">
-                <span className="font-lato text-3xl sm:text-4xl font-extrabold text-[#181818]">
+                <span className="font-lora text-3xl sm:text-4xl font-extrabold text-[#181818]">
                   {winnerProduct.price}
                 </span>
                 {winnerProduct.originalPrice && (
-                  <span className="font-lato text-lg text-neutral-400 line-through">
+                  <span className="font-lora text-lg text-neutral-400 line-through">
                     {winnerProduct.originalPrice}
                   </span>
                 )}
@@ -355,7 +355,7 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
                 </li>
                 <li className="flex items-center gap-2">
                   <Check size={16} className="text-emerald-600 shrink-0" />
-                  <span><strong>Complimentary £128 Gift Suite:</strong> Travel box, LED torch, &amp; clinical guide.</span>
+                  <span><strong>Black Friday 3 Free Gifts (£128 Value):</strong> Travel box, LED torch, &amp; clinical guide.</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check size={16} className="text-emerald-600 shrink-0" />
@@ -369,10 +369,17 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
                   href={BUUDY_PRODUCT_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3.5 sm:py-4 px-6 rounded-2xl bg-[#181818] hover:bg-[#b265ff] text-white font-openSans font-extrabold text-sm sm:text-base uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer"
+                  className="group relative overflow-hidden w-full py-3.5 sm:py-4 px-6 rounded-2xl bg-[#181818] hover:bg-[#7e22ce] text-white font-openSans font-extrabold text-sm sm:text-base uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-lg hover:shadow-2xl hover:shadow-[#b265ff]/40 hover:-translate-y-1 hover:scale-[1.025] active:scale-[0.985] transition-all duration-300 animate-ctaPulse cursor-pointer"
                 >
-                  <span>Claim 60% Off &amp; £128 Free Gifts</span>
-                  <ArrowRight size={18} className="shrink-0 transition-transform group-hover:translate-x-1" />
+                  {/* Continuous Idle Light Shimmer Sweep */}
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent animate-ctaShimmer"
+                  />
+                  <span className="relative z-10 transition-transform duration-300 group-hover:scale-105">
+                    Claim 60% Off &amp; £128 Free Gifts
+                  </span>
+                  <ArrowRight size={18} className="relative z-10 shrink-0 transition-transform duration-300 group-hover:translate-x-2 animate-bounceX" />
                 </a>
               </div>
             </div>
@@ -393,7 +400,7 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
               <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-bold">
                 Clinical Inquiries
               </span>
-              <h2 className="font-lato text-2xl sm:text-3xl font-extrabold text-[#181818] mt-1">
+              <h2 className="font-lora text-2xl sm:text-3xl font-extrabold text-[#181818] mt-1">
                 Frequently Asked Questions
               </h2>
               <p className="font-lora text-sm sm:text-base text-neutral-600 mt-2">
@@ -414,7 +421,7 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
                       onClick={() => toggleFaq(fIdx)}
                       className="w-full text-left p-5 sm:p-6 flex items-start justify-between gap-4 cursor-pointer hover:bg-neutral-50/70 transition-colors select-none"
                     >
-                      <span className="font-lato font-bold text-base sm:text-lg text-[#181818] flex items-start gap-2.5">
+                      <span className="font-lora font-bold text-base sm:text-lg text-[#181818] flex items-start gap-2.5">
                         <HelpCircle size={18} className="text-[#7e22ce] mt-1 shrink-0" />
                         <span>{faqItem.question}</span>
                       </span>
@@ -440,7 +447,7 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
             <span className="font-openSans text-xs uppercase tracking-widest text-[#d1a3ff] font-bold block mb-2">
               Ready to Upgrade Your Skincare Routine?
             </span>
-            <h3 className="font-lato text-2xl sm:text-3xl md:text-4xl font-extrabold mb-4">
+            <h3 className="font-lora text-2xl sm:text-3xl md:text-4xl font-extrabold mb-4">
               Explore The 2026 UK LED Mask Benchmark
             </h3>
             <p className="font-lora text-sm sm:text-base text-neutral-300 leading-relaxed mb-6">
@@ -503,7 +510,7 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
       {isDisclosureOpen && (
         <div className="cp-overlay" onClick={() => setIsDisclosureOpen(false)}>
           <div className="disclosure-card-inner" onClick={(e) => e.stopPropagation()}>
-            <h3 className="disclosure-card-title font-lato text-xl font-bold text-[#181818]">
+            <h3 className="disclosure-card-title font-lora text-xl font-bold text-[#181818]">
               Advertising &amp; Editorial Disclosure
             </h3>
             <p className="disclosure-card-text font-lora text-neutral-700 leading-relaxed text-sm mb-4">
@@ -556,7 +563,7 @@ function StickyWinnerBox({ winnerProduct }: { winnerProduct: LedMaskProduct }) {
 
         {/* Title: #1 Product Name in Bold Uppercase */}
         <div className="mt-1.5 mb-1.5 text-center px-0.5">
-          <h4 className="font-lato font-extrabold text-white text-[11px] tracking-wider uppercase leading-tight">
+          <h4 className="font-lora font-extrabold text-white text-[11px] tracking-wider uppercase leading-tight">
             {winnerProduct.name}
           </h4>
         </div>

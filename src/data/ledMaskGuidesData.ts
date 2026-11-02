@@ -109,7 +109,7 @@ export const LED_MASK_GUIDES: Record<LedMaskGuideSlug, LedMaskGuide> = {
         advantage: "buudy"
       },
       {
-        feature: "Neck & Décolletage Treatment",
+        feature: "Neck & Chest Coverage",
         buudy: "Integrated neck rejuvenation panel included in base price",
         competitor: "Excluded (Requires purchasing separate £679.99 Face & Neck Kit)",
         whyItMatters: "Cervical skin is up to 60% thinner than facial skin and ages faster; excluding it creates an ageing contrast.",
@@ -322,7 +322,7 @@ export const LED_MASK_GUIDES: Record<LedMaskGuideSlug, LedMaskGuide> = {
       name: "Dr. Shannon, MD",
       title: "Consultant Dermatologist & Phototherapy Specialist",
       quote: "Skincare technology should not depend on phone battery life, Bluetooth glitches, or 3-minute rushed exposures. Efficacy in photobiology requires adequate photon accumulation over 10 to 15 minutes. Buudy delivers proper clinical dosing with zero digital bloat.",
-      clinicalRationale: "Under the optical energy equation (Energy Density = Optical Power x Treatment Time), reducing treatment time from 10 minutes down to 3 minutes cuts total photonic joules delivered to the dermal fibroblast layer by 70%, unless irradiance is tripled. If irradiance is excessively elevated, it risks thermal agitation and melanocyte excitation in Fitzpatrick IV-VI skin types (which Qure notes in their own fine print as a pigmentation risk). A steady, comfortable 10-minute dose at 30-32 mW/cm²—as delivered by Buudy—is the gold standard established in peer-reviewed photomedicine. Furthermore, Buudy includes the neck and décolletage without charging a £120 app markup.",
+      clinicalRationale: "Under the optical energy equation (Energy Density = Optical Power x Treatment Time), reducing treatment time from 10 minutes down to 3 minutes cuts total photonic joules delivered to the dermal fibroblast layer by 70%, unless irradiance is tripled. If irradiance is excessively elevated, it risks thermal agitation and melanocyte excitation in Fitzpatrick IV-VI skin types (which Qure notes in their own fine print as a pigmentation risk). A steady, comfortable 10-minute dose at 30-32 mW/cm²—as delivered by Buudy—is the gold standard established in peer-reviewed photomedicine. Furthermore, Buudy includes the neck and chest without charging a £120 app markup.",
       recommendation: "For reliable cellular ATP stimulation without app dependency or cervical neglect, Buudy 7 Colour is our definitive recommendation."
     },
     comparisonRows: [
@@ -330,7 +330,7 @@ export const LED_MASK_GUIDES: Record<LedMaskGuideSlug, LedMaskGuide> = {
         feature: "Price Comparison",
         buudy: "£179 (Includes full face and neck unibody)",
         competitor: "£299 (Face mask only)",
-        whyItMatters: "Qure costs £120 more while omitting the critical neck and décolletage zone.",
+        whyItMatters: "Qure costs £120 more while omitting the critical neck and chest zone.",
         advantage: "buudy"
       },
       {
@@ -341,7 +341,7 @@ export const LED_MASK_GUIDES: Record<LedMaskGuideSlug, LedMaskGuide> = {
         advantage: "buudy"
       },
       {
-        feature: "Neck & Décolletage Coverage",
+        feature: "Neck & Chest Coverage",
         buudy: "Integrated full neck rejuvenation panel included standard",
         competitor: "Zero neck coverage (Treatments stop abruptly at jawline)",
         whyItMatters: "Treating the face alone leads to noticeable cosmetic ageing contrast on the neck.",
@@ -438,7 +438,7 @@ export const LED_MASK_GUIDES: Record<LedMaskGuideSlug, LedMaskGuide> = {
       name: "Dr. Shannon, MD",
       title: "Consultant Dermatologist & Phototherapy Specialist",
       quote: "TheraFace is a fascinating massage gadget, but for targeted dermatological therapy, rigid plastic masks create focal pressure points and uneven light gaps. True clinical phototherapy requires uniform skin proximity and complete cervical coverage.",
-      clinicalRationale: "Photobiomodulation efficacy follows the inverse square law of light: irradiance drops exponentially as the emitter moves away from the skin. A rigid shell creates vast discrepancies: resting tight on the bridge of the nose while hovering 15mm away from the temples and jawline. This yields patchy, uneven photon absorption. Furthermore, mechanical vibration around sensitive facial capillaries during light therapy can cause unwanted vasodilatory flushing in rosacea patients. Buudy's flexible silicone unibody maintains a uniform, gentle 1-2mm proximity across all contours, delivering even 32 mW/cm² energy density across the face, neck, and décolletage without skull heaviness or jaw fatigue.",
+      clinicalRationale: "Photobiomodulation efficacy follows the inverse square law of light: irradiance drops exponentially as the emitter moves away from the skin. A rigid shell creates vast discrepancies: resting tight on the bridge of the nose while hovering 15mm away from the temples and jawline. This yields patchy, uneven photon absorption. Furthermore, mechanical vibration around sensitive facial capillaries during light therapy can cause unwanted vasodilatory flushing in rosacea patients. Buudy's flexible silicone unibody maintains a uniform, gentle 1-2mm proximity across all contours, delivering even 32 mW/cm² energy density across the face, neck, and chest area without skull heaviness or jaw fatigue.",
       recommendation: "Unless you specifically demand temple vibration massage, Buudy 7 Colour offers vastly superior dermatological coverage, clinical comfort, and value."
     },
     comparisonRows: [
@@ -457,7 +457,7 @@ export const LED_MASK_GUIDES: Record<LedMaskGuideSlug, LedMaskGuide> = {
         advantage: "buudy"
       },
       {
-        feature: "Neck & Décolletage Coverage",
+        feature: "Neck & Chest Coverage",
         buudy: "Integrated neck rejuvenation panel included in box",
         competitor: "Zero neck coverage (Treats strictly the face)",
         whyItMatters: "For nearly £600, your neck and chest receive zero phototherapy.",
@@ -573,7 +573,7 @@ export const LED_MASK_GUIDES: Record<LedMaskGuideSlug, LedMaskGuide> = {
         advantage: "buudy"
       },
       {
-        feature: "Neck & Décolletage Coverage",
+        feature: "Neck & Chest Coverage",
         buudy: "Dedicated neck & chest module included in base package",
         competitor: "None (Face only; jawline to hairline)",
         whyItMatters: "Therabody ignores cervical ageing completely despite charging £579.",
@@ -768,7 +768,7 @@ export const LED_MASK_GUIDES: Record<LedMaskGuideSlug, LedMaskGuide> = {
     ],
     headline: "The 'Floating Head' Warning: Why Face-Only LED Masks Fail",
     subheadline: "Aging doesn't stop at your jawline. Why treating your face while ignoring your neck creates an unnatural cosmetic mismatch—and how brands exploit it with a £300 'Neck Tax'.",
-    quickTake: "The skin on the neck and décolletage is up to 60% thinner than facial skin, has fewer sebaceous glands, and experiences constant mechanical stress from looking down at screens ('tech neck'). When consumers use a face-only LED mask, the face gains dermal density while the neck continues to wrinkle, creping and sagging, creating a stark visual boundary known as 'Floating Head Syndrome'. Premium brands intentionally omit neck coverage to charge £300+ for a second device. Buudy solves this by including complete face, neck, and chest phototherapy in one £179 device.",
+    quickTake: "The skin on the neck and chest is up to 60% thinner than facial skin, has fewer sebaceous glands, and experiences constant mechanical stress from looking down at screens ('tech neck'). When consumers use a face-only LED mask, the face gains dermal density while the neck continues to wrinkle, creping and sagging, creating a stark visual boundary known as 'Floating Head Syndrome'. Premium brands intentionally omit neck coverage to charge £300+ for a second device. Buudy solves this by including complete face, neck, and chest phototherapy in one £179 device.",
     heroImage: "/img/neck_led_mask_1774237229811.png",
     intro: [
       "Walk into any aesthetic dermatology clinic in London and you will notice a common complaint among patients in their 40s and 50s: their facial skin looks smooth and radiant, but their neck reveals deep horizontal bands, crepiness, and sun damage.",
@@ -778,14 +778,14 @@ export const LED_MASK_GUIDES: Record<LedMaskGuideSlug, LedMaskGuide> = {
     drShannonVerdict: {
       name: "Dr. Shannon, MD",
       title: "Consultant Dermatologist & Phototherapy Specialist",
-      quote: "The neck and décolletage are the real tell-tales of chronological ageing. Treating your face while ignoring your neck is like painting half a wall—it draws immediate attention to the unpainted section.",
+      quote: "The neck and chest are the real tell-tales of chronological ageing. Treating your face while ignoring your neck is like painting half a wall—it draws immediate attention to the unpainted section.",
       clinicalRationale: "Anatomically, the skin overlying the platysma muscle has minimal subcutaneous fat and a thin dermis with low vascularity compared to the cheeks. When subjected to repetitive flexion ('tech neck') and solar elastosis, collagen loss occurs at twice the rate of facial skin. Photobiomodulation via 633nm and 830nm light is uniquely effective at stimulating tropocollagen synthesis and strengthening platysmal elasticity. However, if neck treatment is postponed or requires a second 20-minute daily routine with a separate £300 gadget, patient compliance falls to near zero. An integrated, simultaneous face-and-neck device is the only clinically viable approach to ensure uniform chronological skin rejuvenation.",
       recommendation: "Never buy a face-only LED mask if you are over 30. Buudy 7 Colour provides complete cervical and facial coverage in a single 10-minute session."
     },
     comparisonRows: [
       {
         feature: "Anatomical Treatment Zone",
-        buudy: "Full face + integrated cervical neck & décolletage collar",
+        buudy: "Full face + integrated cervical neck & chest collar",
         competitor: "Face only (Stops abruptly at the lower mandible)",
         whyItMatters: "Treating the face alone leaves the fragile neck skin un-irradiated and ageing rapidly.",
         advantage: "buudy"
@@ -850,8 +850,8 @@ export const LED_MASK_GUIDES: Record<LedMaskGuideSlug, LedMaskGuide> = {
         answer: "Facial masks are curved specifically for the nose, cheeks, and forehead. Placing a facial mask on your neck leaves wide gaps where the diodes do not contour to cervical anatomy, resulting in uneven light delivery and poor results."
       },
       {
-        question: "Does Buudy's neck piece treat the chest and décolletage as well?",
-        answer: "Yes! The contoured collar extends downward over the clavicle, delivering therapeutic 633nm and 830nm wavelengths to the upper chest and décolletage where sun damage commonly occurs."
+        question: "Does Buudy's neck piece treat the chest as well?",
+        answer: "Yes! The contoured collar extends downward over the clavicle, delivering therapeutic 633nm and 830nm wavelengths to the upper chest where sun damage commonly occurs."
       },
       {
         question: "How quickly can LED light improve horizontal 'tech-neck' lines?",
@@ -1350,7 +1350,7 @@ export const LED_MASK_GUIDES: Record<LedMaskGuideSlug, LedMaskGuide> = {
         advantage: "buudy"
       },
       {
-        feature: "Neck & Décolletage Treatment",
+        feature: "Neck & Chest Coverage",
         buudy: "Full cervical neck collar included standard",
         competitor: "Face only (Leaves neck vulnerable to accelerated ageing)",
         whyItMatters: "Treats platysmal lines and tech-neck creping simultaneously.",

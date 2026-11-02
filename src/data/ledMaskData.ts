@@ -97,7 +97,7 @@ export const LED_MASK_PRODUCTS: LedMaskProduct[] = [
     },
     description: [
       "Earning our definitive <b>#1 ranking for 2026</b>, the Buudy 7 Colour LED Mask establishes an unrivalled benchmark for at-home phototherapy throughout the UK. Whereas conventional masks typically offer only mono-wavelength red light, Buudy delivers an expansive <b>7-colour spectrum</b> augmented by cellular-penetrating <b>830nm near-infrared</b> diodes. This clinical multi-waveband configuration simultaneously addresses stubborn fine lines, hyperpigmentation, active blemishes, and systemic loss of dermal elasticity across diverse skin tones.",
-      "What sets this system apart clinically is the inclusion of <b>built-in neck coverage</b> directly in the standard package. The fragile skin across the neck and <b>décolletage</b> possesses fewer sebaceous glands and exhibits accelerated <b>ageing</b>, yet rival high-end masks consistently leave this area untreated. Featuring medical-grade flexible silicone, complete cordless mobility via responsive <b>Tap Technology</b>, and intelligent guided routines, administering a 10-minute daily session is completely seamless.",
+      "What sets this system apart clinically is the inclusion of <b>built-in neck coverage</b> directly in the standard package. The fragile skin across the neck and <b>chest area</b> possesses fewer sebaceous glands and exhibits accelerated <b>ageing</b>, yet rival high-end masks consistently leave this area untreated. Featuring medical-grade flexible silicone, complete cordless mobility via responsive <b>Tap Technology</b>, and intelligent guided routines, administering a 10-minute daily session is completely seamless.",
       "Supported by over 16,000 verified British users and an extraordinary <b>4.9-star rating</b>, patients frequently document visible enhancements in complexion clarity and skin firmness in under a dozen sessions. Positioned at an accessible <b>£179</b> and reinforced by an ironclad <b>90-day money-back guarantee</b> along with a £128 complimentary accessory suite, it stands as the most comprehensive, low-risk phototherapy investment on the market today.",
     ],
     metrics: [
@@ -109,7 +109,7 @@ export const LED_MASK_PRODUCTS: LedMaskProduct[] = [
     ],
     pros: [
       "<b>Full 7-Colour Spectrum</b> - Delivers 7 therapeutic wavelengths plus 830nm Near-Infrared light.",
-      "<b>Neck & Décolletage Unit</b> - Integrated chest piece treats face and neck in one session.",
+      "<b>Neck & Chest Coverage</b> - Integrated chest piece treats face and neck in one session.",
       "<b>Medical-Grade Silicone</b> - Flexible, skin-safe contouring ensures uniform optical coverage.",
       "<b>Protective Eye Shields</b> - Built-in silicone eye inserts guarantee comfortable, safe sessions.",
       "<b>4,000+ Verified Reviews</b> - Consistently rated 4.9/5 stars by UK skincare customers.",
@@ -124,8 +124,8 @@ export const LED_MASK_PRODUCTS: LedMaskProduct[] = [
     ],
     gifts: {
       totalValue: "£128",
-      title: "Complimentary 3-Piece Gift Suite (£128 Value)",
-      description: "During our clinical evaluation, we confirmed Buudy is bundling their three signature skincare accessories complimentary with every mask purchase for a limited period.",
+      title: "Black Friday: 3 Free Gifts Included (£128 Value)",
+      description: "For Black Friday, our clinical testing team confirmed Buudy is bundling their three signature skincare accessories completely free with every mask purchase for a limited period (£128 total value included at no extra cost).",
       items: [
         {
           name: "Premium Travel Box",
@@ -185,7 +185,7 @@ export const LED_MASK_PRODUCTS: LedMaskProduct[] = [
     description: [
       "Taking our <b>#2 ranking</b>, the CurrentBody LED Mask is widely celebrated amongst UK beauty editors and celebrity practitioners for its focused anti-ageing protocol. The mask integrates dual-band <b>633nm red</b> and <b>830nm near-infrared</b> wavelengths designed specifically to stimulate fibroblast activity, encouraging renewed collagen synthesis and diminishing superficial facial wrinkles during standard 10-minute treatments.",
       "The device employs patented <b>Pillow Technology</b> diffusers to scatter photon emissions evenly across the facial landscape, preventing hotspot concentrations. Moulded from supple, medical-grade silicone, the chassis rests comfortably against the face; however, the mask must remain tethered via cable to an external battery puck throughout use.",
-      "Despite its reputable clinical pedigree, the substantial <b>£399.99 price tag</b> offers strictly face-only coverage, requiring an exorbitant £679.99 bundle for neck and <b>décolletage</b> care. With no blue, green, or yellow wavelengths to combat acne or pigmentation, and an ungenerous policy that levies a <b>10% restocking fee</b> upon return, its overall versatility remains decidedly restricted.",
+      "Despite its reputable clinical pedigree, the substantial <b>£399.99 price tag</b> offers strictly face-only coverage, requiring an exorbitant £679.99 bundle for neck and <b>chest</b> care. With no blue, green, or yellow wavelengths to combat acne or pigmentation, and an ungenerous policy that levies a <b>10% restocking fee</b> upon return, its overall versatility remains decidedly restricted.",
     ],
     metrics: [
       { label: "Light Output & Effectiveness", value: 82 },
@@ -201,7 +201,7 @@ export const LED_MASK_PRODUCTS: LedMaskProduct[] = [
       "Large UK user base with thousands of positive customer reviews.",
     ],
     cons: [
-      "Face-only coverage at £399.99, while the neck and décolletage kit costs an extra £679.99.",
+      "Face-only coverage at £399.99, while the neck and chest kit costs an extra £679.99.",
       "Substantially more expensive than multi-spectrum alternatives like Buudy (£179).",
       "Limited to 2 wavelengths with no Blue, Green, Yellow, Cyan, or Purple modes.",
       "Cannot address active acne breakouts, dark spots, or facial redness.",
@@ -244,7 +244,7 @@ export const LED_MASK_PRODUCTS: LedMaskProduct[] = [
     description: [
       "Holding the <b>#3 position</b>, the Omnilux Contour LED Mask draws upon decades of institutional photomedicine heritage found in clinical dermatology suites. Calibrated with precise <b>633nm red</b> and <b>830nm near-infrared</b> light emitting diodes, this contouring device focuses squarely on reversing photo-damage, increasing dermal cellular turnover, and smoothing structural wrinkles.",
       "Engineered with a lightweight, flexible silicone matrix, the mask contours closely to natural facial features to optimise photon absorption. Endorsed by skincare specialists for its consistent output and clinical safety profile, it delivers a trustworthy home treatment experience for mature skin seeking targeted line reduction.",
-      "However, the premium <b>£348 investment</b> leaves the vulnerable neck and <b>décolletage</b> zones completely exposed unless users purchase a matching companion piece for another £348. Equipped with only 132 LEDs and lacking essential colour spectrums for blemish control or redness balancing, it requires owning separate hardware (such as the Omnilux Clear) to treat multifaceted skin conditions.",
+      "However, the premium <b>£348 investment</b> leaves the vulnerable neck and <b>chest</b> zones completely exposed unless users purchase a matching companion piece for another £348. Equipped with only 132 LEDs and lacking essential colour spectrums for blemish control or redness balancing, it requires owning separate hardware (such as the Omnilux Clear) to treat multifaceted skin conditions.",
     ],
     metrics: [
       { label: "Light Output & Effectiveness", value: 76 },
@@ -360,7 +360,7 @@ export const LED_MASK_PRODUCTS: LedMaskProduct[] = [
     description: [
       "Awarded our <b>#5 ranking</b>, the Dr. Dennis Gross DRx SpectraLite FaceWare Pro leverages the clinical authority of its namesake Fifth Avenue dermatologist. Engineered specifically for time-pressed individuals, its headline feature is an ultra-condensed <b>3-minute automated treatment programme</b> that delivers therapeutic red and blue photon bursts to manage surface bacteria and light facial lines.",
       "Containing 162 tailored LEDs, the visor provides cordless convenience with simple single-button operation. Its <b>415nm blue light setting</b> offers proven antibacterial intervention against Propionibacterium acnes, making it a popular choice for quick daily breakout control.",
-      "However, command of this clinical branding comes at an astronomical <b>£455 price point</b>. The rigid, non-pliable plastic casing creates uncomfortable contact points on the nasal ridge and leaves uneven optical margins across pronounced bone contours. Furthermore, it completely lacks <b>neck and décolletage coverage</b>, provides no protective eye inserts, and omits five beneficial colour wavelengths found in lower-priced multi-spectrum masks.",
+      "However, command of this clinical branding comes at an astronomical <b>£455 price point</b>. The rigid, non-pliable plastic casing creates uncomfortable contact points on the nasal ridge and leaves uneven optical margins across pronounced bone contours. Furthermore, it completely lacks <b>neck and chest coverage</b>, provides no protective eye inserts, and omits five beneficial colour wavelengths found in lower-priced multi-spectrum masks.",
     ],
     metrics: [
       { label: "Light Output & Effectiveness", value: 75 },
@@ -377,7 +377,7 @@ export const LED_MASK_PRODUCTS: LedMaskProduct[] = [
     ],
     cons: [
       "Extremely expensive £455 price tag driven heavily by celebrity dermatologist branding.",
-      "Treats only the face, offering zero neck or décolletage rejuvenation.",
+      "Treats only the face, offering zero neck or chest rejuvenation.",
       "Rigid hard-plastic shell does not flex, causing uncomfortable pressure on the nose bridge.",
       "Open-eye design lacks protective silicone shields, allowing intense light bleed.",
       "Only 162 LEDs, providing lower diode density than leading flexible silicone masks.",
@@ -419,7 +419,7 @@ export const LED_MASK_PRODUCTS: LedMaskProduct[] = [
     description: [
       "Occupying the <b>#6 position</b>, the Equinox LED Face Mask provides robust optical power density through an array of <b>336 medical-grade LEDs</b> housed in an ultra-pliant silicone form factor. The mask features four precise phototherapy wavebands—<b>633nm red</b>, <b>830nm near-infrared</b>, <b>415nm blue</b>, and <b>590nm amber/yellow</b>—orchestrated across six pre-configured operating modes.",
       "Its extensive diode distribution ensures thorough light dispersion across facial tissues with minimal photon fallout, while the soft silicone contours effortlessly over varied facial profiles. The ability to alternate between anti-microbial blue frequencies and reparative near-infrared makes it a compelling option for combination skin concerns.",
-      "Nevertheless, at <b>£279 for the face-only unit</b>, it commands a £100 premium over Buudy while completely excluding the neck and upper <b>décolletage</b>. Daily operation is hindered by a dangling handheld wired remote that restricts hands-free mobility, and its return policy enforces stringent restocking conditions.",
+      "Nevertheless, at <b>£279 for the face-only unit</b>, it commands a £100 premium over Buudy while completely excluding the neck and upper <b>chest</b>. Daily operation is hindered by a dangling handheld wired remote that restricts hands-free mobility, and its return policy enforces stringent restocking conditions.",
     ],
     metrics: [
       { label: "Light Output & Effectiveness", value: 85 },
@@ -436,7 +436,7 @@ export const LED_MASK_PRODUCTS: LedMaskProduct[] = [
     ],
     cons: [
       "At £279, costs £100 more than Buudy (£179) while providing face-only coverage.",
-      "Completely excludes neck and décolletage, requiring an expensive add-on collar.",
+      "Completely excludes neck and chest, requiring an expensive add-on collar.",
       "Tethered to a wired handheld remote controller that restricts free movement.",
       "Strict returns policy enforces return shipping costs and restocking penalties.",
       "Slower UK dispatch times compared to domestically stocked competitors.",
@@ -479,7 +479,7 @@ export const LED_MASK_PRODUCTS: LedMaskProduct[] = [
     description: [
       "Positioned at <b>#7</b> in our clinical assessment, the Silk'n LED Face Mask Pro features specialised <b>Caeli-lens optical clusters</b> calibrated to scatter phototherapy across the facial envelope and jawline. Delivering five distinct wavebands—including <b>630nm red</b>, <b>460nm blue</b>, <b>590nm amber</b>, <b>850nm near-infrared</b>, and <b>940nm deep near-infrared</b>—it supplies seven pre-set treatment regimes for complexion maintenance.",
       "A distinct mechanical feature is its secondary lower strap, engineered to anchor the silicone closely beneath the submental region and mandibular line. Constructed from supple elastomer material, the mask folds neatly into a compact pouch, making it convenient for frequent travellers.",
-      "However, the system relies on merely <b>100 LED optical nodes</b>, resulting in noticeably lower photon irradiance and wider energy gaps than market leaders. At <b>£220.15</b>, it leaves the lower neck and <b>décolletage</b> entirely neglected, whilst the deep 940nm band offers less proven superficial dermatological benefit than traditional 830nm infrared diodes.",
+      "However, the system relies on merely <b>100 LED optical nodes</b>, resulting in noticeably lower photon irradiance and wider energy gaps than market leaders. At <b>£220.15</b>, it leaves the lower neck and <b>chest area</b> entirely neglected, whilst the deep 940nm band offers less proven superficial dermatological benefit than traditional 830nm infrared diodes.",
     ],
     metrics: [
       { label: "Light Output & Effectiveness", value: 78 },
@@ -496,7 +496,7 @@ export const LED_MASK_PRODUCTS: LedMaskProduct[] = [
     ],
     cons: [
       "Only 100 LED clusters, resulting in lower light density than category leaders.",
-      "Face and chin coverage only, omitting the neck and décolletage.",
+      "Face and chin coverage only, omitting the neck and chest.",
       "940nm Deep NIR wavelength has less clinical documentation than 830nm NIR.",
       "Thin silicone head strap tends to loosen and lose elasticity over time.",
       "Fixed automated timers offer no adjustable intensity or energy settings.",
@@ -540,7 +540,7 @@ export const LED_MASK_PRODUCTS: LedMaskProduct[] = [
     description: [
       "Securing <b>#8</b> in our benchmark evaluation, the BlockBlueLight Face Mask is crafted by circadian lighting specialists with an emphasis on low-EMF photobiomodulation. It harnesses <b>132 dual-chip LEDs</b> tuned to four targeted wavebands: <b>590nm amber</b>, <b>630nm red</b>, <b>810nm near-infrared</b>, and <b>830nm near-infrared</b>.",
       "Boasting verified optical irradiance peaking at <b>45mW/cm²</b>, this mask delivers substantial photon energy into subcutaneous layers to encourage cellular adenosine triphosphate (ATP) production. An integrated digital remote allows users to customise treatment durations and select power intensities according to skin sensitivity.",
-      "Despite these technical merits, the <b>£274.95 price point</b> covers solely facial contours. The intentional exclusion of blue light wavelengths leaves it incapable of treating active acne vulgaris or microbial congestion, and users wanting neck or <b>décolletage</b> phototherapy must invest heavily in a separate add-on collar.",
+      "Despite these technical merits, the <b>£274.95 price point</b> covers solely facial contours. The intentional exclusion of blue light wavelengths leaves it incapable of treating active acne vulgaris or microbial congestion, and users wanting neck or <b>chest</b> phototherapy must invest heavily in a separate add-on collar.",
     ],
     metrics: [
       { label: "Light Output & Effectiveness", value: 76 },
@@ -660,7 +660,7 @@ export const LED_MASK_PRODUCTS: LedMaskProduct[] = [
     description: [
       "Concluding our evaluation at <b>#10</b>, the Therabody TheraFace Mask presents an avant-garde aesthetic by integrating high-density phototherapy with mechanical tension relief. The rigid visor incorporates an impressive array of <b>648 micro-LEDs</b> covering <b>630nm red</b>, <b>830nm near-infrared</b>, and <b>415nm blue light</b>, accompanied by 17 acoustic <b>VibraWave motors</b> providing targeted acupressure around periorbital and temple points.",
       "The combination of light therapy and soothing physical vibration creates an immersive, spa-grade experience during the automated 9-minute routine. Its high optical diode count ensures exceptionally homogeneous facial irradiance without noticeable dark zones.",
-      "However, commanding an eye-watering <b>£579.00 retail price</b>, it represents the single most expensive facial device in our UK benchmark. Weighing an unwieldy <b>576 grams</b>, the inflexible rigid plastic helmet exerts uncomfortable pressure over the nose and forehead, while offering zero coverage for the neck and <b>décolletage</b> and draining its internal battery rapidly under combined massage and LED usage.",
+      "However, commanding an eye-watering <b>£579.00 retail price</b>, it represents the single most expensive facial device in our UK benchmark. Weighing an unwieldy <b>576 grams</b>, the inflexible rigid plastic helmet exerts uncomfortable pressure over the nose and forehead, while offering zero coverage for the neck and <b>chest area</b> and draining its internal battery rapidly under combined massage and LED usage.",
     ],
     metrics: [
       { label: "Light Output & Effectiveness", value: 85 },
@@ -679,7 +679,7 @@ export const LED_MASK_PRODUCTS: LedMaskProduct[] = [
       "Astronomical £579.00 price makes it the most expensive mask on the UK market.",
       "Heavy 576g rigid visor causes noticeable forehead tension and nasal bridge strain.",
       "Inflexible hard visor cannot conform to unique face contours, causing light leakage.",
-      "Face only with zero coverage for the neck, jawline, or décolletage.",
+      "Face only with zero coverage for the neck, jawline, or chest.",
       "17 vibration motors rapidly drain the battery after just 2 to 3 sessions.",
       "Bulky rigid form factor is difficult to travel with and vulnerable to drop damage.",
       "Proprietary charging base is costly to replace if lost or damaged.",
@@ -716,7 +716,7 @@ export const LED_FAQS = [
       "Most commercial masks only emit red light, limiting therapy to surface lines. A 7-colour spectrum provides targeted wavelengths for multiple skin concerns simultaneously: Green calms pigmentation and age spots, Yellow improves lymphatic drainage and redness, Cyan soothes inflammation, Purple accelerates post-blemish recovery, and White penetrates deeply for total skin rejuvenation.",
   },
   {
-    question: "Why is neck and décolletage treatment essential for mature skin (40+)?",
+    question: "Why is neck and chest treatment essential for mature skin (40+)?",
     answer:
       "The skin on the neck and chest is thinner, has fewer oil glands, and shows UV damage and sagging much earlier than facial skin. Using a face-only mask creates a noticeable disparity known as the 'floating head' effect. The Buudy mask includes an integrated neck unit to ensure harmonious, even anti-ageing results.",
   },
