@@ -126,41 +126,51 @@ function GoldStars({ rating, size = 20 }: { rating: number; size?: number }) {
   );
 }
 
-/* Accessible High-Contrast Performance Bar with Smooth Viewport Animation */
-function PerformanceMetricBar({ label, value, isWinner }: { label: string; value: number; isWinner?: boolean }) {
-  const [animatedWidth, setAnimatedWidth] = useState(0);
-  const barRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setAnimatedWidth(value);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.15 }
-    );
-
-    if (barRef.current) {
-      observer.observe(barRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [value]);
+/* Corner Rank Badge for Product Cards (#1 - #5) */
+function RankRibbon({
+  rank,
+  featured = false,
+}: {
+  rank: string;
+  featured?: boolean;
+}) {
+  const displayRank = rank.startsWith("#") ? rank : `#${rank}`;
+  const outerSize = featured ? "h-[108px] w-[126px]" : "h-[92px] w-[108px]";
+  const triangleSize = featured ? "h-[98px] w-[116px]" : "h-[84px] w-[98px]";
+  const textBox = featured ? "h-[70px] w-[74px]" : "h-[60px] w-[64px]";
+  const textSize = featured ? "text-[1.85rem]" : "text-[1.5rem]";
 
   return (
-    <div ref={barRef} className="mb-3">
-      <div className="flex justify-between items-center text-sm font-semibold mb-1 text-[#181818] font-lato">
-        <span className="tracking-tight">{label}</span>
-        <span className="font-bold text-[#181818]">{value}%</span>
-      </div>
-      <div className="h-2.5 w-full bg-[#f1f5f9] rounded-full overflow-hidden border border-[#e2e8f0]">
+    <div
+      aria-label={`Rank ${displayRank}`}
+      className={`pointer-events-none absolute left-0 top-0 z-30 overflow-visible rounded-tl-3xl ${outerSize}`}
+    >
+      {/* 1. Ambient 3D Back Shadow / Blur */}
+      {featured && (
         <div
-          className="h-full rounded-full transition-all duration-1000 ease-out bg-[#181818]"
-          style={{ width: `${animatedWidth}%` }}
+          className={`absolute left-[7px] top-[7px] rounded-tl-3xl bg-black/50 blur-[2px] [clip-path:polygon(0_0,100%_0,0_100%)] ${triangleSize}`}
         />
-      </div>
+      )}
+      {/* 2. Main 3D Beveled Body (Pure Black with 3D Inset Shadows) */}
+      <div
+        className={`absolute left-0 top-0 rounded-tl-3xl ${
+          featured
+            ? "bg-gradient-to-br from-[#383838] via-[#1c1c1c] to-[#000000] shadow-[0_18px_28px_rgba(0,0,0,0.65),inset_0_2px_0_rgba(255,255,255,0.4),inset_-10px_-10px_16px_rgba(0,0,0,0.85)]"
+            : "bg-gradient-to-br from-[#2e2e2e] via-[#181818] to-[#0a0a0a] shadow-[0_10px_18px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.25)]"
+        } [clip-path:polygon(0_0,100%_0,0_100%)] ${triangleSize}`}
+      />
+      {/* 3. 3D Sheen / Gloss Reflection Overlay */}
+      {featured && (
+        <div
+          className={`absolute left-[2px] top-[2px] rounded-tl-3xl bg-[linear-gradient(135deg,rgba(255,255,255,0.5)_0%,rgba(255,255,255,0.16)_32%,rgba(255,255,255,0)_58%)] [clip-path:polygon(0_0,100%_0,0_100%)] ${triangleSize}`}
+        />
+      )}
+      {/* 4. Pure Crisp White Rank Number with 3D Drop Shadow */}
+      <span
+        className={`absolute left-0 top-0 flex items-center justify-center font-serif font-black leading-none text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.7)] ${textBox} ${textSize}`}
+      >
+        {displayRank}
+      </span>
     </div>
   );
 }
@@ -560,27 +570,22 @@ export function LuxuryToothbrushLandingPage({ guide }: LuxuryToothbrushLandingPa
             <article
               key={product.id}
               id={`product-${product.id}`}
-              className={`relative bg-white rounded-3xl p-6 sm:p-9 transition-all duration-300 ${
+              className={`relative bg-white rounded-3xl px-4 sm:px-6 pt-4 sm:pt-5 pb-5 sm:pb-6 transition-all duration-300 ${
                 product.isWinner
                   ? "border-2 border-[#181818] shadow-xl shadow-black/5 ring-4 ring-neutral-100"
                   : "border border-[#e7e7e7] shadow-sm"
               }`}
             >
-              {/* TOP WINNER RIBBON */}
-              {product.isWinner && (
-                <div className="absolute -top-4 sm:-top-5 left-1/2 -translate-x-1/2 bg-[#181818] text-white px-6 sm:px-8 py-2 rounded-full font-openSans text-xs sm:text-sm font-extrabold tracking-wider uppercase flex items-center gap-2 shadow-lg z-20 whitespace-nowrap">
-                  <Award size={16} className="text-[#f59e0b]" />
-                  <span>#1 Editor&apos;s Choice Winner</span>
-                </div>
-              )}
+              {/* CORNER RANK BADGE (#1 - #5) */}
+              <RankRibbon rank={`#${product.rank.replace(/^#/, "")}`} featured={product.isWinner} />
 
               {/* ============================================================
-                  ROW 1 (TOP): 2-COLUMN SPLIT (Image + Compact Promo on Left, Info + Bars + CTA on Right)
+                  ROW 1 (TOP): 2-COLUMN SPLIT (Image + Compact Promo on Left, Info + Description + CTA on Right)
                   ============================================================ */}
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-8">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch mb-6">
                 {/* LEFT COLUMN: Direct Large Image on Top, Single-Line Promo / Voucher Box at Bottom */}
-                <div className={`lg:col-span-5 flex flex-col justify-between h-full ${product.isWinner ? "pt-2 sm:pt-3 pl-1 sm:pl-2" : ""}`}>
-                  <div className="flex-1 w-full flex items-center justify-center min-h-[340px] sm:min-h-[400px] lg:min-h-0">
+                <div className={`lg:col-span-5 flex flex-col justify-between h-full ${product.isWinner ? "pt-14 sm:pt-16 pl-0.5 sm:pl-1" : "pt-11 sm:pt-12"}`}>
+                  <div className="flex-1 w-full flex items-center justify-center min-h-[300px] sm:min-h-[340px] lg:min-h-0">
                     {/* Direct Image with Clean Border Radius & No Hover Effect */}
                     <a
                       href={product.link}
@@ -590,16 +595,16 @@ export function LuxuryToothbrushLandingPage({ guide }: LuxuryToothbrushLandingPa
                       <img
                         src={product.image}
                         alt={product.name}
-                        className="w-full h-full max-h-[440px] object-cover rounded-2xl"
+                        className="w-full h-full max-h-[380px] object-cover rounded-2xl"
                         loading={product.isWinner ? "eager" : "lazy"}
                       />
                     </a>
                   </div>
 
                   {/* Promo / Voucher Box (Bottom aligned, inline with CTA button on the right) */}
-                  <div className="mt-4 shrink-0">
+                  <div className="mt-3 shrink-0">
                     {product.isWinner ? (
-                      <div className="w-full px-3.5 py-2.5 rounded-xl bg-[#fdf4ff] border-2 border-[#d1a3ff] flex items-center justify-between gap-2 shadow-xs">
+                      <div className="w-full px-3 py-2 rounded-xl bg-[#fdf4ff] border-2 border-[#d1a3ff] flex items-center justify-between gap-2 shadow-xs">
                         <span className="font-mono text-xs sm:text-sm font-black text-[#7e22ce] tracking-wider uppercase truncate">
                           COUPON: {product.voucher.code}
                         </span>
@@ -609,11 +614,11 @@ export function LuxuryToothbrushLandingPage({ guide }: LuxuryToothbrushLandingPa
                         </span>
                       </div>
                     ) : (
-                      <div className="w-full px-3.5 py-2.5 rounded-xl bg-[#fafafa] border border-[#e7e7e7] flex items-center justify-between gap-2 shadow-xs">
+                      <div className="w-full px-3 py-2 rounded-xl bg-[#fafafa] border border-[#e7e7e7] flex items-center justify-between gap-2 shadow-xs">
                         <span className="font-mono text-xs sm:text-sm font-bold text-neutral-400 line-through tracking-wider uppercase truncate">
                           COUPON: {product.voucher.code}
                         </span>
-                        <span className="font-openSans text-[10px] sm:text-xs font-extrabold text-[#ef4444] bg-red-50 border border-red-200 px-2.5 py-1 rounded uppercase tracking-wide shrink-0">
+                        <span className="font-openSans text-[10px] sm:text-xs font-extrabold text-[#ef4444] bg-red-50 border border-red-200 px-2 py-0.5 rounded uppercase tracking-wide shrink-0">
                           EXPIRED
                         </span>
                       </div>
@@ -621,16 +626,16 @@ export function LuxuryToothbrushLandingPage({ guide }: LuxuryToothbrushLandingPa
                   </div>
                 </div>
 
-                {/* RIGHT COLUMN: Direct Title, Rating, Price, Performance Bars, and CTA */}
-                <div className="lg:col-span-7 flex flex-col justify-between h-full">
+                {/* RIGHT COLUMN: Direct Title, Rating, Price, Description with Scrolling, and CTA */}
+                <div className="lg:col-span-7 flex flex-col justify-between h-full pt-1 sm:pt-2">
                   <div>
-                    {/* Product Title */}
+                    {/* Product Title (No duplicate #1 and no subtitle paragraph) */}
                     <h2 className="font-lato text-2xl sm:text-3xl font-extrabold text-[#181818] leading-tight mb-2">
-                      {product.isWinner ? product.name : `${product.rank} ${product.name}`}
+                      {product.name}
                     </h2>
 
                     {/* Rating Stars & Review Count */}
-                    <div className="flex flex-wrap items-center gap-3 mb-3">
+                    <div className="flex flex-wrap items-center gap-3 mb-2.5">
                       <GoldStars rating={product.rating} size={20} />
                       <span className="font-openSans text-sm font-bold text-[#181818]">
                         {product.ratingDisplay} ({product.reviewCount} Verified Reviews)
@@ -638,7 +643,7 @@ export function LuxuryToothbrushLandingPage({ guide }: LuxuryToothbrushLandingPa
                     </div>
 
                     {/* Price Display */}
-                    <div className="flex items-baseline gap-3 mb-5">
+                    <div className="flex items-baseline gap-3 mb-3.5">
                       <span className="font-lato text-3xl sm:text-4xl font-extrabold text-[#181818]">
                         {product.price}
                       </span>
@@ -654,18 +659,14 @@ export function LuxuryToothbrushLandingPage({ guide }: LuxuryToothbrushLandingPa
                       )}
                     </div>
 
-                    {/* Performance Metric Bars */}
-                    <div className="space-y-1 mb-6">
-                      <h4 className="font-openSans text-xs font-extrabold uppercase tracking-wider text-neutral-500 mb-2">
-                        Laboratory Performance Scores
-                      </h4>
-                      {product.metrics.map((metric, mIdx) => (
-                        <PerformanceMetricBar
-                          key={mIdx}
-                          label={metric.label}
-                          value={metric.value}
-                          isWinner={product.isWinner}
-                        />
+                    {/* Product Description with internal scrolling strictly matching image height */}
+                    <div
+                      tabIndex={0}
+                      aria-label={`${product.name} review summary`}
+                      className="max-h-[195px] sm:max-h-[210px] lg:max-h-[220px] overflow-y-auto pr-2 space-y-2.5 font-lora text-[14px] sm:text-[15px] text-[#2e2e2e] leading-[1.65] border-t border-neutral-100 pt-3 focus:outline-none [scrollbar-width:thin] [scrollbar-color:#cbd5e1_transparent] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-neutral-300 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-neutral-400"
+                    >
+                      {product.description.map((para, pIdx) => (
+                        <p key={pIdx}>{renderFormattedBoldText(para)}</p>
                       ))}
                     </div>
                   </div>
