@@ -647,12 +647,12 @@ export function LuxuryToothbrushLandingPage({ guide }: LuxuryToothbrushLandingPa
                       <span className="font-lato text-3xl sm:text-4xl font-extrabold text-[#181818]">
                         {product.price}
                       </span>
-                      {product.originalPrice && (
+                      {product.isWinner && product.originalPrice && (
                         <span className="text-lg sm:text-xl text-neutral-400 line-through font-semibold font-lato">
                           {product.originalPrice}
                         </span>
                       )}
-                      {product.discount && (
+                      {product.isWinner && product.discount && (
                         <span className="font-openSans text-xs font-extrabold text-[#7e22ce] bg-[#f5f3ff] border border-[#d1a3ff] px-2.5 py-1 rounded-md">
                           {product.discount} Today
                         </span>
@@ -695,10 +695,61 @@ export function LuxuryToothbrushLandingPage({ guide }: LuxuryToothbrushLandingPa
               </div>
 
               {/* ============================================================
-                  ROW 2 (MIDDLE): FULL-WIDTH 3 FREE GIFTS SUITE BANNER (Winner Only)
+                  ROW 2: 2 EQUAL COLUMNS (Pros on Left, Cons on Right)
+                  ============================================================ */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                {/* PROS CARD (LEFT) */}
+                <div className="rounded-2xl p-6 border border-[#e7e7e7] bg-[#fafafa]">
+                  <div className="flex items-center gap-2 mb-4 pb-3 border-b border-[#e7e7e7]">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#10b981] text-white shadow-xs">
+                      <Check size={16} strokeWidth={3} />
+                    </span>
+                    <span className="font-lato text-xl sm:text-2xl font-black text-[#181818] tracking-tight">
+                      Pros
+                    </span>
+                  </div>
+                  <ul className="space-y-3">
+                    {product.pros.map((pro, proIdx) => (
+                      <li
+                        key={proIdx}
+                        className="font-lora text-[16px] sm:text-[18px] leading-[1.7] text-[#181818] flex items-start gap-3"
+                      >
+                        <Check size={18} className="text-[#10b981] mt-1 shrink-0 stroke-[3]" />
+                        <span>{renderFormattedBoldText(pro)}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* CONS CARD (RIGHT) */}
+                <div className="rounded-2xl p-6 border border-[#e7e7e7] bg-[#fafafa]">
+                  <div className="flex items-center gap-2 mb-4 pb-3 border-b border-[#e7e7e7]">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#ef4444] text-white shadow-xs">
+                      <X size={16} strokeWidth={3} />
+                    </span>
+                    <span className="font-lato text-xl sm:text-2xl font-black text-[#181818] tracking-tight">
+                      Cons
+                    </span>
+                  </div>
+                  <ul className="space-y-3">
+                    {product.cons.map((con, conIdx) => (
+                      <li
+                        key={conIdx}
+                        className="font-lora text-[16px] sm:text-[18px] leading-[1.7] text-[#181818] flex items-start gap-3"
+                      >
+                        <XCircle size={18} className="text-[#ef4444] mt-1 shrink-0 stroke-[2.5]" />
+                        <span>{renderFormattedBoldText(con)}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              {/* ============================================================
+                  ROW 3: FULL-WIDTH 3 FREE GIFTS SUITE BANNER (Winner Only)
                   ============================================================ */}
               {product.isWinner && product.gifts && (
-                <div className="w-full bg-[#181818] text-white rounded-2xl p-6 sm:p-8 border border-neutral-800 shadow-xl mb-8 relative overflow-hidden">
+                <div className="w-full bg-[#181818] text-white rounded-2xl p-6 sm:p-8 border border-neutral-800 shadow-xl mt-8 relative overflow-hidden">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-800 border border-neutral-700 text-xs font-openSans font-bold text-[#b265ff] uppercase tracking-wider mb-3">
                     <span>💡 Editor&apos;s Tip</span>
                   </div>
@@ -750,57 +801,6 @@ export function LuxuryToothbrushLandingPage({ guide }: LuxuryToothbrushLandingPa
                   </div>
                 </div>
               )}
-
-              {/* ============================================================
-                  ROW 3 (BOTTOM): 2 EQUAL COLUMNS (Pros on Left, Cons on Right)
-                  ============================================================ */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-                {/* PROS CARD (LEFT) */}
-                <div className="rounded-2xl p-6 border border-[#e7e7e7] bg-[#fafafa]">
-                  <div className="flex items-center gap-2 mb-4 pb-3 border-b border-[#e7e7e7]">
-                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#10b981] text-white shadow-xs">
-                      <Check size={16} strokeWidth={3} />
-                    </span>
-                    <span className="font-lato text-xl sm:text-2xl font-black text-[#181818] tracking-tight">
-                      Pros
-                    </span>
-                  </div>
-                  <ul className="space-y-3">
-                    {product.pros.map((pro, proIdx) => (
-                      <li
-                        key={proIdx}
-                        className="font-lora text-[16px] sm:text-[18px] leading-[1.7] text-[#181818] flex items-start gap-3"
-                      >
-                        <Check size={18} className="text-[#10b981] mt-1 shrink-0 stroke-[3]" />
-                        <span>{renderFormattedBoldText(pro)}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* CONS CARD (RIGHT) */}
-                <div className="rounded-2xl p-6 border border-[#e7e7e7] bg-[#fafafa]">
-                  <div className="flex items-center gap-2 mb-4 pb-3 border-b border-[#e7e7e7]">
-                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#ef4444] text-white shadow-xs">
-                      <X size={16} strokeWidth={3} />
-                    </span>
-                    <span className="font-lato text-xl sm:text-2xl font-black text-[#181818] tracking-tight">
-                      Cons
-                    </span>
-                  </div>
-                  <ul className="space-y-3">
-                    {product.cons.map((con, conIdx) => (
-                      <li
-                        key={conIdx}
-                        className="font-lora text-[16px] sm:text-[18px] leading-[1.7] text-[#181818] flex items-start gap-3"
-                      >
-                        <XCircle size={18} className="text-[#ef4444] mt-1 shrink-0 stroke-[2.5]" />
-                        <span>{renderFormattedBoldText(con)}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
 
               {/* ROW 4 (BOTTOM CTA): "GO TO OFFICIAL WEBSITE" (Winner Only) */}
               {product.isWinner && (

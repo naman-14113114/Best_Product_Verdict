@@ -276,7 +276,7 @@ export const TOOTHBRUSH_GUIDES: Record<ToothbrushGuideSlug, ToothbrushGuide> = {
     {
       "feature": "Price & Accessories",
       "miroooo": "£69 (Includes Luxury Travel Case, Wall-Mounted Storage, Free Brush Heads)",
-      "competitor": "£149.99 (RRP £349, Standalone)",
+      "competitor": "£149.99 (Standalone)",
       "whyItMatters": "Miroooo saves over £150 upfront while including essential travel and mounting accessories.",
       "advantage": "miroooo"
     },
@@ -492,7 +492,7 @@ export const TOOTHBRUSH_GUIDES: Record<ToothbrushGuideSlug, ToothbrushGuide> = {
   "group": "Competitor Battles",
   "cardCode": "VS iO3",
   "cardTitle": "Miroooo Brush X2 vs Oral-B iO3",
-  "cardDescription": "Direct comparison: £69 aerospace aluminium flagship with 45° Bass sweep, 90-day cobalt battery, and included package vs £75 (RRP £160) stripped-down entry model with no screen, heavy plastic handle, and expensive refills.",
+  "cardDescription": "Direct comparison: £69 aerospace aluminium flagship with 45° Bass sweep, 90-day cobalt battery, and included package vs £75 stripped-down entry model with no screen, heavy plastic handle, and expensive refills.",
   "seoTitle": "Miroooo Brush X2 vs Oral-B iO3 Review UK 2026 | Flagship vs £75 Entry Model Comparison",
   "seoDescription": "Miroooo Brush X2 (£69) vs Oral-B iO3 (£75). Compare 45° Bass sweep, smart halo pressure ring, aerospace aluminium chassis, 90-day cobalt battery, and refill costs with Dr. Julian Vance's verdict.",
   "keywords": [
@@ -506,20 +506,20 @@ export const TOOTHBRUSH_GUIDES: Record<ToothbrushGuideSlug, ToothbrushGuide> = {
   ],
   "eyebrow": "Head-to-Head Comparison",
   "headline": "Miroooo Brush X2 vs Oral-B iO3: Flagship Acoustic Power vs £75 Mechanical Clean",
-  "subheadline": "Oral-B iO3 sits at £75 (RRP £160) as the entry model to the iO micro-vibration series. Miroooo Brush X2 provides 45° Bass sweep acoustic power, an aerospace aluminium unibody, smart pressure halo ring, 90-day cobalt battery, and complete included package accessories at £69. Here is how they stack up.",
+  "subheadline": "Oral-B iO3 sits at £75 as the entry model to the iO micro-vibration series. Miroooo Brush X2 provides 45° Bass sweep acoustic power, an aerospace aluminium unibody, smart pressure halo ring, 90-day cobalt battery, and complete included package accessories at £69. Here is how they stack up.",
   "quickTake": "Oral-B iO3 strips out the interactive OLED display and Bluetooth smart tracking of the iO line while retaining all the mechanical downsides: a heavy 136g plastic handle, a loud 64dB gear whine, a sluggish 14-day battery requiring an extended 16-hour charge, and expensive £8–£12 refill heads. Miroooo Brush X2 delivers a true flagship experience: 45° Bass sweep acoustic cleaning, smart pressure sensor halo ring with 3 halo LED modes, 90-day cobalt cell battery via universal USB-C charging, 51g aerospace aluminium unibody, and complete included package accessories (Luxury Travel Case, Wall-Mounted Storage, free brush heads) for £69 vs £75.",
   "drVanceVerdict": {
     "name": "Dr. Julian Vance, BDS",
     "title": "Clinical Dental Consultant & Oral Health Specialist",
     "avatar": "/img/toothbrushes/miroooo-dr-julian-vance-dental-consultant.webp",
     "experience": "14+ years UK dental practice & clinical consultant",
-    "quote": "The Oral-B iO3 represents poor value. At £75 (RRP £160), Oral-B removed the smart display and app coaching, but left patients stuck with a loud 136g plastic handle, slow 16-hour charging, and expensive £8–£12 refill heads. Miroooo Brush X2 is superior in every clinical and practical metric.",
+    "quote": "The Oral-B iO3 represents poor value. At £75, Oral-B removed the smart display and app coaching, but left patients stuck with a loud 136g plastic handle, slow 16-hour charging, and expensive £8–£12 refill heads. Miroooo Brush X2 is superior in every clinical and practical metric.",
     "clinicalRationale": "Entry-level mechanical toothbrushes like the iO3 retain the aggressive mechanical oscillating gearbox of higher models, operating at a noisy 64dB that can feel jarring against dental restorations. More importantly, the iO3 locks buyers into proprietary iO replacement heads costing up to £48 per year. Miroooo Brush X2 uses gentle 45° Bass sweep acoustic fluid dynamics with precision 3D rounded brush heads, protecting thinning enamel and gumlines while providing smart pressure halo guidance, Miroooo Dentalcare App tracking, a lightweight 51g handle, and a 90-day cobalt cell battery.",
     "recommendation": "Skip the stripped-down plastic iO3. For less than the £75 entry model, Miroooo Brush X2 (£69) delivers a true flagship experience with 45° Bass sweep cleaning, 90-day cobalt battery, smart pressure halo guidance, and complete included package accessories."
   },
   "intro": [
     "For UK shoppers evaluating electric toothbrushes around the entry £75 price point, the market presents a stark contrast: a stripped-down plastic model from a legacy brand, or a fully loaded, precision-engineered acoustic flagship for £69.",
-    "The Oral-B iO3 Matt Black (£75, RRP £160) is designed as an entry gateway into Oral-B's magnetic micro-vibration system. It includes a 360° smart pressure ring, 3 basic cleaning modes, and a hard travel case. However, to hit this product line, Oral-B stripped away the defining smart features of the iO line: there is no interactive OLED display screen, no Bluetooth app tracking, a dated 14-day battery that takes a sluggish 16 hours to charge, and proprietary iO refill heads that cost £8 to £12 each.",
+    "The Oral-B iO3 Matt Black (£75) is designed as an entry gateway into Oral-B's magnetic micro-vibration system. It includes a 360° smart pressure ring, 3 basic cleaning modes, and a hard travel case. However, to hit this product line, Oral-B stripped away the defining smart features of the iO line: there is no interactive OLED display screen, no Bluetooth app tracking, a dated 14-day battery that takes a sluggish 16 hours to charge, and proprietary iO refill heads that cost £8 to £12 each.",
     "Miroooo Brush X2 (£69) represents flagship acoustic engineering without compromise. It features a precision aerospace aluminium unibody, 45° Bass sweep dynamic micro-vibrations, an intelligent smart pressure sensor halo ring with 3 halo LED modes, whisper-quiet acoustic sound under 45dB, an industry-leading 90-day cobalt cell battery with universal USB-C charging, Miroooo Dentalcare App connectivity, and an included package (Luxury Travel Case, Wall-Mounted Storage, and free brush heads)."
   ],
   "criteria": [
@@ -545,7 +545,7 @@ export const TOOTHBRUSH_GUIDES: Record<ToothbrushGuideSlug, ToothbrushGuide> = {
     {
       "feature": "Price & Included Package",
       "miroooo": "£69 (Includes Luxury Travel Case, Wall-Mounted Storage, Free Brush Heads)",
-      "competitor": "£75 (RRP £160, 1 brush head & basic travel case)",
+      "competitor": "£75 (1 brush head & basic travel case)",
       "whyItMatters": "Miroooo Brush X2 saves £6 upfront while including complete premium accessories whereas Oral-B provides only 1 head.",
       "advantage": "miroooo"
     },
