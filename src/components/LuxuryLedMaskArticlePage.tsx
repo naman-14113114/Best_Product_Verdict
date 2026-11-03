@@ -347,7 +347,7 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
               <ul className="space-y-2 font-openSans text-xs sm:text-sm text-neutral-700">
                 <li className="flex items-center gap-2">
                   <Check size={16} className="text-emerald-600 shrink-0" />
-                  <span><strong>Full Face &amp; Neck Coverage:</strong> Integrated chest bib treats aging neck skin.</span>
+                  <span><strong>Full Face &amp; Neck Coverage:</strong> Integrated neck piece treats aging neck skin.</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check size={16} className="text-emerald-600 shrink-0" />

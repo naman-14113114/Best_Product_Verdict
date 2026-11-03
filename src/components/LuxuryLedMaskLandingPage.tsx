@@ -792,55 +792,7 @@ export function LuxuryLedMaskLandingPage({
               </div>
 
               {/* ============================================================
-                  ROW 2 (MIDDLE): FULL-WIDTH 3 FREE GIFTS SUITE BANNER (Winner Only)
-                  ============================================================ */}
-              {product.isWinner && product.gifts && (
-                <div className="w-full bg-[#181818] text-white rounded-2xl p-6 sm:p-8 border border-neutral-800 shadow-xl mb-8 relative overflow-hidden">
-                  <h3 className="font-lora text-2xl sm:text-3xl font-extrabold text-white mb-2 leading-tight">
-                    {product.gifts.title}
-                  </h3>
-                  <p className="font-lora text-sm sm:text-base text-neutral-300 leading-relaxed mb-6 font-normal">
-                    {product.gifts.description}
-                  </p>
-
-                  {/* 3 Gift Tiles in Grid */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    {product.gifts.items.map((gift, gIdx) => (
-                      <div
-                        key={gIdx}
-                        className="bg-neutral-900 rounded-xl p-3.5 border border-neutral-800 text-center relative"
-                      >
-                        <div className="relative w-full aspect-square rounded-xl overflow-hidden mb-3">
-                          <span className="absolute top-2 right-2 z-20 bg-[#b265ff] text-white font-openSans font-extrabold text-[11px] px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-md pointer-events-none">
-                            FREE
-                          </span>
-                          <img
-                            src={gift.image}
-                            alt={gift.name}
-                            className="w-full h-full object-cover rounded-xl block pointer-events-none"
-                          />
-                        </div>
-
-                        <div className="flex items-center justify-center gap-1.5 mb-1.5">
-                          <span className="font-openSans text-xs text-neutral-400 font-semibold uppercase tracking-wider">Worth</span>
-                          <span className="font-openSans text-sm sm:text-base font-bold text-neutral-200 line-through decoration-red-400/90 decoration-2">
-                            {gift.regularPrice}
-                          </span>
-                          <span className="text-[10px] font-extrabold text-emerald-400 uppercase tracking-wide bg-emerald-950/70 border border-emerald-500/30 px-1.5 py-0.5 rounded">
-                            FREE
-                          </span>
-                        </div>
-                        <h4 className="font-lora text-sm sm:text-base font-bold text-white leading-snug">
-                          {gift.name}
-                        </h4>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* ============================================================
-                  ROW 3 (BOTTOM): 2 EQUAL COLUMNS (Pros on Left, Cons on Right)
+                  ROW 2: 2 EQUAL COLUMNS (Pros on Left, Cons on Right)
                   ============================================================ */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
                 {/* PROS CARD (LEFT) */}
@@ -889,6 +841,54 @@ export function LuxuryLedMaskLandingPage({
                   </ul>
                 </div>
               </div>
+
+              {/* ============================================================
+                  ROW 3: FULL-WIDTH 3 FREE GIFTS SUITE BANNER (Winner Only)
+                  ============================================================ */}
+              {product.isWinner && product.gifts && (
+                <div className="w-full bg-[#181818] text-white rounded-2xl p-6 sm:p-8 border border-neutral-800 shadow-xl mt-8 relative overflow-hidden">
+                  <h3 className="font-lora text-2xl sm:text-3xl font-extrabold text-white mb-2 leading-tight">
+                    {product.gifts.title}
+                  </h3>
+                  <p className="font-lora text-sm sm:text-base text-neutral-300 leading-relaxed mb-6 font-normal">
+                    {product.gifts.description}
+                  </p>
+
+                  {/* 3 Gift Tiles in Grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    {product.gifts.items.map((gift, gIdx) => (
+                      <div
+                        key={gIdx}
+                        className="bg-neutral-900 rounded-xl p-3.5 border border-neutral-800 text-center relative"
+                      >
+                        <div className="relative w-full aspect-square rounded-xl overflow-hidden mb-3">
+                          <span className="absolute top-2 right-2 z-20 bg-[#b265ff] text-white font-openSans font-extrabold text-[11px] px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-md pointer-events-none">
+                            FREE
+                          </span>
+                          <img
+                            src={gift.image}
+                            alt={gift.name}
+                            className="w-full h-full object-cover rounded-xl block pointer-events-none"
+                          />
+                        </div>
+
+                        <div className="flex items-center justify-center gap-1.5 mb-1.5">
+                          <span className="font-openSans text-xs text-neutral-400 font-semibold uppercase tracking-wider">Worth</span>
+                          <span className="font-openSans text-sm sm:text-base font-bold text-neutral-200 line-through decoration-red-400/90 decoration-2">
+                            {gift.regularPrice}
+                          </span>
+                          <span className="text-[10px] font-extrabold text-emerald-400 uppercase tracking-wide bg-emerald-950/70 border border-emerald-500/30 px-1.5 py-0.5 rounded">
+                            FREE
+                          </span>
+                        </div>
+                        <h4 className="font-lora text-sm sm:text-base font-bold text-white leading-snug">
+                          {gift.name}
+                        </h4>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* ROW 4 (BOTTOM CTA): "GO TO OFFICIAL WEBSITE" (Winner Only) */}
               {product.isWinner && (

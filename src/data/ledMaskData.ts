@@ -97,7 +97,7 @@ export const LED_MASK_PRODUCTS: LedMaskProduct[] = [
     },
     description: [
       "Earning our definitive <b>#1 ranking for 2026</b>, the Buudy 7 Colour LED Mask establishes an unrivalled benchmark for at-home phototherapy throughout the UK. Whereas conventional masks typically offer only mono-wavelength red light, Buudy delivers an expansive <b>7-colour spectrum</b> augmented by cellular-penetrating <b>830nm near-infrared</b> diodes. This clinical multi-waveband configuration simultaneously addresses stubborn fine lines, hyperpigmentation, active blemishes, and systemic loss of dermal elasticity across diverse skin tones.",
-      "What sets this system apart clinically is the inclusion of <b>built-in neck coverage</b> directly in the standard package. The fragile skin across the neck and <b>chest area</b> possesses fewer sebaceous glands and exhibits accelerated <b>ageing</b>, yet rival high-end masks consistently leave this area untreated. Featuring medical-grade flexible silicone, complete cordless mobility via responsive <b>Tap Technology</b>, and intelligent guided routines, administering a 10-minute daily session is completely seamless.",
+      "What sets this system apart clinically is the inclusion of <b>built-in neck coverage</b> directly in the standard package. The fragile skin across the neck possesses fewer sebaceous glands and exhibits accelerated <b>ageing</b>, yet rival high-end masks consistently leave this area untreated. Featuring medical-grade flexible silicone, complete cordless mobility via responsive <b>Tap Technology</b>, and intelligent guided routines, administering a 10-minute daily session is completely seamless.",
       "Supported by over 16,000 verified British users and an extraordinary <b>4.9-star rating</b>, patients frequently document visible enhancements in complexion clarity and skin firmness in under a dozen sessions. Positioned at an accessible <b>£179</b> and reinforced by an ironclad <b>90-day money-back guarantee</b> along with a £128 complimentary accessory suite, it stands as the most comprehensive, low-risk phototherapy investment on the market today.",
     ],
     metrics: [
@@ -108,19 +108,20 @@ export const LED_MASK_PRODUCTS: LedMaskProduct[] = [
       { label: "Value for Money & Warranty", value: 100 },
     ],
     pros: [
-      "<b>Full 7-Colour Spectrum</b> - Delivers 7 therapeutic wavelengths plus 830nm Near-Infrared light.",
-      "<b>Neck & Chest Coverage</b> - Integrated chest piece treats face and neck in one session.",
-      "<b>Medical-Grade Silicone</b> - Flexible, skin-safe contouring ensures uniform optical coverage.",
-      "<b>Protective Eye Shields</b> - Built-in silicone eye inserts guarantee comfortable, safe sessions.",
-      "<b>4,000+ Verified Reviews</b> - Consistently rated 4.9/5 stars by UK skincare customers.",
-      "<b>Cordless Smart Tap Tech</b> - Lightweight rechargeable unibody with intuitive touch controls.",
-      "<b>Quick 10-Minute Sessions</b> - Automated treatment timer fits effortlessly into daily routines.",
-      "<b>Unrivalled £179 Value</b> - Includes 60% reader discount off the £449 standard retail price.",
-      "<b>90-Day Risk-Free Trial</b> - Full money-back guarantee with free returns and £128 gift suite.",
+      "<b>Proven Results</b> - Holds an outstanding 4.9/5 star rating from over 4,000 reviews and performed exceptionally well in testing.",
+      "<b>7-Colour Medical-Grade Spectrum</b> - Offers 7 LED colours (Red, Blue, Green, Cyan, Yellow, Purple, White) plus 830nm near-infrared, unlike rivals with only 2–3 colours.",
+      "<b>Dermatologist Proven</b> - Health Canada approved with official CE, FCC, and RoHS certifications for safety and quality.",
+      "<b>Built-in Neck Coverage</b> - Specifically designed to target sagging neck skin, an essential feature that pricy alternatives omit.",
+      "<b>Fast Results</b> - Delivers visible skin improvements after just a few sessions, with full results in under 10 uses.",
+      "<b>Cordless, Portable & Guided</b> - Hands-free rechargeable design featuring Tap Technology and Buudy AI guided sessions tailored to your skin concerns.",
+      "<b>Safe and Effective</b> - Gentle, painless therapy suitable for every skin type, complete with integrated eye protection for enhanced safety.",
+      "<b>Cost-Effective</b> - Currently priced at £179, offering a 60% saving compared to its standard £449 retail price.",
+      "<b>90-Day Money-Back Guarantee</b> - Includes an extensive 90-day trial period with a full refund if you are not completely satisfied.",
     ],
     cons: [
-      "Available online only direct to consumer to eliminate retail markups.",
-      "High UK demand occasionally leads to periodic promotional waitlists.",
+      "<b>Limited Availability</b> - Available to buy online only and exclusively for customers in the United Kingdom.",
+      "<b>Limited Stock</b> - High demand can lead to temporary sell-outs during peak UK sale periods.",
+      "<b>Learning Curve</b> - The touch-sensitive tap controls may take one or two sessions to master before feeling completely natural.",
     ],
     gifts: {
       totalValue: "£128",
@@ -716,9 +717,9 @@ export const LED_FAQS = [
       "Most commercial masks only emit red light, limiting therapy to surface lines. A 7-colour spectrum provides targeted wavelengths for multiple skin concerns simultaneously: Green calms pigmentation and age spots, Yellow improves lymphatic drainage and redness, Cyan soothes inflammation, Purple accelerates post-blemish recovery, and White penetrates deeply for total skin rejuvenation.",
   },
   {
-    question: "Why is neck and chest treatment essential for mature skin (40+)?",
+    question: "Why is built-in neck treatment essential for mature skin (40+)?",
     answer:
-      "The skin on the neck and chest is thinner, has fewer oil glands, and shows UV damage and sagging much earlier than facial skin. Using a face-only mask creates a noticeable disparity known as the 'floating head' effect. The Buudy mask includes an integrated neck unit to ensure harmonious, even anti-ageing results.",
+      "The skin on the neck is thinner, has fewer oil glands, and shows UV damage and sagging much earlier than facial skin. Using a face-only mask creates a noticeable disparity known as the 'floating head' effect. The Buudy mask includes an integrated neck unit to ensure harmonious, even anti-ageing results.",
   },
   {
     question: "How often should I use an at-home LED face mask for best results?",
