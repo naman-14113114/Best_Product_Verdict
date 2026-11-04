@@ -59,6 +59,7 @@ export function LedMaskReferenceControls() {
     const handleClick = (event: MouseEvent) => {
       const target = event.target;
       if (!(target instanceof Element)) return;
+      if (event.type === "auxclick" && (event.button !== 1 || !target.closest("a[href]"))) return;
 
       if (target.closest("[data-led-video-play]")) {
         video?.play().catch(syncVideoButton);
@@ -99,10 +100,12 @@ export function LedMaskReferenceControls() {
       }
     };
     root.addEventListener("click", handleClick);
+    root.addEventListener("auxclick", handleClick);
 
     return () => {
       observer.disconnect();
       root.removeEventListener("click", handleClick);
+      root.removeEventListener("auxclick", handleClick);
       ["play", "pause", "ended", "error"].forEach((name) => {
         video?.removeEventListener(name, syncVideoButton);
       });

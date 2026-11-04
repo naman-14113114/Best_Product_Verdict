@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { LuxuryLedMaskLandingPage } from "@/components/LuxuryLedMaskLandingPage";
-import { LedMaskTracking } from "@/components/LedMaskTracking";
+import { LedMaskReferencePage } from "@/features/led-mask-reference/LedMaskReferencePage";
 
 export const metadata: Metadata = {
   title: "Best LED Face Mask UK (2026) | Top 10 Light Therapy Masks Compared",
@@ -140,8 +139,7 @@ export default function BestLedFaceMaskPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <LuxuryLedMaskLandingPage showHeroBanner={false} />
-      <LedMaskTracking />
+      <LedMaskReferencePage />
     </>
   );
 }
