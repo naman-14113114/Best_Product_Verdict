@@ -1,0 +1,63 @@
+/* Keep the comparison layout intact; reserve amber for retailer actions. */
+#led-mask-reference {
+  --color-emerald-50: oklch(97% 0.012 260);
+  --color-emerald-100: oklch(94% 0.027 260);
+  --color-emerald-200: oklch(88% 0.05 260);
+  --color-emerald-300: oklch(78% 0.08 260);
+  --color-emerald-400: oklch(62% 0.14 260);
+  --color-emerald-500: oklch(42% 0.13 260);
+  --color-emerald-600: oklch(36% 0.12 260);
+  --color-emerald-700: oklch(31% 0.10 260);
+  --color-emerald-800: oklch(26% 0.08 260);
+  --color-emerald-900: oklch(22% 0.06 260);
+  --color-emerald-950: oklch(17% 0.04 260);
+  --led-action: oklch(80% 0.16 75);
+  --led-action-hover: oklch(74% 0.16 70);
+  --led-action-ink: oklch(22% 0.045 260);
+  --led-focus: oklch(51% 0.17 260);
+}
+
+#led-mask-reference a[data-outbound-button][href*="buudy.co.uk"] {
+  background-color: var(--led-action);
+  background-image: none;
+  border-color: var(--led-action);
+  color: var(--led-action-ink);
+  box-shadow: 0 8px 20px oklch(50% 0.10 70 / 22%);
+}
+
+#led-mask-reference a[data-outbound-button][href*="buudy.co.uk"]:hover {
+  background-color: var(--led-action-hover);
+  border-color: var(--led-action-hover);
+}
+
+#led-mask-reference a[data-outbound-button][href*="buudy.co.uk"] [data-outbound-content] {
+  color: inherit;
+}
+
+#led-mask-reference .led-mask-reveal button {
+  border-color: var(--color-emerald-500);
+  color: var(--color-emerald-500);
+}
+
+#led-mask-reference .led-mask-reveal button:hover {
+  background-color: var(--color-emerald-50);
+}
+
+#led-mask-reference a:focus-visible,
+#led-mask-reference button:focus-visible {
+  outline: 3px solid var(--led-focus);
+  outline-offset: 4px;
+}
+
+#led-mask-reference [data-led-video-play] {
+  background-color: var(--color-emerald-500);
+  box-shadow: 0 14px 34px oklch(31% 0.10 260 / 35%);
+}
+
+#led-mask-reference [class~="text-[#00b67a]"] {
+  color: var(--color-emerald-500);
+}
+
+#led-mask-reference [class~="text-[#d7e5df]"] {
+  color: var(--color-emerald-100);
+}
