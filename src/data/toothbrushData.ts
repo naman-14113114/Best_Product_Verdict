@@ -86,7 +86,7 @@ export const TOOTHBRUSH_PRODUCTS: ToothbrushProduct[] = [
     isWinner: true,
     ctaText: "Claim Discount & Free Gifts",
     voucher: {
-      code: "MIROOOO10",
+      code: "BLACKFRIDAY10",
       status: "active",
       discountText: "10% Extra Discount Applied",
       note: "Active & Tested Today • Free UK Tracked Delivery Included",
