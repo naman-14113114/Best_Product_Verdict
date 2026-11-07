@@ -97,7 +97,7 @@ export const TOOTHBRUSH_GUIDES: Record<ToothbrushGuideSlug, ToothbrushGuide> = {
   "drVanceVerdict": {
     "name": "Dr. Julian Vance, BDS",
     "title": "Clinical Dental Consultant & Oral Health Specialist",
-    "avatar": "/img/toothbrushes/miroooo-dr-julian-vance-dental-consultant.webp",
+    "avatar": "/img/toothbrushes/ec20e57c-5f08-4bb9-aa24-2d0de02c5d1d_medium.webp",
     "experience": "14+ years UK dental practice & clinical consultant",
     "quote": "Mechanical oscillating-rotating heads can feel like a drill against sensitive gums. Miroooo Brush X2's acoustic micro-bubble fluid action and 45° Bass sweep remove stubborn plaque while remaining exceptionally gentle on enamel and gingival margins.",
     "clinicalRationale": "In our comparative dental assessments, mechanical oscillating toothbrushes like the Oral-B iO6 create significant friction that can accelerate gum recession if applied with excessive pressure or when the rubber grips degrade. In contrast, Miroooo Brush X2 combines high-frequency acoustic micro-vibrations with 45° Bass sweep action and precision 3D rounded brush heads to generate dynamic fluid action—flushing plaque biofilm from tight interdental spaces without abrasive mechanical scraping. Furthermore, the 51g featherlight unibody and smart pressure halo ring eliminate hand strain and excessive force, making patient compliance during the full 2-minute cycle far higher.",
@@ -243,7 +243,7 @@ export const TOOTHBRUSH_GUIDES: Record<ToothbrushGuideSlug, ToothbrushGuide> = {
   "drVanceVerdict": {
     "name": "Dr. Julian Vance, BDS",
     "title": "Clinical Dental Consultant & Oral Health Specialist",
-    "avatar": "/img/toothbrushes/miroooo-dr-julian-vance-dental-consultant.webp",
+    "avatar": "/img/toothbrushes/ec20e57c-5f08-4bb9-aa24-2d0de02c5d1d_medium.webp",
     "experience": "14+ years UK dental practice & clinical consultant",
     "quote": "High vibration frequencies alone do not guarantee effective plaque removal. Miroooo Brush X2's 45° Bass sweep physically angles micro-bubbles along the gingival sulcus, delivering superior subgingival clean with far better long-term reliability than Sonicare.",
     "clinicalRationale": "Philips Sonicare relies on linear 62,000 movements/min vibrations that can feel harsh and buzzing against the dentition without actually sweeping debris away from the gumline unless manually held at 45 degrees. The Miroooo Brush X2 automates this clinical sweep angle through precision acoustic dynamics. In addition, Philips DiamondClean models suffer high failure rates after 12–18 months due to internal vibrating magnetic shaft loosening and rubber gasket mould. Miroooo's CNC aerospace aluminium chassis and seamless unibody structure provide true IPX7 waterproofing with zero rattling points.",
@@ -391,7 +391,7 @@ export const TOOTHBRUSH_GUIDES: Record<ToothbrushGuideSlug, ToothbrushGuide> = {
   "drVanceVerdict": {
     "name": "Dr. Julian Vance, BDS",
     "title": "Clinical Dental Consultant & Oral Health Specialist",
-    "avatar": "/img/toothbrushes/miroooo-dr-julian-vance-dental-consultant.webp",
+    "avatar": "/img/toothbrushes/ec20e57c-5f08-4bb9-aa24-2d0de02c5d1d_medium.webp",
     "experience": "14+ years UK dental practice & clinical consultant",
     "quote": "While SURI's plant-based initiative is admirable, cornstarch heads are notoriously prone to micro-cracking and stem loosening under sonic vibration. Miroooo Brush X2's precision 3D rounded brush heads deliver reliable bristle geometry and superior plaque removal without head failure.",
     "clinicalRationale": "Plant-based brush heads made from cornstarch composite absorb moisture over time, leading to micro-fissures along the collar and loosening on the vibrating motor shaft. When a brush head loosens, acoustic energy is dissipated as noise and rattle rather than transferred to the teeth, reducing plaque cleaning efficacy. Furthermore, SURI offers only 2 basic cleaning modes and lacks a dedicated sensitive gum setting. Miroooo Brush X2 provides 3 clinically optimised halo LED modes with 45° Bass sweep guidance and precision 3D rounded brush heads that maintain consistent stiffness and rounded tips to protect enamel.",
@@ -511,7 +511,7 @@ export const TOOTHBRUSH_GUIDES: Record<ToothbrushGuideSlug, ToothbrushGuide> = {
   "drVanceVerdict": {
     "name": "Dr. Julian Vance, BDS",
     "title": "Clinical Dental Consultant & Oral Health Specialist",
-    "avatar": "/img/toothbrushes/miroooo-dr-julian-vance-dental-consultant.webp",
+    "avatar": "/img/toothbrushes/ec20e57c-5f08-4bb9-aa24-2d0de02c5d1d_medium.webp",
     "experience": "14+ years UK dental practice & clinical consultant",
     "quote": "The Oral-B iO3 represents poor value. At £75, Oral-B removed the smart display and app coaching, but left patients stuck with a loud 136g plastic handle, slow 16-hour charging, and expensive £8–£12 refill heads. Miroooo Brush X2 is superior in every clinical and practical metric.",
     "clinicalRationale": "Entry-level mechanical toothbrushes like the iO3 retain the aggressive mechanical oscillating gearbox of higher models, operating at a noisy 64dB that can feel jarring against dental restorations. More importantly, the iO3 locks buyers into proprietary iO replacement heads costing up to £48 per year. Miroooo Brush X2 uses gentle 45° Bass sweep acoustic fluid dynamics with precision 3D rounded brush heads, protecting thinning enamel and gumlines while providing smart pressure halo guidance, Miroooo Dentalcare App tracking, a lightweight 51g handle, and a 90-day cobalt cell battery.",
@@ -624,7 +624,7 @@ export const TOOTHBRUSH_GUIDES: Record<ToothbrushGuideSlug, ToothbrushGuide> = {
   "drVanceVerdict": {
     "name": "Dr. Julian Vance, BDS",
     "title": "Clinical Dental Consultant & Oral Health Specialist",
-    "avatar": "/img/toothbrushes/miroooo-dr-julian-vance-dental-consultant.webp",
+    "avatar": "/img/toothbrushes/ec20e57c-5f08-4bb9-aa24-2d0de02c5d1d_medium.webp",
     "experience": "14+ years UK dental practice & clinical consultant",
     "quote": "The electric toothbrush industry has been slow to modernise. Legacy brands continue selling bulky plastic handles and charging excessive refill prices. The shift towards 51g aerospace aluminium acoustic brushes with 90-day USB-C batteries and 45° Bass sweep guidance is the most positive development in UK consumer oral health in a decade.",
     "clinicalRationale": "From a clinical perspective, patient compliance is the single most important factor in preventing periodontitis and caries. When a toothbrush is uncomfortably heavy (140g), annoyingly loud (65dB), or frequently runs out of battery, patients cut their brushing sessions short. Miroooo Brush X2 eliminates all these friction points: its 51g unibody feels weightless, its 45° Bass sweep acoustic fluid dynamics sweep plaque effortlessly, its smart pressure halo ring prevents gum recession, and its 90-day USB-C battery ensures it is always ready to use.",
@@ -747,7 +747,7 @@ export const TOOTHBRUSH_GUIDES: Record<ToothbrushGuideSlug, ToothbrushGuide> = {
   "drVanceVerdict": {
     "name": "Dr. Julian Vance, BDS",
     "title": "Clinical Dental Consultant & Oral Health Specialist",
-    "avatar": "/img/toothbrushes/miroooo-dr-julian-vance-dental-consultant.webp",
+    "avatar": "/img/toothbrushes/ec20e57c-5f08-4bb9-aa24-2d0de02c5d1d_medium.webp",
     "experience": "14+ years UK dental practice & clinical consultant",
     "quote": "Excessive brush handle weight is a primary reason patients press too hard or cut their two-minute routine short. A 51g featherlight unibody restores fingertip dexterity and protects delicate gingival margins.",
     "clinicalRationale": "In over 14 years of clinical practice in the UK, I frequently see patients suffering from cervical enamel abrasion and gingival recession caused by heavy, cumbersome toothbrush handles. When a brush weighs 135g to 140g, the heavy centre of gravity forces the user to clench their grip, transferring harsh mechanical pressure directly onto the teeth. The 51g Miroooo Brush X2 behaves like a precision dental instrument: it allows you to guide the 45° Bass sweep acoustic micro-bubbles gently along the gumline with zero wrist torque, while its smart pressure halo ring alerts you if you apply too much force.",
@@ -852,7 +852,7 @@ export const TOOTHBRUSH_GUIDES: Record<ToothbrushGuideSlug, ToothbrushGuide> = {
   "drVanceVerdict": {
     "name": "Dr. Julian Vance, BDS",
     "title": "Clinical Dental Consultant & Oral Health Specialist",
-    "avatar": "/img/toothbrushes/miroooo-dr-julian-vance-dental-consultant.webp",
+    "avatar": "/img/toothbrushes/ec20e57c-5f08-4bb9-aa24-2d0de02c5d1d_medium.webp",
     "experience": "14+ years UK dental practice & clinical consultant",
     "quote": "Battery fatigue is the number one reason UK patients revert to manual toothbrushes. A brush that runs 90 days on one charge removes charging friction and ensures consistent acoustic plaque removal.",
     "clinicalRationale": "Patients frequently leave their toothbrushes uncharged or let them run down until the motor weakens, resulting in substandard plaque removal. A 90-day cobalt battery coupled with universal USB-C fast charging ensures the motor operates at full clinical velocity every single morning without battery anxiety.",
@@ -944,7 +944,7 @@ export const TOOTHBRUSH_GUIDES: Record<ToothbrushGuideSlug, ToothbrushGuide> = {
   "drVanceVerdict": {
     "name": "Dr. Julian Vance, BDS",
     "title": "Clinical Dental Consultant & Oral Health Specialist",
-    "avatar": "/img/toothbrushes/miroooo-dr-julian-vance-dental-consultant.webp",
+    "avatar": "/img/toothbrushes/ec20e57c-5f08-4bb9-aa24-2d0de02c5d1d_medium.webp",
     "experience": "14+ years UK dental practice & clinical consultant",
     "quote": "Loud 65dB+ mechanical rattles vibrate directly through the jawbone, causing sensory fatigue and leading patients to brush for under a minute. Whisper-quiet acoustic levitation transforms daily hygiene into a calming routine.",
     "clinicalRationale": "Acoustic comfort is a critically overlooked aspect of dental compliance. Traditional oscillating toothbrushes rely on mechanical gears that generate abrasive 65dB+ vibrations. Because teeth are embedded in the alveolar bone, this sound conducts straight into the inner ear and skull, triggering sensory discomfort, morning headaches, and rushing. At sub-45dB, the Miroooo Brush X2 operates like a whisper, letting patients relax and thoroughly brush all four quadrants with 45° Bass sweep guidance.",
@@ -1026,7 +1026,7 @@ export const TOOTHBRUSH_GUIDES: Record<ToothbrushGuideSlug, ToothbrushGuide> = {
   "drVanceVerdict": {
     "name": "Dr. Julian Vance, BDS",
     "title": "Clinical Dental Consultant & Oral Health Specialist",
-    "avatar": "/img/toothbrushes/miroooo-dr-julian-vance-dental-consultant.webp",
+    "avatar": "/img/toothbrushes/ec20e57c-5f08-4bb9-aa24-2d0de02c5d1d_medium.webp",
     "experience": "14+ years UK dental practice & clinical consultant",
     "quote": "Damp UK bathrooms are notorious for breeding black mould in porous rubber toothbrush seams. A solid aerospace aluminium unibody is completely non-porous, ensuring medical-grade hygiene and multi-year durability.",
     "clinicalRationale": "During routine check-ups, I regularly inspect toothbrushes brought in by patients. Over 70% of plastic toothbrushes with soft-touch rubber grips exhibit black mould colonies nestled inside rubber crevices and around charging pins. This fungal biofilm poses genuine oral and respiratory hygiene risks. An aerospace aluminium unibody with an IPX7 waterproof rating provides a sterile, impermeable surface that can be wiped clean in seconds, resisting bacterial adhesion and water ingress permanently.",
@@ -1116,7 +1116,7 @@ export const TOOTHBRUSH_GUIDES: Record<ToothbrushGuideSlug, ToothbrushGuide> = {
   "drVanceVerdict": {
     "name": "Dr. Julian Vance, BDS",
     "title": "Clinical Dental Consultant & Oral Health Specialist",
-    "avatar": "/img/toothbrushes/miroooo-dr-julian-vance-dental-consultant.webp",
+    "avatar": "/img/toothbrushes/ec20e57c-5f08-4bb9-aa24-2d0de02c5d1d_medium.webp",
     "experience": "14+ years UK dental practice & clinical consultant",
     "quote": "Dentinal hypersensitivity affects over 35% of UK adults. Harsh mechanical oscillation acts like sandpaper against exposed dentine. Miroooo Brush X2's 45° Bass sweep and smart pressure sensor halo ring actively protect exposed roots and delicate gingival margins.",
     "clinicalRationale": "When enamel thins or gums recede along the cemento-enamel junction (CEJ), open dentinal tubules transmit pain directly to the pulp nerve. Mechanical oscillating brushes exert harsh shear stress on root surfaces. Miroooo Brush X2's calibrated 45° Bass sweep motion and diamond-cut precision 3D rounded bristles lift biofilm without scratching enamel, while its integrated smart pressure halo ring flashes a red warning light if you press too hard, preventing enamel abrasion and gum recession in real time.",
@@ -1220,7 +1220,7 @@ export const TOOTHBRUSH_GUIDES: Record<ToothbrushGuideSlug, ToothbrushGuide> = {
   "drVanceVerdict": {
     "name": "Dr. Julian Vance, BDS",
     "title": "Clinical Dental Consultant & Oral Health Specialist",
-    "avatar": "/img/toothbrushes/miroooo-dr-julian-vance-dental-consultant.webp",
+    "avatar": "/img/toothbrushes/ec20e57c-5f08-4bb9-aa24-2d0de02c5d1d_medium.webp",
     "experience": "14+ years UK dental practice & clinical consultant",
     "quote": "Mechanical rotating brushes pose a serious risk of catching on bracket hooks and dislodging orthodontic bonds. 45° Bass sweep acoustic micro-bubble fluid dynamics cleans under archwires safely and prevents permanent white spot scarring.",
     "clinicalRationale": "Fixed orthodontic brackets, archwires, and elastomeric ligatures create high-retention plaque zones that manual brushes cannot navigate. Mechanical rotary heads can catch on archwire hooks or apply excessive torque that fractures the composite resin bond holding brackets in place. Miroooo Brush X2's 45° Bass sweep acoustic micro-vibrations generate fluid cavitation, projecting cleansing micro-bubbles 2–3mm beyond the bristle tips into tight bracket crevices without any snagging hazard, while its smart pressure halo ring alerts you to excessive force.",
@@ -1314,7 +1314,7 @@ export const TOOTHBRUSH_GUIDES: Record<ToothbrushGuideSlug, ToothbrushGuide> = {
   "drVanceVerdict": {
     "name": "Dr. Julian Vance, BDS",
     "title": "Clinical Dental Consultant & Oral Health Specialist",
-    "avatar": "/img/toothbrushes/miroooo-dr-julian-vance-dental-consultant.webp",
+    "avatar": "/img/toothbrushes/ec20e57c-5f08-4bb9-aa24-2d0de02c5d1d_medium.webp",
     "experience": "14+ years UK dental practice & clinical consultant",
     "quote": "When travelling, switching to a manual brush results in a 40% drop in plaque removal. The ideal travel brush must deliver 45° Bass sweep acoustic cleaning, weigh next to nothing (51g), hold 90 days of battery, and include a protective aluminium case to keep bristles sterile.",
     "clinicalRationale": "Travelling disrupts routines, and frequent charging anxiety often leads patients to leave electric brushes behind. The Miroooo Brush X2's 90-day cobalt battery eliminates charger anxiety on 3-month trips, while its 51g weight and included aluminium travel case ensure proper oral hygiene compliance anywhere in the world.",
@@ -1417,7 +1417,7 @@ export const TOOTHBRUSH_GUIDES: Record<ToothbrushGuideSlug, ToothbrushGuide> = {
   "drVanceVerdict": {
     "name": "Dr. Julian Vance, BDS",
     "title": "Clinical Dental Consultant & Oral Health Specialist",
-    "avatar": "/img/toothbrushes/miroooo-dr-julian-vance-dental-consultant.webp",
+    "avatar": "/img/toothbrushes/ec20e57c-5f08-4bb9-aa24-2d0de02c5d1d_medium.webp",
     "experience": "14+ years UK dental practice & clinical consultant",
     "quote": "The Miroooo Brush X2 addresses both major patient complaints: heavy cumbersome handles that encourage aggressive gripping and abrasive mechanical brush heads that cause gingival recession. Its 45° Bass sweep acoustic motor, smart pressure sensor halo ring, and 51g aerospace aluminium unibody deliver dentist-clean plaque removal with supreme gumline gentleness.",
     "clinicalRationale": "In over 14 years of clinical practice in the UK, the Miroooo Brush X2 represents the most refined consumer sonic toothbrush tested. Its acoustic motor with 45° Bass sweep produces optimal fluid cavitation to disrupt subgingival biofilm without damaging enamel. Meanwhile, its 51g aerospace aluminium unibody reduces hand strain by over 60%, and the active LED halo pressure sensor immediately prevents excessive force. Paired with soft diamond-cut precision 3D rounded brush heads and the Miroooo Dentalcare App, it is a clinical triumph for everyday gum health.",

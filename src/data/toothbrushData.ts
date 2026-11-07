@@ -84,7 +84,7 @@ export const TOOTHBRUSH_PRODUCTS: ToothbrushProduct[] = [
     reviewCount: "4,000+",
     link: MIROOOO_PRODUCT_URL,
     isWinner: true,
-    ctaText: "Claim Discount & Free Gifts",
+    ctaText: "Official Website",
     voucher: {
       code: "BLACKFRIDAY10",
       status: "active",
@@ -93,7 +93,7 @@ export const TOOTHBRUSH_PRODUCTS: ToothbrushProduct[] = [
     },
     description: [
       "Clinically claiming our definitive <b>#1 ranking for UK buyers in 2026</b>, the Miroooo Brush X2 resolves the persistent drawbacks of traditional oral-care appliances—cumbersome plastic bodies, jarring motor resonance, short runtimes, and extortionate replacement head tariffs. Crafted from a seamless unibody of <b>aerospace aluminium</b>, the handle weighs a featherlight <b>51g</b> to eliminate hand and wrist fatigue entirely. Operating beneath a whisper-quiet <b>45dB acoustic threshold</b>, its magnetic levitation drive delivers a refined, plaque-sweeping sensation that avoids the harsh mechanical bone vibrations common to older oscillating brushes, whilst its IPX7 waterproof rating naturally resists bathroom humidity and mould accumulation.",
-      "From an everyday practicality standpoint, the Brush X2 sets an unchallenged benchmark with its high-density cobalt battery, yielding an exceptional <b>90+ days of operation</b> from a single charge via universal <b>USB-C fast charging</b>—wholly consigning obsolete two-pin shaver adapters to the past. Clinical efficacy is reinforced by an automated <b>45° Bass sweep</b> mechanism for subgingival plaque removal and a responsive <b>smart pressure sensor halo ring</b> that illuminates to safeguard fragile gingival tissue against excess force. Supported by an outstanding <b>4.9-star rating</b> across more than 4,000 verified UK users, this flagship system is currently offered at <b>£69</b> alongside a <b>complimentary £35 accessory suite</b> (encompassing a luxury travel case, magnetic wall dock, and spare brush heads), an expansive <b>90-day money-back guarantee</b>, and an industry-leading <b>3-year warranty</b>.",
+      "From an everyday practicality standpoint, the Brush X2 sets an unchallenged benchmark with its high-density cobalt battery, yielding an exceptional <b>90+ days of operation</b> from a single charge via universal <b>USB-C fast charging</b>—wholly consigning obsolete two-pin shaver adapters to the past. Clinical efficacy is reinforced by an automated <b>45° Bass sweep</b> mechanism for subgingival plaque removal and a responsive <b>smart pressure sensor halo ring</b> that illuminates to safeguard fragile gingival tissue against excess force. Supported by an outstanding <b>4.9-star rating</b> across more than 4,000 verified UK users, this flagship system is currently offered at <b>£69</b> alongside a <b>complimentary £39 accessory suite</b> (encompassing a luxury travel case, magnetic wall dock, and spare brush heads), an expansive <b>90-day money-back guarantee</b>, and an industry-leading <b>3-year warranty</b>.",
     ],
     metrics: [
       { label: "Plaque Removal & Cleaning", value: 97 },
@@ -108,7 +108,7 @@ export const TOOTHBRUSH_PRODUCTS: ToothbrushProduct[] = [
       "<b>Whisper Quiet (<45dB)</b> - Acoustic magnetic motor operates below 45dB with no harsh buzzing or handle rattle.",
       "<b>90-Day Battery Life</b> - High-density cobalt battery cell powered by universal USB-C fast charging.",
       "<b>Durable Aluminium Build</b> - Precision-milled aerospace unibody resists drops, wear, and bathroom mould.",
-      "<b>Free £35 Gift Bundle</b> - Includes Luxury Travel Case (£16), Wall-Mounted Storage (£10), and Free Brush Heads (£9).",
+      "<b>Free £39 Gift Bundle</b> - Includes Luxury Travel Case (£19), Wall-Mounted Storage (£10), and Free Brush Heads (£10).",
       "<b>45° Bass Sweep & Smart Pressure Halo</b> - Precision angled acoustic motion with real-time visual alert ring to protect sensitive gums.",
       "<b>90-Day Money-Back Guarantee</b> - 100% risk-free home trial with full refund protection.",
       "<b>3-Year Warranty</b> - Complete 3-year manufacturer warranty for lasting peace of mind.",
@@ -119,14 +119,14 @@ export const TOOTHBRUSH_PRODUCTS: ToothbrushProduct[] = [
       "Promotional Sale: Usually costs £99, currently selling for £69 in ongoing promotional sale.",
     ],
     gifts: {
-      totalValue: "£35",
-      title: "What's Included & Free Gifts Worth £35",
+      totalValue: "£39",
+      title: "What's Included & Free Gifts Worth £39",
       description:
         "Every Miroooo Brush X2 order includes these essential accessories in the box for complete oral care at home and on the go.",
       items: [
         {
           name: "Luxury Travel Case",
-          regularPrice: "£16",
+          regularPrice: "£19",
           image: "/img/toothbrushes/miroooo-brush-x2-luxury-travel-case-gift.webp",
           badge: "FREE GIFT",
         },
@@ -138,7 +138,7 @@ export const TOOTHBRUSH_PRODUCTS: ToothbrushProduct[] = [
         },
         {
           name: "Free Brush Heads",
-          regularPrice: "£9",
+          regularPrice: "£10",
           image: "/img/toothbrushes/miroooo-brush-x2-free-brush-heads-gift.webp",
           badge: "FREE GIFT",
         },
@@ -167,7 +167,7 @@ export const TOOTHBRUSH_PRODUCTS: ToothbrushProduct[] = [
     reviewCount: "1,850+",
     link: "https://amzn.to/4wLZUyf",
     isWinner: false,
-    ctaText: "Check Availability",
+    ctaText: "Shop Now",
     voucher: {
       code: "ORALB10",
       status: "expired",
@@ -224,7 +224,7 @@ export const TOOTHBRUSH_PRODUCTS: ToothbrushProduct[] = [
     reviewCount: "1,420+",
     link: "https://link.amazon/B0ad5Rtl8",
     isWinner: false,
-    ctaText: "Check Availability",
+    ctaText: "Shop Now",
     voucher: {
       code: "SONIC10",
       status: "expired",
@@ -281,7 +281,7 @@ export const TOOTHBRUSH_PRODUCTS: ToothbrushProduct[] = [
     reviewCount: "820+",
     link: "https://amzn.to/4wRV2YF",
     isWinner: false,
-    ctaText: "Check Availability",
+    ctaText: "Shop Now",
     voucher: {
       code: "SURI10",
       status: "expired",
@@ -338,7 +338,7 @@ export const TOOTHBRUSH_PRODUCTS: ToothbrushProduct[] = [
     reviewCount: "650+",
     link: "https://link.amazon/B0erAArJa",
     isWinner: false,
-    ctaText: "Check Availability",
+    ctaText: "Shop Now",
     voucher: {
       code: "IO3OFF",
       status: "expired",
