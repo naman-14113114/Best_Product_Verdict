@@ -61,3 +61,16 @@
 #led-mask-reference [class~="text-[#d7e5df]"] {
   color: var(--color-emerald-100);
 }
+
+@media (min-width: 1024px) {
+  #led-mask-reference .lg\:sticky {
+    top: 10px;
+  }
+}
+
+/* Prevent double-translation from global Tailwind transform combining with reference.css translate */
+#led-mask-reference .-translate-x-1\/2,
+#led-mask-reference .-translate-y-1\/2 {
+  transform: none;
+}
+

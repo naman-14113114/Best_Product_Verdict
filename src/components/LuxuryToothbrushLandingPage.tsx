@@ -596,7 +596,7 @@ function ProductCard({
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 xl:gap-8">
         {/* Left Column: Image, Price, Stars, Desktop CTA (Sticky on Desktop) */}
         <aside className="lg:col-span-4 flex flex-col items-center w-full">
-          <div className="lg:sticky lg:top-2 xl:top-3 w-full flex flex-col items-center">
+          <div className="lg:sticky lg:top-[10px] w-full flex flex-col items-center">
             {/* Mobile Title (above image on mobile, hidden on desktop, cleared below rank ribbon) */}
             <h2
               className={`text-2xl font-bold text-slate-900 mb-4 text-center lg:hidden font-serif pt-10 sm:pt-8 px-8 ${
@@ -608,7 +608,7 @@ function ProductCard({
 
             {/* Product Image (Calibrated to guarantee zero overlap below RankRibbon and fit 100% inside viewport frame) */}
             <div
-              className={`relative w-full max-w-[250px] sm:max-w-[260px] lg:max-w-[250px] xl:max-w-[260px] mx-auto mb-1 ${
+              className={`relative w-full max-w-[250px] sm:max-w-[260px] lg:max-w-[250px] xl:max-w-[260px] mx-auto mb-3 ${
                 isWinner ? "lg:pt-[34px] pt-2" : "lg:pt-[18px] pt-2"
               }`}
             >
@@ -636,8 +636,8 @@ function ProductCard({
             </div>
 
             {/* Price & Rating */}
-            <div className="text-center mb-1 w-full">
-              <div className="flex items-center justify-center gap-1.5 sm:gap-2 mb-0.5 flex-nowrap">
+            <div className="text-center mb-2 lg:mb-3 w-full">
+              <div className="flex items-center justify-center gap-2 mb-1.5 flex-nowrap">
                 <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 shrink-0">
                   {product.price}
                 </span>
@@ -646,15 +646,18 @@ function ProductCard({
                     {product.originalPrice}
                   </span>
                 )}
-                {isWinner && (
-                  <span className="inline-flex items-center gap-1 rounded-none bg-slate-900 text-[#f9ad26] border border-[#f9ad26]/40 px-2 py-0.5 text-[9px] sm:text-[10px] font-black uppercase tracking-wider shadow-xs whitespace-nowrap shrink-0">
-                    BLACK FRIDAY EARLY ACCESS
-                  </span>
-                )}
               </div>
 
-              <div className="flex items-center justify-center mb-0.5">
-                <RatingStars rating={product.rating} size={16} />
+              {isWinner && (
+                <div className="flex justify-center mb-1.5">
+                  <span className="inline-flex items-center gap-1 rounded-none bg-slate-900 text-[#f9ad26] border border-[#f9ad26]/40 px-2.5 py-0.5 text-[9px] sm:text-[10px] font-black uppercase tracking-wider shadow-xs whitespace-nowrap">
+                    BLACK FRIDAY EARLY ACCESS
+                  </span>
+                </div>
+              )}
+
+              <div className="flex items-center justify-center mb-1">
+                <RatingStars rating={product.rating} size={18} />
               </div>
 
               <p className="text-[11px] sm:text-xs font-medium text-slate-500 leading-tight">
@@ -663,14 +666,14 @@ function ProductCard({
             </div>
 
             {/* Desktop CTA Button (Sticky with the left sidebar on desktop, guaranteed inside viewport frame) */}
-            <div className="w-full max-w-[250px] sm:max-w-[260px] lg:max-w-[250px] xl:max-w-[260px] hidden lg:block mt-1">
+            <div className="w-full max-w-[250px] sm:max-w-[260px] lg:max-w-[250px] xl:max-w-[260px] hidden lg:block">
               <OfficialButton
                 href={product.link}
                 targetId={`product-desktop-${product.rank}`}
                 loadingTarget={loadingTarget}
                 setLoadingTarget={setLoadingTarget}
                 testId={`toothbrush-cta-${product.rank}`}
-                size="compact"
+                size="default"
                 className="w-full"
               >
                 {product.ctaText || "CHECK AVAILABILITY"}
