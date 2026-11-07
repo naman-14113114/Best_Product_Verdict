@@ -582,7 +582,7 @@ function ProductCard({
         isWinner
           ? "border-[#1d4a93] ring-4 ring-[#e1ecfe] pt-4 md:pt-5"
           : "border-slate-200 pt-4 md:pt-5"
-      } px-4 sm:px-6 md:px-10 pb-6 md:pb-10 scroll-mt-28`}
+      } px-4 sm:px-6 md:px-10 pb-6 md:pb-10 scroll-mt-6`}
     >
       <RankRibbon rank={product.rank} featured={isWinner} />
 
@@ -608,8 +608,8 @@ function ProductCard({
 
             {/* Product Image (Calibrated to guarantee zero overlap below RankRibbon and fit 100% inside viewport frame) */}
             <div
-              className={`relative w-full max-w-[230px] sm:max-w-[245px] lg:max-w-[230px] xl:max-w-[245px] mx-auto mb-1 ${
-                isWinner ? "lg:pt-[28px] pt-2" : "lg:pt-[16px] pt-2"
+              className={`relative w-full max-w-[250px] sm:max-w-[260px] lg:max-w-[250px] xl:max-w-[260px] mx-auto mb-1 ${
+                isWinner ? "lg:pt-[34px] pt-2" : "lg:pt-[18px] pt-2"
               }`}
             >
               <a
@@ -654,7 +654,7 @@ function ProductCard({
               </div>
 
               <div className="flex items-center justify-center mb-0.5">
-                <RatingStars rating={product.rating} size={15} />
+                <RatingStars rating={product.rating} size={16} />
               </div>
 
               <p className="text-[11px] sm:text-xs font-medium text-slate-500 leading-tight">
@@ -663,7 +663,7 @@ function ProductCard({
             </div>
 
             {/* Desktop CTA Button (Sticky with the left sidebar on desktop, guaranteed inside viewport frame) */}
-            <div className="w-full max-w-[230px] sm:max-w-[245px] lg:max-w-[230px] xl:max-w-[245px] hidden lg:block mt-1">
+            <div className="w-full max-w-[250px] sm:max-w-[260px] lg:max-w-[250px] xl:max-w-[260px] hidden lg:block mt-1">
               <OfficialButton
                 href={product.link}
                 targetId={`product-desktop-${product.rank}`}
