@@ -580,8 +580,8 @@ function ProductCard({
       data-product-rank={product.rank}
       className={`relative bg-white rounded-none shadow-sm border ${
         isWinner
-          ? "border-[#1d4a93] ring-4 ring-[#e1ecfe] pt-5 md:pt-6"
-          : "border-slate-200 pt-5 md:pt-6"
+          ? "border-[#1d4a93] ring-4 ring-[#e1ecfe] pt-4 md:pt-5"
+          : "border-slate-200 pt-4 md:pt-5"
       } px-4 sm:px-6 md:px-10 pb-6 md:pb-10 scroll-mt-28`}
     >
       <RankRibbon rank={product.rank} featured={isWinner} />
@@ -593,7 +593,7 @@ function ProductCard({
         </div>
       )}
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-16">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 xl:gap-10">
         {/* Left Column: Image, Price, Stars, Desktop CTA (Sticky on Desktop) */}
         <aside className="lg:col-span-4 flex flex-col items-center w-full">
           <div className="lg:sticky lg:top-2 xl:top-3 w-full flex flex-col items-center">
@@ -608,8 +608,8 @@ function ProductCard({
 
             {/* Product Image (Padded to guarantee zero overlap with RankRibbon on all screens, sized to fit comfortably in viewport) */}
             <div
-              className={`relative w-full max-w-[245px] sm:max-w-[260px] lg:max-w-[245px] xl:max-w-[260px] mx-auto mb-2 ${
-                isWinner ? "lg:pt-7 pt-2" : "lg:pt-5 pt-2"
+              className={`relative w-full max-w-[280px] sm:max-w-[300px] lg:max-w-[280px] xl:max-w-[295px] mx-auto mb-1.5 ${
+                isWinner ? "lg:pt-3 pt-2" : "lg:pt-3 pt-2"
               }`}
             >
               <a
@@ -636,34 +636,34 @@ function ProductCard({
             </div>
 
             {/* Price & Rating */}
-            <div className="text-center mb-2 lg:mb-2 w-full">
-              <div className="flex items-center justify-center gap-2 sm:gap-2.5 mb-1 flex-wrap">
-                <span className="text-3xl font-extrabold text-slate-900">
+            <div className="text-center mb-1.5 w-full">
+              <div className="flex items-center justify-center gap-1.5 sm:gap-2 mb-1 flex-nowrap">
+                <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 shrink-0">
                   {product.price}
                 </span>
                 {product.originalPrice && (
-                  <span className="text-lg text-slate-400 line-through font-medium">
+                  <span className="text-base sm:text-lg text-slate-400 line-through font-medium shrink-0">
                     {product.originalPrice}
                   </span>
                 )}
                 {isWinner && (
-                  <span className="inline-flex items-center gap-1 rounded-none bg-slate-900 text-[#f9ad26] border border-[#f9ad26]/40 px-2.5 py-0.5 text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wider shadow-xs whitespace-nowrap">
+                  <span className="inline-flex items-center gap-1 rounded-none bg-slate-900 text-[#f9ad26] border border-[#f9ad26]/40 px-2 py-0.5 text-[9px] sm:text-[10px] font-black uppercase tracking-wider shadow-xs whitespace-nowrap shrink-0">
                     BLACK FRIDAY EARLY ACCESS
                   </span>
                 )}
               </div>
 
               <div className="flex items-center justify-center mb-0.5">
-                <RatingStars rating={product.rating} size={20} />
+                <RatingStars rating={product.rating} size={18} />
               </div>
 
-              <p className="text-xs sm:text-sm font-medium text-slate-500">
+              <p className="text-[11px] sm:text-xs font-medium text-slate-500">
                 Overall rating {product.rating.toFixed(1)} / 5 ({product.reviewCount})
               </p>
             </div>
 
             {/* Desktop CTA Button (Sticky with the left sidebar on desktop) */}
-            <div className="w-full hidden lg:block mt-1">
+            <div className="w-full max-w-[280px] sm:max-w-[300px] lg:max-w-[280px] xl:max-w-[295px] hidden lg:block mt-1">
               <OfficialButton
                 href={product.link}
                 targetId={`product-desktop-${product.rank}`}
