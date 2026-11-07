@@ -274,7 +274,7 @@ function OfficialButton({
       }}
       className={`group relative inline-flex items-center justify-center overflow-hidden rounded-none bg-[#f9ad26] hover:bg-[#ea9602] border-2 border-[#e09819] font-black text-[#0e1a2f] shadow-md transition-all duration-200 active:scale-[0.99] cursor-pointer ${
         isCompact
-          ? "min-h-12 w-full px-3.5 sm:px-4 py-2.5 text-base sm:text-lg lg:text-base xl:text-lg tracking-wide"
+          ? "min-h-10 sm:min-h-11 w-full px-3 sm:px-4 py-2 sm:py-2.5 text-sm sm:text-base lg:text-sm xl:text-base tracking-wide"
           : "min-h-12 w-full px-6 py-3 text-center text-base sm:text-lg md:text-xl"
       } ${className}`}
       aria-busy={isLoading}
@@ -580,8 +580,8 @@ function ProductCard({
       data-product-rank={product.rank}
       className={`relative bg-white rounded-none shadow-sm border ${
         isWinner
-          ? "border-[#1d4a93] ring-4 ring-[#e1ecfe] pt-5 md:pt-6"
-          : "border-slate-200 pt-5 md:pt-6"
+          ? "border-[#1d4a93] ring-4 ring-[#e1ecfe] pt-4 md:pt-5"
+          : "border-slate-200 pt-4 md:pt-5"
       } px-4 sm:px-6 md:px-10 pb-6 md:pb-10 scroll-mt-28`}
     >
       <RankRibbon rank={product.rank} featured={isWinner} />
@@ -593,23 +593,23 @@ function ProductCard({
         </div>
       )}
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 xl:gap-10">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 xl:gap-8">
         {/* Left Column: Image, Price, Stars, Desktop CTA (Sticky on Desktop) */}
-        <aside className="lg:col-span-5 flex flex-col items-center w-full">
+        <aside className="lg:col-span-4 flex flex-col items-center w-full">
           <div className="lg:sticky lg:top-2 xl:top-3 w-full flex flex-col items-center">
             {/* Mobile Title (above image on mobile, hidden on desktop, cleared below rank ribbon) */}
             <h2
-              className={`text-2xl font-bold text-slate-900 mb-6 text-center lg:hidden font-serif pt-10 sm:pt-8 px-8 ${
+              className={`text-2xl font-bold text-slate-900 mb-4 text-center lg:hidden font-serif pt-10 sm:pt-8 px-8 ${
                 isWinner ? "mt-4 sm:mt-5" : "mt-3 sm:mt-4"
               }`}
             >
               {product.name}
             </h2>
 
-            {/* Product Image (Generously sized to fill space, padded to guarantee 100% zero overlap with RankRibbon on all screens) */}
+            {/* Product Image (Calibrated to guarantee zero overlap below RankRibbon and fit 100% inside viewport frame) */}
             <div
-              className={`relative w-full max-w-[360px] sm:max-w-[380px] lg:max-w-[360px] xl:max-w-[390px] mx-auto mb-2 ${
-                isWinner ? "lg:pt-[92px] pt-2" : "lg:pt-[76px] pt-2"
+              className={`relative w-full max-w-[230px] sm:max-w-[245px] lg:max-w-[230px] xl:max-w-[245px] mx-auto mb-1 ${
+                isWinner ? "lg:pt-[28px] pt-2" : "lg:pt-[16px] pt-2"
               }`}
             >
               <a
@@ -636,8 +636,8 @@ function ProductCard({
             </div>
 
             {/* Price & Rating */}
-            <div className="text-center mb-2 w-full">
-              <div className="flex items-center justify-center gap-2 sm:gap-2.5 mb-1.5 flex-nowrap">
+            <div className="text-center mb-1 w-full">
+              <div className="flex items-center justify-center gap-1.5 sm:gap-2 mb-0.5 flex-nowrap">
                 <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 shrink-0">
                   {product.price}
                 </span>
@@ -647,23 +647,23 @@ function ProductCard({
                   </span>
                 )}
                 {isWinner && (
-                  <span className="inline-flex items-center gap-1 rounded-none bg-slate-900 text-[#f9ad26] border border-[#f9ad26]/40 px-2.5 py-0.5 text-[9px] sm:text-[10px] font-black uppercase tracking-wider shadow-xs whitespace-nowrap shrink-0">
+                  <span className="inline-flex items-center gap-1 rounded-none bg-slate-900 text-[#f9ad26] border border-[#f9ad26]/40 px-2 py-0.5 text-[9px] sm:text-[10px] font-black uppercase tracking-wider shadow-xs whitespace-nowrap shrink-0">
                     BLACK FRIDAY EARLY ACCESS
                   </span>
                 )}
               </div>
 
               <div className="flex items-center justify-center mb-0.5">
-                <RatingStars rating={product.rating} size={19} />
+                <RatingStars rating={product.rating} size={15} />
               </div>
 
-              <p className="text-xs sm:text-sm font-medium text-slate-500">
+              <p className="text-[11px] sm:text-xs font-medium text-slate-500 leading-tight">
                 Overall rating {product.rating.toFixed(1)} / 5 ({product.reviewCount})
               </p>
             </div>
 
-            {/* Desktop CTA Button (Sticky with the left sidebar on desktop) */}
-            <div className="w-full max-w-[360px] sm:max-w-[380px] lg:max-w-[360px] xl:max-w-[390px] hidden lg:block mt-1">
+            {/* Desktop CTA Button (Sticky with the left sidebar on desktop, guaranteed inside viewport frame) */}
+            <div className="w-full max-w-[230px] sm:max-w-[245px] lg:max-w-[230px] xl:max-w-[245px] hidden lg:block mt-1">
               <OfficialButton
                 href={product.link}
                 targetId={`product-desktop-${product.rank}`}
@@ -680,7 +680,7 @@ function ProductCard({
         </aside>
 
         {/* Right Column: Title, Review, Metrics, Pros & Cons, PackagePanel, Mobile CTA */}
-        <div className="lg:col-span-7">
+        <div className="lg:col-span-8">
           {/* Desktop Title */}
           <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6 hidden lg:block font-serif">
             <a
