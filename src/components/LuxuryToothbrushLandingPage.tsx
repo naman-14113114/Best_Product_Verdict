@@ -593,9 +593,9 @@ function ProductCard({
         </div>
       )}
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 xl:gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 xl:gap-10">
         {/* Left Column: Image, Price, Stars, Desktop CTA (Sticky on Desktop) */}
-        <aside className="lg:col-span-4 flex flex-col items-center w-full">
+        <aside className="lg:col-span-5 flex flex-col items-center w-full">
           <div className="lg:sticky lg:top-[10px] w-full flex flex-col items-center">
             {/* Mobile Title (above image on mobile, hidden on desktop, cleared below rank ribbon) */}
             <h2
@@ -608,8 +608,8 @@ function ProductCard({
 
             {/* Product Image (Calibrated to guarantee zero overlap below RankRibbon and fit 100% inside viewport frame) */}
             <div
-              className={`relative w-full max-w-[250px] sm:max-w-[260px] lg:max-w-[250px] xl:max-w-[260px] mx-auto mb-3 ${
-                isWinner ? "lg:pt-[34px] pt-2" : "lg:pt-[18px] pt-2"
+              className={`relative w-full max-w-[360px] sm:max-w-[380px] lg:max-w-[360px] xl:max-w-[390px] mx-auto mb-3 ${
+                isWinner ? "lg:pt-[40px] pt-2" : "lg:pt-[18px] pt-2"
               }`}
             >
               <a
@@ -666,7 +666,7 @@ function ProductCard({
             </div>
 
             {/* Desktop CTA Button (Sticky with the left sidebar on desktop, guaranteed inside viewport frame) */}
-            <div className="w-full max-w-[250px] sm:max-w-[260px] lg:max-w-[250px] xl:max-w-[260px] hidden lg:block">
+            <div className="w-full max-w-[360px] sm:max-w-[380px] lg:max-w-[360px] xl:max-w-[390px] hidden lg:block">
               <OfficialButton
                 href={product.link}
                 targetId={`product-desktop-${product.rank}`}
@@ -683,7 +683,7 @@ function ProductCard({
         </aside>
 
         {/* Right Column: Title, Review, Metrics, Pros & Cons, PackagePanel, Mobile CTA */}
-        <div className="lg:col-span-8">
+        <div className="lg:col-span-7">
           {/* Desktop Title */}
           <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6 hidden lg:block font-serif">
             <a
