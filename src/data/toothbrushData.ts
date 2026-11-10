@@ -75,7 +75,7 @@ export const TOOTHBRUSH_PRODUCTS: ToothbrushProduct[] = [
     rankBadge: "Editor's Choice • #1 Best Overall",
     name: "Miroooo Brush X2 Electric Toothbrush",
     tag: "Ultra-Lightweight 51g Aerospace Aluminium Sonic Brush with 45° Bass Sweep, Smart Pressure Sensor Halo Ring & 90-Day Battery",
-    image: "/img/toothbrushes/miroooo-x2-sonic-electric-toothbrush-silver-global-dental-innovation-award.webp",
+    image: "/img/toothbrushes/miroooo-brush-x2-electric-toothbrush-uk.webp",
     price: "£69",
     originalPrice: "£139",
     discount: "50% OFF",

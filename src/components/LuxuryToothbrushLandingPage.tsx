@@ -580,9 +580,9 @@ function ProductCard({
       data-product-rank={product.rank}
       className={`relative bg-white rounded-none shadow-sm border ${
         isWinner
-          ? "border-[#1d4a93] ring-4 ring-[#e1ecfe] pt-4 md:pt-5"
-          : "border-slate-200 pt-4 md:pt-5"
-      } px-4 sm:px-6 md:px-10 pb-6 md:pb-10 scroll-mt-6`}
+          ? "border-[#1d4a93] ring-4 ring-[#e1ecfe]"
+          : "border-slate-200"
+      } pt-10 md:pt-10 p-6 md:p-10 scroll-mt-6`}
     >
       <RankRibbon rank={product.rank} featured={isWinner} />
 
@@ -593,9 +593,9 @@ function ProductCard({
         </div>
       )}
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 xl:gap-10">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-16">
         {/* Left Column: Image, Price, Stars, Desktop CTA (Sticky on Desktop) */}
-        <aside className="lg:col-span-5 flex flex-col items-center w-full">
+        <aside className="lg:col-span-4 flex flex-col items-center w-full">
           <div className="lg:sticky lg:top-[10px] w-full flex flex-col items-center">
             {/* Mobile Title (above image on mobile, hidden on desktop, cleared below rank ribbon) */}
             <h2
@@ -606,12 +606,8 @@ function ProductCard({
               {product.name}
             </h2>
 
-            {/* Product Image (Calibrated to guarantee zero overlap below RankRibbon and fit 100% inside viewport frame) */}
-            <div
-              className={`relative w-full max-w-[360px] sm:max-w-[380px] lg:max-w-[360px] xl:max-w-[390px] mx-auto mb-3 ${
-                isWinner ? "lg:pt-[40px] pt-2" : "lg:pt-[18px] pt-2"
-              }`}
-            >
+            {/* Product Image (Same image size and padding as on best mask page) */}
+            <div className="relative w-full mb-3">
               <a
                 href={product.link}
                 target="_blank"
@@ -666,7 +662,7 @@ function ProductCard({
             </div>
 
             {/* Desktop CTA Button (Sticky with the left sidebar on desktop, guaranteed inside viewport frame) */}
-            <div className="w-full max-w-[360px] sm:max-w-[380px] lg:max-w-[360px] xl:max-w-[390px] hidden lg:block">
+            <div className="w-full hidden lg:block">
               <OfficialButton
                 href={product.link}
                 targetId={`product-desktop-${product.rank}`}
@@ -683,7 +679,7 @@ function ProductCard({
         </aside>
 
         {/* Right Column: Title, Review, Metrics, Pros & Cons, PackagePanel, Mobile CTA */}
-        <div className="lg:col-span-7">
+        <div className="lg:col-span-8">
           {/* Desktop Title */}
           <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6 hidden lg:block font-serif">
             <a
