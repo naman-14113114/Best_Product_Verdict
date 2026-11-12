@@ -13,5 +13,21 @@ export function trackOutboundClick(url: string, productTitle: string, rank: numb
   const event: OutboundEvent = { product_title: productTitle, product_rank: rank, product_category: category, destination_url: url };
   try { window.gtag?.("event", "outbound_click", event); } catch { /* Navigation must still proceed. */ }
   try { window.dataLayer?.push({ event: "affiliate_click", ...event }); } catch { /* Navigation must still proceed. */ }
-  try { window.uetq?.push("event", "outbound_click", { event_category: "affiliate", event_label: productTitle }); } catch { /* Navigation must still proceed. */ }
+  try {
+    window.uetq?.push("event", "outbound_click", { event_category: "affiliate", event_label: productTitle });
+    window.uetq?.push("event", "buudy_outbound_click", {
+      event_category: "affiliate",
+      event_label: productTitle,
+      event_value: 660,
+      revenue_value: 660,
+      currency: "INR",
+    });
+    window.uetq?.push("event", "affiliate_click", {
+      event_category: "affiliate",
+      event_label: productTitle,
+      event_value: 660,
+      revenue_value: 660,
+      currency: "INR",
+    });
+  } catch { /* Navigation must still proceed. */ }
 }

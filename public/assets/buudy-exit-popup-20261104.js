@@ -20,6 +20,23 @@
   var upFrom = window.scrollY;
   var lastScroll = window.scrollY;
 
+  var ATTRIBUTION_KEYS = [
+    "msclkid", "gclid", "gbraid", "wbraid", "utm_source", "utm_medium",
+    "utm_campaign", "utm_content", "utm_term", "utm_id"
+  ];
+
+  // Immediately cache attribution keys in sessionStorage
+  try {
+    var initSearch = new URLSearchParams(window.location.search);
+    ATTRIBUTION_KEYS.forEach(function (k) {
+      var val = initSearch.get(k);
+      if (val) {
+        sessionStorage.setItem("bpv_" + k, val);
+        sessionStorage.setItem("tpr_" + k, val);
+      }
+    });
+  } catch (_) {}
+
   function eligible() {
     return paths.indexOf(window.location.pathname.replace(/\/$/, "")) !== -1;
   }
@@ -43,8 +60,14 @@
     url.searchParams.set("utm_medium", "exit_popup");
     url.searchParams.set("utm_campaign", "led_mask_comparison");
     url.searchParams.set("utm_content", "exit_offer");
-    ["msclkid", "gclid", "gbraid", "wbraid", "utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "utm_id"].forEach(function (name) {
-      if (incoming.get(name)) url.searchParams.set(name, incoming.get(name));
+    ATTRIBUTION_KEYS.forEach(function (name) {
+      var val = incoming.get(name);
+      if (!val) {
+        try {
+          val = sessionStorage.getItem("bpv_" + name) || sessionStorage.getItem("tpr_" + name);
+        } catch (_) {}
+      }
+      if (val) url.searchParams.set(name, val);
     });
     return url.href;
   }
@@ -81,7 +104,13 @@
     var payload = { product_title: "Buudy 7 Colour LED Mask", product_rank: 1, product_category: "LED face masks", destination_url: href };
     try { if (window.gtag) window.gtag("event", "outbound_click", payload); } catch (_) {}
     try { window.dataLayer.push(Object.assign({ event: "affiliate_click" }, payload)); } catch (_) {}
-    try { if (window.uetq) window.uetq.push("event", "outbound_click", { event_category: "affiliate", event_label: payload.product_title }); } catch (_) {}
+    try {
+      if (window.uetq) {
+        window.uetq.push("event", "outbound_click", { event_category: "affiliate", event_label: payload.product_title });
+        window.uetq.push("event", "buudy_outbound_click", { event_category: "affiliate", event_label: payload.product_title, event_value: 660, revenue_value: 660, currency: "INR" });
+        window.uetq.push("event", "affiliate_click", { event_category: "affiliate", event_label: payload.product_title, event_value: 660, revenue_value: 660, currency: "INR" });
+      }
+    } catch (_) {}
   }
 
   var style = document.createElement("style");
@@ -177,6 +206,7 @@
     if (!/^(www\.)?buudy\.co\.uk$/.test(url.hostname)) return;
     remember();
     if (!anchor.hasAttribute("data-buudy-exit-cta")) return;
+    anchor.href = destination();
     trackOutbound(anchor.href);
     // Avoid the legacy document-level redirect delay for this native popup anchor.
     if (!verdict) e.stopPropagation();

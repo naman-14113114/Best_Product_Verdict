@@ -21,16 +21,40 @@ export function LedMaskReferenceControls() {
       }).format(new Date());
     }
 
-    // Attribution is added to ordinary anchors; their native navigation stays immediate.
+    // Cache attribution parameters immediately into sessionStorage
+    try {
+      const initialParams = new URLSearchParams(window.location.search);
+      ATTRIBUTION_KEYS.forEach((k) => {
+        const v = initialParams.get(k);
+        if (v) {
+          sessionStorage.setItem("bpv_" + k, v);
+          sessionStorage.setItem("tpr_" + k, v);
+        }
+      });
+    } catch (_) {}
+
     const incoming = new URLSearchParams(window.location.search);
-    root.querySelectorAll<HTMLAnchorElement>("a[href]").forEach((anchor) => {
-      const destination = new URL(anchor.href);
-      if (!/^(www\.)?buudy\.co\.uk$/.test(destination.hostname)) return;
-      for (const key of ATTRIBUTION_KEYS) {
-        const value = incoming.get(key);
-        if (value) destination.searchParams.set(key, value);
+    const getAttributionValue = (key: string): string | null => {
+      const fromUrl = incoming.get(key);
+      if (fromUrl) return fromUrl;
+      try {
+        return sessionStorage.getItem("bpv_" + key) || sessionStorage.getItem("tpr_" + key);
+      } catch (_) {
+        return null;
       }
-      anchor.href = destination.toString();
+    };
+
+    // Attribution is added to ordinary anchors; their native navigation stays immediate.
+    root.querySelectorAll<HTMLAnchorElement>("a[href]").forEach((anchor) => {
+      try {
+        const destination = new URL(anchor.href);
+        if (!/^(www\.)?buudy\.co\.uk$/.test(destination.hostname)) return;
+        for (const key of ATTRIBUTION_KEYS) {
+          const value = getAttributionValue(key);
+          if (value) destination.searchParams.set(key, value);
+        }
+        anchor.href = destination.toString();
+      } catch (_) {}
     });
 
     const video = root.querySelector<HTMLVideoElement>("[data-led-verdict-video]");
@@ -92,11 +116,28 @@ export function LedMaskReferenceControls() {
       }
 
       const anchor = target.closest<HTMLAnchorElement>("a[href]");
-      if (anchor && new URL(anchor.href).origin !== window.location.origin) {
-        const card = anchor.closest<HTMLElement>("[data-led-product]");
-        const title = card?.querySelector("h2")?.textContent?.replace(/^#\d+\s*/, "")
-          || "Buudy 7 Colour LED Mask";
-        trackOutboundClick(anchor.href, title, Number(card?.dataset.ledProduct || 1), "LED face masks");
+      if (anchor) {
+        try {
+          const dest = new URL(anchor.href);
+          if (/^(www\.)?buudy\.co\.uk$/.test(dest.hostname)) {
+            let changed = false;
+            for (const key of ATTRIBUTION_KEYS) {
+              const value = getAttributionValue(key);
+              if (value && !dest.searchParams.has(key)) {
+                dest.searchParams.set(key, value);
+                changed = true;
+              }
+            }
+            if (changed) anchor.href = dest.toString();
+          }
+
+          if (dest.origin !== window.location.origin) {
+            const card = anchor.closest<HTMLElement>("[data-led-product]");
+            const title = card?.querySelector("h2")?.textContent?.replace(/^#\d+\s*/, "")
+              || "Buudy 7 Colour LED Mask";
+            trackOutboundClick(anchor.href, title, Number(card?.dataset.ledProduct || 1), "LED face masks");
+          }
+        } catch (_) {}
       }
     };
     root.addEventListener("click", handleClick);

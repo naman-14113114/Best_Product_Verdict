@@ -10,3 +10,4 @@ export { StarRating } from "./StarRating";
 export { AboutEditor } from "./AboutEditor";
 export { ProofTrustBar } from "./ProofTrustBar";
 export { ConsideredProducts } from "./ConsideredProducts";
+export { CookieConsentBanner } from "./CookieConsentBanner";

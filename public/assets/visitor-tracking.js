@@ -16,10 +16,29 @@
     y.parentNode.insertBefore(t, y);
   })(window, document, "clarity", "script", "w4nply9u93");
 
+  var initialConsent = "denied";
+  try {
+    if (window.localStorage.getItem("bpv_cookie_consent") === "granted") {
+      initialConsent = "granted";
+    }
+  } catch (e) {}
+
   window.clarity("consentv2", {
-    ad_Storage: "granted",
-    analytics_Storage: "granted"
+    ad_Storage: initialConsent,
+    analytics_Storage: initialConsent
   });
+
+  window.bpvUpdateConsent = function (status) {
+    var s = status === "granted" ? "granted" : "denied";
+    try {
+      if (typeof window.clarity === "function") {
+        window.clarity("consentv2", {
+          ad_Storage: s,
+          analytics_Storage: s
+        });
+      }
+    } catch (e) {}
+  };
 
   window.Tawk_API = window.Tawk_API || {};
   window.Tawk_LoadStart = new Date();
