@@ -12,7 +12,6 @@ import {
   XCircle,
   HelpCircle,
   Sparkles,
-  Clock,
   Award,
   Timer,
 } from "lucide-react";
@@ -1315,17 +1314,9 @@ export function LuxuryToothbrushLandingPage({
             </span>
           </h1>
 
-          <p className="text-white/90 text-sm md:text-xl max-w-3xl mx-auto leading-relaxed">
-            {guide
-              ? guide.subheadline
-              : "Compare the top 5 electric toothbrushes in the UK for 2026. Expert tested for plaque removal, battery life, noise levels, and overall dental value."}
-          </p>
-
-          <div className="mt-4 inline-flex items-center gap-2 bg-[#11397b]/80 text-white text-xs md:text-sm px-3.5 py-1.5 rounded-none border border-[#2b5ba3]/50">
-            <Clock size={14} className="text-[#f9ad26]" />
-            <span>Updated: {ukDate || "October 2026"}</span>
-            <span>•</span>
-            <span>Audited by UK Dental Panel</span>
+          <div className="flex items-center justify-center gap-2 md:gap-2.5 text-base md:text-lg font-bold text-white">
+            <CheckCircle2 size={20} className="text-white shrink-0" />
+            <span>Last updated – {ukDate || "14 November 2026"}</span>
           </div>
         </div>
       </header>
