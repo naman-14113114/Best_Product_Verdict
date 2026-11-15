@@ -77,9 +77,9 @@ export const CookieConsentBanner: React.FC = () => {
     <aside
       aria-label="Cookie consent options"
       role="region"
-      className="fixed z-40 bottom-20 left-3 right-3 sm:bottom-5 sm:left-5 sm:right-auto pointer-events-none transition-all duration-300"
+      className="fixed z-40 bottom-4 right-3 sm:bottom-6 sm:right-6 pointer-events-none transition-all duration-300"
     >
-      <div className="pointer-events-auto w-full sm:w-[320px] bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-xl p-3.5 text-slate-800 text-xs">
+      <div className="pointer-events-auto w-[calc(100vw-1.5rem)] max-w-[320px] sm:w-[320px] bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-xl p-3.5 text-slate-800 text-xs">
         <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-100">
           <div className="flex items-center gap-1.5 font-semibold text-slate-900 text-xs">
             <ShieldCheck className="w-3.5 h-3.5 text-teal-600 shrink-0" />
