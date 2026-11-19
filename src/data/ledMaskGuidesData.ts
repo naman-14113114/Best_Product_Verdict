@@ -987,7 +987,7 @@ export const LED_MASK_GUIDES: Record<LedMaskGuideSlug, LedMaskGuide> = {
     headline: "The LED Density Scam: Is Your Expensive Mask Actually Treating Nothing?",
     subheadline: "Many £500 brands hide their bulb counts and irradiance numbers. Discover why sparse diode spacing creates facial 'dead zones' that leave skin untreated.",
     quickTake: "In phototherapy, proximity and density dictate clinical success. Cheap or poorly engineered masks often space 60 to 80 weak diodes inches apart, creating widespread 'dead zones' across your cheeks and forehead where zero photon energy reaches the dermis. Furthermore, if optical irradiance falls below 25 mW/cm², it fails to stimulate mitochondrial cytochrome c oxidase, rendering the mask an expensive placebo. Buudy delivers 192 high-density precision LEDs outputting an optimal 30-32 mW/cm² irradiance.",
-    heroImage: "/img/top-5-best-led-face-masks-uk-buudy.png",
+    heroImage: "/img/dense_led_macro_1774237501628.png",
     intro: [
       "When buying an LED mask, consumers are routinely misled by high prices and glossy influencer selfies into assuming that all masks deliver equal light power.",
       "The reality of optical physics is unforgiving: light spreads and attenuates rapidly. If an LED mask has only 70 or 80 diodes scattered across the face, the light cone from each bulb leaves wide gaps of darkness on the skin surface. Areas between the bulbs receive less than 10% of the energy needed for cellular repair.",

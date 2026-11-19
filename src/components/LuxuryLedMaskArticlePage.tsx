@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Script from "next/script";
 import {
   ArrowRight,
   ExternalLink,
@@ -26,6 +27,25 @@ import {
   type LedMaskProduct,
 } from "@/data/ledMaskData";
 import { type LedMaskArticle } from "@/data/ledMaskArticlesData";
+
+/* Dynamic UK Date Formatter */
+function useCurrentDateFormatted() {
+  const [currentDateFormatted, setCurrentDateFormatted] = useState("November 2026");
+
+  useEffect(() => {
+    try {
+      const now = new Date();
+      const day = now.getDate();
+      const month = now.toLocaleString("en-GB", { month: "long" });
+      const year = now.getFullYear();
+      setCurrentDateFormatted(`${day} ${month} ${year}`);
+    } catch {
+      setCurrentDateFormatted("November 2026");
+    }
+  }, []);
+
+  return currentDateFormatted;
+}
 
 /* Dynamic UK Midnight Countdown Timer Hook */
 function useUkMidnightTimer() {
@@ -78,17 +98,20 @@ function useUkMidnightTimer() {
   return timeLeft;
 }
 
-/* Warm Gold Rating Stars */
-function GoldStars({ rating = 5, size = 18 }: { rating?: number; size?: number }) {
+/* Trustpilot 5 Green Stars Component */
+function TrustpilotStars({ rating = "4.9", reviews = "4,000+" }: { rating?: string; reviews?: string }) {
   return (
-    <div className="flex items-center gap-1" role="img" aria-label={`Rating: ${rating} out of 5 stars`}>
-      {[...Array(5)].map((_, i) => (
-        <Star
-          key={i}
-          size={size}
-          className="fill-[#f59e0b] text-[#f59e0b]"
-        />
-      ))}
+    <div className="inline-flex items-center gap-2 flex-wrap">
+      <div className="flex items-center gap-0.5">
+        {[...Array(5)].map((_, i) => (
+          <div key={i} className="w-4 h-4 sm:w-5 sm:h-5 bg-[#00b67a] flex items-center justify-center rounded-xs">
+            <Star size={12} className="text-white fill-white" />
+          </div>
+        ))}
+      </div>
+      <span className="text-xs sm:text-sm font-bold text-neutral-800">
+        {rating} <span className="text-neutral-500 font-normal">({reviews} UK Reviews)</span>
+      </span>
     </div>
   );
 }
@@ -97,6 +120,7 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
   const [openFaqIndices, setOpenFaqIndices] = useState<Record<number, boolean>>({ 0: true });
   const [isDisclosureOpen, setIsDisclosureOpen] = useState(false);
   const timer = useUkMidnightTimer();
+  const currentDateFormatted = useCurrentDateFormatted();
 
   const winnerProduct = LED_MASK_PRODUCTS.find((p) => p.isWinner) || LED_MASK_PRODUCTS[0];
 
@@ -114,20 +138,20 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
   const secondHalfParas = article.content.slice(midPoint);
 
   return (
-    <div className="min-h-screen bg-white text-[#181818] antialiased selection:bg-[#d1a3ff] selection:text-[#181818]">
-      {/* 1. TOP EDITORIAL STRIP */}
-      <div className="bg-[#fafafa] border-b border-[#e7e7e7] py-2.5 px-4 sm:px-6">
-        <div className="max-w-4xl mx-auto flex items-center justify-between text-xs font-openSans text-neutral-600">
-          <div className="flex items-center gap-2">
-            <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="font-semibold text-[#181818]">Clinical Dermatology Bulletin</span>
-            <span className="text-neutral-400 hidden sm:inline">•</span>
-            <span className="hidden sm:inline text-neutral-500">Peer-Reviewed Phototherapy Education</span>
-          </div>
-          <div className="flex items-center gap-1.5 font-bold text-[#7e22ce]">
-            <Award size={14} />
-            <span>2026 UK Audit</span>
-          </div>
+    <div className="min-h-screen bg-white text-[#181818] antialiased selection:bg-emerald-100 selection:text-emerald-900">
+      {/* 1. TOP EMERALD GREEN BANNER */}
+      <div className="bg-emerald-500 text-white py-2 px-3 sm:px-4 text-center text-xs sm:text-sm font-semibold tracking-wide border-b border-emerald-600">
+        <div className="max-w-4xl mx-auto flex items-center justify-center gap-2 flex-wrap">
+          <svg className="w-4 h-4 rounded-full overflow-hidden shrink-0 inline-block" viewBox="0 0 640 480" aria-hidden="true">
+            <path fill="#012169" d="M0 0h640v480H0z" />
+            <path fill="#FFF" d="m75 0 244 181L562 0h78v62L439 240l201 178v62h-78L319 299 75 480H0v-62l201-178L0 62V0h75z" />
+            <path fill="#C8102E" d="m424 281 216 159v40L369 281h55zm-208-82L0 40V0l271 199h-55zM640 0v3L451 199h55L640 40V0zM0 480v-3l189-199h-55L0 440v40z" />
+            <path fill="#FFF" d="M240 0h160v480H240zM0 160h640v160H0z" />
+            <path fill="#C8102E" d="M272 0h96v480h-96zM0 192h640v96H0z" />
+          </svg>
+          <span>UK 2026 Clinical Phototherapy Audit: Peer-Reviewed LED Education</span>
+          <span className="hidden md:inline">•</span>
+          <span className="hidden md:inline text-emerald-100">Updated: {currentDateFormatted}</span>
         </div>
       </div>
 
@@ -137,7 +161,7 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
         <nav aria-label="Breadcrumb" className="mb-6">
           <ol className="flex items-center flex-wrap gap-1.5 text-xs font-openSans text-neutral-500">
             <li>
-              <Link href="/" className="hover:text-[#181818] transition-colors">
+              <Link href="/" className="hover:text-emerald-700 transition-colors">
                 Home
               </Link>
             </li>
@@ -145,22 +169,22 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
               <ChevronRight size={13} className="text-neutral-400" />
             </li>
             <li>
-              <Link href="/best-led-face-mask-uk-2026" className="hover:text-[#181818] transition-colors">
+              <Link href="/best-led-face-mask-uk-2026" className="hover:text-emerald-700 transition-colors">
                 LED Phototherapy Guide
               </Link>
             </li>
             <li>
               <ChevronRight size={13} className="text-neutral-400" />
             </li>
-            <li className="font-semibold text-[#7e22ce] truncate max-w-[240px] sm:max-w-sm">
+            <li className="font-semibold text-emerald-700 truncate max-w-[240px] sm:max-w-sm">
               {article.title}
             </li>
           </ol>
         </nav>
 
         {/* Category Eyebrow Pill */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#d1a3ff] bg-[#f5f3ff] text-[11px] sm:text-xs uppercase tracking-[0.15em] font-openSans font-bold text-[#7e22ce] mb-5 shadow-xs">
-          <Sparkles size={14} className="text-[#9333ea]" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-200 bg-emerald-50 text-[11px] sm:text-xs uppercase tracking-[0.15em] font-openSans font-bold text-emerald-800 mb-5 shadow-xs">
+          <Sparkles size={14} className="text-emerald-600" />
           <span>Clinical Phototherapy Paper</span>
         </div>
 
@@ -171,7 +195,7 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
 
         {/* Excerpt Lead */}
         {article.excerpt && (
-          <p className="font-lora text-lg sm:text-xl text-neutral-700 leading-[1.7] mb-8 font-normal border-l-4 border-[#7e22ce] pl-4 sm:pl-5 bg-[#fafafa] py-3 rounded-r-xl">
+          <p className="font-lora text-lg sm:text-xl text-neutral-700 leading-[1.7] mb-8 font-normal border-l-4 border-emerald-500 pl-4 sm:pl-5 bg-neutral-50 py-3 rounded-r-xl">
             {article.excerpt}
           </p>
         )}
@@ -179,13 +203,12 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
         {/* Author & Meta Bar */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 py-4 border-y border-[#e7e7e7] text-xs sm:text-sm font-openSans text-neutral-600">
           <div className="flex items-center gap-3">
-            <div className="relative w-12 h-12 rounded-full overflow-hidden bg-neutral-100 border-2 border-[#181818] shrink-0">
+            <div className="relative w-12 h-12 rounded-full overflow-hidden bg-neutral-100 border-2 border-emerald-500 shrink-0">
               <img
                 src="/img/dr-shannon.png"
                 alt={article.author}
                 className="w-full h-full object-cover"
                 onError={(e) => {
-                  // Fallback doctor avatar if local fails
                   (e.target as HTMLImageElement).src =
                     "https://img.thesitebase.net/10677/10677322/themes/1770302958c850cb975e.png";
                 }}
@@ -203,17 +226,17 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
 
           <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs font-semibold text-neutral-500">
             <span className="flex items-center gap-1.5">
-              <Clock size={14} className="text-[#9333ea]" />
+              <Clock size={14} className="text-emerald-600" />
               {article.date}
             </span>
             <span className="text-neutral-300">•</span>
             <span className="flex items-center gap-1.5">
-              <BookOpen size={14} className="text-[#9333ea]" />
+              <BookOpen size={14} className="text-emerald-600" />
               {article.readTime}
             </span>
             <span className="text-neutral-300">•</span>
-            <span className="inline-flex items-center gap-1 text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
-              <ShieldCheck size={13} />
+            <span className="inline-flex items-center gap-1 text-emerald-800 bg-emerald-100 px-2.5 py-1 rounded-md border border-emerald-300 font-bold">
+              <ShieldCheck size={14} className="text-emerald-700" />
               Peer Reviewed
             </span>
           </div>
@@ -223,7 +246,7 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
       {/* 3. HERO ARTICLE IMAGE */}
       {article.image && (
         <section className="max-w-4xl mx-auto px-4 sm:px-6 mb-10">
-          <div className="relative rounded-2xl overflow-hidden border border-[#e7e7e7] shadow-sm bg-[#fafafa] aspect-[16/9] sm:aspect-[21/9]">
+          <div className="relative rounded-2xl overflow-hidden border border-[#e7e7e7] shadow-sm bg-neutral-100 aspect-[16/9] sm:aspect-[21/9]">
             <img
               src={article.image}
               alt={article.imageAlt || article.title}
@@ -240,9 +263,9 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
       <main className="max-w-4xl mx-auto px-4 sm:px-6 pb-20">
         {/* KEY TAKEAWAYS BOX */}
         {article.keyTakeaways && article.keyTakeaways.length > 0 && (
-          <div className="bg-gradient-to-br from-[#fdf4ff] to-[#f5f3ff] rounded-2xl p-6 sm:p-8 border-2 border-[#d1a3ff] shadow-sm mb-12">
+          <div className="bg-gradient-to-br from-emerald-50/70 via-white to-teal-50/50 rounded-2xl p-6 sm:p-8 border-2 border-emerald-300 shadow-sm mb-12">
             <div className="flex items-center gap-2.5 mb-4">
-              <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#7e22ce] text-white">
+              <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-600 text-white">
                 <Sparkles size={18} />
               </span>
               <h2 className="font-lora text-xl sm:text-2xl font-extrabold text-[#181818]">
@@ -252,7 +275,7 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
             <ul className="space-y-3 font-lora text-[16px] sm:text-[17px] text-[#181818] leading-[1.7]">
               {article.keyTakeaways.map((takeaway, tIdx) => (
                 <li key={tIdx} className="flex items-start gap-3">
-                  <CheckCircle2 size={19} className="text-[#7e22ce] shrink-0 mt-1" />
+                  <CheckCircle2 size={19} className="text-emerald-600 shrink-0 mt-1" />
                   <span>{takeaway}</span>
                 </li>
               ))}
@@ -276,44 +299,48 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
           ))}
         </div>
 
-        {/* MID-ARTICLE EDITOR'S CHOICE WINNER SPOTLIGHT CARD */}
-        <div className="bg-gradient-to-br from-[#fafafa] via-white to-[#fdf4ff] rounded-3xl p-6 sm:p-9 border-2 border-[#181818] shadow-xl my-14 relative overflow-hidden">
-          {/* Winner Ribbon Top Left */}
-          <div className="absolute top-0 right-0 bg-[#181818] text-white font-openSans text-[11px] font-extrabold uppercase tracking-widest py-1.5 px-6 rounded-bl-2xl shadow-sm flex items-center gap-1.5">
-            <Award size={14} className="text-[#f59e0b]" />
-            #1 OVERALL CLINICAL PICK
+        {/* MID-ARTICLE EDITOR'S CHOICE WINNER SPOTLIGHT CARD (Matches Reference Mask Page) */}
+        <div className="bg-gradient-to-b from-white via-white to-neutral-50 rounded-3xl p-6 sm:p-9 border-2 border-emerald-500 shadow-2xl my-14 relative overflow-hidden">
+          {/* Winner Ribbon Top Left / Right */}
+          <div className="absolute top-0 right-0 bg-emerald-600 text-white font-openSans text-[11px] font-extrabold uppercase tracking-widest py-1.5 px-6 rounded-bl-2xl shadow-sm flex items-center gap-1.5">
+            <Award size={14} className="text-amber-300" />
+            #1 OVERALL CLINICAL PICK (2026)
           </div>
 
           <div className="max-w-2xl">
-            <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-extrabold block mb-1">
-              Top Rated by Dermatologist Panel
+            <span className="font-openSans text-xs uppercase tracking-widest text-emerald-700 font-extrabold block mb-1">
+              Top Rated by Consultant Dermatologist Panel
             </span>
             <h3 className="font-lora text-2xl sm:text-3xl font-extrabold text-[#181818] mb-2">
               {winnerProduct.name}
             </h3>
             <p className="font-lora text-sm sm:text-base text-neutral-600 mb-6">
-              Full-coverage facial and neck phototherapy with 7 clinical wavelengths, medical-grade silicone, and
-              Black Friday 3 free gifts suite.
+              Full-coverage facial and cervical neck phototherapy with 7 clinical wavelengths, medical-grade silicone, and
+              exclusive Black Friday 3 free gifts suite (£128 value).
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
             {/* Left Product Image & Coupon */}
             <div className="md:col-span-5 flex flex-col items-center">
-              <div className="w-full max-w-[260px] aspect-square rounded-2xl overflow-hidden bg-white border border-[#e7e7e7] shadow-sm mb-3">
+              <div className="relative w-full max-w-[280px] aspect-square rounded-2xl overflow-hidden bg-neutral-50 border border-neutral-200 shadow-sm mb-3">
                 <img
                   src={winnerProduct.image}
                   alt={winnerProduct.name}
                   className="w-full h-full object-cover"
                 />
+                <div className="absolute top-2 left-2 bg-emerald-600 text-white font-extrabold text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1">
+                  <Gift size={12} />
+                  £128 Free Gifts
+                </div>
               </div>
 
-              {/* Coupon Bar */}
-              <div className="w-full max-w-[260px] px-3 py-2 rounded-xl bg-[#fdf4ff] border-2 border-[#d1a3ff] flex items-center justify-between text-xs font-mono">
-                <span className="font-bold text-[#7e22ce]">CODE: {winnerProduct.voucher.code}</span>
+              {/* Coupon Bar with Countdown */}
+              <div className="w-full max-w-[280px] px-3 py-2 rounded-xl bg-emerald-50 border-2 border-emerald-300 flex items-center justify-between text-xs font-mono">
+                <span className="font-bold text-emerald-800">CODE: {winnerProduct.voucher.code}</span>
                 <span className="bg-[#181818] text-white font-bold text-[10px] px-2 py-0.5 rounded flex items-center gap-1">
-                  <Timer size={11} className="text-[#b265ff]" />
-                  {timer.hours}h {timer.minutes}m
+                  <Timer size={11} className="text-amber-400" />
+                  {timer.hours}h {timer.minutes}m {timer.seconds}s
                 </span>
               </div>
             </div>
@@ -336,26 +363,33 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
                 )}
               </div>
 
-              <div className="flex items-center gap-2">
-                <GoldStars rating={winnerProduct.rating} size={17} />
-                <span className="font-openSans text-xs font-bold text-neutral-700">
-                  {winnerProduct.ratingDisplay} ({winnerProduct.reviewCount} Verified Reviews)
-                </span>
+              {/* Trustpilot Green Stars */}
+              <TrustpilotStars rating="4.9" reviews="4,000+" />
+
+              {/* 7 Wavelength Badges */}
+              <div className="flex flex-wrap gap-1.5 pt-1">
+                <span className="px-2 py-0.5 bg-red-100 text-red-800 text-[10px] font-bold rounded-md">630nm Red</span>
+                <span className="px-2 py-0.5 bg-blue-100 text-blue-800 text-[10px] font-bold rounded-md">415nm Blue</span>
+                <span className="px-2 py-0.5 bg-green-100 text-green-800 text-[10px] font-bold rounded-md">525nm Green</span>
+                <span className="px-2 py-0.5 bg-amber-100 text-amber-800 text-[10px] font-bold rounded-md">590nm Amber</span>
+                <span className="px-2 py-0.5 bg-purple-100 text-purple-800 text-[10px] font-bold rounded-md">Purple</span>
+                <span className="px-2 py-0.5 bg-cyan-100 text-cyan-800 text-[10px] font-bold rounded-md">Cyan</span>
+                <span className="px-2 py-0.5 bg-neutral-200 text-neutral-800 text-[10px] font-bold rounded-md">830nm NIR</span>
               </div>
 
               {/* Bullet Features */}
               <ul className="space-y-2 font-openSans text-xs sm:text-sm text-neutral-700">
                 <li className="flex items-center gap-2">
                   <Check size={16} className="text-emerald-600 shrink-0" />
-                  <span><strong>Full Face &amp; Neck Coverage:</strong> Integrated neck piece treats aging neck skin.</span>
+                  <span><strong>Full Face &amp; Cervical Neck Coverage:</strong> Integrated dual-piece phototherapy.</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check size={16} className="text-emerald-600 shrink-0" />
-                  <span><strong>7 Colours + 830nm NIR:</strong> Targets wrinkles, blemishes, rosacea, and dark spots.</span>
+                  <span><strong>192 High-Density Diode Array:</strong> 30-32 mW/cm² zero dead-zone photon flux.</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check size={16} className="text-emerald-600 shrink-0" />
-                  <span><strong>Black Friday 3 Free Gifts (£128 Value):</strong> Travel box, LED torch, &amp; clinical guide.</span>
+                  <span><strong>Black Friday 3 Free Gifts Suite (£128 Value):</strong> Case (£39) + Torch (£70) + Guide (£19).</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Check size={16} className="text-emerald-600 shrink-0" />
@@ -363,15 +397,27 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
                 </li>
               </ul>
 
+              {/* Free Gifts Highlight Box */}
+              <div className="bg-emerald-50 rounded-xl p-3 border border-emerald-200 text-xs">
+                <div className="flex items-center gap-1.5 font-bold text-emerald-900 mb-1">
+                  <Gift size={14} className="text-emerald-600" />
+                  <span>3 FREE GIFTS INCLUDED WITH TODAY&apos;S ORDER:</span>
+                </div>
+                <div className="text-neutral-700 space-y-0.5 text-[11px]">
+                  <div>🎁 <strong>Luxury Travel Case</strong> (Value: £39) — <span className="text-emerald-700 font-bold">FREE</span></div>
+                  <div>🎁 <strong>Precision Red Light Torch</strong> (Value: £70) — <span className="text-emerald-700 font-bold">FREE</span></div>
+                  <div>🎁 <strong>Clinical Phototherapy Skincare Guide</strong> (Value: £19) — <span className="text-emerald-700 font-bold">FREE</span></div>
+                </div>
+              </div>
+
               {/* CTA Button */}
               <div className="pt-2">
                 <a
                   href={BUUDY_PRODUCT_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative overflow-hidden w-full py-3.5 sm:py-4 px-6 rounded-2xl bg-[#181818] hover:bg-[#7e22ce] text-white font-openSans font-extrabold text-sm sm:text-base uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-lg hover:shadow-2xl hover:shadow-[#b265ff]/40 hover:-translate-y-1 hover:scale-[1.025] active:scale-[0.985] transition-all duration-300 animate-ctaPulse cursor-pointer"
+                  className="group relative overflow-hidden w-full py-4 px-6 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-openSans font-extrabold text-sm sm:text-base uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-lg hover:shadow-emerald-500/30 hover:-translate-y-0.5 active:scale-[0.985] transition-all duration-300 animate-ctaPulse cursor-pointer"
                 >
-                  {/* Continuous Idle Light Shimmer Sweep */}
                   <span
                     aria-hidden="true"
                     className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent animate-ctaShimmer"
@@ -381,6 +427,9 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
                   </span>
                   <ArrowRight size={18} className="relative z-10 shrink-0 transition-transform duration-300 group-hover:translate-x-2 animate-bounceX" />
                 </a>
+                <div className="text-center text-[11px] text-neutral-500 font-openSans mt-2">
+                  🔒 Official Buudy Store • Free UK Tracked Delivery • 90-Day Money-Back Guarantee
+                </div>
               </div>
             </div>
           </div>
@@ -395,9 +444,9 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
 
         {/* CLINICAL FAQ ACCORDION */}
         {article.faq && article.faq.length > 0 && (
-          <section className="bg-[#fafafa] rounded-3xl p-6 sm:p-9 border border-[#e7e7e7] shadow-sm mb-16">
+          <section className="bg-neutral-50 rounded-3xl p-6 sm:p-9 border border-[#e7e7e7] shadow-sm mb-16">
             <div className="text-center max-w-2xl mx-auto mb-8">
-              <span className="font-openSans text-xs uppercase tracking-widest text-[#7e22ce] font-bold">
+              <span className="font-openSans text-xs uppercase tracking-widest text-emerald-700 font-bold">
                 Clinical Inquiries
               </span>
               <h2 className="font-lora text-2xl sm:text-3xl font-extrabold text-[#181818] mt-1">
@@ -414,7 +463,7 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
                 return (
                   <div
                     key={fIdx}
-                    className="bg-white rounded-2xl border border-[#e7e7e7] overflow-hidden transition-all duration-200"
+                    className="bg-white rounded-2xl border border-neutral-200 overflow-hidden transition-all duration-200"
                   >
                     <button
                       type="button"
@@ -422,7 +471,7 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
                       className="w-full text-left p-5 sm:p-6 flex items-start justify-between gap-4 cursor-pointer hover:bg-neutral-50/70 transition-colors select-none"
                     >
                       <span className="font-lora font-bold text-base sm:text-lg text-[#181818] flex items-start gap-2.5">
-                        <HelpCircle size={18} className="text-[#7e22ce] mt-1 shrink-0" />
+                        <HelpCircle size={18} className="text-emerald-600 mt-1 shrink-0" />
                         <span>{faqItem.question}</span>
                       </span>
                       <span className="shrink-0 mt-1 text-neutral-400">
@@ -442,9 +491,9 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
         )}
 
         {/* ARTICLE BOTTOM NAVIGATION / ACTION CALL */}
-        <div className="bg-[#181818] text-white rounded-3xl p-8 sm:p-10 text-center relative overflow-hidden">
+        <div className="bg-gradient-to-br from-neutral-900 to-neutral-800 text-white rounded-3xl p-8 sm:p-10 text-center relative overflow-hidden border border-neutral-700">
           <div className="relative z-10 max-w-2xl mx-auto">
-            <span className="font-openSans text-xs uppercase tracking-widest text-[#d1a3ff] font-bold block mb-2">
+            <span className="font-openSans text-xs uppercase tracking-widest text-emerald-400 font-bold block mb-2">
               Ready to Upgrade Your Skincare Routine?
             </span>
             <h3 className="font-lora text-2xl sm:text-3xl md:text-4xl font-extrabold mb-4">
@@ -457,7 +506,7 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
                 href="/best-led-face-mask-uk-2026"
-                className="w-full sm:w-auto py-3.5 px-6 rounded-xl bg-white text-[#181818] font-openSans font-extrabold text-sm uppercase tracking-wider hover:bg-[#b265ff] hover:text-white transition-colors"
+                className="w-full sm:w-auto py-3.5 px-6 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-openSans font-extrabold text-sm uppercase tracking-wider transition-colors"
               >
                 View Full Top 10 Comparison
               </Link>
@@ -474,20 +523,20 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
           </div>
         </div>
 
-        {/* 10. EDITORIAL FOOTER & DISCLOSURES */}
+        {/* EDITORIAL FOOTER & DISCLOSURES */}
         <footer className="mt-20 pt-12 border-t border-[#e7e7e7] text-center text-xs text-neutral-500 font-openSans">
           <div className="mb-6 flex flex-wrap items-center justify-center gap-4 text-xs font-semibold">
-            <Link href="/privacy-policy" className="hover:text-[#181818] transition-colors">
+            <Link href="/privacy-policy" className="hover:text-emerald-700 transition-colors">
               Privacy Policy
             </Link>
             <span className="text-neutral-300">•</span>
-            <Link href="/terms-and-conditions" className="hover:text-[#181818] transition-colors">
+            <Link href="/terms-and-conditions" className="hover:text-emerald-700 transition-colors">
               Terms of Service
             </Link>
             <span className="text-neutral-300">•</span>
             <button
               onClick={() => setIsDisclosureOpen(true)}
-              className="hover:text-[#181818] transition-colors underline cursor-pointer"
+              className="hover:text-emerald-700 transition-colors underline cursor-pointer"
             >
               Advertiser Disclosure
             </button>
@@ -508,12 +557,12 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
 
       {/* DISCLOSURE MODAL */}
       {isDisclosureOpen && (
-        <div className="cp-overlay" onClick={() => setIsDisclosureOpen(false)}>
-          <div className="disclosure-card-inner" onClick={(e) => e.stopPropagation()}>
-            <h3 className="disclosure-card-title font-lora text-xl font-bold text-[#181818]">
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4" onClick={() => setIsDisclosureOpen(false)}>
+          <div className="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-neutral-200" onClick={(e) => e.stopPropagation()}>
+            <h3 className="font-lora text-xl font-bold text-[#181818] mb-3">
               Advertising &amp; Editorial Disclosure
             </h3>
-            <p className="disclosure-card-text font-lora text-neutral-700 leading-relaxed text-sm mb-4">
+            <p className="font-lora text-neutral-700 leading-relaxed text-sm mb-6">
               Best Product Verdict is an independent consumer testing and evaluation platform. We are reader-supported.
               When you purchase through links on our site, we may earn an affiliate commission at no extra cost to you.
               Our evaluations, ratings, and doctor reviews are based on rigorous clinical benchmarks, optical testing, and
@@ -521,7 +570,7 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
             </p>
             <button
               onClick={() => setIsDisclosureOpen(false)}
-              className="bg-[#181818] hover:bg-[#b265ff] text-white font-openSans font-bold text-sm py-2.5 px-6 rounded-lg transition-colors cursor-pointer"
+              className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-openSans font-bold text-sm py-3 px-6 rounded-xl transition-colors cursor-pointer"
             >
               Understood &amp; Close
             </button>
@@ -531,6 +580,12 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
 
       {/* STICKY WINNER BOX (DESKTOP) & MOBILE FLOATING CTA */}
       <StickyWinnerBox winnerProduct={winnerProduct} />
+
+      {/* Dynamic Buudy Exit Popup Script */}
+      <Script
+        src="/buudy-exit-popup-20261104.js"
+        strategy="lazyOnload"
+      />
     </div>
   );
 }
@@ -541,17 +596,18 @@ function StickyWinnerBox({ winnerProduct }: { winnerProduct: LedMaskProduct }) {
       {/* 1. DESKTOP STICKY BOX (Compact, Right-Gutter, Never Overlaps Content) */}
       <aside
         aria-label="Winner recommendation sticky card"
-        className="hidden md:flex flex-col items-center fixed bottom-6 right-3 xl:right-6 z-50 w-[136px] bg-[#181818] border border-[#2e2e2e] rounded-xl p-2 shadow-2xl transition-all duration-300 hover:border-[#3e3e3e]"
+        className="hidden md:flex flex-col items-center fixed bottom-6 right-3 xl:right-6 z-40 w-[140px] bg-white border-2 border-emerald-500 rounded-2xl p-2.5 shadow-2xl transition-all duration-300 hover:shadow-emerald-500/20"
       >
         {/* Top Badge: #1 WINNER */}
         <div className="mb-1.5">
-          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#f5f3ff] text-[#7e22ce] border border-[#d1a3ff] text-[9px] font-openSans font-extrabold uppercase tracking-wider shadow-xs">
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 text-[9px] font-openSans font-extrabold uppercase tracking-wider shadow-xs">
+            <Award size={10} className="text-amber-500" />
             #1 WINNER
           </span>
         </div>
 
-        {/* Sticky Winner Image according to BUUDY SEO & GEO */}
-        <div className="relative w-full aspect-square rounded-lg overflow-hidden bg-[#181818] border border-[#2e2e2e]">
+        {/* Sticky Winner Image */}
+        <div className="relative w-full aspect-square rounded-xl overflow-hidden bg-neutral-50 border border-neutral-200">
           <img
             src="/img/buudy-7-colour-led-mask-uk-winner.webp"
             alt="Buudy 7 Colour LED Face and Neck Mask - UK Rated #1 Light Therapy Mask Winner 2026"
@@ -561,11 +617,14 @@ function StickyWinnerBox({ winnerProduct }: { winnerProduct: LedMaskProduct }) {
           />
         </div>
 
-        {/* Title: #1 Product Name in Bold Uppercase */}
-        <div className="mt-1.5 mb-1.5 text-center px-0.5">
-          <h4 className="font-lora font-extrabold text-white text-[11px] tracking-wider uppercase leading-tight">
+        {/* Title: #1 Product Name */}
+        <div className="mt-1.5 mb-2 text-center px-0.5">
+          <h4 className="font-lora font-extrabold text-[#181818] text-[11px] leading-tight">
             {winnerProduct.name}
           </h4>
+          <span className="text-[10px] text-emerald-700 font-bold block mt-0.5">
+            £179 + £128 Gifts
+          </span>
         </div>
 
         {/* Desktop CTA Button */}
@@ -573,25 +632,23 @@ function StickyWinnerBox({ winnerProduct }: { winnerProduct: LedMaskProduct }) {
           href={winnerProduct.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full py-1.5 px-2 rounded-lg bg-white hover:bg-[#b265ff] text-[#181818] hover:text-white font-openSans font-extrabold text-[10px] uppercase tracking-wider flex items-center justify-center gap-1 transition-all duration-200 shadow-md group"
+          className="w-full py-2 px-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-openSans font-extrabold text-[10px] uppercase tracking-wider flex items-center justify-center gap-1 transition-all duration-200 shadow-md group"
         >
-          <span>VISIT WINNING SITE</span>
-          <ExternalLink size={11} className="shrink-0 group-hover:translate-x-0.5 transition-transform" />
+          <span>Claim Offer</span>
+          <ArrowRight size={11} className="shrink-0 group-hover:translate-x-0.5 transition-transform" />
         </a>
       </aside>
 
-      {/* 2. MOBILE FLOATING STICKY BUTTON */}
-      <div className="fixed bottom-4 left-4 right-4 z-50 md:hidden pointer-events-none">
+      {/* 2. MOBILE FLOATING STICKY BOTTOM BAR */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 p-3 bg-white/95 backdrop-blur-md border-t border-neutral-200 shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
         <a
           href={winnerProduct.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="pointer-events-auto block w-full py-3 px-4 rounded-xl bg-[#181818] hover:bg-[#b265ff] text-white font-openSans font-extrabold text-sm uppercase tracking-wider text-center shadow-2xl transition-colors cursor-pointer border border-neutral-800 active:scale-[0.99]"
+          className="w-full py-3.5 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-openSans font-extrabold text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg active:scale-[0.98] transition-all"
         >
-          <span className="inline-flex items-center justify-center gap-2">
-            <span>Visit Winning Site</span>
-            <ExternalLink size={15} className="shrink-0" />
-          </span>
+          <span>Claim 60% Off &amp; £128 Free Gifts</span>
+          <ArrowRight size={16} />
         </a>
       </div>
     </>
