@@ -211,10 +211,6 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
                   src="/img/dr-shannon.png"
                   alt={article.author}
                   className="w-full h-full object-cover"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src =
-                      "https://img.thesitebase.net/10677/10677322/themes/1770302958c850cb975e.png";
-                  }}
                 />
               </div>
               <div>

@@ -96,9 +96,9 @@ export const LED_MASK_PRODUCTS: LedMaskProduct[] = [
       note: "Active & Tested Today • Free UK Tracked Delivery Included",
     },
     description: [
-      "Earning our definitive <b>#1 ranking for 2026</b>, the Buudy 7 Colour LED Mask establishes an unrivalled benchmark for at-home phototherapy throughout the UK. Whereas conventional masks typically offer only mono-wavelength red light, Buudy delivers an expansive <b>7-colour spectrum</b> augmented by cellular-penetrating <b>830nm near-infrared</b> diodes. This clinical multi-waveband configuration simultaneously addresses stubborn fine lines, hyperpigmentation, active blemishes, and systemic loss of dermal elasticity across diverse skin tones.",
-      "What sets this system apart clinically is the inclusion of <b>built-in neck coverage</b> directly in the standard package. The fragile skin across the neck possesses fewer sebaceous glands and exhibits accelerated <b>ageing</b>, yet rival high-end masks consistently leave this area untreated. Featuring medical-grade flexible silicone, complete cordless mobility via responsive <b>Tap Technology</b>, and intelligent guided routines, administering a 10-minute daily session is completely seamless.",
-      "Supported by over 16,000 verified British users and an extraordinary <b>4.9-star rating</b>, patients frequently document visible enhancements in complexion clarity and skin firmness in under a dozen sessions. Positioned at an accessible <b>£179</b> and reinforced by an ironclad <b>90-day money-back guarantee</b> along with a £128 complimentary accessory suite, it stands as the most comprehensive, low-risk phototherapy investment on the market today.",
+      "Earning our definitive #1 ranking for 2026, the Buudy 7 Colour LED Mask establishes an unrivalled benchmark for at-home phototherapy throughout the UK. Whereas conventional masks typically offer only mono-wavelength red light, Buudy delivers an expansive 7-colour spectrum augmented by cellular-penetrating 830nm near-infrared diodes. This clinical multi-waveband configuration simultaneously addresses stubborn fine lines, hyperpigmentation, active blemishes, and systemic loss of dermal elasticity across diverse skin tones.",
+      "What sets this system apart clinically is the inclusion of built-in neck coverage directly in the standard package. The fragile skin across the neck possesses fewer sebaceous glands and exhibits accelerated ageing, yet rival high-end masks consistently leave this area untreated. Featuring medical-grade flexible silicone, complete cordless mobility via responsive Tap Technology, and intelligent guided routines, administering a 10-minute daily session is completely seamless.",
+      "Supported by over 16,000 verified British users and an extraordinary 4.9-star rating, patients frequently document visible enhancements in complexion clarity and skin firmness in under a dozen sessions. Positioned at an accessible £179 and reinforced by an ironclad 90-day money-back guarantee along with a £128 complimentary accessory suite, it stands as the most comprehensive, low-risk phototherapy investment on the market today.",
     ],
     metrics: [
       { label: "Light Output & Effectiveness", value: 97 },
@@ -108,20 +108,20 @@ export const LED_MASK_PRODUCTS: LedMaskProduct[] = [
       { label: "Value for Money & Warranty", value: 100 },
     ],
     pros: [
-      "<b>Proven Results</b> - Holds an outstanding 4.9/5 star rating from over 4,000 reviews and performed exceptionally well in testing.",
-      "<b>7-Colour Medical-Grade Spectrum</b> - Offers 7 LED colours (Red, Blue, Green, Cyan, Yellow, Purple, White) plus 830nm near-infrared, unlike rivals with only 2–3 colours.",
-      "<b>Dermatologist Proven</b> - Health Canada approved with official CE, FCC, and RoHS certifications for safety and quality.",
-      "<b>Built-in Neck Coverage</b> - Specifically designed to target sagging neck skin, an essential feature that pricy alternatives omit.",
-      "<b>Fast Results</b> - Delivers visible skin improvements after just a few sessions, with full results in under 10 uses.",
-      "<b>Cordless, Portable & Guided</b> - Hands-free rechargeable design featuring Tap Technology and Buudy AI guided sessions tailored to your skin concerns.",
-      "<b>Safe and Effective</b> - Gentle, painless therapy suitable for every skin type, complete with integrated eye protection for enhanced safety.",
-      "<b>Cost-Effective</b> - Currently priced at £179, offering a 60% saving compared to its standard £449 retail price.",
-      "<b>90-Day Money-Back Guarantee</b> - Includes an extensive 90-day trial period with a full refund if you are not completely satisfied.",
+      "Proven Results - Holds an outstanding 4.9/5 star rating from over 4,000 reviews and performed exceptionally well in testing.",
+      "7-Colour Medical-Grade Spectrum - Offers 7 LED colours (Red, Blue, Green, Cyan, Yellow, Purple, White) plus 830nm near-infrared, unlike rivals with only 2–3 colours.",
+      "Dermatologist Proven - Health Canada approved with official CE, FCC, and RoHS certifications for safety and quality.",
+      "Built-in Neck Coverage - Specifically designed to target sagging neck skin, an essential feature that pricy alternatives omit.",
+      "Fast Results - Delivers visible skin improvements after just a few sessions, with full results in under 10 uses.",
+      "Cordless, Portable & Guided - Hands-free rechargeable design featuring Tap Technology and Buudy AI guided sessions tailored to your skin concerns.",
+      "Safe and Effective - Gentle, painless therapy suitable for every skin type, complete with integrated eye protection for enhanced safety.",
+      "Cost-Effective - Currently priced at £179, offering a 60% saving compared to its standard £449 retail price.",
+      "90-Day Money-Back Guarantee - Includes an extensive 90-day trial period with a full refund if you are not completely satisfied.",
     ],
     cons: [
-      "<b>Limited Availability</b> - Available to buy online only and exclusively for customers in the United Kingdom.",
-      "<b>Limited Stock</b> - High demand can lead to temporary sell-outs during peak UK sale periods.",
-      "<b>Learning Curve</b> - The touch-sensitive tap controls may take one or two sessions to master before feeling completely natural.",
+      "Limited Availability - Available to buy online only and exclusively for customers in the United Kingdom.",
+      "Limited Stock - High demand can lead to temporary sell-outs during peak UK sale periods.",
+      "Learning Curve - The touch-sensitive tap controls may take one or two sessions to master before feeling completely natural.",
     ],
     gifts: {
       totalValue: "£128",
@@ -184,9 +184,9 @@ export const LED_MASK_PRODUCTS: LedMaskProduct[] = [
       note: "Expired at 12:00 Midnight UK Time • No Active Discounts Found",
     },
     description: [
-      "Taking our <b>#2 ranking</b>, the CurrentBody LED Mask is widely celebrated amongst UK beauty editors and celebrity practitioners for its focused anti-ageing protocol. The mask integrates dual-band <b>633nm red</b> and <b>830nm near-infrared</b> wavelengths designed specifically to stimulate fibroblast activity, encouraging renewed collagen synthesis and diminishing superficial facial wrinkles during standard 10-minute treatments.",
-      "The device employs patented <b>Pillow Technology</b> diffusers to scatter photon emissions evenly across the facial landscape, preventing hotspot concentrations. Moulded from supple, medical-grade silicone, the chassis rests comfortably against the face; however, the mask must remain tethered via cable to an external battery puck throughout use.",
-      "Despite its reputable clinical pedigree, the substantial <b>£399.99 price tag</b> offers strictly face-only coverage, requiring an exorbitant £679.99 bundle for neck and <b>chest</b> care. With no blue, green, or yellow wavelengths to combat acne or pigmentation, and an ungenerous policy that levies a <b>10% restocking fee</b> upon return, its overall versatility remains decidedly restricted.",
+      "Taking our #2 ranking, the CurrentBody LED Mask is widely celebrated amongst UK beauty editors and celebrity practitioners for its focused anti-ageing protocol. The mask integrates dual-band 633nm red and 830nm near-infrared wavelengths designed specifically to stimulate fibroblast activity, encouraging renewed collagen synthesis and diminishing superficial facial wrinkles during standard 10-minute treatments.",
+      "The device employs patented Pillow Technology diffusers to scatter photon emissions evenly across the facial landscape, preventing hotspot concentrations. Moulded from supple, medical-grade silicone, the chassis rests comfortably against the face; however, the mask must remain tethered via cable to an external battery puck throughout use.",
+      "Despite its reputable clinical pedigree, the substantial £399.99 price tag offers strictly face-only coverage, requiring an exorbitant £679.99 bundle for neck and chest care. With no blue, green, or yellow wavelengths to combat acne or pigmentation, and an ungenerous policy that levies a 10% restocking fee upon return, its overall versatility remains decidedly restricted.",
     ],
     metrics: [
       { label: "Light Output & Effectiveness", value: 82 },
@@ -243,9 +243,9 @@ export const LED_MASK_PRODUCTS: LedMaskProduct[] = [
       note: "Expired at 12:00 Midnight UK Time • Full Retail Price Applies",
     },
     description: [
-      "Holding the <b>#3 position</b>, the Omnilux Contour LED Mask draws upon decades of institutional photomedicine heritage found in clinical dermatology suites. Calibrated with precise <b>633nm red</b> and <b>830nm near-infrared</b> light emitting diodes, this contouring device focuses squarely on reversing photo-damage, increasing dermal cellular turnover, and smoothing structural wrinkles.",
+      "Holding the #3 position, the Omnilux Contour LED Mask draws upon decades of institutional photomedicine heritage found in clinical dermatology suites. Calibrated with precise 633nm red and 830nm near-infrared light emitting diodes, this contouring device focuses squarely on reversing photo-damage, increasing dermal cellular turnover, and smoothing structural wrinkles.",
       "Engineered with a lightweight, flexible silicone matrix, the mask contours closely to natural facial features to optimise photon absorption. Endorsed by skincare specialists for its consistent output and clinical safety profile, it delivers a trustworthy home treatment experience for mature skin seeking targeted line reduction.",
-      "However, the premium <b>£348 investment</b> leaves the vulnerable neck and <b>chest</b> zones completely exposed unless users purchase a matching companion piece for another £348. Equipped with only 132 LEDs and lacking essential colour spectrums for blemish control or redness balancing, it requires owning separate hardware (such as the Omnilux Clear) to treat multifaceted skin conditions.",
+      "However, the premium £348 investment leaves the vulnerable neck and chest zones completely exposed unless users purchase a matching companion piece for another £348. Equipped with only 132 LEDs and lacking essential colour spectrums for blemish control or redness balancing, it requires owning separate hardware (such as the Omnilux Clear) to treat multifaceted skin conditions.",
     ],
     metrics: [
       { label: "Light Output & Effectiveness", value: 76 },
@@ -301,9 +301,9 @@ export const LED_MASK_PRODUCTS: LedMaskProduct[] = [
       note: "Expired at 12:00 Midnight UK Time • No Active Discounts Found",
     },
     description: [
-      "Capturing the <b>#4 spot</b>, the Shark CryoGlow LED Mask introduces consumer tech ingenuity into home phototherapy through an innovative hybrid approach. It pairs photobiomodulation with proprietary <b>Insta-Chill under-eye cooling technology</b>, delivering targeted cryo-stimulation alongside <b>630nm red</b> and <b>415nm blue light</b> to refresh tired, inflamed complexions.",
-      "For individuals <b>prioritising</b> rapid depuffing of the periorbital area alongside surface blemish control, the automated 6-to-8-minute pre-programmed cycles deliver quick, convenient therapy. Dermatologist-tested routines make it an appealing quick-fix solution before morning engagements.",
-      "Nonetheless, at a hefty <b>675 grams</b>, the inflexible rigid plastic visor feels heavy and exerts significant pressure across the nasal bridge without conforming to varying facial structures. The brand does not disclose its exact LED diode count, omits vital therapeutic wavelengths such as green or amber, and completely excludes <b>built-in neck coverage</b> despite a steep <b>£299.99 price</b>.",
+      "Capturing the #4 spot, the Shark CryoGlow LED Mask introduces consumer tech ingenuity into home phototherapy through an innovative hybrid approach. It pairs photobiomodulation with proprietary Insta-Chill under-eye cooling technology, delivering targeted cryo-stimulation alongside 630nm red and 415nm blue light to refresh tired, inflamed complexions.",
+      "For individuals prioritising rapid depuffing of the periorbital area alongside surface blemish control, the automated 6-to-8-minute pre-programmed cycles deliver quick, convenient therapy. Dermatologist-tested routines make it an appealing quick-fix solution before morning engagements.",
+      "Nonetheless, at a hefty 675 grams, the inflexible rigid plastic visor feels heavy and exerts significant pressure across the nasal bridge without conforming to varying facial structures. The brand does not disclose its exact LED diode count, omits vital therapeutic wavelengths such as green or amber, and completely excludes built-in neck coverage despite a steep £299.99 price.",
     ],
     metrics: [
       { label: "Light Output & Effectiveness", value: 65 },
@@ -359,9 +359,9 @@ export const LED_MASK_PRODUCTS: LedMaskProduct[] = [
       note: "Expired at 12:00 Midnight UK Time • Full Retail Price Applies",
     },
     description: [
-      "Awarded our <b>#5 ranking</b>, the Dr. Dennis Gross DRx SpectraLite FaceWare Pro leverages the clinical authority of its namesake Fifth Avenue dermatologist. Engineered specifically for time-pressed individuals, its headline feature is an ultra-condensed <b>3-minute automated treatment programme</b> that delivers therapeutic red and blue photon bursts to manage surface bacteria and light facial lines.",
-      "Containing 162 tailored LEDs, the visor provides cordless convenience with simple single-button operation. Its <b>415nm blue light setting</b> offers proven antibacterial intervention against Propionibacterium acnes, making it a popular choice for quick daily breakout control.",
-      "However, command of this clinical branding comes at an astronomical <b>£455 price point</b>. The rigid, non-pliable plastic casing creates uncomfortable contact points on the nasal ridge and leaves uneven optical margins across pronounced bone contours. Furthermore, it completely lacks <b>neck and chest coverage</b>, provides no protective eye inserts, and omits five beneficial colour wavelengths found in lower-priced multi-spectrum masks.",
+      "Awarded our #5 ranking, the Dr. Dennis Gross DRx SpectraLite FaceWare Pro leverages the clinical authority of its namesake Fifth Avenue dermatologist. Engineered specifically for time-pressed individuals, its headline feature is an ultra-condensed 3-minute automated treatment programme that delivers therapeutic red and blue photon bursts to manage surface bacteria and light facial lines.",
+      "Containing 162 tailored LEDs, the visor provides cordless convenience with simple single-button operation. Its 415nm blue light setting offers proven antibacterial intervention against Propionibacterium acnes, making it a popular choice for quick daily breakout control.",
+      "However, command of this clinical branding comes at an astronomical £455 price point. The rigid, non-pliable plastic casing creates uncomfortable contact points on the nasal ridge and leaves uneven optical margins across pronounced bone contours. Furthermore, it completely lacks neck and chest coverage, provides no protective eye inserts, and omits five beneficial colour wavelengths found in lower-priced multi-spectrum masks.",
     ],
     metrics: [
       { label: "Light Output & Effectiveness", value: 75 },
@@ -418,9 +418,9 @@ export const LED_MASK_PRODUCTS: LedMaskProduct[] = [
       note: "Expired at 12:00 Midnight UK Time • Full Retail Price Applies",
     },
     description: [
-      "Occupying the <b>#6 position</b>, the Equinox LED Face Mask provides robust optical power density through an array of <b>336 medical-grade LEDs</b> housed in an ultra-pliant silicone form factor. The mask features four precise phototherapy wavebands—<b>633nm red</b>, <b>830nm near-infrared</b>, <b>415nm blue</b>, and <b>590nm amber/yellow</b>—orchestrated across six pre-configured operating modes.",
+      "Occupying the #6 position, the Equinox LED Face Mask provides robust optical power density through an array of 336 medical-grade LEDs housed in an ultra-pliant silicone form factor. The mask features four precise phototherapy wavebands—633nm red, 830nm near-infrared, 415nm blue, and 590nm amber/yellow—orchestrated across six pre-configured operating modes.",
       "Its extensive diode distribution ensures thorough light dispersion across facial tissues with minimal photon fallout, while the soft silicone contours effortlessly over varied facial profiles. The ability to alternate between anti-microbial blue frequencies and reparative near-infrared makes it a compelling option for combination skin concerns.",
-      "Nevertheless, at <b>£279 for the face-only unit</b>, it commands a £100 premium over Buudy while completely excluding the neck and upper <b>chest</b>. Daily operation is hindered by a dangling handheld wired remote that restricts hands-free mobility, and its return policy enforces stringent restocking conditions.",
+      "Nevertheless, at £279 for the face-only unit, it commands a £100 premium over Buudy while completely excluding the neck and upper chest. Daily operation is hindered by a dangling handheld wired remote that restricts hands-free mobility, and its return policy enforces stringent restocking conditions.",
     ],
     metrics: [
       { label: "Light Output & Effectiveness", value: 85 },
@@ -478,9 +478,9 @@ export const LED_MASK_PRODUCTS: LedMaskProduct[] = [
       note: "Expired at 12:00 Midnight UK Time • Standard Retail Price Applies",
     },
     description: [
-      "Positioned at <b>#7</b> in our clinical assessment, the Silk'n LED Face Mask Pro features specialised <b>Caeli-lens optical clusters</b> calibrated to scatter phototherapy across the facial envelope and jawline. Delivering five distinct wavebands—including <b>630nm red</b>, <b>460nm blue</b>, <b>590nm amber</b>, <b>850nm near-infrared</b>, and <b>940nm deep near-infrared</b>—it supplies seven pre-set treatment regimes for complexion maintenance.",
+      "Positioned at #7 in our clinical assessment, the Silk'n LED Face Mask Pro features specialised Caeli-lens optical clusters calibrated to scatter phototherapy across the facial envelope and jawline. Delivering five distinct wavebands—including 630nm red, 460nm blue, 590nm amber, 850nm near-infrared, and 940nm deep near-infrared—it supplies seven pre-set treatment regimes for complexion maintenance.",
       "A distinct mechanical feature is its secondary lower strap, engineered to anchor the silicone closely beneath the submental region and mandibular line. Constructed from supple elastomer material, the mask folds neatly into a compact pouch, making it convenient for frequent travellers.",
-      "However, the system relies on merely <b>100 LED optical nodes</b>, resulting in noticeably lower photon irradiance and wider energy gaps than market leaders. At <b>£220.15</b>, it leaves the lower neck and <b>chest area</b> entirely neglected, whilst the deep 940nm band offers less proven superficial dermatological benefit than traditional 830nm infrared diodes.",
+      "However, the system relies on merely 100 LED optical nodes, resulting in noticeably lower photon irradiance and wider energy gaps than market leaders. At £220.15, it leaves the lower neck and chest area entirely neglected, whilst the deep 940nm band offers less proven superficial dermatological benefit than traditional 830nm infrared diodes.",
     ],
     metrics: [
       { label: "Light Output & Effectiveness", value: 78 },
@@ -539,9 +539,9 @@ export const LED_MASK_PRODUCTS: LedMaskProduct[] = [
       note: "Expired at 12:00 Midnight UK Time • Full Retail Price Applies",
     },
     description: [
-      "Securing <b>#8</b> in our benchmark evaluation, the BlockBlueLight Face Mask is crafted by circadian lighting specialists with an emphasis on low-EMF photobiomodulation. It harnesses <b>132 dual-chip LEDs</b> tuned to four targeted wavebands: <b>590nm amber</b>, <b>630nm red</b>, <b>810nm near-infrared</b>, and <b>830nm near-infrared</b>.",
-      "Boasting verified optical irradiance peaking at <b>45mW/cm²</b>, this mask delivers substantial photon energy into subcutaneous layers to encourage cellular adenosine triphosphate (ATP) production. An integrated digital remote allows users to customise treatment durations and select power intensities according to skin sensitivity.",
-      "Despite these technical merits, the <b>£274.95 price point</b> covers solely facial contours. The intentional exclusion of blue light wavelengths leaves it incapable of treating active acne vulgaris or microbial congestion, and users wanting neck or <b>chest</b> phototherapy must invest heavily in a separate add-on collar.",
+      "Securing #8 in our benchmark evaluation, the BlockBlueLight Face Mask is crafted by circadian lighting specialists with an emphasis on low-EMF photobiomodulation. It harnesses 132 dual-chip LEDs tuned to four targeted wavebands: 590nm amber, 630nm red, 810nm near-infrared, and 830nm near-infrared.",
+      "Boasting verified optical irradiance peaking at 45mW/cm², this mask delivers substantial photon energy into subcutaneous layers to encourage cellular adenosine triphosphate (ATP) production. An integrated digital remote allows users to customise treatment durations and select power intensities according to skin sensitivity.",
+      "Despite these technical merits, the £274.95 price point covers solely facial contours. The intentional exclusion of blue light wavelengths leaves it incapable of treating active acne vulgaris or microbial congestion, and users wanting neck or chest phototherapy must invest heavily in a separate add-on collar.",
     ],
     metrics: [
       { label: "Light Output & Effectiveness", value: 76 },
@@ -600,9 +600,9 @@ export const LED_MASK_PRODUCTS: LedMaskProduct[] = [
       note: "Expired at 12:00 Midnight UK Time • Full Retail Price Applies",
     },
     description: [
-      "Ranked at <b>#9</b>, the Philips ReAura 7000 Series brings the manufacturing heritage of a global health-technology titan to consumer phototherapy. The mask is engineered with clinically standardised <b>630nm red</b> and <b>830nm near-infrared</b> LEDs calibrated to stimulate fibroblasts and soften the appearance of expression lines across the face.",
+      "Ranked at #9, the Philips ReAura 7000 Series brings the manufacturing heritage of a global health-technology titan to consumer phototherapy. The mask is engineered with clinically standardised 630nm red and 830nm near-infrared LEDs calibrated to stimulate fibroblasts and soften the appearance of expression lines across the face.",
       "Fabricated with an ergonomic, hypoallergenic silicone frame, it sits securely against facial contours, while an automated 10-minute dosing cycle guarantees consistent treatment compliance before powering down automatically. The integrated rechargeable battery allows for wire-free portability throughout the session.",
-      "Nonetheless, its steep <b>£399.99 price tag</b> is difficult to justify for a device emitting only two fundamental wavelengths. It entirely lacks blue, green, or yellow spectrums to counteract blemishes or sun-induced discolouration, omits <b>built-in neck coverage</b>, and relies on delicate modular hinge clips that require careful handling during daily sanitisation.",
+      "Nonetheless, its steep £399.99 price tag is difficult to justify for a device emitting only two fundamental wavelengths. It entirely lacks blue, green, or yellow spectrums to counteract blemishes or sun-induced discolouration, omits built-in neck coverage, and relies on delicate modular hinge clips that require careful handling during daily sanitisation.",
     ],
     metrics: [
       { label: "Light Output & Effectiveness", value: 78 },
@@ -659,9 +659,9 @@ export const LED_MASK_PRODUCTS: LedMaskProduct[] = [
       note: "Expired at 12:00 Midnight UK Time • Full Retail Price Applies",
     },
     description: [
-      "Concluding our evaluation at <b>#10</b>, the Therabody TheraFace Mask presents an avant-garde aesthetic by integrating high-density phototherapy with mechanical tension relief. The rigid visor incorporates an impressive array of <b>648 micro-LEDs</b> covering <b>630nm red</b>, <b>830nm near-infrared</b>, and <b>415nm blue light</b>, accompanied by 17 acoustic <b>VibraWave motors</b> providing targeted acupressure around periorbital and temple points.",
+      "Concluding our evaluation at #10, the Therabody TheraFace Mask presents an avant-garde aesthetic by integrating high-density phototherapy with mechanical tension relief. The rigid visor incorporates an impressive array of 648 micro-LEDs covering 630nm red, 830nm near-infrared, and 415nm blue light, accompanied by 17 acoustic VibraWave motors providing targeted acupressure around periorbital and temple points.",
       "The combination of light therapy and soothing physical vibration creates an immersive, spa-grade experience during the automated 9-minute routine. Its high optical diode count ensures exceptionally homogeneous facial irradiance without noticeable dark zones.",
-      "However, commanding an eye-watering <b>£579.00 retail price</b>, it represents the single most expensive facial device in our UK benchmark. Weighing an unwieldy <b>576 grams</b>, the inflexible rigid plastic helmet exerts uncomfortable pressure over the nose and forehead, while offering zero coverage for the neck and <b>chest area</b> and draining its internal battery rapidly under combined massage and LED usage.",
+      "However, commanding an eye-watering £579.00 retail price, it represents the single most expensive facial device in our UK benchmark. Weighing an unwieldy 576 grams, the inflexible rigid plastic helmet exerts uncomfortable pressure over the nose and forehead, while offering zero coverage for the neck and chest area and draining its internal battery rapidly under combined massage and LED usage.",
     ],
     metrics: [
       { label: "Light Output & Effectiveness", value: 85 },
