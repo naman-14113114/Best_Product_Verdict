@@ -20,9 +20,9 @@ import { LedMaskReferenceControls } from "@/features/led-mask-reference/LedMaskR
 import "@/features/led-mask-reference/reference.css";
 import "@/features/led-mask-reference/theme.css";
 
-/* Dynamic UK Date Formatter matching Best Mask Reference Page */
-function useCurrentDateFormatted() {
-  const [currentDateFormatted, setCurrentDateFormatted] = useState("19 November 2026");
+/* Dynamic UK Date Component isolated to prevent whole-page re-renders */
+function LiveUkDate() {
+  const [currentDateFormatted, setCurrentDateFormatted] = useState("20 November 2026");
 
   useEffect(() => {
     try {
@@ -32,16 +32,16 @@ function useCurrentDateFormatted() {
       const year = now.getFullYear();
       setCurrentDateFormatted(`${day} ${month} ${year}`);
     } catch {
-      setCurrentDateFormatted("19 November 2026");
+      setCurrentDateFormatted("20 November 2026");
     }
   }, []);
 
-  return currentDateFormatted;
+  return <span data-led-updated-date="">{currentDateFormatted}</span>;
 }
 
-export function LuxuryLedMaskLandingPage({ guide }: { guide: LedMaskGuide }) {
+/* Isolated FAQ Accordion to prevent whole-page re-renders on FAQ toggle */
+function FaqAccordionSection({ faqs }: { faqs: NonNullable<LedMaskGuide["faqs"]> }) {
   const [openFaqIndices, setOpenFaqIndices] = useState<Record<number, boolean>>({ 0: true });
-  const currentDateFormatted = useCurrentDateFormatted();
 
   const toggleFaq = (idx: number) => {
     setOpenFaqIndices((prev) => ({
@@ -49,6 +49,44 @@ export function LuxuryLedMaskLandingPage({ guide }: { guide: LedMaskGuide }) {
       [idx]: !prev[idx],
     }));
   };
+
+  return (
+    <section className="bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 shadow-sm border border-slate-200 mb-16 max-w-4xl mx-auto font-sans">
+      <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 text-center font-serif">
+        Frequently Asked Questions
+      </h3>
+      <div className="space-y-4">
+        {faqs.map((faq, fIdx) => {
+          const isOpen = !!openFaqIndices[fIdx];
+          return (
+            <div key={fIdx} className="border border-slate-200 rounded-xl overflow-hidden transition-all">
+              <button
+                type="button"
+                onClick={() => toggleFaq(fIdx)}
+                className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-4 cursor-pointer hover:bg-slate-50 transition-colors"
+              >
+                <span className="font-bold text-slate-900 text-base sm:text-lg flex items-start gap-2.5">
+                  <HelpCircle size={18} className="text-emerald-600 mt-1 shrink-0" />
+                  <span>{faq.question}</span>
+                </span>
+                <span className="shrink-0 mt-1 text-slate-400">
+                  {isOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+                </span>
+              </button>
+              {isOpen && (
+                <div className="px-5 pb-5 pt-1 text-slate-700 text-sm sm:text-base leading-relaxed pl-11 border-t border-slate-100">
+                  {faq.answer}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+export function LuxuryLedMaskLandingPage({ guide }: { guide: LedMaskGuide }) {
 
   return (
     <div id="led-mask-reference" className="led-mask-reference">
@@ -79,7 +117,7 @@ export function LuxuryLedMaskLandingPage({ guide }: { guide: LedMaskGuide }) {
 
             <div className="flex items-center justify-center gap-2 md:gap-2.5 text-base md:text-lg font-bold text-white">
               <CheckCircle2 size={20} className="text-white shrink-0" />
-              <span>Last updated – <span data-led-updated-date="">{currentDateFormatted}</span></span>
+              <span>Last updated – <LiveUkDate /></span>
             </div>
           </div>
         </div>
@@ -253,38 +291,7 @@ export function LuxuryLedMaskLandingPage({ guide }: { guide: LedMaskGuide }) {
 
           {/* 9. CLINICAL FAQ ACCORDION (Specific to this Guide) */}
           {guide.faqs && guide.faqs.length > 0 && (
-            <section className="bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 shadow-sm border border-slate-200 mb-16 max-w-4xl mx-auto font-sans">
-              <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 text-center font-serif">
-                Frequently Asked Questions
-              </h3>
-              <div className="space-y-4">
-                {guide.faqs.map((faq, fIdx) => {
-                  const isOpen = !!openFaqIndices[fIdx];
-                  return (
-                    <div key={fIdx} className="border border-slate-200 rounded-xl overflow-hidden transition-all">
-                      <button
-                        type="button"
-                        onClick={() => toggleFaq(fIdx)}
-                        className="w-full text-left p-4 sm:p-5 flex items-start justify-between gap-4 cursor-pointer hover:bg-slate-50 transition-colors"
-                      >
-                        <span className="font-bold text-slate-900 text-base sm:text-lg flex items-start gap-2.5">
-                          <HelpCircle size={18} className="text-emerald-600 mt-1 shrink-0" />
-                          <span>{faq.question}</span>
-                        </span>
-                        <span className="shrink-0 mt-1 text-slate-400">
-                          {isOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
-                        </span>
-                      </button>
-                      {isOpen && (
-                        <div className="px-5 pb-5 pt-1 text-slate-700 text-sm sm:text-base leading-relaxed pl-11 border-t border-slate-100">
-                          {faq.answer}
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </section>
+            <FaqAccordionSection faqs={guide.faqs} />
           )}
         </main>
 

@@ -70,32 +70,66 @@ export function LedMaskReferenceControls() {
       video?.addEventListener(name, syncVideoButton);
     });
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (!entry.isIntersecting) continue;
-          const target = entry.target as HTMLElement;
-          const bar = (
-            target.matches("[data-led-metric]")
-              ? target
-              : target.querySelector<HTMLElement>("[data-led-metric]")
-          ) || target;
+    let observer: IntersectionObserver | null = null;
+
+    const setupObserver = () => {
+      if (observer) {
+        observer.disconnect();
+      }
+
+      observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (!entry.isIntersecting) continue;
+            const target = entry.target as HTMLElement;
+            const bar = (
+              target.matches("[data-led-metric]")
+                ? target
+                : target.querySelector<HTMLElement>("[data-led-metric]")
+            ) || target;
+            const metric = bar.dataset.ledMetric;
+            if (metric) {
+              requestAnimationFrame(() => {
+                bar.style.width = `${metric}%`;
+              });
+            }
+            observer?.unobserve(target);
+          }
+        },
+        { threshold: 0, rootMargin: "0px 0px -20px 0px" }
+      );
+
+      root.querySelectorAll<HTMLElement>("[data-led-metric]").forEach((bar) => {
+        const observable = bar.parentElement || bar;
+        observer?.observe(observable);
+      });
+    };
+
+    setupObserver();
+
+    // Re-bind observer if React re-renders or replaces dangerouslySetInnerHTML nodes
+    const mutationObserver = new MutationObserver(() => {
+      setupObserver();
+    });
+    mutationObserver.observe(root, { childList: true, subtree: true });
+
+    // Scroll fallback to trigger smooth animation if element enters viewport
+    const handleScrollCheck = () => {
+      root.querySelectorAll<HTMLElement>("[data-led-metric]").forEach((bar) => {
+        if (bar.style.width && bar.style.width !== "0%") return;
+        const rect = bar.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 20 && rect.bottom > 0) {
           const metric = bar.dataset.ledMetric;
           if (metric) {
             requestAnimationFrame(() => {
               bar.style.width = `${metric}%`;
             });
           }
-          observer.unobserve(target);
         }
-      },
-      { threshold: 0, rootMargin: "0px 0px -20px 0px" }
-    );
-
-    root.querySelectorAll<HTMLElement>("[data-led-metric]").forEach((bar) => {
-      const observable = bar.parentElement || bar;
-      observer.observe(observable);
-    });
+      });
+    };
+    window.addEventListener("scroll", handleScrollCheck, { passive: true });
+    window.addEventListener("resize", handleScrollCheck, { passive: true });
 
     const handleClick = (event: MouseEvent) => {
       const target = event.target;
@@ -161,7 +195,10 @@ export function LedMaskReferenceControls() {
     root.addEventListener("auxclick", handleClick);
 
     return () => {
-      observer.disconnect();
+      observer?.disconnect();
+      mutationObserver.disconnect();
+      window.removeEventListener("scroll", handleScrollCheck);
+      window.removeEventListener("resize", handleScrollCheck);
       root.removeEventListener("click", handleClick);
       root.removeEventListener("auxclick", handleClick);
       ["play", "pause", "ended", "error"].forEach((name) => {
