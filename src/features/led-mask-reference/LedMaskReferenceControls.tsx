@@ -70,14 +70,24 @@ export function LedMaskReferenceControls() {
       video?.addEventListener(name, syncVideoButton);
     });
 
+    // Immediately populate metric progress bar widths
+    root.querySelectorAll<HTMLElement>("[data-led-metric]").forEach((bar) => {
+      const metric = bar.dataset.ledMetric;
+      if (metric) {
+        bar.style.width = `${metric}%`;
+      }
+    });
+
     const observer = new IntersectionObserver((entries) => {
       for (const entry of entries) {
         if (!entry.isIntersecting) continue;
         const bar = entry.target as HTMLElement;
-        bar.style.width = `${bar.dataset.ledMetric}%`;
+        if (bar.dataset.ledMetric) {
+          bar.style.width = `${bar.dataset.ledMetric}%`;
+        }
         observer.unobserve(bar);
       }
-    }, { threshold: 0.15 });
+    }, { threshold: 0 });
     root.querySelectorAll("[data-led-metric]").forEach((bar) => observer.observe(bar));
 
     const handleClick = (event: MouseEvent) => {

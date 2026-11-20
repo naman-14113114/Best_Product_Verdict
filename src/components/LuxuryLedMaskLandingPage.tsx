@@ -232,8 +232,21 @@ export function LuxuryLedMaskLandingPage({ guide }: { guide: LedMaskGuide }) {
             </section>
           )}
 
-          {/* 7. 10 PRODUCT CARDS + DERMATOLOGIST'S VERDICT VIDEO SECTION (Exact Reference Slices) */}
-          <div dangerouslySetInnerHTML={{ __html: productsAndVerdictHtml }} />
+          {/* 7. SECTION HEADER: 2026 CLINICAL RANKINGS */}
+          <section className="mt-16 md:mt-24 mb-10 md:mb-14 text-center">
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
+              <span>2026 Clinical Evaluations</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 font-serif">
+              The Top-Ranked LED Face Masks in the UK
+            </h2>
+            <p className="mt-3 text-slate-600 max-w-2xl mx-auto text-sm sm:text-base font-sans">
+              Detailed head-to-head reviews based on optical irradiance, wavelength accuracy, diode density, and real UK customer results.
+            </p>
+          </section>
+
+          {/* 8. 10 PRODUCT CARDS + DERMATOLOGIST'S VERDICT VIDEO SECTION (Exact Reference Slices) */}
+          <div className="mt-8 md:mt-10" dangerouslySetInnerHTML={{ __html: productsAndVerdictHtml }} />
 
           {/* 8. SIDE-BY-SIDE COMPARISON TABLE (Exact Reference Slice) */}
           <div dangerouslySetInnerHTML={{ __html: tableHtml }} />
