@@ -25,12 +25,8 @@ const footerEnd = html.indexOf("</footer>", footerStart) + 9;
 export const criteriaHtml: string = html.slice(critStart, prodStart);
 
 // Products section + Dermatologist's Verdict video section (12345 to 202335)
-// Pre-fill all data-led-metric widths so performance bars are immediately filled in static SSR and never render as 0% empty tracks
-const rawProductsHtml = html.slice(prodStart, tableStart);
-export const productsAndVerdictHtml: string = rawProductsHtml.replace(
-  /data-led-metric="(\d+)"\s+style="width:0%"/g,
-  'data-led-metric="$1" style="width:$1%"'
-);
+// Preserves initial style="width:0%" so progress bars animate smoothly into view via IntersectionObserver on scroll
+export const productsAndVerdictHtml: string = html.slice(prodStart, tableStart);
 
 // Side-by-Side Comparison Table section (202335 to 274445)
 export const tableHtml: string = html.slice(tableStart, mainEnd);

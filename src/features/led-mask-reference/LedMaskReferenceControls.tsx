@@ -70,25 +70,32 @@ export function LedMaskReferenceControls() {
       video?.addEventListener(name, syncVideoButton);
     });
 
-    // Immediately populate metric progress bar widths
-    root.querySelectorAll<HTMLElement>("[data-led-metric]").forEach((bar) => {
-      const metric = bar.dataset.ledMetric;
-      if (metric) {
-        bar.style.width = `${metric}%`;
-      }
-    });
-
-    const observer = new IntersectionObserver((entries) => {
-      for (const entry of entries) {
-        if (!entry.isIntersecting) continue;
-        const bar = entry.target as HTMLElement;
-        if (bar.dataset.ledMetric) {
-          bar.style.width = `${bar.dataset.ledMetric}%`;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          const target = entry.target as HTMLElement;
+          const bar = (
+            target.matches("[data-led-metric]")
+              ? target
+              : target.querySelector<HTMLElement>("[data-led-metric]")
+          ) || target;
+          const metric = bar.dataset.ledMetric;
+          if (metric) {
+            requestAnimationFrame(() => {
+              bar.style.width = `${metric}%`;
+            });
+          }
+          observer.unobserve(target);
         }
-        observer.unobserve(bar);
-      }
-    }, { threshold: 0 });
-    root.querySelectorAll("[data-led-metric]").forEach((bar) => observer.observe(bar));
+      },
+      { threshold: 0, rootMargin: "0px 0px -20px 0px" }
+    );
+
+    root.querySelectorAll<HTMLElement>("[data-led-metric]").forEach((bar) => {
+      const observable = bar.parentElement || bar;
+      observer.observe(observable);
+    });
 
     const handleClick = (event: MouseEvent) => {
       const target = event.target;

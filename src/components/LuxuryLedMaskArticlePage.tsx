@@ -356,7 +356,7 @@ export function LuxuryLedMaskArticlePage({ article }: { article: LedMaskArticle 
                     </span>
                   )}
                   <span className="inline-flex items-center gap-1 rounded-none bg-slate-900 text-[#f9ad26] border border-[#f9ad26]/40 px-2.5 py-0.5 text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wider shadow-xs whitespace-nowrap">
-                    BLACK FRIDAY EARLY ACCESS
+                    BLACK FRIDAY SALE
                   </span>
                 </div>
 

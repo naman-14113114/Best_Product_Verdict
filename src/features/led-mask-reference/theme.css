@@ -68,6 +68,11 @@
   }
 }
 
+/* Ensure metric progress bars animate with smooth 1s ease-out transition across all mask pages */
+#led-mask-reference [data-led-metric] {
+  transition: width 1s ease-out !important;
+}
+
 /* Prevent double-translation from global Tailwind transform combining with reference.css translate */
 #led-mask-reference .-translate-x-1\/2,
 #led-mask-reference .-translate-y-1\/2 {
