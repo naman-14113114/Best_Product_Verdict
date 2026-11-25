@@ -176,7 +176,7 @@ function UKFlag({ className = "h-5 w-8 md:h-6 md:w-9" }: { className?: string })
   return (
     <svg
       aria-label="United Kingdom flag"
-      className={`${className} overflow-hidden rounded-none border border-white/40 shadow-xs inline-block`}
+      className={`${className} overflow-hidden rounded-[3px] border border-white/40 shadow-xs inline-block`}
       role="img"
       viewBox="0 0 38 24"
     >
@@ -271,7 +271,7 @@ function OfficialButton({
           handleOutboundClick(event, setLoadingTarget, targetId);
         }
       }}
-      className={`group relative inline-flex items-center justify-center overflow-hidden rounded-none bg-[#f9ad26] hover:bg-[#ea9602] border-2 border-[#e09819] font-black text-[#0e1a2f] shadow-md transition-all duration-200 active:scale-[0.99] cursor-pointer ${
+      className={`group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-[#f9ad26] hover:bg-[#ea9602] border-2 border-[#e09819] font-black text-[#0e1a2f] shadow-md transition-all duration-200 active:scale-[0.99] cursor-pointer ${
         isCompact
           ? "min-h-10 sm:min-h-11 w-full px-3 sm:px-4 py-2 sm:py-2.5 text-sm sm:text-base lg:text-sm xl:text-base tracking-wide"
           : "min-h-12 w-full px-6 py-3 text-center text-base sm:text-lg md:text-xl"
@@ -374,9 +374,9 @@ function MetricBar({ label, value }: { label: string; value: number }) {
         <span>{label}</span>
         <span className="font-bold text-[#1d4a93]">{value}%</span>
       </div>
-      <div className="h-2.5 bg-slate-200 rounded-none overflow-hidden">
+      <div className="h-2.5 bg-slate-200 rounded-full overflow-hidden">
         <div
-          className="h-full bg-[#1d4a93] rounded-none transition-all duration-1000 ease-out"
+          className="h-full bg-[#1d4a93] rounded-full transition-all duration-1000 ease-out"
           style={{ width: `${animatedWidth}%` }}
         />
       </div>
@@ -389,7 +389,7 @@ function EvaluationCriteria({ criteria }: { criteria?: string[] }) {
   const list = criteria && criteria.length > 0 ? criteria : TOOTHBRUSH_EVALUATION_CRITERIA;
 
   return (
-    <div className="bg-white rounded-none p-5 sm:p-7 md:p-10 shadow-sm border border-slate-200 mb-10 md:mb-16 w-full">
+    <div className="bg-white rounded-2xl md:rounded-3xl p-5 sm:p-7 md:p-10 shadow-sm border border-slate-200 mb-10 md:mb-16 w-full">
       <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 mb-5 md:mb-8 text-center font-serif leading-tight">
         Clinical Evaluation Criteria &amp; Testing Methodology
       </h2>
@@ -403,7 +403,7 @@ function EvaluationCriteria({ criteria }: { criteria?: string[] }) {
           </div>
         ))}
       </div>
-      <p className="text-center text-slate-600 bg-slate-50 p-3.5 md:p-4 rounded-none border border-slate-200 text-xs sm:text-sm md:text-base leading-relaxed">
+      <p className="text-center text-slate-600 bg-slate-50 p-3.5 md:p-4 rounded-xl border border-slate-200 text-xs sm:text-sm md:text-base leading-relaxed">
         Over the past three months, our clinical team thoroughly evaluated{" "}
         <strong>leading UK electric toothbrushes</strong> across{" "}
         <strong>180+ hours of comparative testing</strong>. Based on{" "}
@@ -430,7 +430,7 @@ function PackagePanel({
   timer: { hours: string; minutes: string; seconds: string };
 }) {
   return (
-    <div className="mt-10 bg-gradient-to-br from-[#f0f5fd] to-[#e1ecfe] border-2 border-[#b8d2fb] rounded-none p-5 sm:p-7 md:p-8 relative overflow-hidden shadow-sm">
+    <div className="mt-10 bg-gradient-to-br from-[#f0f5fd] to-[#e1ecfe] border-2 border-[#b8d2fb] rounded-2xl sm:rounded-3xl p-5 sm:p-7 md:p-8 relative overflow-hidden shadow-sm">
       <div className="relative z-10">
         <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider mb-4 border border-blue-200">
           <span className="text-sm sm:text-base">🎁</span> Free Gifts Included
@@ -453,17 +453,17 @@ function PackagePanel({
 
         <div className="grid grid-cols-3 gap-2 sm:gap-4 md:gap-6 mb-6">
           {/* Luxury Travel Case */}
-          <div className="bg-white rounded-none p-2 sm:p-4 border border-[#b8d2fb] shadow-sm text-center relative flex flex-col justify-between">
+          <div className="bg-white rounded-xl sm:rounded-2xl p-2 sm:p-4 border border-[#b8d2fb] shadow-sm text-center relative flex flex-col justify-between transform hover:-translate-y-1 transition-transform">
             <div className="absolute -top-2 sm:-top-4 -right-1 sm:-right-2 bg-blue-600 text-white font-black text-[10px] sm:text-base px-2.5 sm:px-4 py-0.5 sm:py-1.5 rounded-full shadow-lg z-20 animate-bounce">
               FREE
             </div>
-            <div className="block relative mb-2 rounded-none overflow-hidden bg-slate-50 border border-slate-100 aspect-square flex items-center justify-center">
+            <div className="block relative mb-1.5 sm:mb-3 rounded-lg sm:rounded-xl overflow-hidden bg-slate-50 border border-slate-100 aspect-square flex items-center justify-center">
               <img
                 src="/img/toothbrushes/miroooo-brush-x2-luxury-travel-case-gift.webp"
                 alt="Luxury Aluminium Travel Case"
                 loading="lazy"
                 decoding="async"
-                className="w-full h-full object-cover rounded-none"
+                className="w-full h-full object-cover rounded-lg sm:rounded-xl"
               />
             </div>
             <div>
@@ -475,20 +475,20 @@ function PackagePanel({
           </div>
 
           {/* Wall-Mounted Storage */}
-          <div className="bg-white rounded-none p-2 sm:p-4 border border-[#b8d2fb] shadow-sm text-center relative flex flex-col justify-between">
+          <div className="bg-white rounded-xl sm:rounded-2xl p-2 sm:p-4 border border-[#b8d2fb] shadow-sm text-center relative flex flex-col justify-between transform hover:-translate-y-1 transition-transform">
             <div
               className="absolute -top-2 sm:-top-4 -right-1 sm:-right-2 bg-blue-600 text-white font-black text-[10px] sm:text-base px-2.5 sm:px-4 py-0.5 sm:py-1.5 rounded-full shadow-lg z-20 animate-bounce"
               style={{ animationDelay: "0.2s" }}
             >
               FREE
             </div>
-            <div className="block relative mb-2 rounded-none overflow-hidden bg-slate-50 border border-slate-100 aspect-square flex items-center justify-center">
+            <div className="block relative mb-1.5 sm:mb-3 rounded-lg sm:rounded-xl overflow-hidden bg-slate-50 border border-slate-100 aspect-square flex items-center justify-center">
               <img
                 src="/img/toothbrushes/miroooo-brush-x2-wall-mounted-storage-dock-gift.webp"
                 alt="Wall-Mounted Magnetic Storage Dock"
                 loading="lazy"
                 decoding="async"
-                className="w-full h-full object-cover rounded-none"
+                className="w-full h-full object-cover rounded-lg sm:rounded-xl"
               />
             </div>
             <div>
@@ -500,20 +500,20 @@ function PackagePanel({
           </div>
 
           {/* Free Brush Heads */}
-          <div className="bg-white rounded-none p-2 sm:p-4 border border-[#b8d2fb] shadow-sm text-center relative flex flex-col justify-between">
+          <div className="bg-white rounded-xl sm:rounded-2xl p-2 sm:p-4 border border-[#b8d2fb] shadow-sm text-center relative flex flex-col justify-between transform hover:-translate-y-1 transition-transform">
             <div
               className="absolute -top-2 sm:-top-4 -right-1 sm:-right-2 bg-blue-600 text-white font-black text-[10px] sm:text-base px-2.5 sm:px-4 py-0.5 sm:py-1.5 rounded-full shadow-lg z-20 animate-bounce"
               style={{ animationDelay: "0.4s" }}
             >
               FREE
             </div>
-            <div className="block relative mb-2 rounded-none overflow-hidden bg-slate-50 border border-slate-100 aspect-square flex items-center justify-center">
+            <div className="block relative mb-1.5 sm:mb-3 rounded-lg sm:rounded-xl overflow-hidden bg-slate-50 border border-slate-100 aspect-square flex items-center justify-center">
               <img
                 src="/img/toothbrushes/miroooo-brush-x2-free-brush-heads-gift.webp"
                 alt="2 Extra Precision Brush Heads"
                 loading="lazy"
                 decoding="async"
-                className="w-full h-full object-cover rounded-none"
+                className="w-full h-full object-cover rounded-lg sm:rounded-xl"
               />
             </div>
             <div>
@@ -527,7 +527,7 @@ function PackagePanel({
 
         {/* Voucher Bar */}
         {product.voucher && (
-          <div className="mb-6 p-3 bg-white border border-[#b8d2fb] rounded-none flex items-center justify-between gap-2 shadow-xs">
+          <div className="mb-6 p-3 bg-white border border-[#b8d2fb] rounded-xl flex items-center justify-between gap-2 shadow-xs">
             <div className="flex items-center gap-2">
               <span className="font-mono text-xs sm:text-sm font-black text-[#1d4a93] tracking-wider uppercase">
                 COUPON: {product.voucher.code}
@@ -536,7 +536,7 @@ function PackagePanel({
                 ({product.voucher.discountText})
               </span>
             </div>
-            <div className="bg-slate-900 text-white font-mono font-bold text-[11px] sm:text-xs px-2.5 py-1 rounded-none flex items-center gap-1.5 shrink-0">
+            <div className="bg-slate-900 text-white font-mono font-bold text-[11px] sm:text-xs px-2.5 py-1 rounded-lg flex items-center gap-1.5 shrink-0">
               <Timer size={13} className="text-[#f9ad26]" />
               <span>{timer.hours}h {timer.minutes}m {timer.seconds}s</span>
             </div>
@@ -577,7 +577,7 @@ function ProductCard({
       id={`rank-${product.rank.replace(/^#/, "")}`}
       data-testid="electric-toothbrush-card"
       data-product-rank={product.rank}
-      className={`relative bg-white rounded-none shadow-sm border ${
+      className={`relative bg-white rounded-3xl shadow-sm border ${
         isWinner
           ? "border-[#1d4a93] ring-4 ring-[#e1ecfe]"
           : "border-slate-200"
@@ -586,7 +586,7 @@ function ProductCard({
       <RankRibbon rank={product.rank} featured={isWinner} />
 
       {isWinner && (
-        <div className="absolute -top-4 md:-top-5 left-1/2 -translate-x-1/2 bg-[#1d4a93] text-white px-4 py-1.5 md:px-6 md:py-2 rounded-none font-bold text-xs md:text-sm tracking-wide uppercase flex items-center gap-1.5 md:gap-2 shadow-md z-10 whitespace-nowrap">
+        <div className="absolute -top-4 md:-top-5 left-1/2 -translate-x-1/2 bg-[#1d4a93] text-white px-4 py-1.5 md:px-6 md:py-2 rounded-full font-bold text-xs md:text-sm tracking-wide uppercase flex items-center gap-1.5 md:gap-2 shadow-lg z-10 whitespace-nowrap">
           <Award size={16} className="md:w-[18px] md:h-[18px]" />
           #1 Editor&apos;s Choice
         </div>
@@ -625,7 +625,7 @@ function ProductCard({
                   alt={product.name}
                   loading={isWinner ? "eager" : "lazy"}
                   decoding="async"
-                  className="w-full aspect-square object-cover rounded-none shadow-xs border border-slate-200 group-hover:shadow-md transition-shadow duration-300"
+                  className="w-full aspect-square object-cover rounded-2xl shadow-md border border-slate-100 group-hover:shadow-xl transition-shadow duration-300"
                 />
               </a>
             </div>
@@ -710,7 +710,7 @@ function ProductCard({
           </div>
 
           {/* Performance Metrics */}
-          <div className="bg-slate-50 rounded-none p-4 sm:p-6 border border-slate-200 mb-8">
+          <div className="bg-slate-50 rounded-2xl p-4 sm:p-6 border border-slate-200 mb-8">
             <h4 className="font-bold text-slate-900 mb-4 sm:mb-6 text-base sm:text-lg">
               Performance Metrics
             </h4>
@@ -728,8 +728,8 @@ function ProductCard({
           {/* Pros & Cons */}
           <div className="flex flex-col gap-6 mb-8">
             {/* Pros */}
-            <div className="bg-[#f0f5fd] rounded-none px-3 py-5 md:p-6 border border-[#b8d2fb]">
-              <h4 className="bg-[#1d4a93] text-white font-bold text-center text-xl sm:text-2xl py-2.5 px-4 -mt-5 -mx-3 md:-mt-6 md:-mx-6 mb-5 md:mb-6 rounded-none">
+            <div className="bg-[#f0f5fd] rounded-2xl px-3 py-5 md:p-6 border border-[#b8d2fb]">
+              <h4 className="bg-[#1d4a93] text-white font-bold text-center text-xl sm:text-2xl py-2.5 px-4 -mt-5 -mx-3 md:-mt-6 md:-mx-6 mb-5 md:mb-6 rounded-t-2xl">
                 Pros
               </h4>
               <ul className="space-y-3.5">
@@ -764,8 +764,8 @@ function ProductCard({
             </div>
 
             {/* Cons */}
-            <div className="bg-red-50/50 rounded-none px-3 py-5 md:p-6 border border-red-100">
-              <h4 className="bg-red-500 text-white font-bold text-center text-xl sm:text-2xl py-2.5 px-4 -mt-5 -mx-3 md:-mt-6 md:-mx-6 mb-5 md:mb-6 rounded-none">
+            <div className="bg-red-50/50 rounded-2xl px-3 py-5 md:p-6 border border-red-100">
+              <h4 className="bg-red-500 text-white font-bold text-center text-xl sm:text-2xl py-2.5 px-4 -mt-5 -mx-3 md:-mt-6 md:-mx-6 mb-5 md:mb-6 rounded-t-2xl">
                 Cons
               </h4>
               <ul className="space-y-3.5">
@@ -982,7 +982,7 @@ const TOP_5_COMPARISON_ROWS: ComparisonRowDef[] = [
 
 function CompetitorComparisonTable() {
   return (
-    <section className="bg-white rounded-none p-5 sm:p-8 md:p-10 border border-slate-200 shadow-sm mt-16 mb-12 max-w-6xl mx-auto font-sans">
+    <section className="bg-white rounded-3xl p-5 sm:p-8 md:p-10 border border-slate-200 shadow-sm mt-16 mb-12 max-w-6xl mx-auto font-sans">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-8 md:mb-10">
         <h2 className="text-2xl md:text-4xl font-extrabold text-slate-900 font-serif">
@@ -994,7 +994,7 @@ function CompetitorComparisonTable() {
       </div>
 
       {/* Mobile Swipe Hint */}
-      <div className="block lg:hidden text-center text-xs text-slate-500 font-medium mb-4 bg-slate-50 py-2 px-3 rounded-none border border-slate-200 font-sans">
+      <div className="block lg:hidden text-center text-xs text-slate-500 font-medium mb-4 bg-slate-50 py-2 px-3 rounded-lg border border-slate-200 font-sans">
         ← Swipe horizontally to compare all 5 toothbrushes →
       </div>
 
@@ -1003,7 +1003,7 @@ function CompetitorComparisonTable() {
         <table className="w-full text-left border-collapse min-w-[720px] lg:min-w-full table-fixed font-sans">
           <thead>
             <tr className="border-b-2 border-slate-200">
-              <th className="py-4 px-3 sm:px-4 font-bold text-slate-900 text-xs sm:text-sm md:text-base w-[18%] bg-slate-50/50 rounded-none align-bottom font-sans">
+              <th className="py-4 px-3 sm:px-4 font-bold text-slate-900 text-xs sm:text-sm md:text-base w-[18%] bg-slate-50/50 rounded-tl-xl align-bottom font-sans">
                 Feature / Metric
               </th>
               {TOP_5_COMPARISON_PRODUCTS.map((prod) => (
@@ -1021,13 +1021,17 @@ function CompetitorComparisonTable() {
                     >
                       #{prod.rank} Ranked
                     </span>
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mb-2.5 flex items-center justify-center p-1 bg-white rounded-none border border-slate-200">
+                    <div
+                      className={`w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mb-2.5 flex items-center justify-center p-1 bg-white rounded-2xl overflow-hidden border ${
+                        prod.rank === 1 ? "border-2 border-[#1d4a93]/50 shadow-md" : "border border-slate-200 shadow-xs"
+                      }`}
+                    >
                       <img
                         src={prod.image}
                         alt={prod.name}
                         loading="lazy"
                         decoding="async"
-                        className="max-h-full max-w-full object-contain rounded-none"
+                        className="max-h-full max-w-full object-contain rounded-xl"
                       />
                     </div>
                     <span className="font-bold text-slate-900 text-sm sm:text-base md:text-lg line-clamp-1 mb-1 font-sans">
@@ -1140,9 +1144,9 @@ function GuideComparisonMatrix({ guide }: { guide: ToothbrushGuide }) {
   if (!guide.comparisonRows || guide.comparisonRows.length === 0) return null;
 
   return (
-    <section className="bg-white rounded-none p-6 md:p-10 border border-slate-200 shadow-sm my-16">
+    <section className="bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 border border-slate-200 shadow-sm my-16">
       <div className="text-center max-w-3xl mx-auto mb-8 md:mb-12">
-        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-none bg-[#e1ecfe] text-[#1d4a93] text-xs font-bold uppercase tracking-wider mb-3">
+        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#e1ecfe] text-[#1d4a93] text-xs font-bold uppercase tracking-wider mb-3">
           <Sparkles className="w-3.5 h-3.5" /> Specification Breakdown
         </span>
         <h2 className="text-2xl md:text-4xl font-extrabold text-slate-900 font-serif">
@@ -1160,7 +1164,7 @@ function GuideComparisonMatrix({ guide }: { guide: ToothbrushGuide }) {
               <th className="py-4 px-4 font-bold text-slate-900 text-base md:text-lg w-1/4">
                 Feature / Metric
               </th>
-              <th className="py-4 px-4 font-bold text-[#1d4a93] bg-[#f0f5fd] text-base md:text-lg w-2/5 rounded-none border-t-2 border-l-2 border-r-2 border-[#b8d2fb]">
+              <th className="py-4 px-4 font-bold text-[#1d4a93] bg-[#f0f5fd] text-base md:text-lg w-2/5 rounded-t-xl border-t-2 border-l-2 border-r-2 border-[#b8d2fb]">
                 Miroooo Brush X2 (£69)
               </th>
               <th className="py-4 px-4 font-bold text-slate-700 text-base md:text-lg w-1/3">
@@ -1208,7 +1212,7 @@ function BuyerBlocksSection({ guide }: { guide: ToothbrushGuide }) {
         {guide.buyerBlocks.map((block, idx) => (
           <div
             key={idx}
-            className="bg-white rounded-none p-6 md:p-8 border border-slate-200 shadow-sm"
+            className="bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-sm"
           >
             <h3 className="text-lg md:text-xl font-bold text-slate-900 font-serif mb-3">
               {block.title}
@@ -1228,7 +1232,7 @@ function FaqSection({ faqs }: { faqs?: ToothbrushFAQ[] }) {
   if (!faqs || faqs.length === 0) return null;
 
   return (
-    <section className="bg-white rounded-none p-6 md:p-10 border border-slate-200 shadow-sm my-16">
+    <section className="bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 border border-slate-200 shadow-sm my-16">
       <div className="text-center max-w-2xl mx-auto mb-8">
         <div className="inline-flex items-center gap-2 text-[#1d4a93] font-bold text-sm uppercase tracking-wider mb-2">
           <HelpCircle className="w-4 h-4" /> Frequently Asked Questions
@@ -1242,7 +1246,7 @@ function FaqSection({ faqs }: { faqs?: ToothbrushFAQ[] }) {
         {faqs.map((faq, idx) => (
           <details
             key={idx}
-            className="group rounded-none border border-slate-200 bg-slate-50/50 p-5 open:bg-white open:ring-2 open:ring-[#1d4a93]/20 transition-all duration-200"
+            className="group rounded-xl border border-slate-200 bg-slate-50/50 p-5 open:bg-white open:ring-2 open:ring-[#1d4a93]/20 transition-all duration-200"
           >
             <summary className="flex cursor-pointer items-center justify-between font-bold text-slate-900 text-base md:text-lg list-none">
               <span>{faq.question}</span>
@@ -1325,23 +1329,26 @@ export function LuxuryToothbrushLandingPage({
       {/* 2. MAIN CONTAINER */}
       <main className="max-w-6xl mx-auto px-4 py-8 md:py-12">
         {/* Top 5 Hero Graphic Banner */}
-        <div className="relative mb-8 md:mb-12">
-          <div className="relative w-full aspect-[1536/461] bg-slate-100 overflow-hidden rounded-none border border-slate-200">
+        <div className="relative mb-10 md:mb-12 max-w-5xl mx-auto">
+          <div className="relative w-full aspect-[1536/461] bg-slate-100 overflow-hidden rounded-3xl shadow-xl border border-slate-100">
             <img
               src="/img/toothbrushes/top-5-electric-toothbrushes-uk.webp"
               alt="Top 5 Best Electric Toothbrushes UK 2026 Comparison"
-              className="w-full h-full object-cover rounded-none"
+              className="w-full h-full object-cover rounded-3xl"
+              decoding="async"
+              fetchPriority="high"
+              loading="eager"
             />
           </div>
         </div>
 
         {/* Clinical Consultant / Dentist Walkthrough Card */}
-        <div className="bg-white p-6 md:p-8 rounded-none shadow-sm max-w-5xl mx-auto border border-slate-200 text-slate-800 mb-12">
+        <div className="bg-white p-6 md:p-8 rounded-2xl shadow-[0_4px_12px_rgba(0,0,0,0.1)] max-w-5xl mx-auto border border-slate-100 text-slate-800 mb-12">
           <div className="flex flex-col md:flex-row items-center gap-4 mb-6">
             <img
               src="/img/toothbrushes/ec20e57c-5f08-4bb9-aa24-2d0de02c5d1d_medium.webp"
               alt="Clinical Dental Consultant & Oral Health Specialist"
-              className="w-24 h-24 rounded-none object-cover border border-slate-200 shrink-0"
+              className="w-24 h-24 md:w-24 md:h-24 rounded-full object-cover mb-2 md:mb-0 border border-slate-200 shrink-0"
             />
             <div className="text-center md:text-left">
               <h3 className="font-bold text-xl md:text-2xl text-slate-900 font-serif">
@@ -1396,7 +1403,7 @@ export function LuxuryToothbrushLandingPage({
 
         {/* Optional Winner Bullets / Key Findings */}
         {guide?.winnerBullets && guide.winnerBullets.length > 0 && (
-          <div className="bg-[#f0f5fd] rounded-none p-6 md:p-8 border-2 border-[#b8d2fb] mb-12 shadow-sm">
+          <div className="bg-[#f0f5fd] rounded-2xl p-6 md:p-8 border-2 border-[#b8d2fb] mb-12 shadow-sm">
             <h3 className="text-xl md:text-2xl font-bold text-[#0e2e62] font-serif mb-4 flex items-center gap-2">
               <Sparkles className="w-6 h-6 text-[#1d4a93] shrink-0" />
               Key Findings &amp; Why Miroooo Brush X2 Took #1
@@ -1436,7 +1443,7 @@ export function LuxuryToothbrushLandingPage({
 
         {/* 7. DENTIST'S VERDICT BOTTOM BOX (Warm Cream Palette with Golden Amber Action) */}
         <div className="mt-20 md:mt-24 mb-10 md:mb-12 relative max-w-sm md:max-w-5xl mx-auto">
-          <div className="bg-[#f8f4e6] rounded-none p-6 md:p-12 shadow-sm border border-[#e8dccb] relative z-10">
+          <div className="bg-[#f8f4e6] rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-12 shadow-[0_15px_40px_-10px_rgba(0,0,0,0.1)] border border-[#e8dccb] relative z-10">
             <h2 className="text-2xl md:text-4xl font-bold text-center text-[#8b1528] mb-6 md:mb-10 font-serif tracking-wide">
               Dentist&apos;s Verdict
             </h2>
@@ -1444,11 +1451,11 @@ export function LuxuryToothbrushLandingPage({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center">
               {/* Left Image Area */}
               <div className="relative flex justify-center items-center">
-                <div className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-[380px] aspect-square overflow-hidden rounded-none border border-[#dfd1bd] bg-white shadow-md">
+                <div className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-[380px] aspect-square overflow-hidden rounded-[1.35rem] md:rounded-[1.75rem] border border-[#dfd1bd] bg-white shadow-xl">
                   <img
                     src="/img/toothbrushes/Gemini_Generated_Image_bc4gydbc4gydbc4g.webp"
                     alt="Clinical Dental Specialist holding Miroooo Brush X2 - Dentist's Verdict"
-                    className="w-full h-full object-cover rounded-none"
+                    className="w-full h-full object-cover rounded-[1.35rem] md:rounded-[1.75rem]"
                   />
                 </div>
               </div>
@@ -1466,7 +1473,7 @@ export function LuxuryToothbrushLandingPage({
                 </div>
 
                 {/* Rating Badge */}
-                <div className="border border-slate-200 bg-white/80 rounded-none p-3 md:p-4 mx-auto mb-6 md:mb-8 inline-block shadow-xs">
+                <div className="border border-slate-200 bg-white/80 rounded-2xl p-3 md:p-4 mx-auto mb-6 md:mb-8 inline-block shadow-xs">
                   <div className="flex items-center justify-center gap-2 mb-2">
                     <span className="font-bold text-base md:text-lg text-black font-sans">
                       Excellent
