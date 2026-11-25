@@ -1282,8 +1282,9 @@ export function LuxuryToothbrushLandingPage({
 
   return (
     <div
-      className="min-h-screen bg-slate-50 font-sans text-slate-800 antialiased selection:bg-[#e1ecfe] selection:text-[#0e1a2f]"
+      className="toothbrush-landing-page min-h-screen bg-slate-50 font-sans text-slate-800 antialiased selection:bg-[#e1ecfe] selection:text-[#0e1a2f]"
       style={{
+        fontFamily: "'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
         // Define scoped variables identical to theme.css on the best mask page
         ["--color-emerald-50" as any]: "oklch(97% 0.012 260)",
         ["--color-emerald-100" as any]: "oklch(94% 0.027 260)",
