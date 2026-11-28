@@ -1,3 +1,5 @@
+import type { ToothbrushMarket } from "./toothbrushData";
+
 export type ToothbrushGuideSlug =
   | "miroooo-vs-oral-b-io6"
   | "miroooo-vs-philips-sonicare"
@@ -50,7 +52,8 @@ export interface ToothbrushFAQ {
 }
 
 export interface ToothbrushGuide {
-  slug: ToothbrushGuideSlug;
+  slug: string;
+  market?: ToothbrushMarket;
   group: ToothbrushGuideGroup;
   cardCode: string;
   cardTitle: string;
@@ -1528,14 +1531,197 @@ export const TOOTHBRUSH_GUIDES: Record<ToothbrushGuideSlug, ToothbrushGuide> = {
 
 };
 
-export function getToothbrushGuide(slug: ToothbrushGuideSlug): ToothbrushGuide {
-  const guide = TOOTHBRUSH_GUIDES[slug];
-  if (!guide) {
-    throw new Error(`Toothbrush guide not found for slug: ${slug}`);
+function localizeText(text: string, market: ToothbrushMarket): string {
+  if (market === "uk") return text;
+  if (market === "au") {
+    return text
+      .replaceAll("£69", "$129")
+      .replaceAll("£139", "$259")
+      .replaceAll("£129.99", "$249.99")
+      .replaceAll("£124.99", "$299.99")
+      .replaceAll("£149.99", "$299.99")
+      .replaceAll("£300", "$399")
+      .replaceAll("£340", "$449")
+      .replaceAll("£95", "$189")
+      .replaceAll("£100", "$169")
+      .replaceAll("£39", "$69")
+      .replaceAll("£19", "$35")
+      .replaceAll("£10", "$18")
+      .replaceAll("£8 to £12", "$16 to $24")
+      .replaceAll("£9 to £12", "$18 to $25")
+      .replaceAll("£14.99", "$28")
+      .replaceAll("UK buyers", "Australian buyers")
+      .replaceAll("UK shoppers", "Australian shoppers")
+      .replaceAll("British householders", "Australian householders")
+      .replaceAll("UK dental clinics", "Australian dental clinics")
+      .replaceAll("UK customer reviews", "Australian customer reviews")
+      .replaceAll("UK reviews", "Australian reviews")
+      .replaceAll("verified UK", "verified Australian")
+      .replaceAll("leading UK", "leading Australian")
+      .replaceAll("in the UK", "in Australia")
+      .replaceAll("UK 2026", "Australia 2026")
+      .replaceAll("UK market", "Australian market")
+      .replaceAll("UK delivery", "Australia delivery")
+      .replaceAll("UK terms", "Australia terms")
+      .replaceAll("Review UK", "Review Australia")
+      .replaceAll("Review UK 2026", "Review Australia 2026")
+      .replaceAll("toothbrush uk", "toothbrush australia")
+      .replaceAll("uk alternative", "australia alternative");
   }
-  return guide;
+  // US
+  return text
+    .replaceAll("£69", "$85")
+    .replaceAll("£139", "$179")
+    .replaceAll("£129.99", "$149.99")
+    .replaceAll("£124.99", "$199.99")
+    .replaceAll("£149.99", "$199.99")
+    .replaceAll("£300", "$249.99")
+    .replaceAll("£340", "$299.99")
+    .replaceAll("£95", "$115")
+    .replaceAll("£100", "$99.99")
+    .replaceAll("£39", "$49")
+    .replaceAll("£19", "$25")
+    .replaceAll("£10", "$12")
+    .replaceAll("£8 to £12", "$10 to $15")
+    .replaceAll("£9 to £12", "$12 to $16")
+    .replaceAll("£14.99", "$18")
+    .replaceAll("UK buyers", "US buyers")
+    .replaceAll("UK shoppers", "US shoppers")
+    .replaceAll("British householders", "US householders")
+    .replaceAll("UK dental clinics", "US dental clinics")
+    .replaceAll("UK customer reviews", "US customer reviews")
+    .replaceAll("UK reviews", "US reviews")
+    .replaceAll("verified UK", "verified US")
+    .replaceAll("leading UK", "leading US")
+    .replaceAll("in the UK", "in the US")
+    .replaceAll("UK 2026", "US 2026")
+    .replaceAll("UK market", "US market")
+    .replaceAll("UK delivery", "US delivery")
+    .replaceAll("UK terms", "US terms")
+    .replaceAll("Review UK", "Review US")
+    .replaceAll("Review UK 2026", "Review US 2026")
+    .replaceAll("toothbrush uk", "toothbrush us")
+    .replaceAll("uk alternative", "us alternative");
 }
 
-export function getAllToothbrushGuideSlugs(): ToothbrushGuideSlug[] {
-  return Object.keys(TOOTHBRUSH_GUIDES) as ToothbrushGuideSlug[];
+function resolveBaseSlug(rawSlug: string): ToothbrushGuideSlug {
+  let s = rawSlug;
+  if (s in TOOTHBRUSH_GUIDES) {
+    return s as ToothbrushGuideSlug;
+  }
+
+  // Handle infix -au- or -us- e.g. miroooo-brush-x-au-review-2026 -> miroooo-brush-x-uk-review-2026
+  if (s.includes("-au-")) {
+    const tryInfix = s.replace("-au-", "-uk-");
+    if (tryInfix in TOOTHBRUSH_GUIDES) return tryInfix as ToothbrushGuideSlug;
+  }
+  if (s.includes("-us-")) {
+    const tryInfix = s.replace("-us-", "-uk-");
+    if (tryInfix in TOOTHBRUSH_GUIDES) return tryInfix as ToothbrushGuideSlug;
+  }
+
+  if (s.endsWith("-au-2026")) s = s.replace("-au-2026", "-uk-2026");
+  else if (s.endsWith("-us-2026")) s = s.replace("-us-2026", "-uk-2026");
+  else if (s.endsWith("-au")) {
+    const tryUk = s.replace(/-au$/, "-uk");
+    if (tryUk in TOOTHBRUSH_GUIDES) return tryUk as ToothbrushGuideSlug;
+    s = s.replace(/-au$/, "");
+  } else if (s.endsWith("-us")) {
+    const tryUk = s.replace(/-us$/, "-uk");
+    if (tryUk in TOOTHBRUSH_GUIDES) return tryUk as ToothbrushGuideSlug;
+    s = s.replace(/-us$/, "");
+  }
+
+  if (s in TOOTHBRUSH_GUIDES) {
+    return s as ToothbrushGuideSlug;
+  }
+  // Try mapping uk suffix
+  const withUk = `${s}-uk-2026`;
+  if (withUk in TOOTHBRUSH_GUIDES) {
+    return withUk as ToothbrushGuideSlug;
+  }
+  throw new Error(`Toothbrush guide not found for slug: ${rawSlug}`);
+}
+
+export function getToothbrushGuide(slug: string, market: ToothbrushMarket = "uk"): ToothbrushGuide {
+  const baseSlug = resolveBaseSlug(slug);
+  const rawGuide = TOOTHBRUSH_GUIDES[baseSlug];
+  if (!rawGuide) {
+    throw new Error(`Toothbrush guide not found for slug: ${slug}`);
+  }
+
+  if (market === "uk") {
+    return { ...rawGuide, market: "uk" };
+  }
+
+  // Localize for AU or US
+  const targetSlug = slug.includes("-au") || slug.includes("-us")
+    ? slug
+    : baseSlug.includes("-uk-")
+      ? baseSlug.replace("-uk-", `-${market}-`)
+      : baseSlug.endsWith("-uk-2026")
+        ? baseSlug.replace("-uk-2026", `-${market}-2026`)
+        : baseSlug.endsWith("-uk")
+          ? baseSlug.replace("-uk", `-${market}`)
+          : `${baseSlug}-${market}`;
+
+  return {
+    ...rawGuide,
+    slug: targetSlug,
+    cardDescription: localizeText(rawGuide.cardDescription, market),
+    seoTitle: localizeText(rawGuide.seoTitle, market),
+    seoDescription: localizeText(rawGuide.seoDescription, market),
+    keywords: rawGuide.keywords.map((kw) => localizeText(kw, market)),
+    headline: localizeText(rawGuide.headline, market),
+    subheadline: localizeText(rawGuide.subheadline, market),
+    quickTake: localizeText(rawGuide.quickTake, market),
+    drVanceVerdict: {
+      ...rawGuide.drVanceVerdict,
+      clinicalRationale: localizeText(rawGuide.drVanceVerdict.clinicalRationale, market),
+      recommendation: localizeText(rawGuide.drVanceVerdict.recommendation, market),
+    },
+    intro: rawGuide.intro.map((p) => localizeText(p, market)),
+    criteria: rawGuide.criteria.map((c) => localizeText(c, market)),
+    winnerBullets: rawGuide.winnerBullets.map((b) => localizeText(b, market)),
+    comparisonRows: rawGuide.comparisonRows.map((row) => ({
+      ...row,
+      miroooo: localizeText(row.miroooo, market),
+      competitor: localizeText(row.competitor, market),
+      whyItMatters: localizeText(row.whyItMatters, market),
+    })),
+    buyerBlocks: rawGuide.buyerBlocks.map((bb) => ({
+      ...bb,
+      title: localizeText(bb.title, market),
+      body: localizeText(bb.body, market),
+    })),
+    faqs: rawGuide.faqs.map((faq) => ({
+      question: localizeText(faq.question, market),
+      answer: localizeText(faq.answer, market),
+    })),
+    market,
+  };
+}
+
+export function getAllToothbrushGuideSlugs(): string[] {
+  const baseSlugs = Object.keys(TOOTHBRUSH_GUIDES) as ToothbrushGuideSlug[];
+  const allSlugs = new Set<string>();
+
+  for (const slug of baseSlugs) {
+    allSlugs.add(slug);
+    if (slug.includes("-uk-")) {
+      allSlugs.add(slug.replace("-uk-", "-au-"));
+      allSlugs.add(slug.replace("-uk-", "-us-"));
+    } else if (slug.endsWith("-uk-2026")) {
+      allSlugs.add(slug.replace("-uk-2026", "-au-2026"));
+      allSlugs.add(slug.replace("-uk-2026", "-us-2026"));
+    } else if (slug.endsWith("-uk")) {
+      allSlugs.add(slug.replace("-uk", "-au"));
+      allSlugs.add(slug.replace("-uk", "-us"));
+    } else {
+      allSlugs.add(`${slug}-au`);
+      allSlugs.add(`${slug}-us`);
+    }
+  }
+
+  return Array.from(allSlugs);
 }

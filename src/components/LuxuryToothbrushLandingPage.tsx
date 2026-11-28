@@ -19,6 +19,8 @@ import {
   MIROOOO_PRODUCT_URL,
   TOOTHBRUSH_EVALUATION_CRITERIA,
   TOOTHBRUSH_PRODUCTS,
+  getToothbrushProducts,
+  type ToothbrushMarket,
   type ToothbrushProduct,
 } from "@/data/toothbrushData";
 import {
@@ -28,14 +30,20 @@ import {
   type ToothbrushFAQ,
 } from "@/data/toothbrushGuidesData";
 
-/* Helper to format UK dynamic date (e.g. "8 October 2026") */
-function getUkFormattedDate(): string {
+/* Helper to format dynamic date for market */
+function getMarketFormattedDate(market: ToothbrushMarket = "uk"): string {
+  const tzMap: Record<ToothbrushMarket, { locale: string; timeZone: string }> = {
+    uk: { locale: "en-GB", timeZone: "Europe/London" },
+    au: { locale: "en-AU", timeZone: "Australia/Sydney" },
+    us: { locale: "en-US", timeZone: "America/New_York" },
+  };
+  const config = tzMap[market] || tzMap.uk;
   try {
-    return new Intl.DateTimeFormat("en-GB", {
+    return new Intl.DateTimeFormat(config.locale, {
       day: "numeric",
       month: "long",
       year: "numeric",
-      timeZone: "Europe/London",
+      timeZone: config.timeZone,
     }).format(new Date());
   } catch {
     const d = new Date();
@@ -47,8 +55,19 @@ function getUkFormattedDate(): string {
   }
 }
 
-/* UK Midnight Countdown Timer Hook */
-function useUkMidnightTimer() {
+function getUkFormattedDate(): string {
+  return getMarketFormattedDate("uk");
+}
+
+/* Midnight Countdown Timer Hook per market timezone */
+function useMarketMidnightTimer(market: ToothbrushMarket = "uk") {
+  const tzMap: Record<ToothbrushMarket, string> = {
+    uk: "Europe/London",
+    au: "Australia/Sydney",
+    us: "America/New_York",
+  };
+  const timeZone = tzMap[market] || "Europe/London";
+
   const [timeLeft, setTimeLeft] = useState<{ hours: string; minutes: string; seconds: string }>({
     hours: "07",
     minutes: "42",
@@ -59,13 +78,13 @@ function useUkMidnightTimer() {
     const calculateTimeLeft = () => {
       try {
         const now = new Date();
-        const ukTimeString = now.toLocaleString("en-US", { timeZone: "Europe/London" });
-        const ukDate = new Date(ukTimeString);
+        const marketTimeString = now.toLocaleString("en-US", { timeZone });
+        const marketDate = new Date(marketTimeString);
 
-        const nextMidnight = new Date(ukDate);
+        const nextMidnight = new Date(marketDate);
         nextMidnight.setHours(24, 0, 0, 0);
 
-        const diffMs = nextMidnight.getTime() - ukDate.getTime();
+        const diffMs = nextMidnight.getTime() - marketDate.getTime();
         const totalSeconds = Math.max(0, Math.floor(diffMs / 1000));
 
         const h = Math.floor(totalSeconds / 3600);
@@ -85,9 +104,13 @@ function useUkMidnightTimer() {
     calculateTimeLeft();
     const interval = setInterval(calculateTimeLeft, 1000);
     return () => clearInterval(interval);
-  }, []);
+  }, [timeZone]);
 
   return timeLeft;
+}
+
+function useUkMidnightTimer() {
+  return useMarketMidnightTimer("uk");
 }
 
 /* Tracking / Attribution handler */
@@ -106,6 +129,7 @@ function handleOutboundClick(
   event: React.MouseEvent<HTMLAnchorElement>,
   setLoadingTarget: (target: string) => void,
   target: string,
+  market: ToothbrushMarket = "uk",
 ) {
   try {
     const destination = new URL(event.currentTarget.href, window.location.href);
@@ -127,9 +151,13 @@ function handleOutboundClick(
       if (!destination.searchParams.has("utm_campaign")) {
         destination.searchParams.set(
           "utm_campaign",
-          "best_electric_toothbrush_uk_2026",
+          `best_electric_toothbrush_${market}_2026`,
         );
       }
+
+      // Enforce default market and country selection on trymiroooo
+      destination.searchParams.set("market", market);
+      destination.searchParams.set("country", market);
 
       event.currentTarget.href = destination.toString();
 
@@ -137,8 +165,9 @@ function handleOutboundClick(
       const payload = {
         event_category: "comparison",
         event_label: target,
+        market: market,
         outbound_url: destination.toString(),
-        page_type: "best_electric_toothbrush_uk_2026",
+        page_type: `best_electric_toothbrush_${market}_2026`,
       };
 
       trackingWindow.dataLayer = trackingWindow.dataLayer ?? [];
@@ -171,7 +200,7 @@ function handleOutboundClick(
   setLoadingTarget(target);
 }
 
-/* UK Flag SVG */
+/* Country Flags SVG */
 function UKFlag({ className = "h-5 w-8 md:h-6 md:w-9" }: { className?: string }) {
   return (
     <svg
@@ -187,6 +216,73 @@ function UKFlag({ className = "h-5 w-8 md:h-6 md:w-9" }: { className?: string })
       <path d="M19 0v24M0 12h38" stroke="#c8102e" strokeWidth="4" />
     </svg>
   );
+}
+
+function AUFlag({ className = "h-5 w-8 md:h-6 md:w-9" }: { className?: string }) {
+  return (
+    <svg
+      aria-label="Australia flag"
+      className={`${className} overflow-hidden rounded-[3px] border border-white/40 shadow-xs inline-block`}
+      role="img"
+      viewBox="0 0 60 30"
+    >
+      <clipPath id="au-flag-canton">
+        <path d="M0 0h30v15H0z" />
+      </clipPath>
+      <rect fill="#00008b" width="60" height="30" />
+      <g clipPath="url(#au-flag-canton)">
+        <path d="M0 0l30 15M30 0L0 15" stroke="#fff" strokeWidth="3" />
+        <path d="M0 0l30 15M30 0L0 15" stroke="#cc0000" strokeWidth="1.5" />
+        <path d="M15 0v15M0 7.5h30" stroke="#fff" strokeWidth="5" />
+        <path d="M15 0v15M0 7.5h30" stroke="#cc0000" strokeWidth="3" />
+      </g>
+      <circle cx="15" cy="22.5" r="3.5" fill="#fff" />
+      <circle cx="45" cy="25" r="2.2" fill="#fff" />
+      <circle cx="37.5" cy="13" r="2.2" fill="#fff" />
+      <circle cx="45" cy="5" r="2.2" fill="#fff" />
+      <circle cx="52.5" cy="10" r="2.2" fill="#fff" />
+      <circle cx="48" cy="16" r="1.4" fill="#fff" />
+    </svg>
+  );
+}
+
+function USFlag({ className = "h-5 w-8 md:h-6 md:w-9" }: { className?: string }) {
+  return (
+    <svg
+      aria-label="United States flag"
+      className={`${className} overflow-hidden rounded-[3px] border border-white/40 shadow-xs inline-block`}
+      role="img"
+      viewBox="0 0 38 24"
+    >
+      <rect fill="#b22234" width="38" height="24" />
+      <path d="M0 1.846h38M0 5.538h38M0 9.23h38M0 12.923h38M0 16.615h38M0 20.307h38" stroke="#fff" strokeWidth="1.846" />
+      <rect fill="#3c3b6e" width="15.2" height="12.923" />
+      <circle cx="3" cy="2.5" r="0.75" fill="#fff" />
+      <circle cx="6" cy="2.5" r="0.75" fill="#fff" />
+      <circle cx="9" cy="2.5" r="0.75" fill="#fff" />
+      <circle cx="12" cy="2.5" r="0.75" fill="#fff" />
+      <circle cx="4.5" cy="4.5" r="0.75" fill="#fff" />
+      <circle cx="7.5" cy="4.5" r="0.75" fill="#fff" />
+      <circle cx="10.5" cy="4.5" r="0.75" fill="#fff" />
+      <circle cx="3" cy="6.5" r="0.75" fill="#fff" />
+      <circle cx="6" cy="6.5" r="0.75" fill="#fff" />
+      <circle cx="9" cy="6.5" r="0.75" fill="#fff" />
+      <circle cx="12" cy="6.5" r="0.75" fill="#fff" />
+      <circle cx="4.5" cy="8.5" r="0.75" fill="#fff" />
+      <circle cx="7.5" cy="8.5" r="0.75" fill="#fff" />
+      <circle cx="10.5" cy="8.5" r="0.75" fill="#fff" />
+      <circle cx="3" cy="10.5" r="0.75" fill="#fff" />
+      <circle cx="6" cy="10.5" r="0.75" fill="#fff" />
+      <circle cx="9" cy="10.5" r="0.75" fill="#fff" />
+      <circle cx="12" cy="10.5" r="0.75" fill="#fff" />
+    </svg>
+  );
+}
+
+function CountryFlag({ market, className }: { market: ToothbrushMarket; className?: string }) {
+  if (market === "au") return <AUFlag className={className} />;
+  if (market === "us") return <USFlag className={className} />;
+  return <UKFlag className={className} />;
 }
 
 /* Star Rating Component (Gold Stars) */
@@ -247,6 +343,7 @@ function OfficialButton({
   className = "",
   testId,
   size = "default",
+  market = "uk",
 }: {
   href: string;
   targetId?: string;
@@ -256,6 +353,7 @@ function OfficialButton({
   className?: string;
   testId?: string;
   size?: "default" | "compact";
+  market?: ToothbrushMarket;
 }) {
   const isLoading = Boolean(targetId && loadingTarget === targetId);
   const isCompact = size === "compact";
@@ -268,7 +366,7 @@ function OfficialButton({
       data-testid={testId}
       onClick={(event) => {
         if (targetId && setLoadingTarget) {
-          handleOutboundClick(event, setLoadingTarget, targetId);
+          handleOutboundClick(event, setLoadingTarget, targetId, market);
         }
       }}
       className={`group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-[#f9ad26] hover:bg-[#ea9602] border-2 border-[#e09819] font-black text-[#0e1a2f] shadow-md transition-all duration-200 active:scale-[0.99] cursor-pointer ${
@@ -385,8 +483,32 @@ function MetricBar({ label, value }: { label: string; value: number }) {
 }
 
 /* 10 Evaluation Criteria Box */
-function EvaluationCriteria({ criteria }: { criteria?: string[] }) {
+function EvaluationCriteria({
+  criteria,
+  market = "uk",
+}: {
+  criteria?: string[];
+  market?: ToothbrushMarket;
+}) {
   const list = criteria && criteria.length > 0 ? criteria : TOOTHBRUSH_EVALUATION_CRITERIA;
+
+  const marketText = {
+    uk: {
+      brushes: "leading UK electric toothbrushes",
+      professionals: "registered UK dental professionals",
+    },
+    au: {
+      brushes: "leading Australian electric toothbrushes",
+      professionals: "registered Australian dental professionals",
+    },
+    us: {
+      brushes: "leading US electric toothbrushes",
+      professionals: "registered US dental professionals",
+    },
+  }[market] || {
+    brushes: "leading UK electric toothbrushes",
+    professionals: "registered UK dental professionals",
+  };
 
   return (
     <div className="bg-white rounded-2xl md:rounded-3xl p-5 sm:p-7 md:p-10 shadow-sm border border-slate-200 mb-10 md:mb-16 w-full">
@@ -405,10 +527,10 @@ function EvaluationCriteria({ criteria }: { criteria?: string[] }) {
       </div>
       <p className="text-center text-slate-600 bg-slate-50 p-3.5 md:p-4 rounded-xl border border-slate-200 text-xs sm:text-sm md:text-base leading-relaxed">
         Over the past three months, our clinical team thoroughly evaluated{" "}
-        <strong>leading UK electric toothbrushes</strong> across{" "}
+        <strong>{marketText.brushes}</strong> across{" "}
         <strong>180+ hours of comparative testing</strong>. Based on{" "}
         <strong>hands-on laboratory measurements</strong>, insights from{" "}
-        <strong>registered UK dental professionals</strong>, and{" "}
+        <strong>{marketText.professionals}</strong>, and{" "}
         <strong>thousands of verified consumer reviews</strong>, these five models
         distinguished themselves in terms of{" "}
         <strong>plaque clearance, gum safety, battery runtime, and long-term value</strong>.
@@ -423,12 +545,20 @@ function PackagePanel({
   loadingTarget,
   setLoadingTarget,
   timer,
+  market = "uk",
 }: {
   product: ToothbrushProduct;
   loadingTarget: string | null;
   setLoadingTarget: (target: string) => void;
   timer: { hours: string; minutes: string; seconds: string };
+  market?: ToothbrushMarket;
 }) {
+  const giftValues = {
+    uk: { total: "£39 Value", case: "£19 value", dock: "£10 value", heads: "£10 value" },
+    au: { total: "$69 Value", case: "$35 value", dock: "$18 value", heads: "$16 value" },
+    us: { total: "$49 Value", case: "$25 value", dock: "$12 value", heads: "$12 value" },
+  }[market] || { total: "£39 Value", case: "£19 value", dock: "£10 value", heads: "£10 value" };
+
   return (
     <div className="mt-10 bg-gradient-to-br from-[#f0f5fd] to-[#e1ecfe] border-2 border-[#b8d2fb] rounded-2xl sm:rounded-3xl p-5 sm:p-7 md:p-8 relative overflow-hidden shadow-sm">
       <div className="relative z-10">
@@ -439,7 +569,7 @@ function PackagePanel({
         <h4 className="font-extrabold text-xl sm:text-2xl md:text-3xl text-slate-900 mb-3 leading-tight font-serif">
           Free Gifts Included in{" "}
           <span className="text-blue-600 bg-blue-100 px-2 py-0.5 rounded-md inline-block font-sans transform -rotate-1">
-            Your Package (£39 Value)
+            Your Package ({giftValues.total})
           </span>
         </h4>
 
@@ -470,7 +600,7 @@ function PackagePanel({
               <p className="font-extrabold text-slate-900 text-[11px] sm:text-sm md:text-base leading-tight">
                 Luxury Travel Case
               </p>
-              <p className="text-[10px] sm:text-xs text-slate-500 line-through">£19 value</p>
+              <p className="text-[10px] sm:text-xs text-slate-500 line-through">{giftValues.case}</p>
             </div>
           </div>
 
@@ -495,7 +625,7 @@ function PackagePanel({
               <p className="font-extrabold text-slate-900 text-[11px] sm:text-sm md:text-base leading-tight">
                 Wall-Mounted Dock
               </p>
-              <p className="text-[10px] sm:text-xs text-slate-500 line-through">£10 value</p>
+              <p className="text-[10px] sm:text-xs text-slate-500 line-through">{giftValues.dock}</p>
             </div>
           </div>
 
@@ -520,7 +650,7 @@ function PackagePanel({
               <p className="font-extrabold text-slate-900 text-[11px] sm:text-sm md:text-base leading-tight">
                 2 Extra Brush Heads
               </p>
-              <p className="text-[10px] sm:text-xs text-slate-500 line-through">£10 value</p>
+              <p className="text-[10px] sm:text-xs text-slate-500 line-through">{giftValues.heads}</p>
             </div>
           </div>
         </div>
@@ -550,6 +680,7 @@ function PackagePanel({
           setLoadingTarget={setLoadingTarget}
           testId="miroooo-cta-package"
           className="w-full"
+          market={market}
         >
           {product.ctaText || "CHECK AVAILABILITY"}
         </OfficialButton>
@@ -564,11 +695,13 @@ function ProductCard({
   loadingTarget,
   setLoadingTarget,
   timer,
+  market = "uk",
 }: {
   product: ToothbrushProduct;
   loadingTarget: string | null;
   setLoadingTarget: (target: string) => void;
   timer: { hours: string; minutes: string; seconds: string };
+  market?: ToothbrushMarket;
 }) {
   const isWinner = product.isWinner;
 
@@ -616,6 +749,7 @@ function ProductCard({
                     event,
                     setLoadingTarget,
                     `product-img-${product.rank}`,
+                    market,
                   )
                 }
                 className="block w-full group"
@@ -670,6 +804,7 @@ function ProductCard({
                 testId={`toothbrush-cta-${product.rank}`}
                 size="default"
                 className="w-full"
+                market={market}
               >
                 {product.ctaText || "CHECK AVAILABILITY"}
               </OfficialButton>
@@ -690,6 +825,7 @@ function ProductCard({
                   event,
                   setLoadingTarget,
                   `product-title-${product.rank}`,
+                  market,
                 )
               }
               className="hover:text-[#1d4a93] transition-colors"
@@ -807,6 +943,7 @@ function ProductCard({
               loadingTarget={loadingTarget}
               setLoadingTarget={setLoadingTarget}
               timer={timer}
+              market={market}
             />
           )}
 
@@ -819,6 +956,7 @@ function ProductCard({
               setLoadingTarget={setLoadingTarget}
               testId={`toothbrush-cta-mobile-${product.rank}`}
               className="w-full"
+              market={market}
             >
               {product.ctaText || "CHECK AVAILABILITY"}
             </OfficialButton>
@@ -850,7 +988,7 @@ interface ComparisonTableProduct {
   freeDelivery: boolean;
 }
 
-const TOP_5_COMPARISON_PRODUCTS: ComparisonTableProduct[] = [
+const TOP_5_COMPARISON_PRODUCTS_UK: ComparisonTableProduct[] = [
   {
     rank: 1,
     name: "Miroooo X2",
@@ -944,6 +1082,202 @@ const TOP_5_COMPARISON_PRODUCTS: ComparisonTableProduct[] = [
   },
 ];
 
+const TOP_5_COMPARISON_PRODUCTS_AU: ComparisonTableProduct[] = [
+  {
+    rank: 1,
+    name: "Miroooo X2",
+    shortName: "Miroooo X2",
+    image: "/img/toothbrushes/miroooo-brush-x2-electric-toothbrush-banner.webp",
+    price: "$129",
+    originalPrice: "$259",
+    rating: 4.9,
+    weight: "51g",
+    batteryLife: "90 Days",
+    travelCase: true,
+    wallMount: true,
+    appTracking: true,
+    chassisMaterial: "Aluminium Alloy",
+    freeHeads: true,
+    noiseLevel: "<45dB",
+    moneyBackTrial: "90-Day Money-Back",
+    freeDelivery: true,
+  },
+  {
+    rank: 2,
+    name: "Oral-B iO Series 6",
+    shortName: "Oral-B iO6",
+    image: "/img/toothbrushes/oral-b-io6-comparison.png",
+    price: "$249.99",
+    rating: 4.3,
+    weight: "~140g",
+    batteryLife: "14 Days",
+    travelCase: false,
+    wallMount: false,
+    appTracking: false,
+    chassisMaterial: "Plastic & Rubber",
+    freeHeads: false,
+    noiseLevel: ">64dB",
+    moneyBackTrial: "30-Day Guarantee",
+    freeDelivery: false,
+  },
+  {
+    rank: 3,
+    name: "Philips Sonicare DiamondClean 9000",
+    shortName: "Philips 9000",
+    image: "/img/toothbrushes/philips-sonicare-diamondclean-9000.webp",
+    price: "$299.99",
+    rating: 4.1,
+    weight: "~135g",
+    batteryLife: "14 Days",
+    travelCase: false,
+    wallMount: false,
+    appTracking: false,
+    chassisMaterial: "Composite Plastic",
+    freeHeads: false,
+    noiseLevel: "~56dB",
+    moneyBackTrial: "28-Day Guarantee",
+    freeDelivery: false,
+  },
+  {
+    rank: 4,
+    name: "SURI Pro 2.0",
+    shortName: "SURI Pro 2.0",
+    image: "/img/toothbrushes/suri-sonic-comparison.png",
+    price: "$149",
+    rating: 3.6,
+    weight: "~85g",
+    batteryLife: "34 Days",
+    travelCase: false,
+    wallMount: true,
+    appTracking: false,
+    chassisMaterial: "Aluminium Alloy",
+    freeHeads: false,
+    noiseLevel: "~54dB",
+    moneyBackTrial: "30-Day Guarantee",
+    freeDelivery: false,
+  },
+  {
+    rank: 5,
+    name: "Oral-B iO3 Matt Black",
+    shortName: "Oral-B iO3",
+    image: "/img/toothbrushes/oral-b-io3-comparison.png",
+    price: "$99",
+    rating: 3.4,
+    weight: "~136g",
+    batteryLife: "14 Days",
+    travelCase: false,
+    wallMount: false,
+    appTracking: false,
+    chassisMaterial: "Matte Plastic",
+    freeHeads: false,
+    noiseLevel: ">64dB",
+    moneyBackTrial: "30-Day Guarantee",
+    freeDelivery: false,
+  },
+];
+
+const TOP_5_COMPARISON_PRODUCTS_US: ComparisonTableProduct[] = [
+  {
+    rank: 1,
+    name: "Miroooo X2",
+    shortName: "Miroooo X2",
+    image: "/img/toothbrushes/miroooo-brush-x2-electric-toothbrush-banner.webp",
+    price: "$85",
+    originalPrice: "$179",
+    rating: 4.9,
+    weight: "51g",
+    batteryLife: "90 Days",
+    travelCase: true,
+    wallMount: true,
+    appTracking: true,
+    chassisMaterial: "Aluminium Alloy",
+    freeHeads: true,
+    noiseLevel: "<45dB",
+    moneyBackTrial: "90-Day Money-Back",
+    freeDelivery: true,
+  },
+  {
+    rank: 2,
+    name: "Oral-B iO Series 6",
+    shortName: "Oral-B iO6",
+    image: "/img/toothbrushes/oral-b-io6-comparison.png",
+    price: "$149.99",
+    rating: 4.3,
+    weight: "~140g",
+    batteryLife: "14 Days",
+    travelCase: false,
+    wallMount: false,
+    appTracking: false,
+    chassisMaterial: "Plastic & Rubber",
+    freeHeads: false,
+    noiseLevel: ">64dB",
+    moneyBackTrial: "30-Day Guarantee",
+    freeDelivery: false,
+  },
+  {
+    rank: 3,
+    name: "Philips Sonicare DiamondClean 9000",
+    shortName: "Philips 9000",
+    image: "/img/toothbrushes/philips-sonicare-diamondclean-9000.webp",
+    price: "$199.99",
+    rating: 4.1,
+    weight: "~135g",
+    batteryLife: "14 Days",
+    travelCase: false,
+    wallMount: false,
+    appTracking: false,
+    chassisMaterial: "Composite Plastic",
+    freeHeads: false,
+    noiseLevel: "~56dB",
+    moneyBackTrial: "28-Day Guarantee",
+    freeDelivery: false,
+  },
+  {
+    rank: 4,
+    name: "SURI Pro 2.0",
+    shortName: "SURI Pro 2.0",
+    image: "/img/toothbrushes/suri-sonic-comparison.png",
+    price: "$92",
+    rating: 3.6,
+    weight: "~85g",
+    batteryLife: "34 Days",
+    travelCase: false,
+    wallMount: true,
+    appTracking: false,
+    chassisMaterial: "Aluminium Alloy",
+    freeHeads: false,
+    noiseLevel: "~54dB",
+    moneyBackTrial: "30-Day Guarantee",
+    freeDelivery: false,
+  },
+  {
+    rank: 5,
+    name: "Oral-B iO3 Matt Black",
+    shortName: "Oral-B iO3",
+    image: "/img/toothbrushes/oral-b-io3-comparison.png",
+    price: "$59.99",
+    rating: 3.4,
+    weight: "~136g",
+    batteryLife: "14 Days",
+    travelCase: false,
+    wallMount: false,
+    appTracking: false,
+    chassisMaterial: "Matte Plastic",
+    freeHeads: false,
+    noiseLevel: ">64dB",
+    moneyBackTrial: "30-Day Guarantee",
+    freeDelivery: false,
+  },
+];
+
+function getComparisonProducts(market: ToothbrushMarket = "uk"): ComparisonTableProduct[] {
+  if (market === "au") return TOP_5_COMPARISON_PRODUCTS_AU;
+  if (market === "us") return TOP_5_COMPARISON_PRODUCTS_US;
+  return TOP_5_COMPARISON_PRODUCTS_UK;
+}
+
+const TOP_5_COMPARISON_PRODUCTS = TOP_5_COMPARISON_PRODUCTS_UK;
+
 type ComparisonRowDef =
   | {
       key:
@@ -980,7 +1314,14 @@ const TOP_5_COMPARISON_ROWS: ComparisonRowDef[] = [
   { key: "price", label: "Price", kind: "price" },
 ];
 
-function CompetitorComparisonTable() {
+function CompetitorComparisonTable({ market = "uk" }: { market?: ToothbrushMarket }) {
+  const products = getComparisonProducts(market);
+  const subtitle = {
+    uk: "Detailed technical specifications, battery endurance, included accessories, and ownership value compared across the UK's leading 2026 models.",
+    au: "Detailed technical specifications, battery endurance, included accessories, and ownership value compared across Australia's leading 2026 models.",
+    us: "Detailed technical specifications, battery endurance, included accessories, and ownership value compared across the US's leading 2026 models.",
+  }[market] || "Detailed technical specifications, battery endurance, included accessories, and ownership value compared across the UK's leading 2026 models.";
+
   return (
     <section className="bg-white rounded-3xl p-5 sm:p-8 md:p-10 border border-slate-200 shadow-sm mt-16 mb-12 max-w-6xl mx-auto font-sans">
       {/* Header */}
@@ -989,7 +1330,7 @@ function CompetitorComparisonTable() {
           Top 5 Electric Toothbrushes Side-by-Side Comparison
         </h2>
         <p className="text-slate-600 mt-2 text-sm md:text-base font-sans">
-          Detailed technical specifications, battery endurance, included accessories, and ownership value compared across the UK&apos;s leading 2026 models.
+          {subtitle}
         </p>
       </div>
 
@@ -1006,7 +1347,7 @@ function CompetitorComparisonTable() {
               <th className="py-4 px-3 sm:px-4 font-bold text-slate-900 text-xs sm:text-sm md:text-base w-[18%] bg-slate-50/50 rounded-tl-xl align-bottom font-sans">
                 Feature / Metric
               </th>
-              {TOP_5_COMPARISON_PRODUCTS.map((prod) => (
+              {products.map((prod) => (
                 <th
                   key={prod.rank}
                   className={`py-4 px-2 text-center w-[16.4%] align-bottom border-l border-slate-200 ${
@@ -1064,7 +1405,7 @@ function CompetitorComparisonTable() {
                 <td className="py-3.5 px-3 sm:px-4 font-semibold text-slate-800 align-middle text-xs sm:text-sm font-sans">
                   {row.label}
                 </td>
-                {TOP_5_COMPARISON_PRODUCTS.map((prod) => {
+                {products.map((prod) => {
                   const isWinnerCol = prod.rank === 1;
 
                   if (row.kind === "boolean") {
@@ -1140,8 +1481,16 @@ function CompetitorComparisonTable() {
 }
 
 /* Guide-Specific Head-to-Head Comparison Matrix Table */
-function GuideComparisonMatrix({ guide }: { guide: ToothbrushGuide }) {
+function GuideComparisonMatrix({
+  guide,
+  market = "uk",
+}: {
+  guide: ToothbrushGuide;
+  market?: ToothbrushMarket;
+}) {
   if (!guide.comparisonRows || guide.comparisonRows.length === 0) return null;
+
+  const mirooooHeaderPrice = market === "au" ? "$129" : market === "us" ? "$85" : "£69";
 
   return (
     <section className="bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 border border-slate-200 shadow-sm my-16">
@@ -1165,7 +1514,7 @@ function GuideComparisonMatrix({ guide }: { guide: ToothbrushGuide }) {
                 Feature / Metric
               </th>
               <th className="py-4 px-4 font-bold text-[#1d4a93] bg-[#f0f5fd] text-base md:text-lg w-2/5 rounded-t-xl border-t-2 border-l-2 border-r-2 border-[#b8d2fb]">
-                Miroooo Brush X2 (£69)
+                Miroooo Brush X2 ({mirooooHeaderPrice})
               </th>
               <th className="py-4 px-4 font-bold text-slate-700 text-base md:text-lg w-1/3">
                 Competitor Standard
@@ -1269,20 +1618,66 @@ function FaqSection({ faqs }: { faqs?: ToothbrushFAQ[] }) {
    ========================================================================================= */
 export interface LuxuryToothbrushLandingPageProps {
   guide?: ToothbrushGuide;
+  market?: ToothbrushMarket;
 }
 
 export function LuxuryToothbrushLandingPage({
   guide,
+  market,
 }: LuxuryToothbrushLandingPageProps = {}) {
-  const [ukDate, setUkDate] = useState("");
+  const currentMarket: ToothbrushMarket = market || guide?.market || "uk";
+  const [marketDate, setMarketDate] = useState("");
   const [loadingTarget, setLoadingTarget] = useState<string | null>(null);
-  const timer = useUkMidnightTimer();
+  const timer = useMarketMidnightTimer(currentMarket);
 
   useEffect(() => {
-    setUkDate(getUkFormattedDate());
-  }, []);
+    setMarketDate(getMarketFormattedDate(currentMarket));
+  }, [currentMarket]);
 
-  const winnerProduct = TOOTHBRUSH_PRODUCTS.find((p) => p.isWinner) || TOOTHBRUSH_PRODUCTS[0];
+  const products = getToothbrushProducts(currentMarket);
+  const winnerProduct = products.find((p) => p.isWinner) || products[0];
+
+  const countryDisplayName = {
+    uk: "United Kingdom — 2026",
+    au: "Australia — 2026",
+    us: "United States — 2026",
+  }[currentMarket] || "United Kingdom — 2026";
+
+  const heroAltText = {
+    uk: "Top 5 Best Electric Toothbrushes UK 2026 Comparison",
+    au: "Top 5 Best Electric Toothbrushes Australia 2026 Comparison",
+    us: "Top 5 Best Electric Toothbrushes US 2026 Comparison",
+  }[currentMarket] || "Top 5 Best Electric Toothbrushes UK 2026 Comparison";
+
+  const dentistExpCountry = {
+    uk: "in the UK",
+    au: "in Australia",
+    us: "in the US",
+  }[currentMarket] || "in the UK";
+
+  const dentistThresholdPrice = {
+    uk: "£200+",
+    au: "$350+",
+    us: "$250+",
+  }[currentMarket] || "£200+";
+
+  const dentistClinicRegion = {
+    uk: "UK",
+    au: "Australian",
+    us: "US",
+  }[currentMarket] || "UK";
+
+  const reviewsCountryName = {
+    uk: "UK",
+    au: "Australian",
+    us: "US",
+  }[currentMarket] || "UK";
+
+  const labEnvironmentText = {
+    uk: "in UK laboratory and clinical environments.",
+    au: "in Australian laboratory and clinical environments.",
+    us: "in US laboratory and clinical environments.",
+  }[currentMarket] || "in UK laboratory and clinical environments.";
 
   return (
     <div
@@ -1314,14 +1709,14 @@ export function LuxuryToothbrushLandingPage({
               {guide ? guide.headline : "Best Electric Toothbrush"}
             </span>
             <span className="mt-2 flex items-center justify-center gap-2 text-[0.72em] md:gap-3">
-              <UKFlag />
-              <span>United Kingdom — 2026</span>
+              <CountryFlag market={currentMarket} />
+              <span>{countryDisplayName}</span>
             </span>
           </h1>
 
           <div className="flex items-center justify-center gap-2 md:gap-2.5 text-base md:text-lg font-bold text-white">
             <CheckCircle2 size={20} className="text-white shrink-0" />
-            <span>Last updated – {ukDate || "14 November 2026"}</span>
+            <span>Last updated – {marketDate || "14 November 2026"}</span>
           </div>
         </div>
       </header>
@@ -1333,7 +1728,7 @@ export function LuxuryToothbrushLandingPage({
           <div className="relative w-full aspect-[1536/461] bg-slate-100 overflow-hidden rounded-3xl shadow-xl border border-slate-100">
             <img
               src="/img/toothbrushes/top-5-electric-toothbrushes-uk.webp"
-              alt="Top 5 Best Electric Toothbrushes UK 2026 Comparison"
+              alt={heroAltText}
               className="w-full h-full object-cover rounded-3xl"
               decoding="async"
               fetchPriority="high"
@@ -1375,7 +1770,7 @@ export function LuxuryToothbrushLandingPage({
               <p>{guide.drVanceVerdict.clinicalRationale}</p>
             ) : (
               <p>
-                With <strong>over 14 years</strong> of clinical dental experience in the UK, our dental testing team evaluated the leading electric toothbrushes for 2026 across <strong>180+ hours of comparative laboratory testing</strong>. You do not need to spend £200+ on heavy, loud, clunky handles to get a dentist-clean smile, whisper-quiet motor operation, and 90+ days of battery life.
+                With <strong>over 14 years</strong> of clinical dental experience {dentistExpCountry}, our dental testing team evaluated the leading electric toothbrushes for 2026 across <strong>180+ hours of comparative laboratory testing</strong>. You do not need to spend {dentistThresholdPrice} on heavy, loud, clunky handles to get a dentist-clean smile, whisper-quiet motor operation, and 90+ days of battery life.
               </p>
             )}
           </div>
@@ -1383,7 +1778,7 @@ export function LuxuryToothbrushLandingPage({
           <hr className="border-slate-200 w-full mb-4" />
 
           <div className="text-xs md:text-sm italic text-slate-600 md:text-right">
-            * Evaluated across UK dental clinics &amp; independent bench measurements.
+            * Evaluated across {dentistClinicRegion} dental clinics &amp; independent bench measurements.
           </div>
         </div>
 
@@ -1399,7 +1794,7 @@ export function LuxuryToothbrushLandingPage({
         )}
 
         {/* 10 Evaluation Criteria Section */}
-        <EvaluationCriteria criteria={guide?.criteria} />
+        <EvaluationCriteria criteria={guide?.criteria} market={currentMarket} />
 
         {/* Optional Winner Bullets / Key Findings */}
         {guide?.winnerBullets && guide.winnerBullets.length > 0 && (
@@ -1421,19 +1816,20 @@ export function LuxuryToothbrushLandingPage({
 
         {/* 3. THE 5 PRODUCT CARDS */}
         <div className="space-y-16">
-          {TOOTHBRUSH_PRODUCTS.map((product) => (
+          {products.map((product) => (
             <ProductCard
               key={product.name}
               product={product}
               loadingTarget={loadingTarget}
               setLoadingTarget={setLoadingTarget}
               timer={timer}
+              market={currentMarket}
             />
           ))}
         </div>
 
         {/* 4. GUIDE COMPARISON MATRIX (if guide has comparison rows) */}
-        {guide && <GuideComparisonMatrix guide={guide} />}
+        {guide && <GuideComparisonMatrix guide={guide} market={currentMarket} />}
 
         {/* 5. BUYER DECISION BLOCKS (if guide has buyer blocks) */}
         {guide && <BuyerBlocksSection guide={guide} />}
@@ -1481,7 +1877,7 @@ export function LuxuryToothbrushLandingPage({
                     <RatingStars rating={5} size={22} />
                   </div>
                   <div className="text-xs md:text-sm text-slate-600 flex items-center justify-center gap-1 font-sans">
-                    Rated 4.9 / 5 with over 4,800+ UK reviews
+                    Rated 4.9 / 5 with over 4,800+ {reviewsCountryName} reviews
                   </div>
                 </div>
 
@@ -1492,6 +1888,7 @@ export function LuxuryToothbrushLandingPage({
                   setLoadingTarget={setLoadingTarget}
                   testId="toothbrush-verdict-cta"
                   className="mx-auto w-full max-w-[280px] md:w-auto md:max-w-none"
+                  market={currentMarket}
                 >
                   CHECK AVAILABILITY
                 </OfficialButton>
@@ -1501,18 +1898,18 @@ export function LuxuryToothbrushLandingPage({
         </div>
 
         {/* 8. 11-ROW SIDE-BY-SIDE COMPETITOR COMPARISON TABLE */}
-        <CompetitorComparisonTable />
+        <CompetitorComparisonTable market={currentMarket} />
 
         {/* 9. EDITORIAL DISCLOSURES & FOOTER COPY */}
         <div className="text-center text-xs text-slate-400 py-12 border-t border-slate-200 max-w-4xl mx-auto space-y-3 font-sans">
           <p>
-            <strong>Editorial Transparency &amp; Methodology:</strong> Best Product Verdict is an independent product review and consumer research service. We conduct rigorous testing across acoustic motors, plaque clearance, battery runtime, and dental materials in UK laboratory and clinical environments.
+            <strong>Editorial Transparency &amp; Methodology:</strong> Best Product Verdict is an independent product review and consumer research service. We conduct rigorous testing across acoustic motors, plaque clearance, battery runtime, and dental materials {labEnvironmentText}
           </p>
           <p>
             <strong>Commercial Disclosure:</strong> We may earn an affiliate commission when you purchase through links on this page. This does not impact our editorial rankings, scoring criteria, or clinical evaluations. All products were tested independently.
           </p>
           <p className="text-slate-400">
-            © {new Date().getFullYear()} Best Product Verdict UK. All rights reserved.
+            © {new Date().getFullYear()} Best Product Verdict {currentMarket.toUpperCase()}. All rights reserved.
           </p>
         </div>
       </main>
