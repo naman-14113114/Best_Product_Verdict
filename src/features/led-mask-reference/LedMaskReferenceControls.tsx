@@ -9,15 +9,17 @@ const ATTRIBUTION_KEYS = [
 ];
 
 /** Adds interactions to the server-rendered reference without shipping its HTML in the JS bundle. */
-export function LedMaskReferenceControls() {
+export function LedMaskReferenceControls({ market = "uk" }: { market?: "uk" | "us" } = {}) {
   useEffect(() => {
     const root = document.getElementById("led-mask-reference");
     if (!root) return;
 
     const date = root.querySelector<HTMLElement>("[data-led-updated-date]");
     if (date) {
-      date.textContent = new Intl.DateTimeFormat("en-GB", {
-        day: "numeric", month: "long", year: "numeric", timeZone: "Europe/London",
+      const timeZone = market === "us" ? "America/New_York" : "Europe/London";
+      const locale = market === "us" ? "en-US" : "en-GB";
+      date.textContent = new Intl.DateTimeFormat(locale, {
+        day: "numeric", month: "long", year: "numeric", timeZone,
       }).format(new Date());
     }
 
@@ -48,7 +50,7 @@ export function LedMaskReferenceControls() {
     root.querySelectorAll<HTMLAnchorElement>("a[href]").forEach((anchor) => {
       try {
         const destination = new URL(anchor.href);
-        if (!/^(www\.)?buudy\.co\.uk$/.test(destination.hostname)) return;
+        if (!/^(www\.)?buudy\.(co\.uk|com)$/.test(destination.hostname)) return;
         for (const key of ATTRIBUTION_KEYS) {
           const value = getAttributionValue(key);
           if (value) destination.searchParams.set(key, value);
@@ -170,7 +172,7 @@ export function LedMaskReferenceControls() {
       if (anchor) {
         try {
           const dest = new URL(anchor.href);
-          if (/^(www\.)?buudy\.co\.uk$/.test(dest.hostname)) {
+          if (/^(www\.)?buudy\.(co\.uk|com)$/.test(dest.hostname)) {
             let changed = false;
             for (const key of ATTRIBUTION_KEYS) {
               const value = getAttributionValue(key);
@@ -205,7 +207,7 @@ export function LedMaskReferenceControls() {
         video?.removeEventListener(name, syncVideoButton);
       });
     };
-  }, []);
+  }, [market]);
 
   return null;
 }

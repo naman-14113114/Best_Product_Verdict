@@ -8,7 +8,12 @@
   var verdict = loader && loader.getAttribute("data-popup-site") === "bestproductverdict";
   var site = verdict ? "bestproductverdict.com" : "trustpilotreview.shop";
   var key = "buudy_exit_popup_seen_v3";
-  var paths = ["/best-led-face-mask-uk-2026", "/top-10/best-led-face-mask-uk-2026"];
+  var paths = [
+    "/best-led-face-mask-uk-2026",
+    "/top-10/best-led-face-mask-uk-2026",
+    "/best-led-face-mask-us-2026",
+    "/top-10/best-led-face-mask-us-2026"
+  ];
   var started = Date.now();
   var shown = false;
   var blocked = false;
@@ -54,7 +59,9 @@
     } catch (_) { /* Analytics must not block the controls or navigation. */ }
   }
   function destination() {
-    var url = new URL("https://www.buudy.co.uk/products/buudy-led-face-mask");
+    var isUs = window.location.pathname.indexOf("-us-") !== -1 || window.location.pathname.indexOf("/us") !== -1;
+    var targetUrl = isUs ? "https://buudy.com/products/buudy-led-mask" : "https://www.buudy.co.uk/products/buudy-led-face-mask";
+    var url = new URL(targetUrl);
     var incoming = new URLSearchParams(window.location.search);
     url.searchParams.set("utm_source", site);
     url.searchParams.set("utm_medium", "exit_popup");
@@ -152,7 +159,10 @@
     card.style.setProperty("--bx-action", verdict ? "#f9ad26" : "#047857");
     card.style.setProperty("--bx-hover", verdict ? "#e99b16" : "#065f46");
     card.style.setProperty("--bx-ink", verdict ? "#0e1a2f" : "#fcfffe");
-    card.innerHTML = "<div class='bx-body'><button class='bx-close' type='button' aria-label='Close offer' data-buudy-exit-close>&times;</button><p class='bx-kicker'>Before you go · Our #1 pick</p><h2 id='buudy-exit-title'>Still comparing LED masks?</h2><div class='bx-product'><a class='bx-image' data-buudy-exit-cta aria-label='View Buudy mask on the official UK site'><img alt='Buudy 7 Colour LED Mask' width='132' height='132'></a><div><h3>Buudy 7 Colour LED Mask</h3><ul class='bx-features'><li>7 LED colours + near-infrared</li><li>Face &amp; neck coverage</li><li>Cordless &amp; rechargeable</li></ul></div></div><p class='bx-copy' id='buudy-exit-copy'>Take one last look at the current price, included gifts and returns on Buudy’s official UK site.</p><a class='bx-cta' data-buudy-exit-cta autofocus>See Buudy’s current offer <span aria-hidden='true'>→</span></a><button class='bx-keep' type='button' data-buudy-exit-close>Keep comparing</button><p class='bx-note'>Opens the official Buudy UK product page.</p></div>";
+    var isUs = window.location.pathname.indexOf("-us-") !== -1 || window.location.pathname.indexOf("/us") !== -1;
+    var siteLabel = isUs ? "official US store" : "official UK site";
+    var siteNote = isUs ? "Opens the official Buudy product page." : "Opens the official Buudy UK product page.";
+    card.innerHTML = "<div class='bx-body'><button class='bx-close' type='button' aria-label='Close offer' data-buudy-exit-close>&times;</button><p class='bx-kicker'>Before you go · Our #1 pick</p><h2 id='buudy-exit-title'>Still comparing LED masks?</h2><div class='bx-product'><a class='bx-image' data-buudy-exit-cta aria-label='View Buudy mask on the " + siteLabel + "'><img alt='Buudy 7 Colour LED Mask' width='132' height='132'></a><div><h3>Buudy 7 Colour LED Mask</h3><ul class='bx-features'><li>7 LED colours + near-infrared</li><li>Face &amp; neck coverage</li><li>Cordless &amp; rechargeable</li></ul></div></div><p class='bx-copy' id='buudy-exit-copy'>Take one last look at the current price, included gifts and returns on Buudy’s " + siteLabel + ".</p><a class='bx-cta' data-buudy-exit-cta autofocus>See Buudy’s current offer <span aria-hidden='true'>→</span></a><button class='bx-keep' type='button' data-buudy-exit-close>Keep comparing</button><p class='bx-note'>" + siteNote + "</p></div>";
     card.querySelector("img").src = verdict ? "/assets/led-mask-reference-20261027/57-w.webp" : "/img/57-w.webp";
     card.querySelectorAll("[data-buudy-exit-cta]").forEach(function (anchor) { anchor.href = destination(); });
     card.querySelectorAll("[data-buudy-exit-close]").forEach(function (button) {

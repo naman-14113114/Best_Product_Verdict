@@ -1,4 +1,9 @@
 export const BUUDY_PRODUCT_URL = "https://www.buudy.co.uk/products/buudy-led-face-mask";
+export const BUUDY_US_PRODUCT_URL = "https://buudy.com/products/buudy-led-mask";
+
+export function getBuudyProductUrl(market: "uk" | "us" = "uk"): string {
+  return market === "us" ? BUUDY_US_PRODUCT_URL : BUUDY_PRODUCT_URL;
+}
 
 export interface Metric {
   label: string;
